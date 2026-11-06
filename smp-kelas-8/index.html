@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Math Lab · Kelas VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .home-hero{padding:44px 0 14px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;color:var(--onbg)}
+  .home-hero .chip{background:rgba(255,255,255,.16);color:#ffd2a8}
+  .home-hero h1{font-size:clamp(2.1rem,6vw,3.5rem);letter-spacing:-.5px;margin:.25em 0}
+  .home-hero h1 em{font-style:normal;background:linear-gradient(90deg,#ffb36b,#ff7a1a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-hero p.lead{font-size:1.1rem;color:var(--onbg-soft);max-width:580px}
+  .stat{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px}
+  .stat div{font-size:.9rem;color:var(--onbg-soft)} .stat b{display:block;font-size:1.7rem;color:#fff}
+  .board{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:26px;padding:12px;backdrop-filter:blur(6px)}
+  .prog{height:6px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}.prog i{display:block;height:100%}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .feat div{background:color-mix(in srgb,var(--acc) 6%,var(--card));border:1px solid var(--line);border-radius:14px;padding:14px}
+  .feat b{display:block;margin-bottom:4px}
+  .mod .ic{box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  @media (max-width:760px){.home-hero{grid-template-columns:1fr}.board{display:none}}
+</style>
+</head>
+<body style="--acc:#7b3fe4">
+<header class="top"><div class="wrap"><a class="back" href="../index.html">← Semua Kelas</a><div class="brand">🧪 Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="home-hero">
+  <div>
+    <span class="chip">Laboratorium Matematika Digital · Kelas VIII</span>
+    <h1>Bereksperimen dengan matematika, <em>temukan polanya.</em></h1>
+    <p class="lead">Sepuluh modul Matematika Kelas VIII. Setiap modul berisi materi ringkas, dua laboratorium interaktif, latihan acak bertingkat, dan kuis 15 soal dengan pembahasan.</p>
+    <div class="stat"><div><b>10</b>modul</div><div><b>20</b>lab interaktif</div><div><b>150</b>soal kuis</div><div><b id="avg">–</b>rata-rata nilaimu</div></div>
+  </div>
+  <div class="board"><svg viewBox="0 0 360 280" width="100%" aria-hidden="true">
+    <defs><pattern id="gp" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.18)"/></pattern></defs>
+    <rect width="360" height="280" rx="18" fill="url(#gp)"/>
+    <line x1="20" y1="220" x2="340" y2="220" stroke="#fff" stroke-width="2"/><line x1="70" y1="260" x2="70" y2="20" stroke="#fff" stroke-width="2"/>
+    <line x1="40" y1="250" x2="320" y2="50" stroke="#ffb36b" stroke-width="4"/>
+    <line x1="40" y1="70" x2="300" y2="250" stroke="#c9a4ff" stroke-width="4"/>
+    <circle cx="186" cy="150" r="8" fill="#fff"/>
+    <polygon points="230,200 310,200 230,140" fill="#ff7a1a" fill-opacity=".45" stroke="#fff" stroke-width="2"/>
+    <text x="266" y="216" fill="#fff" font-size="13" font-weight="700">a² + b² = c²</text>
+    <circle cx="120" cy="90" r="38" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M120,90 L158,90 A38,38 0 0 0 139,57 Z" fill="#c9a4ff" fill-opacity=".6"/>
+    <text x="200" y="40" fill="#fff" font-size="22" font-weight="800">2ⁿ, √2, πr²</text>
+  </svg></div>
+</section>
+
+<h2 class="onbg">Pilih modul</h2>
+<div class="mods" id="mods"></div>
+
+<div class="card"><h2>Cara memakai</h2>
+  <div class="feat">
+    <div><b>📘 Materi</b>Ringkasan konsep, rumus, dan contoh soal bertahap.</div>
+    <div><b>🧪 Lab</b>Geser, seret, putar, dan ketuk. Amati apa yang berubah dan apa yang tetap.</div>
+    <div><b>✏️ Latihan</b>Soal acak tak terbatas dengan beberapa tingkat, petunjuk, dan dua kesempatan menjawab.</div>
+    <div><b>🏆 Kuis</b>15 soal dengan penilaian otomatis, pembahasan, dan nilai terbaik yang tersimpan.</div>
+  </div>
+  <p class="muted" style="margin-top:12px">Untuk guru: semua berkas berjalan tanpa internet. Buka <b>index.html</b> di browser, atau unggah seluruh folder ke hosting (misalnya GitHub Pages) lalu sematkan alamatnya di Google Sites. Nilai terbaik disimpan di perangkat masing-masing siswa.</p>
+  <div class="row"><button class="btn ghost" id="reset">Hapus semua nilai di perangkat ini</button></div>
+</div>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Media Pembelajaran Matematika Interaktif SMP Kelas VIII · Kurikulum Merdeka</div></footer>
+<script src="assets/core.js"></script>
+<script>
+const M=[
+ ['01-pangkat-akar.html','Bilangan Berpangkat & Bentuk Akar','Sifat pangkat, notasi ilmiah, menyederhanakan dan merasionalkan akar.','aⁿ','#7b3fe4','k8m1'],
+ ['02-pola-bilangan.html','Pola Bilangan & Barisan','Pola gambar, barisan aritmetika dan geometri, deret.','⋯','#e0601a','k8m2'],
+ ['03-koordinat-kartesius.html','Koordinat Kartesius','Posisi titik, kuadran, jarak ke sumbu, permainan menempatkan titik.','⊹','#9442c8','k8m3'],
+ ['04-relasi-fungsi.html','Relasi dan Fungsi','Diagram panah interaktif, domain–range, mesin fungsi.','f(x)','#d0561a','k8m4'],
+ ['05-garis-lurus.html','Persamaan Garis Lurus','Gradien, y = mx + c, garis sejajar dan tegak lurus.','m','#6a3fd1','k8m5'],
+ ['06-spldv.html','SPLDV','Metode grafik, substitusi, eliminasi, gabungan.','{ }','#c2511a','k8m6'],
+ ['07-pythagoras.html','Teorema Pythagoras','Bukti persegi, tripel, jenis segitiga, segitiga istimewa.','c²','#8a46e0','k8m7'],
+ ['08-lingkaran.html','Lingkaran','Unsur, keliling, luas, busur, juring, sudut keliling.','○','#d8641c','k8m8'],
+ ['09-bangun-ruang.html','Bangun Ruang Sisi Datar','Bangun 3D yang bisa diputar, jaring-jaring, luas, volume.','⬡','#7440d8','k8m9'],
+ ['10-statistika-peluang.html','Statistika & Peluang','Kuartil, diagram kotak-garis, simulasi dadu dan koin.','⚄','#cf5418','k8m10']];
+function render(){ let sum=0,cnt=0;
+  document.getElementById('mods').innerHTML=M.map(([f,t,d,ic,c,k],i)=>{ const b=VML.store.get(k); if(b!=null){sum+=b;cnt++;}
+    return `<a class="mod" href="${f}"><div class="ic" style="background:linear-gradient(135deg,${c},${i%2?'#7b3fe4':'#f07a1a'})">${ic}</div><span class="muted" style="font-size:.8rem;font-weight:700">MODUL ${i+1}</span><h3>${t}</h3><p>${d}</p>
+      <div class="best" style="color:${c}">${b!=null?'Nilai kuis terbaik: '+b:'Belum mengerjakan kuis'}</div><div class="prog"><i style="width:${b||0}%;background:linear-gradient(90deg,#7b3fe4,#f07a1a)"></i></div></a>`; }).join('');
+  document.getElementById('avg').textContent = cnt ? Math.round(sum/cnt) : '–'; }
+render();
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis yang tersimpan di perangkat ini?')){ M.forEach(m=>{ try{localStorage.removeItem('vml8:'+m[5]);}catch(e){} }); render(); } };
+window.addEventListener('pageshow',render);
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

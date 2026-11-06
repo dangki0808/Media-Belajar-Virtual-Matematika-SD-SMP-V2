@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kesebangunan & Kekongruenan · Virtual Math Lab IX</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0d7a9c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Geometri</span>
+  <h1>Kesebangunan &amp; Kekongruenan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menjelaskan syarat dua bangun sebangun dan kongruen, khususnya pada segitiga.</li>
+    <li>Menghitung panjang sisi yang belum diketahui dengan perbandingan sisi bersesuaian.</li>
+    <li>Menerapkan kesebangunan pada masalah nyata (bayangan, denah, foto, dan pengukuran tinggi).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🔺 Lab Faktor Skala</button><button data-target="bayang">🌳 Lab Bayangan & Garis Sejajar</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Kesebangunan</h2>
+    <div class="def">Dua bangun <b>sebangun</b> (~) jika <b>sudut-sudut yang bersesuaian sama besar</b> dan <b>sisi-sisi yang bersesuaian sebanding</b>.</div>
+    <p>Persegi panjang 6 × 4 sebangun dengan persegi panjang 9 × 6 karena 6/9 = 4/6 = ⅔. Dua persegi atau dua lingkaran <b>selalu</b> sebangun; dua persegi panjang atau dua belah ketupat <b>belum tentu</b>.</p>
+    <div class="note">Jika faktor skala k, perbandingan keliling = k dan perbandingan <b>luas = k²</b>.</div>
+  </div>
+  <div class="card"><h2>2. Segitiga sebangun</h2>
+    <p>Dua segitiga sebangun jika memenuhi salah satu:</p>
+    <div class="grid3"><div class="ex"><span class="t">sd – sd</span><br>Dua pasang sudut bersesuaian sama besar (sudut ketiga otomatis sama).</div><div class="ex"><span class="t">s – s – s</span><br>Ketiga pasang sisi bersesuaian sebanding.</div><div class="ex"><span class="t">s – sd – s</span><br>Dua pasang sisi sebanding dan sudut apitnya sama besar.</div></div>
+    <div class="ex"><span class="t">Contoh</span> ΔABC ~ ΔDEF, AB = 6, BC = 8, DE = 9 → k = 9/6 = 1,5 → EF = 8 × 1,5 = <b>12</b>.</div>
+    <div class="ex"><span class="t">Garis sejajar dalam segitiga</span> Jika DE ∥ BC dengan D pada AB dan E pada AC, maka ΔADE ~ ΔABC:<br><span class="fr"><span>AD</span><span>AB</span></span> = <span class="fr"><span>DE</span><span>BC</span></span>. AD = 4, DB = 6, DE = 6 → BC = 6 × 10/4 = <b>15</b>.</div>
+  </div>
+  <div class="card"><h2>3. Kekongruenan</h2>
+    <div class="def">Dua bangun <b>kongruen</b> (≅) jika bentuk dan ukurannya sama: sisi bersesuaian sama panjang dan sudut bersesuaian sama besar. Kongruen = sebangun dengan faktor skala 1.</div>
+    <table class="t"><tr><th>Syarat segitiga kongruen</th><th>Arti</th></tr><tr><td>s – s – s</td><td>ketiga sisi sama panjang</td></tr><tr><td>s – sd – s</td><td>dua sisi dan sudut apitnya sama</td></tr><tr><td>sd – s – sd</td><td>dua sudut dan sisi di antaranya sama</td></tr><tr><td>sd – sd – s</td><td>dua sudut dan satu sisi di depan salah satu sudut itu sama</td></tr></table>
+  </div>
+  <div class="card"><h2>4. Penerapan</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Mengukur tinggi dengan bayangan</span><br>Tongkat 1,5 m berbayangan 2 m. Pada saat yang sama bayangan pohon 12 m. Tinggi pohon = 1,5 × 12/2 = <b>9 m</b>.</div>
+      <div class="ex"><span class="t">Denah</span><br>Denah skala 1 : 500. Panjang 8 cm pada denah = 8 × 500 = 4.000 cm = <b>40 m</b>.</div>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Faktor Skala</h2>
+    <p>Ubah bentuk segitiga asli dan faktor skalanya. Sudut tetap sama, sisi berubah sebanding.</p>
+    <div class="ctrl"><label>Alas AB <span class="v" id="ab-v"></span><input type="range" id="ab" min="2" max="6" value="4"></label><label>Tinggi <span class="v" id="t-v"></span><input type="range" id="t" min="1" max="5" value="3"></label><label>Posisi puncak <span class="v" id="p-v"></span><input type="range" id="p" min="0" max="6" step="0.5" value="1"></label><label>Faktor skala k <span class="v" id="k-v"></span><input type="range" id="k" min="0.5" max="2.5" step="0.25" value="1.5"></label></div>
+    <svg class="viz" id="g" viewBox="0 0 720 320"></svg>
+    <div class="out" id="o"></div>
+  </div>
+</section>
+
+<section id="bayang" class="panel">
+  <div class="card"><h2>Lab: Mengukur Tinggi Pohon dengan Bayangan</h2>
+    <div class="ctrl"><label>Tinggi tongkat (m) <span class="v" id="tt-v"></span><input type="range" id="tt" min="0.5" max="3" step="0.5" value="1.5"></label><label>Bayangan tongkat (m) <span class="v" id="tb-v"></span><input type="range" id="tb" min="0.5" max="4" step="0.5" value="2"></label><label>Bayangan pohon (m) <span class="v" id="pb-v"></span><input type="range" id="pb" min="2" max="20" step="1" value="12"></label></div>
+    <svg class="viz" id="sg" viewBox="0 0 720 300"></svg>
+    <div class="out" id="so"></div>
+  </div>
+  <div class="card"><h2>Garis Sejajar dalam Segitiga (DE ∥ BC)</h2>
+    <div class="ctrl"><label>AD <span class="v" id="ad-v"></span><input type="range" id="ad" min="1" max="10" value="4"></label><label>DB <span class="v" id="db-v"></span><input type="range" id="db" min="1" max="10" value="6"></label><label>DE <span class="v" id="de-v"></span><input type="range" id="de" min="1" max="12" value="6"></label></div>
+    <div class="grid2"><svg class="viz" id="pg" viewBox="0 0 400 320"></svg><div class="out" id="po"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Desimal boleh memakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas IX · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const D=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1]);
+const ang=(P,Q,R)=>{ const a=[Q[0]-P[0],Q[1]-P[1]], b=[R[0]-P[0],R[1]-P[1]]; return Math.acos((a[0]*b[0]+a[1]*b[1])/(Math.hypot(...a)*Math.hypot(...b)))*180/Math.PI; };
+
+/* LAB faktor skala */
+function draw(){
+  const ab=+$('#ab').value, t=+$('#t').value, p=Math.min(+$('#p').value,ab+2), k=+$('#k').value; ['ab','t','p','k'].forEach(x=>$('#'+x+'-v').textContent=num({ab,t,p,k}[x]));
+  const A=[0,0],B=[ab,0],C=[p,t], A2=[0,0],B2=[ab*k,0],C2=[p*k,t*k];
+  const g=$('#g'); clear(g); const Wu=Math.max(ab,p)+1.5+Math.max(ab,p)*k, Hu=t*Math.max(1,k), U=Math.min(560/Wu, 250/Hu); g.setAttribute('viewBox',`0 0 ${Math.round(80+Wu*U)} 320`);
+  const draw1=(P,ox,col,lab)=>{ const X=q=>ox+q[0]*U, Y=q=>290-q[1]*U; s('polygon',{points:P.map(q=>X(q)+','+Y(q)).join(' '),fill:col,'fill-opacity':.2,stroke:col,'stroke-width':3},g);
+    P.forEach((q,i)=>txt(g,X(q)+(i===0?-10:i===1?10:0),Y(q)+(i===2?-10:18),lab[i],{'font-weight':800,fill:col})); return [X,Y]; };
+  draw1([A,B,C],40,'var(--acc)',['A','B','C']); const ox2=40+(Math.max(ab,p)+1.5)*U; draw1([A2,B2,C2],ox2,'var(--b)',['D','E','F']);
+  const sA=[D(B,C),D(A,C),D(A,B)], sB=[D(B2,C2),D(A2,C2),D(A2,B2)], an=[ang(A,B,C),ang(B,C,A),ang(C,A,B)];
+  const area=ab*t/2;
+  $('#o').innerHTML=`<div class="grid2"><div><table class="t"><tr><th>Sisi ΔABC</th><th>Sisi ΔDEF</th><th>Perbandingan</th></tr>
+   <tr><td>AB = ${num(sA[2],2)}</td><td>DE = ${num(sB[2],2)}</td><td>${num(sB[2]/sA[2],2)}</td></tr><tr><td>BC = ${num(sA[0],2)}</td><td>EF = ${num(sB[0],2)}</td><td>${num(sB[0]/sA[0],2)}</td></tr><tr><td>AC = ${num(sA[1],2)}</td><td>DF = ${num(sB[1],2)}</td><td>${num(sB[1]/sA[1],2)}</td></tr></table></div>
+   <div><p>Sudut: ∠A = ∠D ≈ ${num(an[0],1)}°, ∠B = ∠E ≈ ${num(an[1],1)}°, ∠C = ∠F ≈ ${num(an[2],1)}°</p><p>Semua perbandingan sisi = <b>${num(k)}</b> dan sudutnya sama → <b>${k===1?'ΔABC ≅ ΔDEF (kongruen)':'ΔABC ~ ΔDEF (sebangun)'}</b></p>
+   <p>Luas: ${num(area,2)} → ${num(area*k*k,2)}. Perbandingan luas = ${num(k*k,4)} = k²</p></div></div>`;
+}
+['#ab','#t','#p','#k'].forEach(x=>$(x).oninput=draw); draw();
+
+/* LAB bayangan */
+function drawS(){
+  const tt=+$('#tt').value, tb=+$('#tb').value, pb=+$('#pb').value, h=tt*pb/tb; ['tt','tb','pb'].forEach(x=>$('#'+x+'-v').textContent=num({tt,tb,pb}[x]));
+  const g=$('#sg'); clear(g); const U=Math.min(30, 600/(pb+tb+4), 230/Math.max(h,tt)), Y0=270;
+  s('line',{x1:10,y1:Y0,x2:710,y2:Y0,stroke:'var(--c)','stroke-width':3},g);
+  const tree=60, stick=60+(pb+3)*U;
+  s('rect',{x:tree-5,y:Y0-h*U,width:10,height:h*U,fill:'#8a5a2b'},g); s('circle',{cx:tree,cy:Y0-h*U,r:Math.max(14,h*U*0.18),fill:'var(--c)','fill-opacity':.8},g);
+  s('line',{x1:tree,y1:Y0,x2:tree+pb*U,y2:Y0,stroke:'var(--ink)','stroke-width':7,'stroke-opacity':.35},g);
+  s('line',{x1:tree,y1:Y0-h*U,x2:tree+pb*U,y2:Y0,stroke:'var(--d)','stroke-width':2,'stroke-dasharray':'6 4'},g);
+  s('line',{x1:stick,y1:Y0,x2:stick,y2:Y0-tt*U,stroke:'var(--b)','stroke-width':5},g);
+  s('line',{x1:stick,y1:Y0,x2:stick+tb*U,y2:Y0,stroke:'var(--ink)','stroke-width':7,'stroke-opacity':.35},g);
+  s('line',{x1:stick,y1:Y0-tt*U,x2:stick+tb*U,y2:Y0,stroke:'var(--d)','stroke-width':2,'stroke-dasharray':'6 4'},g);
+  s('circle',{cx:690,cy:30,r:18,fill:'var(--d)'},g); txt(g,690,62,'☀',{'font-size':14});
+  txt(g,tree-14,Y0-h*U/2,'? = '+num(h,2)+' m',{'font-weight':800,'text-anchor':'end',fill:'var(--c)'}); txt(g,tree+pb*U/2,Y0+20,num(pb)+' m',{'font-weight':700}); txt(g,stick-8,Y0-tt*U/2,num(tt)+' m',{'font-weight':700,'text-anchor':'end',fill:'var(--b)'}); txt(g,stick+tb*U/2,Y0+20,num(tb)+' m',{'font-weight':700});
+  $('#so').innerHTML=`<p>Sinar matahari sejajar, jadi segitiga pohon dan segitiga tongkat <b>sebangun</b> (sd – sd).</p><div class="big"><span class="fr"><span>tinggi pohon</span><span>${num(pb)}</span></span> = <span class="fr"><span>${num(tt)}</span><span>${num(tb)}</span></span> → tinggi pohon = ${num(tt)} × ${num(pb)} / ${num(tb)} = <span style="color:var(--c)">${num(h,2)} m</span></div>`;
+}
+['#tt','#tb','#pb'].forEach(x=>$(x).oninput=drawS); drawS();
+function drawP(){
+  const ad=+$('#ad').value, db=+$('#db').value, de=+$('#de').value, ab=ad+db, bc=de*ab/ad; ['ad','db','de'].forEach(x=>$('#'+x+'-v').textContent={ad,db,de}[x]);
+  const g=$('#pg'); clear(g); const S=Math.min(270/ab, 340/Math.max(bc,1)), A=[200,25], B=[200-bc*S/2,25+ab*S*0.95], Cc=[200+bc*S/2,25+ab*S*0.95], f=ad/ab, Dp=[A[0]+(B[0]-A[0])*f,A[1]+(B[1]-A[1])*f], E=[A[0]+(Cc[0]-A[0])*f,A[1]+(Cc[1]-A[1])*f];
+  s('polygon',{points:[A,B,Cc].map(p=>p.join(',')).join(' '),fill:'var(--acc)','fill-opacity':.12,stroke:'var(--acc)','stroke-width':2.5},g); s('polygon',{points:[A,Dp,E].map(p=>p.join(',')).join(' '),fill:'var(--b)','fill-opacity':.25,stroke:'var(--b)','stroke-width':2.5},g);
+  [[A,'A',0,-8],[B,'B',-12,12],[Cc,'C',12,12],[Dp,'D',-14,4],[E,'E',14,4]].forEach(([p,l,dx,dy])=>txt(g,p[0]+dx,p[1]+dy,l,{'font-weight':800}));
+  $('#po').innerHTML=`<p>DE ∥ BC → ΔADE ~ ΔABC</p><div class="big"><span class="fr"><span>AD</span><span>AB</span></span> = <span class="fr"><span>DE</span><span>BC</span></span> → <span class="fr"><span>${ad}</span><span>${ab}</span></span> = <span class="fr"><span>${de}</span><span>BC</span></span></div><div class="huge">BC = ${num(bc,2)}</div><p class="muted">Ingat: AB = AD + DB = ${ad} + ${db} = ${ab}, bukan DB saja.</p>`;
+}
+['#ad','#db','#de'].forEach(x=>$(x).oninput=drawP); drawP();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Sisi bersesuaian', gen(){ const a=rand(2,9), b=rand(2,9), k=pick([2,3,1.5,2.5,4]); return {q:`ΔABC ~ ΔPQR dengan AB = ${a} cm, BC = ${b} cm, dan PQ = ${num(a*k)} cm. Panjang QR = …`, a:String(VML.round(b*k,4)), unit:'cm', hint:'Faktor skala = PQ/AB.', ex:`k = ${num(k)} → QR = ${b} × ${num(k)} = ${num(b*k)}`}; }},
+  {name:'Bayangan', gen(){ const tt=pick([1,1.5,2]), tb=pick([1,1.5,2,2.5,3]), h=rand(3,15)*tt; const pb=h*tb/tt; if(!Number.isInteger(pb*2)) return this.gen(); return {q:`Tongkat ${num(tt)} m berbayangan ${num(tb)} m. Pada saat yang sama bayangan sebuah tiang ${num(pb)} m. Tinggi tiang = …`, a:String(VML.round(h,4)), unit:'m', hint:'tinggi/bayangan sama untuk keduanya.', ex:`${num(tt)} × ${num(pb)} / ${num(tb)} = ${num(h)}`}; }},
+  {name:'DE ∥ BC', gen(){ const ad=rand(2,8), db=rand(2,8), m=rand(1,4), de=ad*m; return {q:`Pada ΔABC, DE ∥ BC dengan AD = ${ad} cm, DB = ${db} cm, dan DE = ${de} cm. Panjang BC = …`, a:String(de*(ad+db)/ad), unit:'cm', hint:'AD/AB = DE/BC, dengan AB = AD + DB.', ex:`BC = ${de} × ${ad+db} / ${ad} = ${de*(ad+db)/ad}`}; }},
+  {name:'Skala & luas', gen(){ if(Math.random()<.5){ const k=rand(2,5), L=rand(2,12)*2; return {q:`Dua bangun sebangun dengan faktor skala ${k}. Luas bangun kecil ${L} cm². Luas bangun besar = …`, a:String(L*k*k), unit:'cm²', hint:'Luas dikali k².', ex:`${L} × ${k*k} = ${L*k*k}`}; }
+    const n=pick([100,200,250,500,1000]), d=rand(2,15); return {q:`Denah berskala 1 : ${n.toLocaleString('id-ID')}. Panjang ruangan pada denah ${d} cm. Panjang sebenarnya dalam meter = …`, a:String(d*n/100), unit:'m', hint:'Kalikan skala, lalu ubah cm ke m.', ex:`${d} × ${n} = ${d*n} cm = ${num(d*n/100)} m`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Dua bangun dikatakan sebangun jika …', o:['sudut-sudut bersesuaian sama besar dan sisi-sisi bersesuaian sebanding','luasnya sama','kelilingnya sama','hanya sudutnya yang sama'], a:0, ex:'Kedua syarat harus dipenuhi (untuk segitiga, sudut sama sudah cukup).'},
+ {q:'Dua bangun dikatakan kongruen jika …', o:['bentuk dan ukurannya sama','bentuknya sama, ukurannya berbeda','luasnya sama saja','kelilingnya sama saja'], a:0, ex:'Kongruen = sebangun dengan faktor skala 1.'},
+ {q:'Persegi panjang 6 cm × 4 cm sebangun dengan persegi panjang 9 cm × p cm. Nilai p adalah …', o:['6','7','5','8'], a:0, ex:'k = 9/6 = 1,5 → p = 4 × 1,5 = 6.'},
+ {q:'Segitiga dengan sisi 3, 4, 5 sebangun dengan segitiga bersisi 6, 8, x. Nilai x …', o:['10','7','9','12'], a:0, ex:'k = 2 → x = 10.'},
+ {q:'Tongkat 1,5 m berbayangan 2 m. Pada saat yang sama bayangan pohon 12 m. Tinggi pohon …', o:['9 m','16 m','8 m','10,5 m'], a:0, ex:'1,5 × 12/2 = 9.'},
+ {q:'Syarat kongruen "s – sd – s" berarti …', o:['dua sisi dan sudut yang diapitnya sama','dua sudut dan satu sisi sama','tiga sudut sama','tiga sisi sebanding'], a:0, ex:'Sudutnya berada di antara kedua sisi.'},
+ {q:'Pasangan bangun berikut yang <b>pasti</b> sebangun adalah …', o:['dua persegi','dua persegi panjang','dua belah ketupat','dua jajargenjang'], a:0, ex:'Semua sudut persegi 90° dan sisinya sebanding.'},
+ {q:'Pada ΔABC, DE ∥ BC, AD = 4 cm, DB = 6 cm, DE = 6 cm. Panjang BC …', o:['15 cm','9 cm','10 cm','12 cm'], a:0, ex:'6 × 10/4 = 15.'},
+ {q:'Dua bangun sebangun dengan faktor skala 3. Perbandingan luasnya …', o:['1 : 9','1 : 3','1 : 6','3 : 1'], a:0, ex:'Luas berbanding k² = 9.'},
+ {q:'Denah berskala 1 : 500. Panjang 8 cm pada denah sama dengan …', o:['40 m','4 m','400 m','0,4 m'], a:0, ex:'4.000 cm = 40 m.'},
+ {q:'ΔABC dan ΔPQR dengan ∠A = ∠P, AB = PQ, dan ∠B = ∠Q. Keduanya kongruen menurut syarat …', o:['sd – s – sd','s – s – s','s – sd – s','sd – sd – sd'], a:0, ex:'Dua sudut dan sisi di antaranya.'},
+ {q:'Segitiga I bersudut 50° dan 70°. Segitiga II bersudut 60° dan 50°. Kedua segitiga …', o:['sebangun','kongruen','tidak sebangun','tidak dapat ditentukan'], a:0, ex:'Sudut ketiga I = 60°, II = 70° → semua sudut sama.'},
+ {q:'Bayangan gedung 15 m. Pada saat yang sama tiang 2 m berbayangan 1,5 m. Berapa tinggi gedung?', input:true, a:['20'], unit:'m', ex:'2 × 15/1,5 = 20.'},
+ {q:'ΔABC ~ ΔDEF dengan AB = 6, DE = 9, dan BC = 8. Berapa panjang EF?', input:true, a:['12'], ex:'k = 1,5 → 8 × 1,5 = 12.'},
+ {q:'Pasangan bangun yang <b>belum tentu</b> sebangun adalah …', o:['dua persegi panjang','dua lingkaran','dua persegi','dua segitiga sama sisi'], a:0, ex:'Perbandingan panjang dan lebarnya bisa berbeda.'}
+], 'k9m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Faktor & Kelipatan · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#d6493a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Bilangan</span>
+  <h1>🟦 Faktor &amp; Kelipatan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan faktor suatu bilangan dengan susunan persegi panjang (perkalian).</li>
+    <li>Menentukan kelipatan suatu bilangan dan kelipatan persekutuan.</li>
+    <li>Mengenal bilangan prima dan menyelesaikan soal cerita sederhana.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🟦 Lab Susun Persegi Panjang</button><button data-target="papan">💯 Lab Papan Seratus</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Faktor</h2>
+    <p><b>Faktor</b> suatu bilangan adalah bilangan-bilangan yang dapat membaginya habis (tanpa sisa).</p>
+    <div class="ex"><span class="t">Faktor 12</span> 12 = 1 × 12 = 2 × 6 = 3 × 4. Jadi faktor 12 adalah <b>1, 2, 3, 4, 6, 12</b>.</div>
+    <div class="note">Cara mudah: cari pasangan perkalian. Setiap pasangan memberi dua faktor. Berhenti jika pasangannya mulai berulang.</div>
+  </div>
+  <div class="card"><h2>2. Bilangan prima</h2>
+    <p><b>Bilangan prima</b> hanya punya <b>dua</b> faktor: 1 dan dirinya sendiri. Bilangan prima kurang dari 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29.</p>
+    <p>Angka 1 <b>bukan</b> prima karena faktornya hanya satu. Bilangan yang punya lebih dari dua faktor disebut <b>bilangan komposit</b>, misalnya 4, 6, 8, 9.</p>
+  </div>
+  <div class="card"><h2>3. Kelipatan</h2>
+    <p><b>Kelipatan</b> suatu bilangan didapat dengan menjumlahkan bilangan itu berulang-ulang (atau mengalikannya dengan 1, 2, 3, …).</p>
+    <div class="grid2"><div class="ex">Kelipatan 4: 4, 8, 12, 16, 20, 24, …</div><div class="ex">Kelipatan 6: 6, 12, 18, 24, 30, …</div></div>
+    <p><b>Kelipatan persekutuan</b> 4 dan 6 adalah 12, 24, 36, … Yang terkecil, 12, disebut <b>KPK</b>.</p>
+    <p><b>Faktor persekutuan</b> 12 dan 18 adalah 1, 2, 3, 6. Yang terbesar, 6, disebut <b>FPB</b>.</p>
+  </div>
+  <div class="card"><h2>4. Dalam kehidupan</h2>
+    <div class="grid2"><div class="ex"><span class="t">Faktor</span><br>24 kue disusun dalam baris yang sama banyak. Pilihan susunannya: 1 × 24, 2 × 12, 3 × 8, 4 × 6 (dan sebaliknya).</div>
+      <div class="ex"><span class="t">Kelipatan</span><br>Rina les setiap 3 hari, Sari setiap 4 hari. Mereka bertemu lagi setiap kelipatan persekutuan: 12 hari lagi.</div></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Susun Persegi Panjang</h2>
+    <p>Susun kotak-kotak menjadi persegi panjang. Berapa banyak baris yang mungkin tanpa sisa? Setiap susunan yang pas menunjukkan sepasang <b>faktor</b>.</p>
+    <div class="ctrl"><label>Banyak kotak <span class="v" id="n-v"></span><input type="range" id="n" min="2" max="48" value="12"></label><label>Banyak baris <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="12" value="3"></label></div>
+    <div class="grid2"><svg class="viz" id="ar" viewBox="0 0 400 320"></svg><div class="out" id="aOut"></div></div>
+  </div>
+</section>
+
+<section id="papan" class="panel">
+  <div class="card"><h2>Lab: Papan Seratus</h2>
+    <p>Pilih dua bilangan. Kelipatan bilangan pertama diwarnai <b style="color:var(--a)">biru</b>, bilangan kedua diberi <b style="color:var(--b)">lingkaran koral</b>. Kotak yang kena keduanya adalah <b>kelipatan persekutuan</b>.</p>
+    <div class="ctrl"><label style="color:var(--a)">Bilangan pertama <span class="v" id="p-v"></span><input type="range" id="p" min="2" max="12" value="4"></label><label style="color:var(--b)">Bilangan kedua <span class="v" id="q-v"></span><input type="range" id="q" min="2" max="12" value="6"></label></div>
+    <svg class="viz" id="hb" viewBox="0 0 420 420" style="max-width:520px;margin:0 auto"></svg>
+    <div class="out" id="hOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jika jawabannya beberapa bilangan, pisahkan dengan koma, misalnya 1, 2, 3, 6.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, gcd, lcm} = VML;
+const factors=n=>[...Array(n).keys()].map(i=>i+1).filter(i=>n%i===0);
+const listChk=arr=>inp=>{ const got=String(inp).split(/[\s,;]+/).filter(Boolean).map(Number); if(got.some(isNaN)) return false; const a=[...new Set(got)].sort((x,y)=>x-y); return a.length===arr.length && a.every((v,i)=>v===arr[i]); };
+
+/* susun persegi panjang */
+function drawA(){
+  const n=+$('#n').value, R=$('#r'); R.max=n; if(+R.value>n) R.value=n; const r=+R.value; $('#n-v').textContent=n; $('#r-v').textContent=r;
+  const c=Math.ceil(n/r), g=$('#ar'); clear(g); const S=Math.min(340/c, 260/r, 40), ox=(400-c*S)/2, oy=20;
+  const ok=n%r===0;
+  for(let i=0;i<n;i++){ const row=Math.floor(i/c), col=i%c; const last=!ok&&row===r-1; s('rect',{x:ox+col*S+2,y:oy+row*S+2,width:S-4,height:S-4,rx:Math.min(8,S/4),fill:last?'var(--b)':'var(--acc)','fill-opacity':last?.45:.85},g); }
+  if(ok){ txt(g,200,oy+r*S+28,`${r} baris × ${c} kotak = ${n}`,{'font-weight':900,'font-size':16,fill:'var(--c)'}); }
+  else txt(g,200,oy+r*S+28,`Baris terakhir tidak penuh — sisa ${n%r===0?0:n-(r-1)*c}`,{'font-weight':800,'font-size':14,fill:'var(--b)'});
+  const fs=factors(n), pairs=fs.filter(f=>f*f<=n).map(f=>`${f} × ${n/f}`);
+  $('#aOut').innerHTML=`<div class="big">${ok?`✅ Pas! ${r} × ${c} = ${n}`:`❌ Tidak pas: ${n} : ${r} bersisa ${n%r}`}</div>
+   <p>${ok?`Jadi <b>${r}</b> dan <b>${c}</b> adalah faktor dari ${n}.`:`Jadi ${r} <b>bukan</b> faktor dari ${n}.`}</p>
+   <p><b>Semua pasangan faktor ${n}:</b> ${pairs.join(', ')}</p><p><b>Faktor ${n}:</b> ${fs.map(f=>f===r?`<b style="color:var(--acc)">${f}</b>`:f).join(', ')} (${fs.length} faktor)</p>
+   ${fs.length===2?`<p>🌟 ${n} hanya punya 2 faktor, jadi ${n} adalah <b>bilangan prima</b>! Hanya bisa disusun 1 baris atau ${n} baris.</p>`:''}`;
+}
+['#n','#r'].forEach(x=>$(x).oninput=drawA); drawA();
+
+/* papan seratus */
+function drawH(){
+  const p=+$('#p').value, q=+$('#q').value; $('#p-v').textContent=p; $('#q-v').textContent=q;
+  const g=$('#hb'); clear(g); const S=40, o=10;
+  for(let k=1;k<=100;k++){ const r=Math.floor((k-1)/10), c=(k-1)%10, x=o+c*S, y=o+r*S, A=k%p===0, B=k%q===0;
+    s('rect',{x:x+1,y:y+1,width:S-2,height:S-2,rx:6,fill:A?'var(--a)':'var(--card)','fill-opacity':A?.75:1,stroke:'var(--line)'},g);
+    if(B) s('circle',{cx:x+S/2,cy:y+S/2,r:15,fill:'none',stroke:'var(--b)','stroke-width':3.5},g);
+    if(A&&B) s('rect',{x:x+1,y:y+1,width:S-2,height:S-2,rx:6,fill:'none',stroke:'var(--d)','stroke-width':4},g);
+    txt(g,x+S/2,y+S/2+5,String(k),{'font-size':13,'font-weight':A||B?800:500,fill:A?'#fff':'var(--ink)'}); }
+  const L=lcm(p,q), com=[]; for(let k=L;k<=100;k+=L) com.push(k);
+  $('#hOut').innerHTML=`<p><b style="color:var(--a)">Kelipatan ${p}:</b> ${Array.from({length:Math.min(10,Math.floor(100/p))},(_,i)=>(i+1)*p).join(', ')}, …</p><p><b style="color:var(--b)">Kelipatan ${q}:</b> ${Array.from({length:Math.min(10,Math.floor(100/q))},(_,i)=>(i+1)*q).join(', ')}, …</p>
+   <p><b>Kelipatan persekutuan</b> (bingkai emas): ${com.join(', ')||'tidak ada sampai 100'}</p><div class="big">Yang terkecil (KPK) = ${L}</div>`;
+}
+['#p','#q'].forEach(x=>$(x).oninput=drawH); drawH();
+
+/* LATIHAN */
+const isPrime=n=>factors(n).length===2;
+VML.practice($('#prac'), [
+  {name:'Faktor', gen(){ const n=pick([6,8,9,10,12,14,15,16,18,20,21,24,25,28,30,32,36]); return {q:`Tuliskan semua faktor dari ${n}.`, a:listChk(factors(n)), show:factors(n).join(', '), hint:'Cari pasangan perkalian yang hasilnya '+n+'.', ex:factors(n).filter(f=>f*f<=n).map(f=>`${f} × ${n/f}`).join(', ')}; }},
+  {name:'Kelipatan', gen(){ const n=rand(2,12), k=rand(3,10); return {q:`Kelipatan ke-${k} dari ${n} adalah …`, a:String(n*k), hint:`${n} × ${k}`, ex:`${n} × ${k} = ${n*k}`}; }},
+  {name:'Prima', gen(){ const n=rand(2,50); return {q:`Apakah ${n} bilangan prima? Jawab <b>ya</b> atau <b>tidak</b>.`, a:isPrime(n)?['ya']:['tidak','bukan'], show:isPrime(n)?'ya':'tidak', hint:'Prima hanya punya faktor 1 dan dirinya sendiri.', ex:`Faktor ${n}: ${factors(n).join(', ')}`}; }},
+  {name:'KPK & FPB', gen(){ if(Math.random()<.5){ const a=rand(2,10), b=rand(2,10); if(a===b) return this.gen(); return {q:`Kelipatan persekutuan terkecil (KPK) dari ${a} dan ${b} adalah …`, a:String(lcm(a,b)), hint:'Tulis kelipatan keduanya, cari yang sama dan terkecil.', ex:`KPK = ${lcm(a,b)}`}; }
+    const g0=pick([2,3,4,5,6]), x=rand(1,6), y=rand(1,6); if(gcd(x,y)!==1||x===y) return this.gen(); return {q:`Faktor persekutuan terbesar (FPB) dari ${g0*x} dan ${g0*y} adalah …`, a:String(g0), hint:'Tulis faktor keduanya, cari yang sama dan terbesar.', ex:`FPB = ${g0}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Faktor dari 12 adalah …', o:['1, 2, 3, 4, 6, 12','2, 4, 6, 8, 10, 12','1, 2, 3, 4, 5, 6','12, 24, 36'], a:0, ex:'1×12, 2×6, 3×4.'},
+ {q:'Kelipatan dari 4 adalah …', o:['4, 8, 12, 16','1, 2, 4','4, 6, 8, 10','2, 4, 6, 8'], a:0, ex:'Tambah 4 terus.'},
+ {q:'Bilangan berikut yang merupakan bilangan prima adalah …', o:['13','15','21','9'], a:0, ex:'13 hanya habis dibagi 1 dan 13.'},
+ {q:'Angka 1 bukan bilangan prima karena …', o:['faktornya hanya satu','bilangan genap','lebih kecil dari 2 faktor bilangan','tidak punya kelipatan'], a:0, ex:'Prima harus punya tepat 2 faktor.'},
+ {q:'Banyak faktor dari 16 adalah …', o:['5','4','6','8'], a:0, ex:'1, 2, 4, 8, 16.'},
+ {q:'Kelipatan persekutuan 4 dan 6 yang terkecil adalah …', o:['12','24','2','10'], a:0, ex:'KPK(4, 6) = 12.'},
+ {q:'Faktor persekutuan terbesar dari 12 dan 18 adalah …', o:['6','3','36','2'], a:0, ex:'FPB = 6.'},
+ {q:'24 kue disusun dalam 4 baris sama banyak. Setiap baris berisi …', o:['6 kue','8 kue','20 kue','4 kue'], a:0, ex:'24 : 4.'},
+ {q:'Rina les setiap 3 hari dan Sari setiap 4 hari. Mereka bertemu lagi setelah …', o:['12 hari','7 hari','24 hari','1 hari'], a:0, ex:'KPK(3, 4) = 12.'},
+ {q:'Bilangan berikut yang merupakan faktor dari 30 adalah …', o:['5','7','8','9'], a:0, ex:'30 : 5 = 6.'},
+ {q:'Bilangan yang memiliki lebih dari dua faktor disebut bilangan …', o:['komposit','prima','ganjil','cacah'], a:0, ex:'Contoh: 4, 6, 8.'},
+ {q:'Kelipatan ke-7 dari 8 adalah …', o:['56','15','64','48'], a:0, ex:'8 × 7.'},
+ {q:'Tuliskan semua faktor dari 18 (pisahkan dengan koma).', input:true, a:inp=>listChk([1,2,3,6,9,18])(inp), show:'1, 2, 3, 6, 9, 18', ex:'1×18, 2×9, 3×6.'},
+ {q:'Berapa KPK dari 5 dan 8?', input:true, a:['40'], ex:'5 dan 8 tidak punya faktor bersama selain 1.'},
+ {q:'Bilangan prima antara 20 dan 30 adalah …', o:['23 dan 29','21 dan 27','22 dan 25','23 dan 27'], a:0, ex:'21 = 3×7, 25 = 5×5, 27 = 3×9.'}
+], 'sd4m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

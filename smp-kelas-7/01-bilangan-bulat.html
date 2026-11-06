@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan Bulat · Virtual Math Lab</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#2f6bd8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>Bilangan Bulat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membaca, menulis, dan membandingkan bilangan bulat pada garis bilangan.</li>
+    <li>Melakukan operasi hitung bilangan bulat (+, −, ×, :) beserta sifat-sifatnya.</li>
+    <li>Menyelesaikan masalah sehari-hari yang melibatkan bilangan bulat.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Garis Bilangan</button><button data-target="keping">🔴 Lab Keping</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Apa itu bilangan bulat?</h2>
+    <div class="def"><b>Bilangan bulat</b> terdiri atas bilangan bulat negatif, nol, dan bilangan bulat positif: … , −3, −2, −1, 0, 1, 2, 3, …</div>
+    <p>Bilangan negatif dipakai untuk keadaan "di bawah" atau "kurang dari" titik nol, misalnya:</p>
+    <div class="grid3">
+      <div class="ex"><span class="t">🌡️ Suhu</span><br>Suhu di puncak gunung −4 °C artinya 4 derajat <i>di bawah</i> nol.</div>
+      <div class="ex"><span class="t">🌊 Ketinggian</span><br>Penyelam di −15 m berada 15 meter <i>di bawah</i> permukaan laut.</div>
+      <div class="ex"><span class="t">💰 Utang</span><br>Saldo −Rp5.000 berarti masih kurang/berutang Rp5.000.</div>
+    </div>
+  </div>
+
+  <div class="card"><h2>2. Garis bilangan dan membandingkan</h2>
+    <svg class="viz" id="nlStatic" viewBox="0 0 640 90" aria-label="Garis bilangan dari -6 sampai 6"></svg>
+    <p>Pada garis bilangan, bilangan di <b>kanan</b> selalu lebih besar daripada bilangan di kirinya.</p>
+    <div class="ex"><span class="t">Contoh</span><br><span class="math">−2 &gt; −5</span> karena −2 terletak di kanan −5. &nbsp; <span class="math">−1 &lt; 0 &lt; 3</span></div>
+    <div class="note">Semakin jauh bilangan negatif dari nol, semakin <b>kecil</b> nilainya. −100 lebih kecil daripada −1.</div>
+    <p><b>Nilai mutlak</b> |a| adalah jarak a dari 0, sehingga selalu tidak negatif: |−7| = 7, |7| = 7.</p>
+  </div>
+
+  <div class="card"><h2>3. Penjumlahan dan pengurangan</h2>
+    <div class="grid2">
+      <div><h3>Penjumlahan</h3>
+        <ul><li>Tanda sama: jumlahkan nilainya, tanda tetap. <span class="math">−3 + (−5) = −8</span></li>
+            <li>Tanda berbeda: kurangkan nilai mutlak yang besar dengan yang kecil, ikuti tanda bilangan yang nilai mutlaknya lebih besar. <span class="math">−9 + 4 = −5</span></li></ul></div>
+      <div><h3>Pengurangan</h3>
+        <div class="def">Mengurangi sama dengan menjumlahkan <b>lawan</b>-nya: <span class="math">a − b = a + (−b)</span></div>
+        <ul><li><span class="math">5 − 8 = 5 + (−8) = −3</span></li><li><span class="math">4 − (−6) = 4 + 6 = 10</span></li></ul></div>
+    </div>
+    <div class="note">Di garis bilangan: menambah bilangan positif → bergerak ke <b>kanan</b>; menambah bilangan negatif → ke <b>kiri</b>. Coba di tab Lab!</div>
+  </div>
+
+  <div class="card"><h2>4. Perkalian dan pembagian</h2>
+    <div class="grid2">
+      <div><table class="t"><tr><th>×  /  :</th><th>positif</th><th>negatif</th></tr>
+        <tr><th>positif</th><td>+</td><td>−</td></tr><tr><th>negatif</th><td>−</td><td>+</td></tr></table>
+        <p class="muted">Tanda sama → hasil positif. Tanda berbeda → hasil negatif.</p></div>
+      <div><div class="ex"><span class="t">Contoh</span><br>
+        <span class="math">(−4) × 6 = −24</span><br><span class="math">(−7) × (−3) = 21</span><br><span class="math">(−35) : 5 = −7</span><br><span class="math">(−42) : (−6) = 7</span></div></div>
+    </div>
+    <p>Mengapa negatif × negatif = positif? Perhatikan pola: (−3)×2 = −6, (−3)×1 = −3, (−3)×0 = 0, (−3)×(−1) = <b>3</b>, (−3)×(−2) = <b>6</b>. Setiap pengali turun 1, hasilnya naik 3.</p>
+    <div class="note">Pembagian dengan 0 <b>tidak didefinisikan</b>. Contoh: 7 : 0 tidak ada hasilnya.</div>
+  </div>
+
+  <div class="card"><h2>5. Urutan pengerjaan operasi</h2>
+    <ol class="steps"><li>Kerjakan yang ada di dalam <b>tanda kurung</b> terlebih dahulu.</li><li><b>Perkalian dan pembagian</b> (sama kuat) dikerjakan dari kiri ke kanan.</li><li><b>Penjumlahan dan pengurangan</b> (sama kuat) dikerjakan dari kiri ke kanan.</li></ol>
+    <div class="ex"><span class="t">Contoh</span><br><span class="math">20 − 4 × (−3) + 6 : (−2)</span><br>= 20 − (−12) + (−3)<br>= 20 + 12 − 3 = <b>29</b></div>
+  </div>
+
+  <div class="card"><h2>6. Sifat-sifat operasi</h2>
+    <table class="t"><tr><th>Sifat</th><th>Bentuk</th><th>Contoh</th></tr>
+      <tr><td>Komutatif (pertukaran)</td><td>a + b = b + a; a × b = b × a</td><td>−3 + 7 = 7 + (−3)</td></tr>
+      <tr><td>Asosiatif (pengelompokan)</td><td>(a + b) + c = a + (b + c)</td><td>(2 × −5) × 3 = 2 × (−5 × 3)</td></tr>
+      <tr><td>Distributif (penyebaran)</td><td>a × (b + c) = a×b + a×c</td><td>−2 × (4 + 6) = −8 + (−12)</td></tr>
+      <tr><td>Identitas</td><td>a + 0 = a; a × 1 = a</td><td>−9 + 0 = −9</td></tr></table>
+    <div class="note">Pengurangan dan pembagian <b>tidak</b> komutatif: 5 − 2 ≠ 2 − 5.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Melompat di Garis Bilangan</h2>
+    <p>Atur bilangan pertama, pilih operasi, lalu atur bilangan kedua. Amati arah dan panjang lompatannya.</p>
+    <div class="ctrl">
+      <label>Bilangan pertama (a): <span class="v" id="va"></span><input type="range" id="ra" min="-10" max="10" value="-4"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:600">Operasi</div><div class="seg" id="op"><button data-op="+" class="on">a + b</button><button data-op="-">a − b</button></div></div>
+      <label>Bilangan kedua (b): <span class="v" id="vb"></span><input type="range" id="rb" min="-10" max="10" value="7"></label>
+    </div>
+    <svg class="viz" id="nl" viewBox="0 0 720 190"></svg>
+    <div class="out" id="nlOut"></div>
+  </div>
+</section>
+
+<section id="keping" class="panel">
+  <div class="card"><h2>Lab: Keping Positif dan Negatif</h2>
+    <p>Satu keping <b style="color:var(--d)">+</b> dan satu keping <b style="color:var(--b)">−</b> saling menghapus menjadi <b>pasangan nol</b> (+1 + (−1) = 0).</p>
+    <div class="ctrl">
+      <label>Bilangan pertama: <span class="v" id="ka-v"></span><input type="range" id="ka" min="-8" max="8" value="5"></label>
+      <label>Ditambah bilangan: <span class="v" id="kb-v"></span><input type="range" id="kb" min="-8" max="8" value="-8"></label>
+      <button class="btn" id="kz">Pasangkan nol</button><button class="btn ghost" id="kr">Ulang</button>
+    </div>
+    <svg class="viz" id="chips" viewBox="0 0 720 230"></svg>
+    <div class="out" id="kOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak setiap kali diulang. Nilai terbaikmu tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VII · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M} = VML;
+
+/* garis bilangan statis */
+(function(){ const g=$('#nlStatic'); const x0=40, w=560/12;
+  s('line',{x1:20,y1:45,x2:620,y2:45,stroke:'var(--ink)','stroke-width':2},g);
+  for(let k=-6;k<=6;k++){ const x=x0+(k+6)*w; s('line',{x1:x,y1:38,x2:x,y2:52,stroke:'var(--ink)','stroke-width':2},g);
+    txt(g,x,75,k<0?'−'+(-k):String(k),{fill:k<0?'var(--b)':k>0?'var(--a)':'var(--ink)','font-weight':700}); }
+  txt(g,140,22,'← makin kecil',{fill:'var(--muted)'}); txt(g,500,22,'makin besar →',{fill:'var(--muted)'});
+})();
+
+/* LAB garis bilangan */
+let op='+';
+document.querySelectorAll('#op button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#op button').forEach(x=>x.classList.remove('on'));b.classList.add('on');op=b.dataset.op;drawNL();});
+function drawNL(){
+  const a=+$('#ra').value, b=+$('#rb').value; $('#va').textContent=M(a); $('#vb').textContent=M(b);
+  const step = op==='+' ? b : -b, r=a+step;
+  const g=$('#nl'); clear(g); const W=VML.narrow()?440:720; g.setAttribute('viewBox',`0 0 ${W} 190`); const L=-20,R=20, X=v=>20+(v-L)*((W-40)/(R-L)), Y=130;
+  s('line',{x1:8,y1:Y,x2:W-8,y2:Y,stroke:'var(--ink)','stroke-width':2},g);
+  for(let k=L;k<=R;k++){ const big=k%5===0; s('line',{x1:X(k),y1:Y-(big?9:5),x2:X(k),y2:Y+(big?9:5),stroke:'var(--ink)','stroke-width':big?2:1},g);
+    if(big) txt(g,X(k),Y+28,k<0?'−'+(-k):String(k),{'font-size':13}); }
+  // panah 0 -> a
+  const arc=(x1,x2,h,color,label)=>{ if(x1===x2) return; const m=(x1+x2)/2; s('path',{d:`M${x1},${Y} Q${m},${Y-h} ${x2},${Y}`,fill:'none',stroke:color,'stroke-width':3.5,'stroke-linecap':'round'},g);
+    const dir=x2>x1?1:-1; s('path',{d:`M${x2},${Y} l${-dir*10},-8 M${x2},${Y} l${-dir*2},-12`,stroke:color,'stroke-width':3.5,fill:'none','stroke-linecap':'round'},g);
+    txt(g,m,Y-h/2-8,label,{fill:color,'font-weight':700}); };
+  arc(X(0),X(a),44,'var(--a)', '');
+  arc(X(a),X(r),110,'var(--b)', step===0?'':(op==='+'?'+ ':'− ')+neg(b));
+  if(a!==0) txt(g,(X(0)+X(a))/2,Y+52,'a = '+M(a),{fill:'var(--a)','font-weight':700});
+  s('circle',{cx:X(a),cy:Y,r:6,fill:'var(--a)'},g); s('circle',{cx:X(r),cy:Y,r:8,fill:'var(--b)',stroke:'var(--card)','stroke-width':2},g);
+  const opTxt = op==='+'?'+':'−';
+  let why='';
+  if(op==='+') why = b>0?`Menambah bilangan positif → bergerak <b>ke kanan</b> ${b} langkah.`: b<0?`Menambah bilangan negatif → bergerak <b>ke kiri</b> ${-b} langkah.`:'Menambah 0 → tidak bergerak.';
+  else why = b>0?`Mengurangi ${b} sama dengan menambah ${-b} → bergerak <b>ke kiri</b> ${b} langkah.`: b<0?`Mengurangi ${b} sama dengan menambah lawannya, +${-b} → bergerak <b>ke kanan</b> ${-b} langkah.`:'Mengurangi 0 → tidak bergerak.';
+  $('#nlOut').innerHTML = `<div class="big">${M(a)} ${opTxt} ${neg(b)} = <span style="color:var(--b)">${M(r)}</span></div>${op==='-'&&b!==0?`<div class="math" style="display:inline-block;margin:4px 0">${M(a)} − ${neg(b)} = ${M(a)} + ${neg(-b)}</div>`:''}<p>Mulai dari 0, lompat ke ${M(a)}. ${why}</p>`;
+}
+['#ra','#rb'].forEach(id=>$(id).oninput=drawNL); drawNL();
+
+/* LAB keping */
+let paired=false;
+function drawChips(){
+  const a=+$('#ka').value, b=+$('#kb').value; $('#ka-v').textContent=M(a); $('#kb-v').textContent=M(b);
+  const g=$('#chips'); clear(g);
+  const W = VML.narrow() ? 420 : 720, sp=(W-110)/8, R=Math.min(22,sp/2-3), H=230;
+  g.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const rowA=[...Array(Math.abs(a))].map(()=>a>0?1:-1), rowB=[...Array(Math.abs(b))].map(()=>b>0?1:-1);
+  const pairs = (a>0)!==(b>0) ? Math.min(rowA.length,rowB.length) : 0;
+  txt(g,40,62,M(a),{'font-size':20,'font-weight':800,fill:'var(--a)'}); txt(g,40,152,neg(b),{'font-size':20,'font-weight':800,fill:'var(--a)'});
+  const cx=k=>95+k*sp;
+  const chip=(x,y,v,fade)=>{ const c=s('g',{opacity:fade?.18:1},g); s('circle',{cx:x,cy:y,r:R,fill:v>0?'var(--d)':'var(--b)'},c); txt(c,x,y+R*.36,v>0?'+':'−',{'font-size':R*1.2,'font-weight':800,fill:'#fff'}); };
+  rowA.forEach((v,k)=>chip(cx(k),55,v,paired&&k<pairs)); rowB.forEach((v,k)=>chip(cx(k),145,v,paired&&k<pairs));
+  if(paired) for(let k=0;k<pairs;k++){ s('line',{x1:cx(k),y1:80,x2:cx(k),y2:120,stroke:'var(--muted)','stroke-width':2,'stroke-dasharray':'4 4'},g); txt(g,cx(k),105,'0',{fill:'var(--muted)','font-weight':700}); }
+  txt(g,W/2,212,paired?`${pairs} pasangan nol · sisa ${Math.abs(a+b)} keping ${a+b>0?'positif':a+b<0?'negatif':''}`:'Tekan "Pasangkan nol"',{fill:'var(--muted)','font-size':15});
+  $('#kOut').innerHTML = paired ? `<div class="big">${M(a)} + ${neg(b)} = ${M(a+b)}</div><p>Keping yang tersisa menunjukkan hasilnya.</p>` : `<p>Ada ${rowA.length+rowB.length} keping. Keping mana yang bisa saling menghapus?</p>`;
+}
+VML.onResize(()=>{drawChips();drawNL();});
+['#ka','#kb'].forEach(id=>$(id).oninput=()=>{paired=false;drawChips();});
+$('#kz').onclick=()=>{paired=true;drawChips();}; $('#kr').onclick=()=>{paired=false;drawChips();}; drawChips();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Dasar: + dan −', gen(){ const a=randNZ(-20,20), b=randNZ(-20,20), o=pick(['+','−']); const r=o==='+'?a+b:a-b;
+    return {q:`${M(a)} ${o} ${neg(b)} = …`, a:String(r), hint:o==='−'?`Ubah menjadi penjumlahan lawan: ${M(a)} + ${neg(-b)}.`:'Tanda sama → jumlahkan. Tanda beda → kurangkan, ikuti tanda yang nilai mutlaknya lebih besar.', ex:o==='−'?`${M(a)} − ${neg(b)} = ${M(a)} + ${neg(-b)} = ${M(r)}`:`${M(a)} + ${neg(b)} = ${M(r)}`}; }},
+  {name:'Menengah: × dan :', gen(){ const x=randNZ(-12,12), y=randNZ(-12,12);
+    if(Math.random()<.5) return {q:`${neg(x)} × ${neg(y)} = …`, a:String(x*y), hint:'Tanda sama → positif, tanda beda → negatif.', ex:`${Math.abs(x)} × ${Math.abs(y)} = ${Math.abs(x*y)}, tandanya ${x*y>0?'positif':'negatif'} → ${M(x*y)}`};
+    return {q:`${neg(x*y)} : ${neg(y)} = …`, a:String(x), hint:`Bilangan berapa yang dikali ${neg(y)} hasilnya ${M(x*y)}?`, ex:`${neg(y)} × ${neg(x)} = ${M(x*y)}, jadi hasilnya ${M(x)}`}; }},
+  {name:'Lanjutan: campuran', gen(){ const a=randNZ(-15,15), b=randNZ(-6,6), c=randNZ(-6,6), t=rand(0,2);
+    if(t===0) return {q:`${M(a)} + ${neg(b)} × ${neg(c)} = …`, a:String(a+b*c), hint:'Kerjakan perkalian dulu.', ex:`${neg(b)} × ${neg(c)} = ${M(b*c)}, lalu ${M(a)} + ${neg(b*c)} = ${M(a+b*c)}`};
+    if(t===1){ const p=b*c; return {q:`(${M(a)} − ${neg(a-p)}) : ${neg(c)} = …`, a:String(b), hint:'Kerjakan isi kurung dulu.', ex:`${M(a)} − ${neg(a-p)} = ${M(p)}, lalu ${M(p)} : ${neg(c)} = ${M(b)}`}; }
+    return {q:`${neg(b)} × (${M(a)} + ${neg(c)}) = …`, a:String(b*(a+c)), hint:'Kerjakan isi kurung dulu, atau pakai sifat distributif.', ex:`${M(a)} + ${neg(c)} = ${M(a+c)}, lalu ${neg(b)} × ${neg(a+c)} = ${M(b*(a+c))}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Bilangan bulat yang terletak di antara −3 dan 2 adalah …', o:['−2, −1, 0, 1','−3, −2, −1, 0, 1, 2','−2, −1, 1','−1, 0, 1, 2'], a:0, ex:'"Di antara" berarti −3 dan 2 tidak termasuk.'},
+ {q:'Hasil dari −7 + 12 adalah …', o:['5','−5','19','−19'], a:0, ex:'Tanda berbeda: 12 − 7 = 5, ikuti tanda 12 (positif).'},
+ {q:'Hasil dari −4 − 9 adalah …', o:['−13','−5','5','13'], a:0, ex:'−4 − 9 = −4 + (−9) = −13.'},
+ {q:'Hasil dari 8 − (−5) adalah …', o:['13','3','−3','−13'], a:0, ex:'Mengurangi −5 sama dengan menambah 5: 8 + 5 = 13.'},
+ {q:'Hasil dari (−6) × 7 adalah …', o:['−42','42','−13','1'], a:0, ex:'Tanda berbeda → negatif. 6 × 7 = 42 → −42.'},
+ {q:'Hasil dari (−48) : (−6) adalah …', o:['8','−8','−42','42'], a:0, ex:'Tanda sama → positif. 48 : 6 = 8.'},
+ {q:'Urutan bilangan 3, −5, 0, −2, 4 dari yang terkecil adalah …', o:['−5, −2, 0, 3, 4','−2, −5, 0, 3, 4','0, −2, 3, 4, −5','4, 3, 0, −2, −5'], a:0, ex:'Pada garis bilangan, makin ke kiri makin kecil: −5 ada paling kiri.'},
+ {q:'Suhu pagi hari −3 °C. Siang harinya suhu naik 8 °C. Suhu siang hari adalah …', o:['5 °C','−11 °C','11 °C','−5 °C'], a:0, ex:'−3 + 8 = 5.'},
+ {q:'Hasil dari 15 + (−4) × 3 adalah …', o:['3','33','−33','27'], a:0, ex:'Perkalian dulu: (−4) × 3 = −12. Lalu 15 + (−12) = 3.'},
+ {q:'Hasil dari (−2) × (−3) × (−4) adalah …', o:['−24','24','−9','9'], a:0, ex:'(−2)×(−3) = 6, lalu 6 × (−4) = −24. Tiga faktor negatif → hasil negatif.'},
+ {q:'Seorang penyelam berada pada kedalaman 25 m di bawah permukaan laut, lalu naik 10 m. Posisinya sekarang adalah …', o:['−15 m','−35 m','15 m','35 m'], a:0, ex:'−25 + 10 = −15, artinya 15 m di bawah permukaan laut.'},
+ {q:'Sifat yang digunakan pada −2 × (5 + 3) = (−2 × 5) + (−2 × 3) adalah …', o:['Distributif','Komutatif','Asosiatif','Identitas'], a:0, ex:'Perkalian "disebarkan" ke setiap suku penjumlahan → distributif.'},
+ {q:'Hitunglah: −36 : 4 + 5 = …', input:true, a:['-4'], ex:'Pembagian dulu: −36 : 4 = −9. Lalu −9 + 5 = −4.'},
+ {q:'Dalam lomba, jawaban benar diberi skor 4, salah −1, dan tidak dijawab 0. Dari 40 soal, Rani menjawab benar 30 dan salah 6. Skor Rani adalah …', input:true, a:['114'], ex:'30 × 4 + 6 × (−1) + 4 × 0 = 120 − 6 = 114.'},
+ {q:'Pernyataan berikut yang <b>benar</b> adalah …', o:['−8 &lt; −3','−8 &gt; −3','|−8| &lt; |−3|','−3 &lt; −8'], a:0, ex:'−8 berada di kiri −3 pada garis bilangan, jadi −8 lebih kecil.'}
+], 'm1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

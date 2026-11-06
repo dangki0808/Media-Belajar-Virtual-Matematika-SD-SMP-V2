@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Math Lab · SD Kelas I – SMP Kelas IX</title>
+<style>
+:root{--bg:#f5ecdc;--bg2:#eaf0e6;--card:#fffaf1;--ink:#1f2a26;--muted:#66706a;--line:#e6dccb;--green:#1e4d42;--orange:#c2562b;--gold:#e6b14a;--yellow:#f6dc85;--blue:#bcd7ef;--coral:#f4b19d;--mint:#b7e0c8}
+@media (prefers-color-scheme:dark){:root{--bg:#141c19;--bg2:#17211d;--card:#1d2723;--ink:#eef3ef;--muted:#a9b6ae;--line:#304039;--green:#7fd1b5;--orange:#f0915e;--yellow:#5a4a1c;--blue:#22374d;--coral:#53302a;--mint:#1f4434}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;min-height:100vh;font-family:"Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.55;
+ background:radial-gradient(1000px 600px at 0% 0%,color-mix(in srgb,var(--gold) 22%,transparent),transparent 60%),linear-gradient(160deg,var(--bg),var(--bg2));background-attachment:fixed}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.3px;line-height:1.15}
+.eyebrow{display:inline-block;font-size:.75rem;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;color:var(--orange)}
+.hero{display:grid;grid-template-columns:1.25fr .85fr;gap:28px;align-items:center;padding:34px 0 10px}
+.hero h1{font-size:clamp(2.2rem,5.6vw,3.6rem);margin:.25em 0}.hero h1 em{color:var(--orange)}
+.hero p{color:var(--muted);max-width:560px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{font:inherit;font-weight:800;border-radius:14px;cursor:pointer;min-height:46px;padding:10px 18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.pri{background:var(--green);color:#fff;box-shadow:0 4px 0 color-mix(in srgb,var(--green) 60%,#000)}
+@media (prefers-color-scheme:dark){.btn.pri{color:#0d1a15}}
+.btn.sec{border:1.5px solid var(--green);color:var(--green);background:transparent}
+.btn.txt{background:none;border:0;color:var(--muted);padding:6px 4px;min-height:auto}
+.stat-card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:20px;box-shadow:0 14px 34px rgba(60,40,10,.10)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stats div{background:color-mix(in srgb,var(--green) 6%,var(--card));border:1px solid var(--line);border-radius:16px;padding:10px 14px}
+.stats b{display:block;font-family:Georgia,serif;font-size:1.8rem;line-height:1.1}.stats small{color:var(--muted);font-weight:700}
+.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.pill-row span{font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--line)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.feat{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);border-radius:24px;padding:20px;min-height:200px;position:relative;transition:transform .15s,box-shadow .15s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.10)}
+.feat.f1{background:var(--yellow)}.feat.f2{background:var(--blue)}.feat.f3{background:var(--mint)}
+.feat .sym{font-family:Georgia,serif;font-size:2.4rem;font-weight:700;line-height:1}
+.feat h3{margin:.2em 0 0;font-size:1.4rem}.feat p{margin:0;opacity:.85;font-size:.95rem}
+.feat .meta{margin-top:auto;font-weight:800;font-size:.85rem}
+.feat .arr{position:absolute;right:18px;top:16px;font-weight:900}
+.top-search{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 12px}
+.top-search h2{margin:0;font-size:1.8rem}
+.top-search input{font:inherit;font-weight:700;padding:10px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:280px;max-width:100%}
+.grades{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.g{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.g:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(30,40,20,.12)}
+.g .sw{height:92px;position:relative;display:flex;align-items:flex-end;padding:12px 16px}
+.g .sw b{font-family:Georgia,serif;font-size:1.4rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.g .sw span{position:absolute;top:10px;right:12px;font-size:.72rem;font-weight:900;background:rgba(255,255,255,.88);color:#333;padding:3px 10px;border-radius:99px}
+.g .bd{padding:12px 16px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+.g .bd p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%}
+.meta2{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:18px;margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:800;display:flex;align-items:center;gap:10px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary .dot{width:16px;height:16px;border-radius:50%;flex:0 0 16px}
+summary .c{margin-left:auto;color:var(--muted);font-weight:700;font-size:.9rem}
+.ml{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;padding:0 14px 14px}
+.ml a{display:flex;gap:10px;align-items:flex-start;text-decoration:none;color:var(--ink);padding:10px 12px;border-radius:12px;border:1px solid var(--line)}
+.ml a:hover{background:color-mix(in srgb,var(--green) 7%,transparent)}
+.ml .ic{font-size:1.3rem;width:28px;text-align:center}.ml small{display:block;color:var(--muted);font-size:.82rem}
+.ml .sc{margin-left:auto;font-size:.78rem;font-weight:800;white-space:nowrap;color:var(--orange)}
+.guide{background:var(--green);color:#f8f1e3;border-radius:26px;padding:22px;margin:26px 0}
+@media (prefers-color-scheme:dark){.guide{background:#163a31}}
+.guide .eyebrow{color:var(--gold)}.guide h2{margin:.2em 0 .4em}.guide ol{margin:.4em 0;padding-left:1.3em}.guide li{margin:4px 0}
+.guide .btn.sec{border-color:#f8f1e3;color:#f8f1e3}
+.empty{padding:14px;color:var(--muted)}
+footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:18px 0 30px;margin-top:30px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <div><span class="eyebrow">Laboratorium matematika digital · SD Kelas I – SMP Kelas IX</span>
+    <h1>Matematika yang bisa dilihat, <em>disentuh, dan dilatih.</em></h1>
+    <p>Pilih kelas untuk belajar lewat lab interaktif. Latih hitung cepat 15 menit setiap hari dengan Hitung Hebat, lalu ukur kesiapan ujian dengan Tryout bergaya UN/USBN dan OSN.</p>
+    <div class="cta"><a class="btn pri" href="hitung-hebat/index.html">⚡ Mulai Hitung Hebat</a><a class="btn sec" href="tryout/index.html">📝 Coba Tryout</a><a class="btn txt" href="#kelas">Pilih kelas ↓</a></div></div>
+  <div class="stat-card"><span class="eyebrow">Ringkasan di perangkat ini</span>
+    <div class="stats" style="margin-top:10px"><div><b id="nm">0</b><small>modul lab</small></div><div><b id="done">0</b><small>kuis modul selesai</small></div><div><b id="hhd">0</b><small>hari Hitung Hebat</small></div><div><b id="tob">–</b><small>nilai tryout terbaik</small></div></div>
+    <div class="pill-row"><span>9 jenjang kelas</span><span id="nl">0 lab</span><span id="nq">0 soal kuis</span><span>Tryout tak terbatas</span></div></div>
+</section>
+
+<section class="features">
+  <a class="feat f1" href="#kelas"><span class="sym">∑</span><h3>Lab per kelas</h3><p>Materi ringkas, dua lab interaktif, latihan acak, dan kuis 15 soal di setiap modul.</p><span class="meta" id="f1m"></span><span class="arr">↗</span></a>
+  <a class="feat f2" href="hitung-hebat/index.html"><span class="sym">×÷</span><h3>Hitung Hebat</h3><p>Latihan hitung cepat harian kelas 1–9 dengan pembahasan bergambar dan perjalanan 30 hari.</p><span class="meta" id="f2m"></span><span class="arr">↗</span></a>
+  <a class="feat f3" href="tryout/index.html"><span class="sym">A·B·C·D</span><h3>Tryout & OSN</h3><p>Soal cerita pilihan ganda bergaya ujian untuk tiap kelas, plus Tantangan OSN SD dan SMP.</p><span class="meta" id="f3m"></span><span class="arr">↗</span></a>
+</section>
+
+<div class="top-search" id="kelas"><div><span class="eyebrow">Pilih kelas</span><h2>Lab interaktif per kelas</h2></div><input type="search" id="q" placeholder="🔍 Cari materi, misalnya pecahan" aria-label="Cari materi"></div>
+<div class="grades" id="grades"></div>
+
+<div class="top-search"><div><span class="eyebrow">Daftar lengkap</span><h2>Semua modul</h2></div></div>
+<div id="list"></div>
+
+<section class="guide"><span class="eyebrow">Untuk guru</span><h2>Cara memakai di kelas</h2>
+  <ol>
+    <li>Semua berkas berjalan <b>tanpa internet</b>. Ekstrak ZIP, lalu buka <b>index.html</b> ini di browser.</li>
+    <li>Awali pelajaran dengan <b>Hitung Hebat</b> 5–15 menit, lanjutkan dengan <b>lab</b> sesuai materi, dan tutup dengan <b>kuis</b> modul.</li>
+    <li>Gunakan <b>Tryout</b> sebagai latihan ujian. Setiap set bisa dicetak beserta pembahasannya.</li>
+    <li>Untuk dibagikan, unggah seluruh folder ke hosting (misalnya GitHub Pages atau Netlify), lalu sematkan alamatnya di Google Sites. Jangan memindahkan berkas keluar dari foldernya.</li>
+    <li>Nilai tersimpan di perangkat masing-masing siswa. Rekap Hitung Hebat bisa disalin dan dikirim ke guru.</li>
+  </ol>
+  <button class="btn sec" id="reset">Hapus semua nilai di perangkat ini</button>
+</section>
+</div>
+<div class="wrap"><footer><span>Virtual Math Lab · Media Pembelajaran Matematika Interaktif SD Kelas I – SMP Kelas IX · Kurikulum Merdeka</span><span>Benar dahulu, lancar kemudian, cepat menyusul.</span></footer></div>
+<script src="shared/nav.js"></script>
+<script>
+const G=[{"folder": "sd-kelas-1", "name": "SD Kelas I", "theme": "Pantai Ceria", "grad": "linear-gradient(180deg,#2fc4d4,#9fe7e3,#f8e6b8)", "pref": "vml1sd:", "acc": "#ff6f59", "mods": [{"f": "01-bilangan-20.html", "t": "Bilangan sampai 20", "d": "Akuarium ikan dan perahu di jalur bilangan.", "i": "🐠", "k": "sd1m1"}, {"f": "02-membandingkan.html", "t": "Membandingkan & Mengurutkan", "d": "Buaya lapar dan urutkan kartu angka.", "i": "🐊", "k": "sd1m2"}, {"f": "03-penjumlahan.html", "t": "Penjumlahan sampai 20", "d": "Gabungkan kerang dan teman sepuluh.", "i": "🐚", "k": "sd1m3"}, {"f": "04-pengurangan.html", "t": "Pengurangan sampai 20", "d": "Kepiting pergi dan katak lompat mundur.", "i": "🦀", "k": "sd1m4"}, {"f": "05-bangun-pola.html", "t": "Bangun Datar, Bangun Ruang & Pola", "d": "Kenali bangun, tebak benda, dan pola ceria.", "i": "🔷", "k": "sd1m5"}, {"f": "06-ukur-waktu.html", "t": "Mengukur Panjang, Berat & Waktu", "d": "Ukur dengan klip, jungkat-jungkit, dan jam.", "i": "⏰", "k": "sd1m6"}]}, {"folder": "sd-kelas-2", "name": "SD Kelas II", "theme": "Taman Awan", "grad": "linear-gradient(180deg,#6cc4ff,#a9e3ff,#b8eb72)", "pref": "vml2sd:", "acc": "#e23d5c", "mods": [{"f": "01-bilangan-500.html", "t": "Bilangan sampai 500", "d": "Ikat lidi dan katak meloncat di garis bilangan.", "i": "🐸", "k": "sd2m1"}, {"f": "02-tambah-kurang.html", "t": "Penjumlahan & Pengurangan", "d": "Bingkai sepuluh dan kanguru meloncat.", "i": "🍓", "k": "sd2m2"}, {"f": "03-perkalian-awal.html", "t": "Perkalian & Pembagian Awal", "d": "Keranjang telur dan ayam masuk kandang.", "i": "🥚", "k": "sd2m3"}, {"f": "04-uang.html", "t": "Mengenal Uang", "d": "Isi celengan dan belanja di kantin sekolah.", "i": "💰", "k": "sd2m4"}, {"f": "05-ukur.html", "t": "Mengukur Panjang & Berat", "d": "Penggaris yang bisa diseret dan timbangan.", "i": "📏", "k": "sd2m5"}, {"f": "06-bangun-pola.html", "t": "Bangun & Pola", "d": "Lanjutkan pola dan tebak bangun di sekitar.", "i": "🔺", "k": "sd2m6"}]}, {"folder": "sd-kelas-3", "name": "SD Kelas III", "theme": "Matahari Pagi", "grad": "linear-gradient(160deg,#ffb199,#ffd56b,#a8e6cf)", "pref": "vml3sd:", "acc": "#f06a25", "mods": [{"f": "01-bilangan-1000.html", "t": "Bilangan sampai 1.000", "d": "Balok bilangan dan mulut buaya pembanding.", "i": "🧊", "k": "sd3m1"}, {"f": "02-tambah-kurang.html", "t": "Penjumlahan & Pengurangan", "d": "Hitung bersusun langkah demi langkah dan warung kue.", "i": "➕", "k": "sd3m2"}, {"f": "03-kali-bagi.html", "t": "Perkalian & Pembagian", "d": "Kebun bunga, tabel perkalian, dan bagi permen.", "i": "✖️", "k": "sd3m3"}, {"f": "04-pecahan.html", "t": "Pecahan Sederhana", "d": "Potong kue dan tebak pecahan.", "i": "🍰", "k": "sd3m4"}, {"f": "05-waktu.html", "t": "Waktu & Jam", "d": "Atur jam dan hitung lama kegiatan.", "i": "⏰", "k": "sd3m5"}, {"f": "06-bangun-datar.html", "t": "Bangun Datar & Keliling", "d": "Tebak bangun dan semut mengelilingi bangun.", "i": "🔷", "k": "sd3m6"}]}, {"folder": "sd-kelas-4", "name": "SD Kelas IV", "theme": "Langit Bintang", "grad": "linear-gradient(160deg,#070d2b,#14257a,#5b4bc4)", "pref": "vml4sd:", "acc": "#ffb938", "mods": [{"f": "01-bilangan-cacah.html", "t": "Bilangan Cacah Besar", "d": "Sempoa nilai tempat dan pembulatan di garis bilangan.", "i": "🔢", "k": "sd4m1"}, {"f": "02-faktor-kelipatan.html", "t": "Faktor & Kelipatan", "d": "Susun persegi panjang dan papan seratus.", "i": "🟦", "k": "sd4m2"}, {"f": "03-pecahan-senilai.html", "t": "Pecahan Senilai", "d": "Dinding pecahan dan membandingkan pecahan.", "i": "🧱", "k": "sd4m3"}, {"f": "04-keliling-luas.html", "t": "Keliling & Luas", "d": "Papan paku dan mewarnai petak.", "i": "📐", "k": "sd4m4"}, {"f": "05-sudut-bangun.html", "t": "Sudut & Bangun Datar", "d": "Sudut jarum jam dan segi banyak beraturan.", "i": "⏰", "k": "sd4m5"}, {"f": "06-satuan-ukur.html", "t": "Satuan Panjang & Berat", "d": "Tangga satuan dan timbangan pasar.", "i": "⚖️", "k": "sd4m6"}]}, {"folder": "sd-kelas-5", "name": "SD Kelas V", "theme": "Semangka Segar", "grad": "linear-gradient(155deg,#06301f,#0f6b43,#3fae5f)", "pref": "vml5sd:", "acc": "#ff5f86", "mods": [{"f": "01-pecahan.html", "t": "Operasi Pecahan", "d": "Cokelat batang dan perkalian pecahan sebagai luas.", "i": "🍫", "k": "sd5m1"}, {"f": "02-kecepatan.html", "t": "Kecepatan, Jarak & Waktu", "d": "Balapan tiga kendaraan dan segitiga ajaib J-K-W.", "i": "🚗", "k": "sd5m2"}, {"f": "03-debit.html", "t": "Debit Air", "d": "Mengisi bak mandi dan tangga satuan volume.", "i": "🚰", "k": "sd5m3"}, {"f": "04-skala.html", "t": "Skala, Peta & Denah", "d": "Peta pulau harta karun dan denah rumah.", "i": "🗺️", "k": "sd5m4"}, {"f": "05-volume.html", "t": "Kubus, Balok & Volume", "d": "Susun kubus satuan dan tebak jaring-jaring kubus.", "i": "📦", "k": "sd5m5"}, {"f": "06-data.html", "t": "Mengumpulkan & Menyajikan Data", "d": "Survei kelas, piktogram, diagram batang dan garis.", "i": "📋", "k": "sd5m6"}]}, {"folder": "sd-kelas-6", "name": "SD Kelas VI", "theme": "Permen Kapas", "grad": "linear-gradient(150deg,#ff9ec7,#c6a8ff,#9fd0ff)", "pref": "vml6sd:", "acc": "#7a5cff", "mods": [{"f": "01-bilangan-bulat.html", "t": "Bilangan Bulat", "d": "Termometer ajaib dan katak melompat di garis bilangan.", "i": "🌡️", "k": "sd6m1"}, {"f": "02-kpk-fpb.html", "t": "Faktor, KPK & FPB", "d": "Pohon faktor dan cara cepat mencari KPK dan FPB.", "i": "🌳", "k": "sd6m2"}, {"f": "03-pecahan-persen.html", "t": "Pecahan, Desimal & Persen", "d": "Pizza pecahan dan belanja hemat dengan diskon.", "i": "🍕", "k": "sd6m3"}, {"f": "04-lingkaran.html", "t": "Lingkaran", "d": "Roda menggelinding dan rahasia rumus luas lingkaran.", "i": "⭕", "k": "sd6m4"}, {"f": "05-bangun-ruang.html", "t": "Bangun Ruang", "d": "Isi balok dengan kubus satuan dan tebak bangun ruang.", "i": "🧊", "k": "sd6m5"}, {"f": "06-statistika.html", "t": "Statistika", "d": "Survei buah, diagram, rata-rata, median, modus.", "i": "📊", "k": "sd6m6"}, {"f": "07-peluang.html", "t": "Peluang", "d": "Roda putar warna dan kantong kelereng.", "i": "🎡", "k": "sd6m7"}]}, {"folder": "smp-kelas-7", "name": "SMP Kelas VII", "theme": "Kertas Berpetak", "grad": "linear-gradient(160deg,#f6f3ea,#e9e3d3)", "pref": "vml7:", "acc": "#2f6bd8", "mods": [{"f": "01-bilangan-bulat.html", "t": "Bilangan Bulat", "d": "Garis bilangan, keping positif-negatif, operasi hitung dan sifatnya.", "i": "±", "k": "m1"}, {"f": "02-bilangan-rasional.html", "t": "Bilangan Rasional", "d": "Pecahan, desimal, persen, membandingkan, dan operasi hitung.", "i": "½", "k": "m2"}, {"f": "03-bentuk-aljabar.html", "t": "Bentuk Aljabar", "d": "Variabel, suku sejenis, ubin aljabar, model luas perkalian.", "i": "x²", "k": "m3"}, {"f": "04-persamaan-linear.html", "t": "Persamaan & Pertidaksamaan Linear", "d": "Neraca keseimbangan dan pertidaksamaan di garis bilangan.", "i": "=", "k": "m4"}, {"f": "05-rasio-perbandingan.html", "t": "Rasio & Perbandingan", "d": "Rasio, skala, perbandingan senilai dan berbalik nilai.", "i": ":", "k": "m5"}, {"f": "06-garis-sudut.html", "t": "Garis dan Sudut", "d": "Busur derajat digital dan sudut pada garis sejajar.", "i": "∠", "k": "m6"}, {"f": "07-bangun-datar.html", "t": "Segitiga & Segiempat", "d": "Sifat, keliling, luas, dan jumlah sudut segitiga.", "i": "△", "k": "m7"}, {"f": "08-data-diagram.html", "t": "Data dan Diagram", "d": "Tabel frekuensi, diagram, mean, median, modus.", "i": "▥", "k": "m8"}]}, {"folder": "smp-kelas-8", "name": "SMP Kelas VIII", "theme": "Ungu & Oranye", "grad": "linear-gradient(160deg,#2b0f57,#5a2196,#b2408a,#f47b20)", "pref": "vml8:", "acc": "#f47b20", "mods": [{"f": "01-pangkat-akar.html", "t": "Bilangan Berpangkat & Bentuk Akar", "d": "Sifat pangkat, notasi ilmiah, menyederhanakan dan merasionalkan akar.", "i": "aⁿ", "k": "k8m1"}, {"f": "02-pola-bilangan.html", "t": "Pola Bilangan & Barisan", "d": "Pola gambar, barisan aritmetika dan geometri, deret.", "i": "⋯", "k": "k8m2"}, {"f": "03-koordinat-kartesius.html", "t": "Koordinat Kartesius", "d": "Posisi titik, kuadran, jarak ke sumbu, permainan menempatkan titik.", "i": "⊹", "k": "k8m3"}, {"f": "04-relasi-fungsi.html", "t": "Relasi dan Fungsi", "d": "Diagram panah interaktif, domain–range, mesin fungsi.", "i": "f(x)", "k": "k8m4"}, {"f": "05-garis-lurus.html", "t": "Persamaan Garis Lurus", "d": "Gradien, y = mx + c, garis sejajar dan tegak lurus.", "i": "m", "k": "k8m5"}, {"f": "06-spldv.html", "t": "SPLDV", "d": "Metode grafik, substitusi, eliminasi, gabungan.", "i": "{ }", "k": "k8m6"}, {"f": "07-pythagoras.html", "t": "Teorema Pythagoras", "d": "Bukti persegi, tripel, jenis segitiga, segitiga istimewa.", "i": "c²", "k": "k8m7"}, {"f": "08-lingkaran.html", "t": "Lingkaran", "d": "Unsur, keliling, luas, busur, juring, sudut keliling.", "i": "○", "k": "k8m8"}, {"f": "09-bangun-ruang.html", "t": "Bangun Ruang Sisi Datar", "d": "Bangun 3D yang bisa diputar, jaring-jaring, luas, volume.", "i": "⬡", "k": "k8m9"}, {"f": "10-statistika-peluang.html", "t": "Statistika & Peluang", "d": "Kuartil, diagram kotak-garis, simulasi dadu dan koin.", "i": "⚄", "k": "k8m10"}]}, {"folder": "smp-kelas-9", "name": "SMP Kelas IX", "theme": "Laut Senja", "grad": "linear-gradient(160deg,#04202b,#0b4f5c,#178a7c,#f0b33c)", "pref": "vml9:", "acc": "#0e8a83", "mods": [{"f": "01-pangkat-akar.html", "t": "Perpangkatan & Bentuk Akar", "d": "Pangkat pecahan, bentuk sekawan, pertumbuhan dan peluruhan.", "i": "√", "k": "k9m1"}, {"f": "02-persamaan-kuadrat.html", "t": "Persamaan Kuadrat", "d": "Pemfaktoran, kuadrat sempurna, rumus ABC, diskriminan.", "i": "x²", "k": "k9m2"}, {"f": "03-fungsi-kuadrat.html", "t": "Fungsi Kuadrat", "d": "Parabola interaktif, titik puncak, luas maksimum.", "i": "∪", "k": "k9m3"}, {"f": "04-transformasi.html", "t": "Transformasi Geometri", "d": "Translasi, refleksi, rotasi, dilatasi beranimasi.", "i": "↻", "k": "k9m4"}, {"f": "05-kesebangunan.html", "t": "Kesebangunan & Kekongruenan", "d": "Faktor skala, bayangan pohon, garis sejajar.", "i": "≅", "k": "k9m5"}, {"f": "06-bangun-ruang-lengkung.html", "t": "Bangun Ruang Sisi Lengkung", "d": "Tabung, kerucut, bola, dan perbandingan Archimedes.", "i": "◍", "k": "k9m6"}]}];
+const get=k=>{ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } };
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LIGHT=["sd-kelas-1","sd-kelas-2","sd-kelas-3","sd-kelas-6","smp-kelas-7"];
+function render(){
+  const q=(document.getElementById('q').value||'').trim().toLowerCase();
+  let total=0, done=0;
+  document.getElementById('grades').innerHTML=G.map(g=>{ const sc=g.mods.map(m=>get(g.pref+m.k)).filter(v=>v!=null); done+=sc.length; total+=g.mods.length;
+    const avg=sc.length?Math.round(sc.reduce((a,b)=>a+b,0)/sc.length):null, sd=g.folder.startsWith('sd');
+    return `<a class="g" href="${g.folder}/index.html"><div class="sw" style="background:${g.grad}"><b style="${LIGHT.includes(g.folder)?"color:#1d2340;text-shadow:0 1px 0 rgba(255,255,255,.6)":""}">${g.name}</b><span>${sd?'SD':'SMP'}</span></div>
+      <div class="bd"><div style="font-weight:800">Tema: ${g.theme}</div><p>${g.mods.map(m=>m.t).slice(0,4).join(' · ')}${g.mods.length>4?' · …':''}</p>
+      <div class="meta2"><span>${g.mods.length} modul</span><span>${sc.length}/${g.mods.length} kuis${avg!=null?' · rata-rata '+avg:''}</span></div>
+      <div class="bar"><i style="width:${sc.length/g.mods.length*100}%;background:${g.grad}"></i></div></div></a>`; }).join('');
+  document.getElementById('nm').textContent=total; document.getElementById('nl').textContent=(total*2)+' lab'; document.getElementById('nq').textContent=(total*15).toLocaleString('id-ID')+' soal kuis'; document.getElementById('done').textContent=done;
+  document.getElementById('f1m').textContent=`${total} modul · ${done} kuis selesai`;
+  const H=get('hh:hist')||[], days=new Set(H.map(h=>h.date)).size; document.getElementById('hhd').textContent=days; document.getElementById('f2m').textContent=H.length?`${days} hari aktif · ${H.length} sesi`:'Belum mulai · Hari 1 dari 30';
+  const B=get('to:best')||{}, bv=Object.values(B); document.getElementById('tob').textContent=bv.length?Math.max(...bv):'–'; const C=get('to:cnt')||{}; const cs=Object.values(C).reduce((a,b)=>a+b,0); document.getElementById('f3m').textContent=cs?`${cs} set selesai`:'10 jenis tryout';
+  let any=false;
+  document.getElementById('list').innerHTML=G.map(g=>{ const mods=g.mods.filter(m=>!q||(m.t+' '+m.d+' '+g.name).toLowerCase().includes(q)); if(!mods.length) return ''; any=true;
+    return `<details ${q?'open':''}><summary><span class="dot" style="background:${g.grad}"></span>${g.name}<span class="c">${mods.length} modul</span></summary><div class="ml">${mods.map(m=>{ const b=get(g.pref+m.k);
+      return `<a href="${g.folder}/${m.f}"><span class="ic">${m.i}</span><span><b>${esc(m.t)}</b><small>${esc(m.d)}</small></span>${b!=null?`<span class="sc">⭐ ${b}</span>`:''}</a>`; }).join('')}</div></details>`; }).join('') || '<div class="empty">Tidak ada materi yang cocok dengan pencarian.</div>';
+}
+document.getElementById('q').oninput=()=>{ render(); };
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis, Hitung Hebat, dan Tryout di perangkat ini?')){ G.forEach(g=>g.mods.forEach(m=>{ try{ localStorage.removeItem(g.pref+m.k); }catch(e){} })); ['hh:hist','hh:best','to:best','to:cnt','to:hist'].forEach(k=>{ try{ localStorage.removeItem(k); }catch(e){} }); render(); } };
+window.addEventListener('pageshow',render); render();
+</script>
+</body></html>

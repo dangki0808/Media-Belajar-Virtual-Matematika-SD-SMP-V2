@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mengenal Uang · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#f08c00">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 4 · Pengukuran</span>
+  <h1>💰 Mengenal Uang</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal nilai uang koin dan uang kertas rupiah.</li>
+    <li>Menghitung jumlah uang dan menukar uang dengan nilai yang sama.</li>
+    <li>Menghitung harga belanja dan uang kembalian sederhana.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🐷 Lab Celengan</button><button data-target="kantin">🍱 Lab Kantin Sekolah</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Uang koin dan uang kertas</h2>
+    <svg class="viz" id="mon" viewBox="0 0 720 200"></svg>
+    <p><b>Koin:</b> Rp100, Rp200, Rp500, Rp1.000 &nbsp;·&nbsp; <b>Kertas:</b> Rp1.000, Rp2.000, Rp5.000, Rp10.000, Rp20.000, Rp50.000, Rp100.000</p>
+    <p class="muted">Gambar di atas hanya contoh sederhana, bukan gambar uang asli.</p>
+  </div>
+  <div class="card"><h2>2. Menghitung dan menukar uang</h2>
+    <div class="ex">Rp2.000 + Rp2.000 + Rp1.000 = <b>Rp5.000</b></div>
+    <div class="ex">1 lembar Rp5.000 dapat ditukar dengan 5 lembar Rp1.000, atau 2 lembar Rp2.000 + 1 koin Rp1.000.</div>
+    <div class="note">Hitung uang yang paling besar dulu, baru yang kecil.</div>
+  </div>
+  <div class="card"><h2>3. Belanja dan kembalian</h2>
+    <div class="ex">Harga pensil Rp3.000. Dibayar dengan Rp5.000. Kembalian = 5.000 − 3.000 = <b>Rp2.000</b>.</div>
+    <div class="ex">Beli roti Rp2.000 dan susu Rp4.000. Harus membayar 2.000 + 4.000 = <b>Rp6.000</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Isi Celengan</h2>
+    <p>Ketuk uang untuk memasukkannya ke celengan sampai jumlahnya <b>tepat</b> sama dengan target!</p>
+    <div class="out big" id="tgt" style="text-align:center"></div>
+    <div class="row" id="coins" style="justify-content:center"></div>
+    <div class="row" style="justify-content:center"><button class="btn ghost" id="undo">↩️ Ambil lagi</button><button class="btn soft" id="nw">🎯 Target baru</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="pig" viewBox="0 0 360 280" style="max-width:380px;margin:0 auto"></svg><div class="out" id="pOut"></div></div>
+  </div>
+</section>
+
+<section id="kantin" class="panel">
+  <div class="card"><h2>Lab: Kantin Sekolah</h2>
+    <p>Pilih makanan, pilih uang untuk membayar, lalu tebak kembaliannya!</p>
+    <div class="grid3" id="menu"></div>
+    <div class="row" style="margin-top:10px"><b>Bayar dengan:</b><div class="seg" id="pay"><button data-p="5000">Rp5.000</button><button data-p="10000" class="on">Rp10.000</button><button data-p="20000">Rp20.000</button></div><button class="btn ghost" id="clr">Kosongkan</button></div>
+    <div class="out" id="kOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis jumlah uang dengan angka saja, misalnya 5000 atau 5.000.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 4</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const rp=n=>'Rp'+Number(n).toLocaleString('id-ID');
+const acc=v=>[String(v), v.toLocaleString('id-ID')];
+const MON=[[100,'koin','#b8b8b8'],[200,'koin','#c9c9c9'],[500,'koin','#e0b84a'],[1000,'koin','#d8c070'],[2000,'kertas','#9aa6b8'],[5000,'kertas','#c7a06a'],[10000,'kertas','#b07ac8'],[20000,'kertas','#6fbf73'],[50000,'kertas','#5a9ad8']];
+function drawMoney(g,x,y,v,kind,col,sc=1){ if(kind==='koin'){ s('circle',{cx:x,cy:y,r:26*sc,fill:col,stroke:'#666','stroke-width':2},g); s('circle',{cx:x,cy:y,r:20*sc,fill:'none',stroke:'#fff','stroke-opacity':.6},g); txt(g,x,y+5*sc,v>=1000?(v/1000)+'rb':String(v),{'font-weight':900,'font-size':13*sc,fill:'#333'}); }
+  else { s('rect',{x:x-44*sc,y:y-24*sc,width:88*sc,height:48*sc,rx:6,fill:col,stroke:'#555','stroke-width':1.5},g); s('rect',{x:x-38*sc,y:y-18*sc,width:76*sc,height:36*sc,rx:4,fill:'none',stroke:'#fff','stroke-opacity':.7},g); txt(g,x,y+6*sc,(v/1000)+'.000',{'font-weight':900,'font-size':15*sc,fill:'#fff'}); } }
+(function(){ const g=$('#mon'); MON.slice(0,4).forEach(([v,k,c],i)=>{ drawMoney(g,60+i*80,55,v,k,c); }); MON.slice(4).forEach(([v,k,c],i)=>{ drawMoney(g,70+i*130,150,v,k,c); }); })();
+
+/* celengan */
+let target, inn=[];
+$('#coins').innerHTML=MON.slice(0,7).map(([v],i)=>`<button class="btn soft" data-c="${i}">${rp(v)}</button>`).join('');
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{ inn.push(+b.dataset.c); drawP(); });
+$('#undo').onclick=()=>{ inn.pop(); drawP(); };
+$('#nw').onclick=()=>{ target=pick([1500,2500,3000,3700,4500,5200,6000,7500,8300,12000,15500]); inn=[]; drawP(); };
+function drawP(){
+  const tot=inn.reduce((a,i)=>a+MON[i][0],0), g=$('#pig'); clear(g);
+  s('ellipse',{cx:180,cy:160,rx:130,ry:95,fill:'#ffb6c8',stroke:'#e2738f','stroke-width':4},g); s('circle',{cx:290,cy:140,r:34,fill:'#ffb6c8',stroke:'#e2738f','stroke-width':4},g);
+  s('ellipse',{cx:305,cy:145,rx:12,ry:9,fill:'#e2738f'},g); s('circle',{cx:275,cy:125,r:5,fill:'#333'},g); s('rect',{x:140,y:62,width:80,height:10,rx:5,fill:'#8a3a50'},g);
+  [[90,240],[140,248],[220,248],[270,240]].forEach(([x,y])=>s('rect',{x:x-12,y,width:24,height:30,rx:6,fill:'#e2738f'},g));
+  inn.slice(-8).forEach((i,k)=>{ const [v,kind,c]=MON[i]; drawMoney(g,95+(k%4)*58,140+Math.floor(k/4)*50,v,kind,c,0.55); });
+  const diff=target-tot;
+  $('#tgt').innerHTML=`🎯 Target: ${rp(target)}`;
+  $('#pOut').innerHTML=`<p>${inn.length?inn.map(i=>rp(MON[i][0])).join(' + '):'Celengan masih kosong.'}</p><div class="big">Jumlah: ${rp(tot)}</div>${diff===0&&tot?'<p class="big" style="color:var(--ok)">🎉 Tepat sekali!</p>':diff>0?`<p>Kurang <b>${rp(diff)}</b> lagi.</p>`:`<p style="color:var(--bad)">Kelebihan <b>${rp(-diff)}</b>! Ambil kembali uangnya.</p>`}`;
+}
+target=3700; drawP();
+
+/* kantin */
+const MENU=[['🍙','Nasi kepal',3000],['🍌','Pisang goreng',1000],['🥤','Es teh',2000],['🍢','Sate telur',2500],['🍞','Roti',4000],['🧃','Susu kotak',5000]];
+let cart=[], pay=10000, guess='';
+$('#menu').innerHTML=MENU.map(([e,n,h],i)=>`<button class="opt" data-m="${i}" style="justify-content:center;flex-direction:column;gap:2px"><span style="font-size:2.2rem">${e}</span><span>${n}</span><span class="muted" style="font-size:.9rem">${rp(h)}</span></button>`).join('');
+document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{ cart.push(+b.dataset.m); drawK(); });
+document.querySelectorAll('#pay button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pay button').forEach(x=>x.classList.remove('on'));b.classList.add('on');pay=+b.dataset.p;drawK();});
+$('#clr').onclick=()=>{ cart=[]; drawK(); };
+function drawK(){
+  const tot=cart.reduce((a,i)=>a+MENU[i][2],0);
+  if(!cart.length){ $('#kOut').innerHTML='Ketuk makanan untuk membeli.'; return; }
+  if(tot>pay){ $('#kOut').innerHTML=`<p style="font-size:1.6rem">${cart.map(i=>MENU[i][0]).join(' ')}</p><p>Total ${rp(tot)}</p><div class="fb no">Uangnya tidak cukup! Pilih uang yang lebih besar.</div>`; return; }
+  $('#kOut').innerHTML=`<p style="font-size:1.6rem">${cart.map(i=>MENU[i][0]).join(' ')}</p><p>${cart.map(i=>rp(MENU[i][2])).join(' + ')} = <b>${rp(tot)}</b></p>
+   <div class="row"><span>Kembalian ${rp(pay)} − ${rp(tot)} = Rp</span><input type="text" id="gs" inputmode="numeric" placeholder="?" style="width:120px"><button class="btn" id="ck">Periksa</button></div><div id="gfb"></div>`;
+  const chk=()=>{ const v=Number(String($('#gs').value).replace(/\./g,'')); $('#gfb').innerHTML=v===pay-tot?`<div class="fb ok"><b>✓ Benar!</b> Kembaliannya ${rp(pay-tot)}.</div>`:`<div class="fb no"><b>Coba lagi.</b> Hitung ${pay.toLocaleString('id-ID')} − ${tot.toLocaleString('id-ID')}.</div>`; };
+  $('#ck').onclick=chk; $('#gs').onkeydown=e=>{ if(e.key==='Enter') chk(); };
+}
+drawK();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Jumlah uang', gen(){ const pool=[500,1000,2000,5000], arr=[...Array(rand(2,4))].map(()=>pick(pool)); const t=arr.reduce((a,b)=>a+b,0); return {q:`${arr.map(rp).join(' + ')} = Rp…`, a:acc(t), hint:'Jumlahkan dari yang terbesar.', ex:rp(t)}; }},
+  {name:'Menukar uang', gen(){ const [big,small]=pick([[5000,1000],[10000,2000],[10000,5000],[2000,500],[1000,500],[1000,100],[20000,5000]]); return {q:`1 lembar ${rp(big)} sama dengan berapa ${rp(small)}?`, a:String(big/small), unit:'buah', hint:`${big.toLocaleString('id-ID')} : ${small.toLocaleString('id-ID')}`, ex:String(big/small)}; }},
+  {name:'Kembalian', gen(){ const pay=pick([5000,10000,20000]), h=rand(1,pay/500-1)*500; return {q:`Harga mainan ${rp(h)}. Dibayar dengan ${rp(pay)}. Kembaliannya Rp…`, a:acc(pay-h), hint:'Uang bayar − harga.', ex:rp(pay-h)}; }},
+  {name:'Belanja', gen(){ const a=pick(MENU), b=pick(MENU); return {q:`Beli ${a[1].toLowerCase()} (${rp(a[2])}) dan ${b[1].toLowerCase()} (${rp(b[2])}). Harus membayar Rp…`, a:acc(a[2]+b[2]), hint:'Jumlahkan harganya.', ex:rp(a[2]+b[2])}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Rp2.000 + Rp2.000 + Rp1.000 = …', o:['Rp5.000','Rp4.000','Rp6.000','Rp3.000'], a:0, ex:'2.000 + 2.000 + 1.000.'},
+ {q:'1 lembar Rp5.000 sama dengan … lembar Rp1.000', o:['5','10','2','50'], a:0, ex:'5.000 : 1.000.'},
+ {q:'1 lembar Rp10.000 sama dengan … lembar Rp5.000', o:['2','5','10','1'], a:0, ex:'5.000 + 5.000.'},
+ {q:'Koin Rp500 + koin Rp500 = …', o:['Rp1.000','Rp500','Rp5.000','Rp1.500'], a:0, ex:'Dua kali 500.'},
+ {q:'Harga pensil Rp3.000, dibayar Rp5.000. Kembaliannya …', o:['Rp2.000','Rp8.000','Rp3.000','Rp1.000'], a:0, ex:'5.000 − 3.000.'},
+ {q:'Beli roti Rp2.000 dan susu Rp4.000. Harus membayar …', o:['Rp6.000','Rp2.000','Rp8.000','Rp5.000'], a:0, ex:'2.000 + 4.000.'},
+ {q:'Uang yang nilainya paling besar adalah …', o:['Rp20.000','Rp10.000','Rp5.000','Rp2.000'], a:0, ex:'20 ribu.'},
+ {q:'Rp1.000 sama dengan … koin Rp200', o:['5','2','10','4'], a:0, ex:'200 × 5.'},
+ {q:'Ani punya Rp10.000. Ia membeli buku Rp7.000. Sisa uangnya …', o:['Rp3.000','Rp17.000','Rp7.000','Rp4.000'], a:0, ex:'10.000 − 7.000.'},
+ {q:'Rp5.000 + Rp5.000 + Rp5.000 + Rp5.000 = …', o:['Rp20.000','Rp15.000','Rp25.000','Rp10.000'], a:0, ex:'4 × 5.000.'},
+ {q:'Harga es krim Rp4.500. Dibayar Rp5.000. Kembaliannya …', o:['Rp500','Rp1.000','Rp9.500','Rp4.500'], a:0, ex:'5.000 − 4.500.'},
+ {q:'Mana yang jumlahnya Rp3.000?', o:['Rp2.000 + Rp1.000','Rp2.000 + Rp2.000','Rp1.000 + Rp500','Rp5.000 + Rp1.000'], a:0, ex:'2.000 + 1.000.'},
+ {q:'Berapa jumlah Rp2.000 + Rp2.000 + Rp500? (angka saja)', input:true, a:['4500','4.500'], ex:'Rp4.500.'},
+ {q:'Harga kue Rp1.500. Dibayar Rp2.000. Berapa kembaliannya? (angka saja)', input:true, a:['500'], ex:'Rp500.'},
+ {q:'Untuk membeli mainan Rp8.000, uang Rp5.000 …', o:['tidak cukup','cukup','lebih','pas'], a:0, ex:'5.000 < 8.000.'}
+], 'sd2m4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

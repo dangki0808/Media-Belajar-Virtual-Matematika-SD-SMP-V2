@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bangun & Pola · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0898b0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Geometri</span>
+  <h1>🔺 Bangun &amp; Pola</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal bangun datar (segitiga, segi empat, lingkaran) dan bangun ruang (kubus, balok, tabung, kerucut, bola).</li>
+    <li>Menemukan bangun di benda sekitar.</li>
+    <li>Mengenali dan melanjutkan pola gambar, warna, dan bilangan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧩 Lab Pola</button><button data-target="benda">🏠 Lab Bangun di Sekitar</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bangun datar</h2>
+    <svg class="viz" id="bd" viewBox="0 0 720 170"></svg>
+    <p>Bangun datar itu <b>tipis</b> dan rata, seperti gambar di kertas. Hitung sisinya: segitiga 3 sisi, segi empat 4 sisi, lingkaran tidak punya sudut.</p>
+  </div>
+  <div class="card"><h2>2. Bangun ruang</h2>
+    <div class="grid3"><div class="ex"><span class="t">Kubus</span><br>🎲 dadu</div><div class="ex"><span class="t">Balok</span><br>📦 kardus, 🧱 batu bata</div><div class="ex"><span class="t">Tabung</span><br>🥫 kaleng, 🥁 drum</div><div class="ex"><span class="t">Kerucut</span><br>🍦 cone es krim, 🥳 topi ulang tahun</div><div class="ex"><span class="t">Bola</span><br>⚽ bola, 🍊 jeruk</div></div>
+    <p>Bangun ruang itu <b>tebal</b> dan punya isi, bisa dipegang dari segala arah.</p>
+  </div>
+  <div class="card"><h2>3. Pola</h2>
+    <p><b>Pola</b> adalah susunan yang berulang dengan aturan tertentu.</p>
+    <div class="grid2"><div class="ex"><span class="t">Pola AB</span> 🔴🔵🔴🔵🔴🔵 …</div><div class="ex"><span class="t">Pola AAB</span> ⭐⭐🌙⭐⭐🌙 …</div><div class="ex"><span class="t">Pola ABC</span> 🍎🍌🍇🍎🍌🍇 …</div><div class="ex"><span class="t">Pola bilangan</span> 2, 4, 6, 8, … (tambah 2)</div></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Lanjutkan Polanya!</h2>
+    <p>Lihat polanya, lalu pilih gambar yang tepat untuk kotak kosong.</p>
+    <div class="out" id="pat" style="font-size:2.2rem;text-align:center;letter-spacing:6px;line-height:1.6"></div>
+    <div class="row" id="po" style="justify-content:center"></div>
+    <div id="pfb"></div>
+    <div class="row" style="justify-content:center"><button class="btn ghost" id="pn">Pola berikutnya →</button><span class="counter" id="ps">Skor 0/0</span></div>
+  </div>
+  <div class="card"><h2>Buat Polamu Sendiri</h2>
+    <p>Ketuk gambar untuk menyusun pola, lalu tekan <b>Ulangi</b> agar komputer melanjutkannya.</p>
+    <div class="row" id="mk"></div>
+    <div class="out" id="my" style="font-size:2rem;min-height:70px;letter-spacing:4px"></div>
+    <div class="row"><button class="btn" id="rep">🔁 Ulangi pola</button><button class="btn ghost" id="mc">Hapus</button></div>
+  </div>
+</section>
+
+<section id="benda" class="panel">
+  <div class="card"><h2>Lab: Bangun Apa Ini?</h2>
+    <div class="out" style="text-align:center"><div style="font-size:5rem" id="obj"></div><div class="big" id="objn"></div></div>
+    <div class="grid3" id="bo"></div>
+    <div id="bfb"></div>
+    <div class="row" style="justify-content:center"><button class="btn ghost" id="bn">Benda berikutnya →</button><span class="counter" id="bsc">Skor 0/0</span></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, shuffle} = VML;
+(function(){ const g=$('#bd'); const C=['#e23d5c','#2a74d6','#3a9e2f','#f08c00','#7d4bd8'];
+  s('polygon',{points:'60,130 140,130 100,50',fill:C[0],'fill-opacity':.35,stroke:C[0],'stroke-width':4},g); txt(g,100,158,'Segitiga',{'font-weight':800});
+  s('rect',{x:200,y:55,width:75,height:75,fill:C[1],'fill-opacity':.35,stroke:C[1],'stroke-width':4},g); txt(g,238,158,'Persegi',{'font-weight':800});
+  s('rect',{x:330,y:70,width:120,height:60,fill:C[2],'fill-opacity':.35,stroke:C[2],'stroke-width':4},g); txt(g,390,158,'Persegi panjang',{'font-weight':800});
+  s('circle',{cx:530,cy:92,r:40,fill:C[3],'fill-opacity':.35,stroke:C[3],'stroke-width':4},g); txt(g,530,158,'Lingkaran',{'font-weight':800});
+  s('polygon',{points:'640,92 670,52 700,92 670,132',fill:C[4],'fill-opacity':.35,stroke:C[4],'stroke-width':4},g); txt(g,670,158,'Belah ketupat',{'font-weight':800,'font-size':12}); })();
+
+/* pola */
+const SETS=[['🔴','🔵','🟡','🟢'],['🍎','🍌','🍇','🍊'],['⭐','🌙','☀️','☁️'],['🐱','🐶','🐰','🐸'],['🔺','⬛','⚪','🔷']];
+const RULES=[[0,1],[0,0,1],[0,1,2],[0,1,1],[0,0,1,1],[0,1,2,1]];
+let P, pd, pr=0, pt=0;
+function newP(){ const set=pick(SETS), rule=pick(RULES), len=rule.length*3, miss=rand(rule.length,len-1); const seq=[...Array(len)].map((_,i)=>set[rule[i%rule.length]]);
+  P={seq,miss,ans:seq[miss],opts:shuffle([...new Set(rule.map(r=>set[r]).concat(set))].slice(0,4)),rule}; if(!P.opts.includes(P.ans)) P.opts[0]=P.ans; P.opts=shuffle(P.opts); pd=false;
+  $('#pat').innerHTML=seq.map((x,i)=>i===P.miss?'<span style="display:inline-block;width:1.3em;border:3px dashed var(--acc);border-radius:10px">❔</span>':x).join(' ');
+  $('#po').innerHTML=P.opts.map((o,i)=>`<button class="btn soft" data-o="${i}" style="font-size:2rem;min-width:70px">${o}</button>`).join(''); $('#pfb').innerHTML='';
+  document.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{ if(pd) return; pd=true; pt++; const ok=P.opts[+b.dataset.o]===P.ans; if(ok) pr++; $('#ps').textContent=`Skor ${pr}/${pt}`;
+    $('#pat').innerHTML=P.seq.map((x,i)=>i===P.miss?`<span style="background:${ok?'var(--ok-soft)':'var(--bad-soft)'};border-radius:10px">${x}</span>`:x).join(' ');
+    const name=P.rule.map(r=>'ABCD'[r]).join(''); $('#pfb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:center"><b>${ok?'✓ Tepat!':'✗ Belum tepat.'}</b> Polanya ${name}: ${P.rule.map((r,i)=>P.seq[i]).join('')} diulang terus.</div>`; }); }
+$('#pn').onclick=newP; newP();
+let mine=[]; const PAL=['🔴','🔵','🟡','🟢','⭐','🌙','🍎','🍌'];
+$('#mk').innerHTML=PAL.map(e=>`<button class="btn soft" data-e="${e}" style="font-size:1.6rem">${e}</button>`).join('');
+document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{ if(mine.length<6) mine.push(b.dataset.e); $('#my').innerHTML=mine.join(' '); });
+$('#rep').onclick=()=>{ if(!mine.length) return; $('#my').innerHTML=`<b>${mine.join(' ')}</b> <span style="opacity:.55">${[...Array(12)].map((_,i)=>mine[i%mine.length]).join(' ')} …</span>`; };
+$('#mc').onclick=()=>{ mine=[]; $('#my').innerHTML=''; };
+
+/* bangun di sekitar */
+const OBJ=[['🎲','Dadu','Kubus'],['📦','Kardus','Balok'],['🧱','Batu bata','Balok'],['🥫','Kaleng','Tabung'],['🥁','Drum','Tabung'],['🍦','Cone es krim','Kerucut'],['🥳','Topi ulang tahun','Kerucut'],['⚽','Bola','Bola'],['🍊','Jeruk','Bola'],['🧊','Es batu','Kubus'],['🕯️','Lilin','Tabung'],['🌍','Bola dunia','Bola']];
+const KINDS=['Kubus','Balok','Tabung','Kerucut','Bola'];
+let O, od, br=0, bt=0;
+function newO(){ O=pick(OBJ); od=false; $('#obj').textContent=O[0]; $('#objn').textContent=O[1]; $('#bfb').innerHTML='';
+  $('#bo').innerHTML=KINDS.map(k=>`<button class="opt" data-k="${k}" style="justify-content:center">${k}</button>`).join('');
+  document.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{ if(od) return; od=true; bt++; const ok=b.dataset.k===O[2]; if(ok) br++; $('#bsc').textContent=`Skor ${br}/${bt}`;
+    document.querySelectorAll('[data-k]').forEach(x=>{ x.disabled=true; if(x.dataset.k===O[2]) x.classList.add('ok'); }); if(!ok) b.classList.add('no');
+    $('#bfb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:center"><b>${ok?'✓ Hebat!':'✗ Belum tepat.'}</b> ${O[1]} berbentuk <b>${O[2].toLowerCase()}</b>.</div>`; }); }
+$('#bn').onclick=newO; newO();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Sisi bangun datar', gen(){ const [n,v]=pick([['segitiga',3],['persegi',4],['persegi panjang',4],['segi lima',5],['segi enam',6]]); return {q:`Berapa banyak sisi ${n}?`, a:String(v), hint:'Hitung garis lurusnya.', ex:String(v)}; }},
+  {name:'Pola bilangan', gen(){ const st=rand(1,20), k=pick([2,3,5,10]); const seq=[0,1,2,3].map(i=>st+k*i); return {q:`Lanjutkan: ${seq.join(', ')}, …`, a:String(st+4*k), hint:`Tambah ${k}.`, ex:String(st+4*k)}; }},
+  {name:'Pola gambar', gen(){ const set=pick(SETS), rule=pick(RULES), n=rule.length*2+rand(0,rule.length-1); const seq=[...Array(n)].map((_,i)=>set[rule[i%rule.length]]); const nx=set[rule[n%rule.length]]; return {q:`Gambar berikutnya: ${seq.join(' ')} … ? (salin gambarnya)`, a:[nx], show:nx, hint:'Cari bagian yang berulang.', ex:nx}; }},
+  {name:'Bangun ruang', gen(){ const o=pick(OBJ); return {q:`${o[0]} ${o[1]} berbentuk … (kubus/balok/tabung/kerucut/bola)`, a:[o[2].toLowerCase()], show:o[2].toLowerCase(), hint:'Bayangkan bentuknya dari samping dan atas.', ex:o[2]}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Bangun datar yang memiliki 3 sisi adalah …', o:['segitiga','persegi','lingkaran','persegi panjang'], a:0, ex:'Tiga sisi.'},
+ {q:'Bangun datar yang tidak memiliki sudut adalah …', o:['lingkaran','segitiga','persegi','belah ketupat'], a:0, ex:'Lingkaran melengkung.'},
+ {q:'Dadu berbentuk …', o:['kubus','bola','tabung','kerucut'], a:0, ex:'Semua sisinya persegi.'},
+ {q:'Kaleng susu berbentuk …', o:['tabung','balok','kerucut','kubus'], a:0, ex:'Alasnya lingkaran.'},
+ {q:'Cone es krim berbentuk …', o:['kerucut','tabung','bola','balok'], a:0, ex:'Ujungnya lancip.'},
+ {q:'Bola sepak berbentuk …', o:['bola','tabung','kubus','kerucut'], a:0, ex:'Bulat ke segala arah.'},
+ {q:'Kardus berbentuk …', o:['balok','kubus','tabung','bola'], a:0, ex:'Persegi panjang di sisinya.'},
+ {q:'Persegi memiliki … sisi.', o:['4','3','5','0'], a:0, ex:'Empat sisi sama panjang.'},
+ {q:'Pola 🔴🔵🔴🔵🔴 … berikutnya …', o:['🔵','🔴','🟡','🟢'], a:0, ex:'Pola AB.'},
+ {q:'Pola ⭐⭐🌙⭐⭐🌙⭐ … berikutnya …', o:['⭐','🌙','☀️','☁️'], a:0, ex:'Pola AAB.'},
+ {q:'Pola 🍎🍌🍇🍎🍌 … berikutnya …', o:['🍇','🍎','🍌','🍊'], a:0, ex:'Pola ABC.'},
+ {q:'Pola bilangan 5, 10, 15, 20, … berikutnya …', o:['25','21','30','24'], a:0, ex:'Tambah 5.'},
+ {q:'Berapa sisi persegi panjang?', input:true, a:['4'], ex:'4 sisi.'},
+ {q:'Lanjutkan: 3, 6, 9, 12, …', input:true, a:['15'], ex:'Tambah 3.'},
+ {q:'Papan tulis berbentuk …', o:['persegi panjang','lingkaran','segitiga','kerucut'], a:0, ex:'Panjang dan lebarnya berbeda.'}
+], 'sd2m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

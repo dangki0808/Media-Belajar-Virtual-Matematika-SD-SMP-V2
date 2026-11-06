@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KPK & FPB · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#6d4ff0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Bilangan</span>
+  <h1>🌳 Faktor, Kelipatan, KPK &amp; FPB</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan faktor, kelipatan, dan bilangan prima.</li>
+    <li>Membuat faktorisasi prima dengan pohon faktor.</li>
+    <li>Menentukan KPK dan FPB serta memakainya untuk soal cerita.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🌳 Lab Pohon Faktor</button><button data-target="kf">🔍 Lab KPK & FPB</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Faktor dan kelipatan</h2>
+    <div class="grid2">
+      <div class="def"><b>Faktor</b> suatu bilangan adalah bilangan yang dapat membaginya habis.<br>Faktor 12: 1, 2, 3, 4, 6, 12</div>
+      <div class="def"><b>Kelipatan</b> suatu bilangan adalah hasil kali bilangan itu dengan 1, 2, 3, …<br>Kelipatan 4: 4, 8, 12, 16, 20, …</div>
+    </div>
+    <p><b>Bilangan prima</b> hanya punya dua faktor: 1 dan dirinya sendiri. Contoh: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, … (1 bukan bilangan prima, dan 2 satu-satunya prima yang genap).</p>
+  </div>
+  <div class="card"><h2>2. Faktorisasi prima dengan pohon faktor</h2>
+    <p>Bagi terus dengan bilangan prima sampai semua "daun" pohon berupa bilangan prima.</p>
+    <div class="ex"><span class="t">Contoh</span> 60 = 2 × 30 = 2 × 2 × 15 = 2 × 2 × 3 × 5 → <b>60 = 2² × 3 × 5</b><br>72 = 2 × 2 × 2 × 3 × 3 → <b>72 = 2³ × 3²</b></div>
+  </div>
+  <div class="card"><h2>3. KPK dan FPB</h2>
+    <div class="grid2">
+      <div><h3>KPK (Kelipatan Persekutuan terKecil)</h3><p>Kelipatan bersama yang paling kecil.</p><div class="ex">Kelipatan 4: 4, 8, <b>12</b>, 16, 20, 24 …<br>Kelipatan 6: 6, <b>12</b>, 18, 24 …<br>KPK(4, 6) = <b>12</b></div>
+        <p><b>Cara faktor prima:</b> ambil semua faktor prima, pilih pangkat yang <b>terbesar</b>.<br>12 = 2² × 3, 18 = 2 × 3² → KPK = 2² × 3² = <b>36</b></p></div>
+      <div><h3>FPB (Faktor Persekutuan terBesar)</h3><p>Faktor bersama yang paling besar.</p><div class="ex">Faktor 12: 1, 2, 3, 4, <b>6</b>, 12<br>Faktor 18: 1, 2, 3, <b>6</b>, 9, 18<br>FPB(12, 18) = <b>6</b></div>
+        <p><b>Cara faktor prima:</b> ambil faktor prima yang <b>sama</b>, pilih pangkat yang <b>terkecil</b>.<br>12 = 2² × 3, 18 = 2 × 3² → FPB = 2 × 3 = <b>6</b></p></div>
+    </div>
+  </div>
+  <div class="card"><h2>4. Kapan memakai KPK atau FPB?</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">KPK → "bersamaan lagi"</span><br>Lampu A berkedip setiap 6 detik, lampu B setiap 8 detik. Mereka menyala bersamaan lagi setelah KPK(6, 8) = <b>24 detik</b>.</div>
+      <div class="ex"><span class="t">FPB → "dibagi sama banyak, sebanyak-banyaknya"</span><br>24 apel dan 36 jeruk dibagi ke kantong sama banyak. Paling banyak FPB(24, 36) = <b>12 kantong</b>, masing-masing 2 apel dan 3 jeruk.</div>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Pohon Faktor</h2>
+    <div class="ctrl"><label>Bilangan <span class="v" id="n-v"></span><input type="range" id="n" min="4" max="360" value="60"></label><button class="btn soft" id="rn">🎲 Acak</button></div>
+    <div class="grid2"><svg class="viz" id="tree" viewBox="0 0 400 420"></svg><div class="out" id="tOut"></div></div>
+  </div>
+</section>
+
+<section id="kf" class="panel">
+  <div class="card"><h2>Lab: Mencari KPK dan FPB</h2>
+    <div class="ctrl"><label style="color:var(--a)">Bilangan A <span class="v" id="a-v"></span><input type="range" id="a" min="2" max="60" value="12"></label><label style="color:var(--b)">Bilangan B <span class="v" id="b-v"></span><input type="range" id="b" min="2" max="60" value="18"></label></div>
+    <div class="grid2"><div class="out" id="lists"></div><div><svg class="viz" id="venn" viewBox="0 0 400 260"></svg><div class="out" id="vOut"></div></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, gcd, lcm} = VML;
+const pf=n=>{ const f=[]; let d=2; while(n>1){ while(n%d===0){ f.push(d); n/=d; } d++; } return f; };
+const pfTxt=n=>{ const f=pf(n), c={}; f.forEach(p=>c[p]=(c[p]||0)+1); return Object.keys(c).map(p=>p+(c[p]>1?'<sup>'+c[p]+'</sup>':'')).join(' × '); };
+const isPrime=n=>n>1&&pf(n).length===1;
+const factors=n=>[...Array(n).keys()].map(i=>i+1).filter(i=>n%i===0);
+
+/* pohon faktor */
+$('#rn').onclick=()=>{ $('#n').value=pick([24,36,48,60,72,84,90,96,100,120,144,150,180,210,240,360]); drawT(); };
+function drawT(){
+  const n=+$('#n').value; $('#n-v').textContent=n; const f=pf(n), g=$('#tree'); clear(g);
+  const steps=f.length, dy=Math.min(70,380/Math.max(steps,1)), dx=Math.min(55,300/Math.max(steps,1));
+  let cur=n, x=60, y=34;
+  const node=(x,y,v,prime)=>{ s('circle',{cx:x,cy:y,r:prime?19:22,fill:prime?'var(--b)':'var(--card)',stroke:prime?'var(--b)':'var(--acc)','stroke-width':3},g); txt(g,x,y+6,String(v),{'font-weight':800,'font-size':String(v).length>2?13:15,fill:prime?'#fff':'var(--ink)'}); };
+  if(steps===1){ node(200,60,n,true); }
+  else { for(let i=0;i<steps-1;i++){ const p=f[i], q=cur/p;
+      s('line',{x1:x,y1:y,x2:x-dx*0.6,y2:y+dy,stroke:'var(--ink)','stroke-width':2},g); s('line',{x1:x,y1:y,x2:x+dx,y2:y+dy,stroke:'var(--ink)','stroke-width':2},g);
+      node(x,y,cur,false); node(x-dx*0.6,y+dy,p,true); cur=q; x+=dx; y+=dy; }
+    node(x,y,cur,true); }
+  const fs=factors(n);
+  $('#tOut').innerHTML=`<div class="big">${n} = ${f.join(' × ')}</div><div class="huge">${n} = ${pfTxt(n)}</div>
+   <p>Lingkaran merah muda adalah <b>bilangan prima</b> (daun pohon).</p>${isPrime(n)?`<p>🎉 ${n} sendiri adalah bilangan prima!</p>`:''}
+   <p><b>Semua faktor ${n}</b> (${fs.length} buah):<br>${fs.join(', ')}</p>`;
+}
+$('#n').oninput=drawT; drawT();
+
+/* KPK FPB */
+function drawKF(){
+  const a=+$('#a').value, b=+$('#b').value; $('#a-v').textContent=a; $('#b-v').textContent=b;
+  const K=lcm(a,b), G=gcd(a,b), mA=[], mB=[]; for(let i=1;i*a<=Math.max(K,a*6)&&i<=14;i++) mA.push(i*a); for(let i=1;i*b<=Math.max(K,b*6)&&i<=14;i++) mB.push(i*b);
+  const fA=factors(a), fB=factors(b);
+  const hl=(arr,other,key)=>arr.map(v=>other.includes(v)?`<b style="background:${v===key?'var(--d)':'var(--acc-soft)'};padding:1px 6px;border-radius:8px">${v}</b>`:v).join(', ');
+  $('#lists').innerHTML=`<p><b style="color:var(--a)">Kelipatan ${a}:</b> ${hl(mA,mB,K)}${K>mA[mA.length-1]?', …':''}</p><p><b style="color:var(--b)">Kelipatan ${b}:</b> ${hl(mB,mA,K)}${K>mB[mB.length-1]?', …':''}</p><div class="big">KPK = ${K}</div>
+   <hr style="border:0;border-top:1px dashed var(--line);margin:14px 0"><p><b style="color:var(--a)">Faktor ${a}:</b> ${hl(fA,fB,G)}</p><p><b style="color:var(--b)">Faktor ${b}:</b> ${hl(fB,fA,G)}</p><div class="big">FPB = ${G}</div>`;
+  // venn faktor prima
+  const pa=pf(a), pb=pf(b), both=[], onlyA=[], onlyB=pb.slice(); pa.forEach(p=>{ const i=onlyB.indexOf(p); if(i>=0){ both.push(p); onlyB.splice(i,1); } else onlyA.push(p); });
+  const g=$('#venn'); clear(g);
+  s('circle',{cx:150,cy:135,r:100,fill:'var(--a)','fill-opacity':.18,stroke:'var(--a)','stroke-width':2.5},g); s('circle',{cx:250,cy:135,r:100,fill:'var(--b)','fill-opacity':.18,stroke:'var(--b)','stroke-width':2.5},g);
+  txt(g,110,30,String(a),{'font-weight':800,fill:'var(--a)','font-size':18}); txt(g,290,30,String(b),{'font-weight':800,fill:'var(--b)','font-size':18});
+  const put=(arr,cx)=>arr.forEach((p,i)=>txt(g,cx,95+i*26-(arr.length-1)*4,String(p),{'font-weight':800,'font-size':20}));
+  put(onlyA,105); put(both,200); put(onlyB,295);
+  const prod=arr=>arr.length?arr.reduce((x,y)=>x*y,1):1;
+  $('#vOut').innerHTML=`<p>Diagram berisi faktor prima kedua bilangan.</p><p><b>FPB</b> = hasil kali bagian tengah = ${both.length?both.join(' × '):'1'} = <b>${G}</b><br><b>KPK</b> = hasil kali semua = ${[...onlyA,...both,...onlyB].join(' × ')} = <b>${K}</b></p>
+   <p class="muted">${a} = ${pfTxt(a)} &nbsp; · &nbsp; ${b} = ${pfTxt(b)}${G===1?' · FPB 1 berarti kedua bilangan relatif prima.':''}</p>`;
+}
+['#a','#b'].forEach(x=>$(x).oninput=drawKF); drawKF();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'FPB', gen(){ const g=pick([2,3,4,5,6,8,9,12,15]), p=rand(1,8), q=rand(1,8); if(gcd(p,q)!==1||p===q) return this.gen(); const a=g*p, b=g*q; return {q:`FPB dari ${a} dan ${b} adalah …`, a:String(g), hint:'Tulis faktor masing-masing, cari yang sama dan terbesar.', ex:`${a} = ${pfTxt(a)}, ${b} = ${pfTxt(b)} → FPB = ${g}`}; }},
+  {name:'KPK', gen(){ const a=rand(2,15), b=rand(2,15); if(a===b) return this.gen(); return {q:`KPK dari ${a} dan ${b} adalah …`, a:String(lcm(a,b)), hint:'Tulis kelipatannya, cari yang sama dan terkecil.', ex:`KPK(${a}, ${b}) = ${lcm(a,b)}`}; }},
+  {name:'Bilangan prima', gen(){ if(Math.random()<.5){ const n=rand(2,60); return {q:`Apakah ${n} bilangan prima? Jawab <b>ya</b> atau <b>tidak</b>.`, a:isPrime(n)?['ya']:['tidak','bukan'], show:isPrime(n)?'ya':'tidak', hint:'Bilangan prima hanya punya faktor 1 dan dirinya sendiri.', ex:`Faktor ${n}: ${factors(n).join(', ')}`}; }
+    const n=pick([12,18,20,24,30,36,40,45,48,60,72,84,90,100]), f=pf(n); return {q:`Faktor prima <b>terbesar</b> dari ${n} adalah …`, a:String(Math.max(...f)), hint:'Buat pohon faktornya.', ex:`${n} = ${pfTxt(n)}`}; }},
+  {name:'Soal cerita', gen(){ const t=rand(0,1);
+    if(t===0){ const a=pick([2,3,4,5,6]), b=pick([3,4,6,8,9,10]); if(a===b) return this.gen(); return {q:`Andi berenang setiap ${a} hari sekali, Budi setiap ${b} hari sekali. Hari ini mereka berenang bersama. Setelah berapa hari mereka berenang bersama lagi?`, a:String(lcm(a,b)), unit:'hari', hint:'"Bersama lagi" → KPK.', ex:`KPK(${a}, ${b}) = ${lcm(a,b)}`}; }
+    const g=pick([4,5,6,8,10,12]), p=rand(2,6), q=rand(2,6); if(gcd(p,q)!==1||p===q) return this.gen(); return {q:`Ada ${g*p} buku dan ${g*q} pensil yang akan dibagikan sama banyak ke beberapa anak. Paling banyak berapa anak yang mendapat bagian?`, a:String(g), unit:'anak', hint:'"Sama banyak, sebanyak-banyaknya" → FPB.', ex:`FPB(${g*p}, ${g*q}) = ${g}; tiap anak ${p} buku dan ${q} pensil`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Faktor dari 12 adalah …', o:['1, 2, 3, 4, 6, 12','2, 4, 6, 8, 10, 12','12, 24, 36','1, 2, 3, 4, 5, 6'], a:0, ex:'Bilangan yang membagi 12 habis.'},
+ {q:'Kelompok bilangan prima adalah …', o:['2, 3, 5, 7','1, 2, 3, 5','2, 4, 6, 8','3, 5, 7, 9'], a:0, ex:'1 bukan prima; 9 = 3 × 3.'},
+ {q:'Faktorisasi prima dari 60 adalah …', o:['2² × 3 × 5','2 × 3 × 10','2 × 30','2³ × 5'], a:0, ex:'60 = 2 × 2 × 3 × 5.'},
+ {q:'FPB dari 12 dan 18 adalah …', o:['6','36','3','2'], a:0, ex:'Faktor bersama terbesar: 6.'},
+ {q:'KPK dari 4 dan 6 adalah …', o:['12','24','2','10'], a:0, ex:'Kelipatan bersama terkecil: 12.'},
+ {q:'KPK dari 12 dan 18 adalah …', o:['36','6','72','216'], a:0, ex:'2² × 3² = 36.'},
+ {q:'FPB dari 24 dan 36 adalah …', o:['12','6','72','4'], a:0, ex:'24 = 2³ × 3, 36 = 2² × 3² → 2² × 3 = 12.'},
+ {q:'Lampu A berkedip setiap 6 detik, lampu B setiap 8 detik. Keduanya menyala bersamaan lagi setelah …', o:['24 detik','48 detik','14 detik','2 detik'], a:0, ex:'KPK(6, 8) = 24.'},
+ {q:'24 apel dan 36 jeruk dibagi sama banyak ke kantong sebanyak-banyaknya. Banyak kantong …', o:['12','6','72','4'], a:0, ex:'FPB(24, 36) = 12.'},
+ {q:'Dari soal sebelumnya, setiap kantong berisi …', o:['2 apel dan 3 jeruk','3 apel dan 2 jeruk','12 apel dan 12 jeruk','4 apel dan 6 jeruk'], a:0, ex:'24 : 12 = 2 dan 36 : 12 = 3.'},
+ {q:'Faktorisasi prima dari 72 adalah …', o:['2³ × 3²','2² × 3³','2 × 36','8 × 9'], a:0, ex:'72 = 2 × 2 × 2 × 3 × 3.'},
+ {q:'Rina les setiap 4 hari dan Sari setiap 6 hari. Mereka les bersama pada tanggal 1. Mereka les bersama lagi pada tanggal …', o:['13','12','24','10'], a:0, ex:'KPK = 12 hari → 1 + 12 = 13.'},
+ {q:'Tentukan FPB dari 45 dan 60.', input:true, a:['15'], ex:'45 = 3² × 5, 60 = 2² × 3 × 5 → 3 × 5 = 15.'},
+ {q:'Tentukan KPK dari 8 dan 12.', input:true, a:['24'], ex:'2³ × 3 = 24.'},
+ {q:'Kelipatan persekutuan 3 dan 4 yang kurang dari 30 adalah …', o:['12 dan 24','12 saja','7 dan 14','3, 4, 12'], a:0, ex:'Kelipatan KPK(3, 4) = 12: 12, 24.'}
+], 'sd6m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

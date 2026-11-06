@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teorema Pythagoras · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#8a46e0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 7 · Geometri</span>
+  <h1>Teorema Pythagoras</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membuktikan teorema Pythagoras secara visual dan menggunakannya untuk menghitung panjang sisi segitiga siku-siku.</li>
+    <li>Menentukan jenis segitiga dari panjang sisinya serta mengenali tripel Pythagoras.</li>
+    <li>Menerapkan Pythagoras pada segitiga istimewa, jarak dua titik, dan masalah nyata.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🟪 Lab Bukti Persegi</button><button data-target="jenis">🔺 Lab Jenis Segitiga</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Teorema Pythagoras</h2>
+    <div class="def">Pada segitiga siku-siku, <b>kuadrat sisi miring (hipotenusa) sama dengan jumlah kuadrat kedua sisi siku-sikunya</b>.<br><span class="big">c² = a² + b²</span></div>
+    <p>Hipotenusa adalah sisi terpanjang, yang berhadapan dengan sudut siku-siku. Dari rumus itu:</p>
+    <div class="grid3"><div class="ex">c = √(a² + b²)</div><div class="ex">a = √(c² − b²)</div><div class="ex">b = √(c² − a²)</div></div>
+    <div class="ex"><span class="t">Contoh</span> a = 6, b = 8 → c = √(36 + 64) = √100 = <b>10</b>. &nbsp; Hipotenusa 13, sisi 5 → sisi lain = √(169 − 25) = √144 = <b>12</b>.</div>
+  </div>
+  <div class="card"><h2>2. Tripel Pythagoras</h2>
+    <p>Tiga bilangan asli yang memenuhi c² = a² + b²: <b>(3, 4, 5)</b>, <b>(5, 12, 13)</b>, <b>(8, 15, 17)</b>, <b>(7, 24, 25)</b>, (20, 21, 29), … Kelipatannya juga tripel: (6, 8, 10), (9, 12, 15), (10, 24, 26).</p>
+  </div>
+  <div class="card"><h2>3. Jenis segitiga berdasarkan sisi</h2>
+    <p>Misalkan c sisi terpanjang:</p>
+    <table class="t"><tr><th>Jika</th><th>Jenis</th><th>Contoh</th></tr><tr><td>c² = a² + b²</td><td>siku-siku</td><td>6, 8, 10</td></tr><tr><td>c² &lt; a² + b²</td><td>lancip</td><td>5, 6, 7 (49 &lt; 61)</td></tr><tr><td>c² &gt; a² + b²</td><td>tumpul</td><td>6, 8, 11 (121 &gt; 100)</td></tr></table>
+    <div class="note">Tiga ruas garis dapat membentuk segitiga hanya jika sisi terpanjang <b>lebih kecil</b> dari jumlah dua sisi lainnya.</div>
+  </div>
+  <div class="card"><h2>4. Segitiga istimewa</h2>
+    <div class="grid2"><div class="ex"><span class="t">45° – 45° – 90°</span><br>Perbandingan sisi = 1 : 1 : √2<br>Sisi siku 7 → hipotenusa <b>7√2</b></div><div class="ex"><span class="t">30° – 60° – 90°</span><br>Perbandingan sisi (depan 30° : depan 60° : miring) = 1 : √3 : 2<br>Hipotenusa 10 → sisi depan 30° = <b>5</b>, depan 60° = <b>5√3</b></div></div>
+  </div>
+  <div class="card"><h2>5. Penerapan</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Jarak dua titik</span><br>d = √((x₂ − x₁)² + (y₂ − y₁)²)<br>(1, 2) dan (4, 6): √(9 + 16) = <b>5</b></div>
+      <div class="ex"><span class="t">Tangga</span><br>Tangga 5 m bersandar, kakinya 3 m dari tembok. Tinggi ujung tangga = √(25 − 9) = <b>4 m</b>.</div>
+      <div class="ex"><span class="t">Diagonal</span><br>Persegi panjang 9 × 12 cm → diagonal = √(81 + 144) = <b>15 cm</b></div>
+      <div class="ex"><span class="t">Layang-layang</span><br>Benang 25 m, jarak mendatar 7 m → tinggi = √(625 − 49) = <b>24 m</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Persegi pada Sisi Segitiga</h2>
+    <p>Luas persegi biru + luas persegi oranye selalu sama dengan luas persegi ungu. Hitung petaknya!</p>
+    <div class="ctrl"><label>Sisi siku a <span class="v" id="a-v"></span><input type="range" id="a" min="1" max="8" value="3"></label><label>Sisi siku b <span class="v" id="b-v"></span><input type="range" id="b" min="1" max="8" value="4"></label></div>
+    <div class="grid2"><svg class="viz" id="sq" viewBox="0 0 440 440"></svg><div class="out" id="sqOut"></div></div>
+  </div>
+</section>
+
+<section id="jenis" class="panel">
+  <div class="card"><h2>Lab: Tiga Sisi → Jenis Segitiga</h2>
+    <div class="ctrl"><label>Sisi p <span class="v" id="p-v"></span><input type="range" id="p" min="1" max="25" value="6"></label><label>Sisi q <span class="v" id="q-v"></span><input type="range" id="q" min="1" max="25" value="8"></label><label>Sisi r <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="25" value="10"></label></div>
+    <div class="row"><span class="muted" style="font-weight:600">Coba tripel:</span><button class="btn soft" data-t="3,4,5">3, 4, 5</button><button class="btn soft" data-t="5,12,13">5, 12, 13</button><button class="btn soft" data-t="8,15,17">8, 15, 17</button><button class="btn soft" data-t="7,24,25">7, 24, 25</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="tr" viewBox="0 0 440 340"></svg><div class="out" id="trOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jenis segitiga ditulis: lancip, siku-siku, atau tumpul.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 7</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const surd = N => { let k=1; for(let i=Math.floor(Math.sqrt(N));i>=1;i--) if(N%(i*i)===0){k=i;break;} const r=N/(k*k); return r===1?String(k):(k===1?'':k)+'√'+r; };
+
+/* LAB persegi */
+function drawSq(){
+  const a=+$('#a').value, b=+$('#b').value; $('#a-v').textContent=a; $('#b-v').textContent=b;
+  const g=$('#sq'); clear(g); const c=Math.hypot(a,b);
+  // titik dalam satuan: C=(0,0) siku, A=(0,a) atas, B=(b,0) kanan
+  const ext=Math.max(a+b,8)+a+b, u=Math.min(26, 400/(a+b+Math.max(a,b)+ (a+b))) ;
+  const pts=[[-a,-b],[b+a,a+b]]; // kira-kira batas
+  const minX=-a, maxX=b+a, minY=-b, maxY=a+b, U=Math.min(400/(maxX-minX), 400/(maxY-minY));
+  const X=x=>20+(x-minX)*U, Y=y=>420-(y-minY)*U;
+  const poly=(P,fill,op)=>s('polygon',{points:P.map(p=>X(p[0])+','+Y(p[1])).join(' '),fill,'fill-opacity':op,stroke:'var(--ink)','stroke-width':2},g);
+  const grid=(x0,y0,w,h,col)=>{ for(let i=1;i<w;i++) s('line',{x1:X(x0+i),y1:Y(y0),x2:X(x0+i),y2:Y(y0+h),stroke:col,'stroke-opacity':.5},g); for(let j=1;j<h;j++) s('line',{x1:X(x0),y1:Y(y0+j),x2:X(x0+w),y2:Y(y0+j),stroke:col,'stroke-opacity':.5},g); };
+  poly([[0,0],[-a,0],[-a,a],[0,a]],'var(--f)',.3); grid(-a,0,a,a,'var(--f)');
+  poly([[0,0],[b,0],[b,-b],[0,-b]],'var(--b)',.3); grid(0,-b,b,b,'var(--b)');
+  poly([[0,a],[b,0],[b+a,b],[a,a+b]],'var(--acc)',.3);
+  poly([[0,0],[b,0],[0,a]],'var(--card)',1);
+  s('path',{d:`M${X(0)+12},${Y(0)} v-12 h-12`,fill:'none',stroke:'var(--ink)','stroke-width':1.5},g);
+  txt(g,X(-a/2),Y(a/2)+6,a*a,{'font-weight':800,'font-size':18,fill:'var(--f)'}); txt(g,X(b/2),Y(-b/2)+6,b*b,{'font-weight':800,'font-size':18,fill:'var(--b)'}); txt(g,X((b+a)/2),Y((a+b)/2)+6,num(c*c,2),{'font-weight':800,'font-size':18,fill:'var(--acc)'});
+  txt(g,X(-0.35),Y(a/2)+4,'a',{'font-style':'italic','font-weight':700}); txt(g,X(b/2),Y(0)-6,'b',{'font-style':'italic','font-weight':700}); txt(g,X(b/2)+12,Y(a/2)-6,'c',{'font-style':'italic','font-weight':700});
+  const cc=a*a+b*b;
+  $('#sqOut').innerHTML=`<div class="big"><span style="color:var(--f)">${a*a}</span> + <span style="color:var(--b)">${b*b}</span> = <span style="color:var(--acc)">${cc}</span></div>
+   <p>a² + b² = ${a}² + ${b}² = ${cc} = c²</p><div class="huge">c = √${cc}${surd(cc)!=='√'+cc?' = '+surd(cc):''}</div><p class="muted">${Number.isInteger(c)?`(${Math.min(a,b)}, ${Math.max(a,b)}, ${c}) adalah tripel Pythagoras!`:`≈ ${num(c,3)} — bukan bilangan bulat, jadi (${a}, ${b}, c) bukan tripel Pythagoras.`}</p>
+   <p class="muted">Petak pada persegi biru dan oranye dapat dipotong dan disusun ulang mengisi persegi ungu.</p>`;
+}
+['#a','#b'].forEach(x=>$(x).oninput=drawSq); drawSq();
+
+/* LAB jenis */
+document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{ const [p,q,r]=b.dataset.t.split(',').map(Number); $('#p').value=p; $('#q').value=q; $('#r').value=r; drawTr(); });
+function drawTr(){
+  const v=['p','q','r'].map(k=>+$('#'+k).value); ['p','q','r'].forEach((k,i)=>$('#'+k+'-v').textContent=v[i]);
+  const [a,b,c]=v.slice().sort((x,y)=>x-y), g=$('#tr'); clear(g);
+  if(a+b<=c){ txt(g,220,170,'Tidak dapat membentuk segitiga',{'font-weight':800,fill:'var(--bad)'}); s('line',{x1:40,y1:220,x2:40+c*14,y2:220,stroke:'var(--ink)','stroke-width':3},g); s('line',{x1:40,y1:240,x2:40+a*14,y2:240,stroke:'var(--f)','stroke-width':3},g); s('line',{x1:40+a*14,y1:240,x2:40+(a+b)*14,y2:240,stroke:'var(--b)','stroke-width':3},g);
+    $('#trOut').innerHTML=`<div class="big" style="color:var(--bad)">Bukan segitiga</div><p>${a} + ${b} = ${a+b} ${a+b===c?'=':'&lt;'} ${c}. Dua sisi yang pendek tidak cukup panjang untuk bertemu.</p>`; return; }
+  // alas c, titik puncak dari a dan b
+  const x=(c*c+a*a-b*b)/(2*c), h=Math.sqrt(Math.max(0,a*a-x*x)), S=Math.min(380/c, 260/Math.max(h,1));
+  const P=[[30,300],[30+c*S,300],[30+x*S,300-h*S]];
+  s('polygon',{points:P.map(p=>p.join(',')).join(' '),fill:'var(--acc)','fill-opacity':.2,stroke:'var(--ink)','stroke-width':2.5},g);
+  txt(g,30+c*S/2,322,'c = '+c,{'font-weight':700}); txt(g,(P[0][0]+P[2][0])/2-14,(P[0][1]+P[2][1])/2,String(a),{'font-weight':700,'text-anchor':'end'}); txt(g,(P[1][0]+P[2][0])/2+14,(P[1][1]+P[2][1])/2,String(b),{'font-weight':700,'text-anchor':'start'});
+  const L=c*c, R=a*a+b*b, kind=L===R?'siku-siku':L<R?'lancip':'tumpul', col=L===R?'var(--ok)':L<R?'var(--f)':'var(--b)';
+  const ang=Math.acos((a*a+b*b-c*c)/(2*a*b))*180/Math.PI;
+  $('#trOut').innerHTML=`<p>Sisi terpanjang c = ${c}</p><div class="big">c² = ${L} &nbsp;${L===R?'=':L<R?'&lt;':'&gt;'}&nbsp; a² + b² = ${a*a} + ${b*b} = ${R}</div>
+   <div class="huge" style="color:${col}">Segitiga ${kind}</div><p>Sudut di depan sisi terpanjang ≈ <b>${num(ang,1)}°</b></p>${L===R?`<p>(${a}, ${b}, ${c}) adalah <b>tripel Pythagoras</b>.</p>`:''}`;
+}
+['#p','#q','#r'].forEach(x=>$(x).oninput=drawTr); drawTr();
+
+/* LATIHAN */
+const T=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29],[9,40,41]];
+VML.practice($('#prac'), [
+  {name:'Sisi miring', gen(){ const t=pick(T), k=pick([1,1,2,3]); return {q:`Sisi siku-siku segitiga ${t[0]*k} cm dan ${t[1]*k} cm. Panjang hipotenusanya …`, a:String(t[2]*k), unit:'cm', hint:'c = √(a² + b²)', ex:`√(${(t[0]*k)**2} + ${(t[1]*k)**2}) = √${(t[2]*k)**2} = ${t[2]*k}`}; }},
+  {name:'Sisi siku-siku', gen(){ const t=pick(T), k=pick([1,1,2,3]), i=rand(0,1); return {q:`Hipotenusa ${t[2]*k} cm dan salah satu sisi siku-siku ${t[i]*k} cm. Sisi siku-siku lainnya …`, a:String(t[1-i]*k), unit:'cm', hint:'a = √(c² − b²)', ex:`√(${(t[2]*k)**2} − ${(t[i]*k)**2}) = ${t[1-i]*k}`}; }},
+  {name:'Jenis segitiga', gen(){ let a=rand(3,15), b=rand(3,15), c=rand(Math.max(a,b),a+b-1); if(Math.random()<.3){ const t=pick(T); [a,b,c]=t; } const L=c*c, R=a*a+b*b, k=L===R?'siku-siku':L<R?'lancip':'tumpul';
+    return {q:`Segitiga dengan sisi ${a}, ${b}, dan ${c} termasuk segitiga …`, a:[k,k.replace('-',' '),k.replace('-','')], show:k, hint:'Bandingkan kuadrat sisi terpanjang dengan jumlah kuadrat dua sisi lainnya.', ex:`${c}² = ${L} ${L===R?'=':L<R?'<':'>'} ${a*a} + ${b*b} = ${R} → ${k}`}; }},
+  {name:'Jarak & terapan', gen(){ const t=pick(T.slice(0,3)), sx=pick([1,-1]), sy=pick([1,-1]), x1=rand(-5,5), y1=rand(-5,5), x2=x1+sx*t[0], y2=y1+sy*t[1];
+    if(Math.random()<.5) return {q:`Berapa jarak antara titik (${x1}, ${y1}) dan (${x2}, ${y2})?`.replace(/-/g,'−'), a:String(t[2]), unit:'satuan', hint:'d = √(Δx² + Δy²)', ex:`√(${t[0]**2} + ${t[1]**2}) = ${t[2]}`};
+    const k=pick([1,2]); return {q:`Tangga sepanjang ${t[2]*k} m bersandar pada tembok. Jarak kaki tangga ke tembok ${t[0]*k} m. Berapa tinggi ujung atas tangga dari tanah?`, a:String(t[1]*k), unit:'m', hint:'Tangga = hipotenusa.', ex:`√(${(t[2]*k)**2} − ${(t[0]*k)**2}) = ${t[1]*k}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Pada segitiga siku-siku dengan sisi siku-siku a dan b serta hipotenusa c, berlaku …', o:['c² = a² + b²','a² = b² + c²','c = a + b','c² = a² − b²'], a:0, ex:'Kuadrat hipotenusa = jumlah kuadrat sisi siku-siku.'},
+ {q:'Sisi siku-siku sebuah segitiga 6 cm dan 8 cm. Panjang hipotenusanya …', o:['10 cm','14 cm','12 cm','√28 cm'], a:0, ex:'√(36 + 64) = 10.'},
+ {q:'Hipotenusa 13 cm dan salah satu sisi siku-siku 5 cm. Sisi lainnya …', o:['12 cm','8 cm','√194 cm','18 cm'], a:0, ex:'√(169 − 25) = 12.'},
+ {q:'Kelompok bilangan berikut yang merupakan tripel Pythagoras adalah …', o:['8, 15, 17','6, 9, 11','5, 11, 13','7, 20, 25'], a:0, ex:'64 + 225 = 289 = 17².'},
+ {q:'Segitiga dengan panjang sisi 5, 6, dan 7 termasuk segitiga …', o:['lancip','siku-siku','tumpul','bukan segitiga'], a:0, ex:'49 < 25 + 36 = 61.'},
+ {q:'Segitiga dengan panjang sisi 6, 8, dan 11 termasuk segitiga …', o:['tumpul','lancip','siku-siku','sama kaki'], a:0, ex:'121 > 100.'},
+ {q:'Tangga 5 m bersandar pada tembok. Kaki tangga berjarak 3 m dari tembok. Tinggi ujung tangga …', o:['4 m','2 m','8 m','√34 m'], a:0, ex:'√(25 − 9) = 4.'},
+ {q:'Jarak titik (1, 2) dan (4, 6) adalah …', o:['5','7','25','√7'], a:0, ex:'√(3² + 4²) = 5.'},
+ {q:'Segitiga siku-siku sama kaki dengan sisi siku-siku 7 cm memiliki hipotenusa …', o:['7√2 cm','14 cm','7√3 cm','49 cm'], a:0, ex:'Perbandingan 1 : 1 : √2.'},
+ {q:'Segitiga 30°–60°–90° memiliki hipotenusa 10 cm. Sisi di depan sudut 30° adalah …', o:['5 cm','5√3 cm','10√3 cm','20 cm'], a:0, ex:'Perbandingan 1 : √3 : 2 → 10 : 2 = 5.'},
+ {q:'Diagonal persegi panjang berukuran 9 cm × 12 cm adalah …', o:['15 cm','21 cm','√63 cm','13 cm'], a:0, ex:'√(81 + 144) = 15.'},
+ {q:'Segitiga dengan sisi 2, 2√3, dan 4 adalah …', o:['segitiga siku-siku','segitiga tumpul','segitiga lancip','bukan segitiga'], a:0, ex:'4 + 12 = 16 = 4².'},
+ {q:'Sisi siku-siku 9 cm dan 12 cm. Berapa panjang hipotenusanya?', input:true, a:['15'], unit:'cm', ex:'√(81 + 144) = 15.'},
+ {q:'Benang layang-layang 25 m terulur lurus. Jarak mendatar dari pemegang benang ke titik di bawah layang-layang 7 m. Berapa tinggi layang-layang?', input:true, a:['24'], unit:'m', ex:'√(625 − 49) = 24.'},
+ {q:'Kelompok bilangan berikut yang <b>bukan</b> tripel Pythagoras adalah …', o:['4, 5, 6','9, 12, 15','7, 24, 25','10, 24, 26'], a:0, ex:'16 + 25 = 41 ≠ 36.'}
+], 'k8m7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

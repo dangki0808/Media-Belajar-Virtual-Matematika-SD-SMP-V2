@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Segitiga dan Segiempat · Virtual Math Lab</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#c93a7f">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 7 · Geometri</span>
+  <h1>Bangun Datar: Segitiga dan Segiempat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenali jenis dan sifat segitiga serta segiempat (persegi, persegi panjang, jajargenjang, trapesium, belah ketupat, layang-layang).</li>
+    <li>Menurunkan dan menggunakan rumus keliling dan luas segitiga dan segiempat.</li>
+    <li>Menyelesaikan masalah kontekstual tentang keliling dan luas bangun datar.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Bangun Datar</button><button data-target="sudut">🔺 Lab Sudut Segitiga</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Segitiga</h2>
+    <div class="grid2">
+      <div><h3>Berdasarkan panjang sisi</h3><ul><li><b>Sama sisi</b>: ketiga sisi sama, tiap sudut 60°.</li><li><b>Sama kaki</b>: dua sisi sama, dua sudut alas sama besar.</li><li><b>Sembarang</b>: ketiga sisi berbeda.</li></ul></div>
+      <div><h3>Berdasarkan besar sudut</h3><ul><li><b>Lancip</b>: ketiga sudut &lt; 90°.</li><li><b>Siku-siku</b>: satu sudut = 90°.</li><li><b>Tumpul</b>: satu sudut &gt; 90°.</li></ul></div>
+    </div>
+    <div class="def">Jumlah ketiga sudut dalam segitiga selalu <b>180°</b>. &nbsp; Keliling = a + b + c. &nbsp; Luas = <span class="fr"><span>1</span><span>2</span></span> × alas × tinggi.</div>
+    <div class="note">Tinggi segitiga selalu <b>tegak lurus</b> terhadap alasnya — bukan selalu sisi miringnya.</div>
+    <div class="ex"><span class="t">Contoh</span> Alas 12 cm, tinggi 9 cm → L = ½ × 12 × 9 = <b>54 cm²</b>. Sudut 50° dan 60° → sudut ketiga = 180° − 110° = <b>70°</b>.</div>
+  </div>
+
+  <div class="card"><h2>2. Segiempat: sifat, keliling, dan luas</h2>
+    <div class="scroll"><table class="t">
+      <tr><th>Bangun</th><th>Sifat penting</th><th>Keliling</th><th>Luas</th></tr>
+      <tr><td><b>Persegi</b></td><td>4 sisi sama, 4 sudut siku-siku, diagonal sama panjang dan tegak lurus</td><td>4s</td><td>s × s</td></tr>
+      <tr><td><b>Persegi panjang</b></td><td>sisi berhadapan sama dan sejajar, 4 sudut siku-siku, diagonal sama panjang</td><td>2(p + l)</td><td>p × l</td></tr>
+      <tr><td><b>Jajargenjang</b></td><td>sisi berhadapan sama dan sejajar, sudut berhadapan sama besar</td><td>2(a + b)</td><td>a × t</td></tr>
+      <tr><td><b>Trapesium</b></td><td>tepat satu pasang sisi sejajar</td><td>jumlah keempat sisi</td><td>½ × (a + b) × t</td></tr>
+      <tr><td><b>Belah ketupat</b></td><td>4 sisi sama, diagonal saling tegak lurus dan membagi dua sama panjang</td><td>4s</td><td>½ × d₁ × d₂</td></tr>
+      <tr><td><b>Layang-layang</b></td><td>dua pasang sisi berdekatan sama, satu diagonal membagi dua diagonal lain tegak lurus</td><td>2(a + b)</td><td>½ × d₁ × d₂</td></tr>
+    </table></div>
+    <div class="note">Luas jajargenjang = a × t karena potongan segitiga di satu sisi dapat dipindah ke sisi lain sehingga terbentuk persegi panjang. Coba lihat di Lab!</div>
+  </div>
+
+  <div class="card"><h2>3. Satuan dan soal cerita</h2>
+    <p>Keliling memakai satuan panjang (cm, m); luas memakai satuan luas (cm², m²). Ingat: 1 m² = 10.000 cm².</p>
+    <div class="ex"><span class="t">Contoh 1</span> Kebun 20 m × 15 m dipagari dengan biaya Rp25.000 per meter. Keliling = 2(20 + 15) = 70 m. Biaya = 70 × 25.000 = <b>Rp1.750.000</b>.</div>
+    <div class="ex"><span class="t">Contoh 2</span> Lantai 4 m × 3 m dipasang ubin 20 cm × 20 cm. Luas lantai = 120.000 cm², luas ubin = 400 cm². Banyak ubin = 120.000 : 400 = <b>300 buah</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ubah Ukuran Bangun Datar</h2>
+    <p>Pilih bangun, lalu ubah ukurannya. Satu kotak petak = 1 cm × 1 cm, jadi kamu bisa memeriksa luasnya dengan menghitung petak.</p>
+    <div class="seg" id="shp"></div>
+    <div class="ctrl" id="sl"></div>
+    <div class="grid2"><svg class="viz" id="sv" viewBox="0 0 400 300"></svg><div class="out" id="sOut"></div></div>
+  </div>
+</section>
+
+<section id="sudut" class="panel">
+  <div class="card"><h2>Lab: Jumlah Sudut Segitiga</h2>
+    <p>Seret titik-titik sudut segitiga. Besar sudutnya berubah, tetapi jumlahnya?</p>
+    <div class="grid2"><svg class="viz" id="tri" viewBox="0 0 420 340"></svg><div class="out" id="triOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VII · Modul 7</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const hyp=(a,b)=>Math.sqrt(a*a+b*b), r2=x=>num(x,2);
+const PY='<p class="muted" style="font-size:.88rem">*Panjang sisi miring dihitung dengan teorema Pythagoras (dipelajari di Kelas VIII).</p>';
+const SH = {
+  segitiga:{n:'Segitiga', p:{a:['alas',8,2,12],t:['tinggi',5,1,8],q:['posisi puncak',3,0,12]},
+    pts:v=>[[0,0],[v.a,0],[Math.min(v.q,v.a),v.t]], out:v=>{ const q=Math.min(v.q,v.a), b=hyp(q,v.t), c=hyp(v.a-q,v.t), L=v.a*v.t/2;
+      return `<b>Luas</b> = ½ × a × t = ½ × ${v.a} × ${v.t} = <span class="big">${num(L)} cm²</span><br><b>Keliling</b> = ${v.a} + ${r2(b)} + ${r2(c)} ≈ <b>${r2(v.a+b+c)} cm</b>${PY}<p>Geser posisi puncak: luasnya tetap karena alas dan tingginya tidak berubah!</p>`; }},
+  persegi:{n:'Persegi', p:{s:['sisi',5,1,8]}, pts:v=>[[0,0],[v.s,0],[v.s,v.s],[0,v.s]], out:v=>`<b>Luas</b> = s × s = ${v.s} × ${v.s} = <span class="big">${v.s*v.s} cm²</span><br><b>Keliling</b> = 4 × s = 4 × ${v.s} = <b>${4*v.s} cm</b>`},
+  pp:{n:'Persegi panjang', p:{p:['panjang',8,1,12],l:['lebar',5,1,8]}, pts:v=>[[0,0],[v.p,0],[v.p,v.l],[0,v.l]], out:v=>`<b>Luas</b> = p × l = ${v.p} × ${v.l} = <span class="big">${v.p*v.l} cm²</span><br><b>Keliling</b> = 2(p + l) = 2(${v.p} + ${v.l}) = <b>${2*(v.p+v.l)} cm</b>`},
+  jajar:{n:'Jajargenjang', p:{a:['alas',7,2,9],t:['tinggi',4,1,7],g:['geser',3,0,4]}, pts:v=>[[0,0],[v.a,0],[v.a+v.g,v.t],[v.g,v.t]], cut:true,
+    out:v=>{ const b=hyp(v.g,v.t); return `<b>Luas</b> = a × t = ${v.a} × ${v.t} = <span class="big">${v.a*v.t} cm²</span><br><b>Keliling</b> = 2(a + b) = 2(${v.a} + ${r2(b)}) ≈ <b>${r2(2*(v.a+b))} cm</b>${v.g?PY:''}<p>Segitiga yang diarsir dipindah ke kanan membentuk persegi panjang ${v.a} × ${v.t}.</p>`; }},
+  trap:{n:'Trapesium', p:{a:['sisi bawah (a)',10,2,12],b:['sisi atas (b)',5,1,12],t:['tinggi',4,1,8],g:['geser',2,0,6]}, pts:v=>{ const b=Math.min(v.b,v.a), g=Math.min(v.g,v.a-b); return [[0,0],[v.a,0],[g+b,v.t],[g,v.t]]; },
+    out:v=>{ const b=Math.min(v.b,v.a), g=Math.min(v.g,v.a-b), k1=hyp(g,v.t), k2=hyp(v.a-b-g,v.t); return `<b>Luas</b> = ½ × (a + b) × t = ½ × (${v.a} + ${b}) × ${v.t} = <span class="big">${num((v.a+b)*v.t/2)} cm²</span><br><b>Keliling</b> = ${v.a} + ${b} + ${r2(k1)} + ${r2(k2)} ≈ <b>${r2(v.a+b+k1+k2)} cm</b>${PY}`; }},
+  belah:{n:'Belah ketupat', p:{d1:['diagonal 1',8,2,12],d2:['diagonal 2',6,2,8]}, pts:v=>[[0,v.d2/2],[v.d1/2,0],[v.d1,v.d2/2],[v.d1/2,v.d2]], diag:true,
+    out:v=>{ const s2=hyp(v.d1/2,v.d2/2); return `<b>Luas</b> = ½ × d₁ × d₂ = ½ × ${v.d1} × ${v.d2} = <span class="big">${num(v.d1*v.d2/2)} cm²</span><br><b>Keliling</b> = 4s ≈ 4 × ${r2(s2)} = <b>${r2(4*s2)} cm</b>${PY}`; }},
+  layang:{n:'Layang-layang', p:{d1:['diagonal mendatar',6,2,10],at:['tinggi bagian atas',2,1,4],bw:['tinggi bagian bawah',5,1,6]}, pts:v=>[[v.d1/2,0],[v.d1,v.bw],[v.d1/2,v.bw+v.at],[0,v.bw]], diag:true,
+    out:v=>{ const d2=v.at+v.bw, a=hyp(v.d1/2,v.at), b=hyp(v.d1/2,v.bw); return `<b>Luas</b> = ½ × d₁ × d₂ = ½ × ${v.d1} × ${d2} = <span class="big">${num(v.d1*d2/2)} cm²</span><br><b>Keliling</b> = 2(a + b) ≈ 2(${r2(a)} + ${r2(b)}) = <b>${r2(2*(a+b))} cm</b>${PY}`; }}
+};
+let cur='segitiga', vals={};
+$('#shp').innerHTML=Object.entries(SH).map(([k,o])=>`<button data-k="${k}" class="${k===cur?'on':''}">${o.n}</button>`).join('');
+document.querySelectorAll('#shp button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#shp button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur=b.dataset.k;buildSliders();});
+function buildSliders(){ const P=SH[cur].p; vals={}; $('#sl').innerHTML=Object.entries(P).map(([k,[n,v,mn,mx]])=>{vals[k]=v; return `<label>${n} <span class="v" id="${k}-v">${v} cm</span><input type="range" data-k="${k}" min="${mn}" max="${mx}" value="${v}"></label>`;}).join('');
+  document.querySelectorAll('#sl input').forEach(i=>i.oninput=()=>{vals[i.dataset.k]=+i.value; $('#'+i.dataset.k+'-v').textContent=i.value+' cm'; drawShape();}); drawShape(); }
+function drawShape(){
+  const o=SH[cur], pts=o.pts(vals), g=$('#sv'); clear(g); const U=26, ox=40, oy=275;
+  const X=x=>ox+x*U, Y=y=>oy-y*U;
+  for(let i=0;i<=13;i++) s('line',{x1:X(i),y1:Y(0),x2:X(i),y2:Y(9.5),stroke:'var(--line)'},g);
+  for(let j=0;j<=9;j++) s('line',{x1:X(0),y1:Y(j),x2:X(13.5),y2:Y(j),stroke:'var(--line)'},g);
+  if(o.cut&&vals.g>0){ s('polygon',{points:[[0,0],[vals.g,vals.t],[0,vals.t]].map(p=>X(p[0])+','+Y(p[1])).join(' '),fill:'var(--b)','fill-opacity':.15,stroke:'var(--b)','stroke-dasharray':'4 3'},g);
+    s('polygon',{points:[[vals.a,0],[vals.a+vals.g,vals.t],[vals.a,vals.t]].map(p=>X(p[0])+','+Y(p[1])).join(' '),fill:'var(--b)','fill-opacity':.35},g); }
+  s('polygon',{points:pts.map(p=>X(p[0])+','+Y(p[1])).join(' '),fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':3,'stroke-linejoin':'round'},g);
+  if(o.diag){ s('line',{x1:X(pts[0][0]),y1:Y(pts[0][1]),x2:X(pts[2][0]),y2:Y(pts[2][1]),stroke:'var(--ink)','stroke-dasharray':'5 4','stroke-width':1.5},g); s('line',{x1:X(pts[1][0]),y1:Y(pts[1][1]),x2:X(pts[3][0]),y2:Y(pts[3][1]),stroke:'var(--ink)','stroke-dasharray':'5 4','stroke-width':1.5},g); }
+  const tt = cur==='segitiga'?[Math.min(vals.q,vals.a),vals.t]: cur==='jajar'?[vals.g,vals.t]: cur==='trap'?[Math.min(vals.g,vals.a-Math.min(vals.b,vals.a)),vals.t]:null;
+  if(tt){ s('line',{x1:X(tt[0]),y1:Y(0),x2:X(tt[0]),y2:Y(tt[1]),stroke:'var(--b)','stroke-width':2,'stroke-dasharray':'6 4'},g); s('path',{d:`M${X(tt[0])+9},${Y(0)} v-9 h-9`,fill:'none',stroke:'var(--b)','stroke-width':1.5},g); txt(g,X(tt[0])+12,Y(tt[1]/2),'t',{fill:'var(--b)','font-weight':800,'text-anchor':'start'}); }
+  pts.forEach(p=>s('circle',{cx:X(p[0]),cy:Y(p[1]),r:4,fill:'var(--acc)'},g));
+  $('#sOut').innerHTML=`<div class="big" style="margin-bottom:6px">${o.n}</div>`+o.out(vals);
+}
+buildSliders();
+
+/* LAB sudut segitiga */
+let T=[[60,280],[360,280],[170,70]];
+function ang(P,Q,R){ const v1=[Q[0]-P[0],Q[1]-P[1]], v2=[R[0]-P[0],R[1]-P[1]]; const c=(v1[0]*v2[0]+v1[1]*v2[1])/(hyp(...v1)*hyp(...v2)); return Math.acos(Math.max(-1,Math.min(1,c)))*180/Math.PI; }
+function drawTri(){
+  const g=$('#tri'); clear(g); const A=[ang(T[0],T[1],T[2]),ang(T[1],T[2],T[0]),ang(T[2],T[0],T[1])], cols=['var(--a)','var(--c)','var(--b)'], L='ABC';
+  s('polygon',{points:T.map(p=>p.join(',')).join(' '),fill:'var(--acc)','fill-opacity':.12,stroke:'var(--ink)','stroke-width':2.5},g);
+  T.forEach((P,i)=>{ const Q=T[(i+1)%3], R=T[(i+2)%3]; const a1=Math.atan2(-(Q[1]-P[1]),Q[0]-P[0]), a2=Math.atan2(-(R[1]-P[1]),R[0]-P[0]); const r=30;
+    let st=a1, en=a2; let diff=en-st; while(diff<=-Math.PI) diff+=2*Math.PI; while(diff>Math.PI) diff-=2*Math.PI;
+    const x0=P[0]+r*Math.cos(st), y0=P[1]-r*Math.sin(st), x1=P[0]+r*Math.cos(st+diff), y1=P[1]-r*Math.sin(st+diff);
+    s('path',{d:`M${P[0]},${P[1]} L${x0},${y0} A${r},${r} 0 0 ${diff>0?0:1} ${x1},${y1} Z`,fill:cols[i],'fill-opacity':.4,stroke:cols[i],'stroke-width':1.5},g);
+    const mid=st+diff/2; txt(g,P[0]+52*Math.cos(mid),P[1]-52*Math.sin(mid)+5,Math.round(A[i])+'°',{'font-weight':800,fill:cols[i]});
+    const h=s('circle',{cx:P[0],cy:P[1],r:13,fill:cols[i],stroke:'var(--card)','stroke-width':3,style:'cursor:grab'},g); txt(g,P[0],P[1]+5,L[i],{fill:'#fff','font-weight':800,'font-size':13,'pointer-events':'none'});
+  });
+  VML.dragSvg(g, p=>{ let b=null,bd=30; T.forEach((q,i)=>{ const d=Math.hypot(p.x-q[0],p.y-q[1]); if(d<bd){bd=d;b=i;} }); return b; }, (i,p)=>{ T[i]=[Math.max(15,Math.min(405,p.x)),Math.max(15,Math.min(325,p.y))]; drawTri(); });
+  const R=A.map(a=>Math.round(a)); let fix=180-R.reduce((x,y)=>x+y,0); // tampilan bulat
+  const side=[hyp(T[1][0]-T[2][0],T[1][1]-T[2][1]),hyp(T[0][0]-T[2][0],T[0][1]-T[2][1]),hyp(T[0][0]-T[1][0],T[0][1]-T[1][1])];
+  const eq=(x,y)=>Math.abs(x-y)<6, nEq=(eq(side[0],side[1])?1:0)+(eq(side[1],side[2])?1:0)+(eq(side[0],side[2])?1:0);
+  const mx=Math.max(...A), byA = Math.abs(mx-90)<1.5?'siku-siku':mx>90?'tumpul':'lancip', byS = nEq>=2?'sama sisi':nEq===1?'sama kaki':'sembarang';
+  $('#triOut').innerHTML=`<div class="big"><span style="color:var(--a)">∠A ${R[0]}°</span> + <span style="color:var(--c)">∠B ${R[1]}°</span> + <span style="color:var(--b)">∠C ${R[2]}°</span></div>
+   <div class="huge" style="margin:8px 0">= ${R[0]+R[1]+R[2]+fix}°</div>
+   <p>Jenis menurut sudut: <b>segitiga ${byA}</b><br>Jenis menurut sisi (perkiraan): <b>${byS}</b></p>
+   <p class="muted">Pembulatan ke derajat terdekat kadang membuat jumlahnya tampak 179° atau 181°; nilai sebenarnya tetap 180°.</p>`;
+  if(fix!==0) $('#triOut .huge').textContent='≈ 180°';
+}
+drawTri();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Luas', gen(){ const t=rand(0,5);
+    if(t===0){ const a=rand(2,20)*2, h=rand(2,15); return {q:`Luas segitiga dengan alas ${a} cm dan tinggi ${h} cm adalah …`, a:String(a*h/2), unit:'cm²', hint:'L = ½ × a × t', ex:`½ × ${a} × ${h} = ${a*h/2}`}; }
+    if(t===1){ const p=rand(3,20), l=rand(2,15); return {q:`Luas persegi panjang ${p} cm × ${l} cm adalah …`, a:String(p*l), unit:'cm²', hint:'L = p × l', ex:`${p} × ${l} = ${p*l}`}; }
+    if(t===2){ const a=rand(3,20), h=rand(2,12); return {q:`Luas jajargenjang dengan alas ${a} cm dan tinggi ${h} cm adalah …`, a:String(a*h), unit:'cm²', hint:'L = a × t', ex:`${a} × ${h} = ${a*h}`}; }
+    if(t===3){ const a=rand(5,20), b=rand(2,a-1), h=rand(1,6)*2; return {q:`Trapesium memiliki sisi sejajar ${a} cm dan ${b} cm serta tinggi ${h} cm. Luasnya …`, a:String((a+b)*h/2), unit:'cm²', hint:'L = ½ × (a + b) × t', ex:`½ × (${a} + ${b}) × ${h} = ${(a+b)*h/2}`}; }
+    const d1=rand(2,12)*2, d2=rand(3,20); const nm=pick(['belah ketupat','layang-layang']); return {q:`Luas ${nm} dengan diagonal ${d1} cm dan ${d2} cm adalah …`, a:String(d1*d2/2), unit:'cm²', hint:'L = ½ × d₁ × d₂', ex:`½ × ${d1} × ${d2} = ${d1*d2/2}`}; }},
+  {name:'Keliling', gen(){ const t=rand(0,2);
+    if(t===0){ const sd=rand(2,25); return {q:`Keliling persegi dengan sisi ${sd} cm adalah …`, a:String(4*sd), unit:'cm', hint:'K = 4s', ex:`4 × ${sd} = ${4*sd}`}; }
+    if(t===1){ const p=rand(3,25), l=rand(2,20); return {q:`Keliling persegi panjang ${p} cm × ${l} cm adalah …`, a:String(2*(p+l)), unit:'cm', hint:'K = 2(p + l)', ex:`2 × (${p} + ${l}) = ${2*(p+l)}`}; }
+    const a=rand(3,15), b=rand(3,15), c=rand(Math.abs(a-b)+1,a+b-1); return {q:`Keliling segitiga dengan sisi ${a} cm, ${b} cm, dan ${c} cm adalah …`, a:String(a+b+c), unit:'cm', hint:'Jumlahkan ketiga sisinya.', ex:`${a} + ${b} + ${c} = ${a+b+c}`}; }},
+  {name:'Mencari unsur', gen(){ const t=rand(0,2);
+    if(t===0){ const x=rand(20,80), y=rand(20,150-x); return {q:`Dua sudut segitiga besarnya ${x}° dan ${y}°. Berapa besar sudut ketiga?`, a:String(180-x-y), unit:'°', hint:'Jumlah sudut segitiga 180°.', ex:`180 − ${x} − ${y} = ${180-x-y}`}; }
+    if(t===1){ const p=rand(4,20), l=rand(2,15); return {q:`Luas persegi panjang ${p*l} cm² dan panjangnya ${p} cm. Berapa lebarnya?`, a:String(l), unit:'cm', hint:'l = L : p', ex:`${p*l} : ${p} = ${l}`}; }
+    const sd=rand(3,15); return {q:`Luas sebuah persegi ${sd*sd} cm². Berapa kelilingnya?`, a:String(4*sd), unit:'cm', hint:'Cari dulu sisinya: s × s = luas.', ex:`s = ${sd} cm → K = 4 × ${sd} = ${4*sd}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Jumlah besar ketiga sudut dalam sebuah segitiga adalah …', o:['180°','90°','360°','270°'], a:0, ex:'Coba di Lab Sudut Segitiga: jumlahnya selalu 180°.'},
+ {q:'Dua sudut sebuah segitiga besarnya 50° dan 60°. Besar sudut ketiganya adalah …', o:['70°','80°','110°','60°'], a:0, ex:'180° − 50° − 60° = 70°.'},
+ {q:'Segitiga yang memiliki tepat dua sisi sama panjang disebut segitiga …', o:['sama kaki','sama sisi','sembarang','siku-siku'], a:0, ex:'Dua sisi sama = sama kaki.'},
+ {q:'Luas segitiga dengan alas 12 cm dan tinggi 9 cm adalah …', o:['54 cm²','108 cm²','21 cm²','42 cm²'], a:0, ex:'½ × 12 × 9 = 54.'},
+ {q:'Keliling persegi panjang dengan panjang 15 cm dan lebar 8 cm adalah …', o:['46 cm','120 cm','23 cm','38 cm'], a:0, ex:'2 × (15 + 8) = 46.'},
+ {q:'Luas jajargenjang dengan alas 14 cm dan tinggi 6 cm adalah …', o:['84 cm²','42 cm²','40 cm²','168 cm²'], a:0, ex:'a × t = 14 × 6 = 84.'},
+ {q:'Luas trapesium dengan sisi sejajar 10 cm dan 16 cm serta tinggi 7 cm adalah …', o:['91 cm²','182 cm²','112 cm²','70 cm²'], a:0, ex:'½ × (10 + 16) × 7 = 91.'},
+ {q:'Luas belah ketupat dengan panjang diagonal 12 cm dan 16 cm adalah …', o:['96 cm²','192 cm²','48 cm²','56 cm²'], a:0, ex:'½ × 12 × 16 = 96.'},
+ {q:'Luas layang-layang dengan diagonal 10 cm dan 18 cm adalah …', o:['90 cm²','180 cm²','56 cm²','28 cm²'], a:0, ex:'½ × 10 × 18 = 90.'},
+ {q:'Segiempat yang keempat sisinya sama panjang dan keempat sudutnya siku-siku adalah …', o:['persegi','belah ketupat','persegi panjang','layang-layang'], a:0, ex:'Belah ketupat juga 4 sisi sama, tetapi sudutnya belum tentu siku-siku.'},
+ {q:'Sebuah persegi luasnya 144 cm². Kelilingnya adalah …', o:['48 cm','36 cm','72 cm','12 cm'], a:0, ex:'s = 12 cm → K = 4 × 12 = 48.'},
+ {q:'Luas persegi panjang 72 cm² dan panjangnya 12 cm. Lebarnya adalah …', o:['6 cm','8 cm','24 cm','60 cm'], a:0, ex:'72 : 12 = 6.'},
+ {q:'Kebun berbentuk persegi panjang 20 m × 15 m akan dipagari dengan biaya Rp25.000 per meter. Berapa rupiah biaya seluruhnya? (tulis angkanya saja)', input:true, a:['1750000','1.750.000'], show:'Rp1.750.000', ex:'K = 2(20 + 15) = 70 m → 70 × 25.000 = 1.750.000.'},
+ {q:'Lantai berukuran 4 m × 3 m akan dipasang ubin persegi berukuran 20 cm × 20 cm. Berapa banyak ubin yang diperlukan?', input:true, a:['300'], unit:'buah', ex:'120.000 cm² : 400 cm² = 300.'},
+ {q:'Segiempat yang hanya memiliki tepat satu pasang sisi sejajar adalah …', o:['trapesium','jajargenjang','persegi panjang','belah ketupat'], a:0, ex:'Jajargenjang, persegi panjang, dan belah ketupat memiliki dua pasang sisi sejajar.'}
+], 'm7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

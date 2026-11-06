@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mengukur Panjang & Berat · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#7d4bd8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Pengukuran</span>
+  <h1>📏 Mengukur Panjang &amp; Berat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengukur panjang dengan satuan tidak baku (klip, jengkal) dan satuan baku (cm, m).</li>
+    <li>Membandingkan panjang dan berat benda: lebih panjang, lebih pendek, lebih berat, lebih ringan.</li>
+    <li>Mengenal satuan berat kilogram (kg).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📏 Lab Penggaris</button><button data-target="berat">⚖️ Lab Timbangan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Satuan tidak baku</h2>
+    <p>Kita bisa mengukur dengan <b>jengkal</b>, <b>depa</b>, <b>langkah</b>, atau <b>klip kertas</b>. Tetapi hasilnya bisa <b>berbeda-beda</b> karena tangan setiap orang tidak sama besar.</p>
+    <div class="ex">Meja diukur Ayah = 5 jengkal, diukur Adik = 8 jengkal. Mejanya sama, hasilnya berbeda!</div>
+  </div>
+  <div class="card"><h2>2. Satuan baku: cm dan m</h2>
+    <p>Supaya hasilnya sama, kita memakai <b>penggaris</b> atau <b>meteran</b>. Satuannya <b>sentimeter (cm)</b> dan <b>meter (m)</b>.</p>
+    <div class="def">1 meter = 100 cm</div>
+    <div class="note">Saat mengukur dengan penggaris, ujung benda harus tepat di angka <b>0</b>.</div>
+  </div>
+  <div class="card"><h2>3. Membandingkan</h2>
+    <div class="grid2"><div class="ex"><span class="t">Panjang</span><br>Pensil 15 cm lebih <b>panjang</b> daripada penghapus 5 cm.</div><div class="ex"><span class="t">Berat</span><br>Semangka lebih <b>berat</b> daripada apel. Piring timbangan yang lebih berat akan <b>turun</b>.</div></div>
+    <p>Satuan berat: <b>kilogram (kg)</b>. Contoh: sekarung beras 5 kg.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ukur dengan Penggaris</h2>
+    <p>Seret benda ke atas penggaris. Pastikan ujung kirinya tepat di angka 0!</p>
+    <div class="row" id="its"></div>
+    <svg class="viz" id="rl" viewBox="0 0 720 260" style="margin-top:10px"></svg>
+    <div class="out" id="rOut"></div>
+  </div>
+</section>
+
+<section id="berat" class="panel">
+  <div class="card"><h2>Lab: Mana yang Lebih Berat?</h2>
+    <p>Ketuk benda untuk menaruhnya di piring kiri atau kanan.</p>
+    <div class="row"><b>Kiri:</b><span id="bl"></span></div>
+    <div class="row"><b>Kanan:</b><span id="br"></span></div>
+    <div class="row"><button class="btn ghost" id="bc">Kosongkan</button></div>
+    <svg class="viz" id="bs" viewBox="0 0 720 280" style="margin-top:10px"></svg>
+    <div class="out" id="bOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Untuk membandingkan, tulis: panjang / pendek / berat / ringan.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const IT=[['✏️','Pensil',14],['🖍️','Krayon',8],['🧽','Penghapus',5],['🥄','Sendok',12],['📱','Ponsel mainan',10],['🔑','Kunci',6],['🍌','Pisang',17]];
+let cur=0, pos=[300,60];
+$('#its').innerHTML=IT.map(([e,n],i)=>`<button class="btn soft" data-i="${i}">${e} ${n}</button>`).join('');
+document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{ cur=+b.dataset.i; pos=[rand(120,380),60]; drawR(); });
+const CM=32, R0=40;
+function drawR(){
+  const g=$('#rl'); clear(g); const [e,n,L]=IT[cur], w=L*CM;
+  s('rect',{x:R0-20,y:150,width:20*CM+40,height:70,rx:8,fill:'#ffe48a',stroke:'#c9a24a','stroke-width':2},g);
+  for(let k=0;k<=20;k++){ s('line',{x1:R0+k*CM,y1:150,x2:R0+k*CM,y2:k%5===0?180:172,stroke:'#333','stroke-width':k%5===0?2.5:1.5},g); txt(g,R0+k*CM,200,String(k),{'font-size':13,'font-weight':k%5===0?900:600}); if(k<20) s('line',{x1:R0+k*CM+CM/2,y1:150,x2:R0+k*CM+CM/2,y2:162,stroke:'#555'},g); }
+  txt(g,R0+20*CM-6,214,'cm',{'font-size':11,'text-anchor':'end'});
+  const [x,y]=pos; s('rect',{x,y,width:w,height:46,rx:23,fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':3,style:'cursor:grab'},g); txt(g,x+w/2,y+33,e,{'font-size':30,'pointer-events':'none'});
+  const snapped=Math.abs(x-R0)<2&&y>95;
+  if(y>95){ s('line',{x1:x,y1:y+46,x2:x,y2:150,stroke:'var(--b)','stroke-dasharray':'4 3'},g); s('line',{x1:x+w,y1:y+46,x2:x+w,y2:150,stroke:'var(--b)','stroke-dasharray':'4 3'},g); }
+  VML.dragSvg(g, q=>q.x>=pos[0]-10&&q.x<=pos[0]+w+10&&q.y>=pos[1]-10&&q.y<=pos[1]+56?{dx:q.x-pos[0],dy:q.y-pos[1]}:null, (d,q)=>{ let nx=q.x-d.dx, ny=q.y-d.dy; if(ny>80&&Math.abs(nx-R0)<18) nx=R0; if(ny>80) ny=100; pos=[Math.max(0,Math.min(720-w,nx)),Math.max(10,Math.min(100,ny))]; drawR(); });
+  const startCm=(x-R0)/CM, endCm=(x+w-R0)/CM;
+  $('#rOut').innerHTML= y<=95?'<p>Seret benda ke bawah, ke atas penggaris.</p>' : snapped?`<div class="big">${e} ${n} panjangnya ${L} cm ✅</div><p>Ujung kiri di 0, ujung kanan di ${L}.</p>`:`<p>Ujung kiri berada di ${VML.num(startCm,1)}, ujung kanan di ${VML.num(endCm,1)}.</p><div class="fb hint">Geser ujung kirinya tepat ke angka <b>0</b>! (Atau hitung: ${VML.num(endCm,1)} − ${VML.num(startCm,1)} = ${L} cm)</div>`;
+}
+drawR();
+
+/* timbangan */
+const B=[['🍉','Semangka',4000],['🍎','Apel',200],['🎒','Tas',1500],['🧸','Boneka',300],['📚','Buku',600],['🥥','Kelapa',1200],['🎈','Balon',5],['🍚','Beras 1 kg',1000]];
+let L=[], Rr=[], side='L';
+$('#bl').innerHTML=B.map(([e,n],i)=>`<button class="btn soft" data-l="${i}" title="${n}">${e}</button>`).join(' ');
+$('#br').innerHTML=B.map(([e,n],i)=>`<button class="btn soft" data-r="${i}" title="${n}">${e}</button>`).join(' ');
+document.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{ L.push(+b.dataset.l); drawB(); });
+document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{ Rr.push(+b.dataset.r); drawB(); });
+$('#bc').onclick=()=>{ L=[]; Rr=[]; drawB(); };
+function drawB(){
+  const lw=L.reduce((a,i)=>a+B[i][2],0), rw=Rr.reduce((a,i)=>a+B[i][2],0), ang=lw===rw?0:(lw>rw?12:-12), g=$('#bs'); clear(g);
+  s('polygon',{points:'360,260 320,280 400,280',fill:'var(--muted)'},g); s('rect',{x:352,y:110,width:16,height:152,fill:'var(--muted)',rx:4},g);
+  const beam=s('g',{transform:`rotate(${-ang} 360 110)`},g); s('rect',{x:110,y:104,width:500,height:12,rx:6,fill:'var(--ink)'},beam);
+  [[170,L],[550,Rr]].forEach(([cx,arr])=>{ const pan=s('g',{transform:`rotate(${ang} ${cx} 110)`},beam); s('line',{x1:cx,y1:110,x2:cx-80,y2:200,stroke:'var(--muted)','stroke-width':2},pan); s('line',{x1:cx,y1:110,x2:cx+80,y2:200,stroke:'var(--muted)','stroke-width':2},pan); s('path',{d:`M${cx-100},200 Q${cx},230 ${cx+100},200 Z`,fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':2},pan); arr.forEach((i,k)=>txt(pan,cx-70+(k%5)*35,190-Math.floor(k/5)*30,B[i][0],{'font-size':26})); });
+  const nm=arr=>arr.map(i=>B[i][1].toLowerCase()).join(' + ')||'kosong';
+  $('#bOut').innerHTML= !L.length&&!Rr.length?'Taruh benda di piring.':lw===rw?`<div class="big">⚖️ Seimbang — sama berat!</div>`:`<div class="big">${lw>rw?'⬅ Kiri':'Kanan ➡'} lebih berat</div><p>${nm(lw>rw?L:Rr)} lebih <b>berat</b> daripada ${nm(lw>rw?Rr:L)}. Piring yang lebih berat <b>turun</b>.</p>`;
+}
+drawB();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Membaca penggaris', gen(){ const a=rand(0,6), l=rand(2,12); return {q:`Ujung kiri pita di angka ${a} dan ujung kanannya di angka ${a+l}. Panjang pita … cm`, a:String(l), unit:'cm', hint:'Ujung kanan dikurangi ujung kiri.', ex:`${a+l} − ${a} = ${l}`}; }},
+  {name:'Meter & cm', gen(){ const m=rand(1,5); return Math.random()<.5?{q:`${m} meter = … cm`, a:String(m*100), hint:'1 m = 100 cm.', ex:String(m*100)}:{q:`${m*100} cm = … meter`, a:String(m), hint:'100 cm = 1 m.', ex:String(m)}; }},
+  {name:'Bandingkan panjang', gen(){ const [a,b]=[pick(IT),pick(IT)]; if(a[2]===b[2]) return this.gen(); const w=a[2]>b[2]?'panjang':'pendek'; return {q:`${a[1]} ${a[2]} cm, ${b[1]} ${b[2]} cm. ${a[1]} lebih … (panjang/pendek)`, a:[w,'lebih '+w], show:w, hint:'Bandingkan angkanya.', ex:`${a[2]} ${a[2]>b[2]?'>':'<'} ${b[2]}`}; }},
+  {name:'Bandingkan berat', gen(){ const [a,b]=[pick(B),pick(B)]; if(a[2]===b[2]) return this.gen(); const w=a[2]>b[2]?'berat':'ringan'; return {q:`Mana yang benar: ${a[1]} lebih berat atau lebih ringan daripada ${b[1].toLowerCase()}? (berat/ringan)`, a:[w,'lebih '+w], show:w, hint:'Bayangkan saat mengangkatnya.', ex:`${a[1]} lebih ${w}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Satuan baku untuk mengukur panjang pensil adalah …', o:['cm','jengkal','kg','liter'], a:0, ex:'Sentimeter.'},
+ {q:'Mengukur meja dengan jengkal hasilnya bisa berbeda karena …', o:['jengkal setiap orang tidak sama','mejanya bergerak','jengkal adalah satuan baku','penggaris rusak'], a:0, ex:'Satuan tidak baku.'},
+ {q:'1 meter = … cm', o:['100','10','1.000','50'], a:0, ex:'1 m = 100 cm.'},
+ {q:'Saat mengukur dengan penggaris, ujung benda diletakkan di angka …', o:['0','1','10','mana saja'], a:0, ex:'Mulai dari nol.'},
+ {q:'Ujung pita di angka 2 dan 9. Panjang pita …', o:['7 cm','9 cm','11 cm','2 cm'], a:0, ex:'9 − 2.'},
+ {q:'Pensil 15 cm dan penghapus 5 cm. Pensil lebih …', o:['panjang','pendek','berat','sama'], a:0, ex:'15 > 5.'},
+ {q:'Alat untuk mengukur panjang kain adalah …', o:['meteran','timbangan','termometer','jam'], a:0, ex:'Meteran.'},
+ {q:'Pada timbangan, piring yang turun berisi benda yang lebih …', o:['berat','ringan','pendek','panjang'], a:0, ex:'Berat → turun.'},
+ {q:'Mana yang lebih berat?', o:['semangka','balon','bulu ayam','daun'], a:0, ex:'Semangka berat.'},
+ {q:'Satuan untuk berat sekarung beras adalah …', o:['kg','cm','m','jengkal'], a:0, ex:'Kilogram.'},
+ {q:'300 cm = … meter', o:['3','30','300','0,3'], a:0, ex:'300 : 100.'},
+ {q:'Tinggi badan anak kelas 2 kira-kira …', o:['120 cm','12 cm','12 m','1.200 cm'], a:0, ex:'Sekitar 1 meter lebih.'},
+ {q:'Ujung kiri pensil di angka 0 dan ujung kanan di angka 13. Berapa cm panjangnya?', input:true, a:['13'], unit:'cm', ex:'13 − 0.'},
+ {q:'2 meter = … cm', input:true, a:['200'], ex:'2 × 100.'},
+ {q:'Jika timbangan seimbang, kedua benda …', o:['sama berat','sama panjang','berbeda berat','tidak bisa ditimbang'], a:0, ex:'Seimbang = sama berat.'}
+], 'sd2m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

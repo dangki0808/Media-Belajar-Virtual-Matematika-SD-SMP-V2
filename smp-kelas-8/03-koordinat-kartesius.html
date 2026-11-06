@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Koordinat Kartesius · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#9442c8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Geometri</span>
+  <h1>Sistem Koordinat Kartesius</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan posisi titik terhadap sumbu X, sumbu Y, titik asal, dan titik tertentu.</li>
+    <li>Menentukan kuadran dan jarak titik ke sumbu koordinat.</li>
+    <li>Menggambar garis yang sejajar atau tegak lurus sumbu koordinat serta bangun datar pada bidang Kartesius.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Posisi Titik</button><button data-target="game">🎯 Lab Tempatkan Titik</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bidang koordinat Kartesius</h2>
+    <div class="grid2"><svg class="viz" id="kv" viewBox="0 0 360 360"></svg>
+      <div><p>Bidang Kartesius dibentuk oleh <b>sumbu X</b> (mendatar) dan <b>sumbu Y</b> (tegak) yang berpotongan tegak lurus di <b>titik asal O(0, 0)</b>.</p>
+        <div class="def">Titik ditulis <b>(x, y)</b>. x disebut <b>absis</b> (jarak mendatar dari sumbu Y), y disebut <b>ordinat</b> (jarak tegak dari sumbu X).</div>
+        <table class="t"><tr><th>Kuadran</th><th>x</th><th>y</th></tr><tr><td>I</td><td>+</td><td>+</td></tr><tr><td>II</td><td>−</td><td>+</td></tr><tr><td>III</td><td>−</td><td>−</td></tr><tr><td>IV</td><td>+</td><td>−</td></tr></table>
+        <p class="muted">Titik yang berada tepat pada sumbu tidak termasuk kuadran mana pun.</p></div></div>
+  </div>
+
+  <div class="card"><h2>2. Posisi titik</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Terhadap sumbu</span><br>P(−7, 3): berjarak <b>3 satuan</b> dari sumbu X (di atasnya) dan <b>7 satuan</b> dari sumbu Y (di kirinya).</div>
+      <div class="ex"><span class="t">Terhadap titik asal</span><br>Sama dengan koordinatnya: P(−7, 3) → 7 ke kiri, 3 ke atas dari O.</div>
+      <div class="ex"><span class="t">Terhadap titik lain</span><br>A(2, 5) terhadap B(−1, 3): (2 − (−1), 5 − 3) = <b>(3, 2)</b>, artinya A ada 3 satuan di kanan dan 2 satuan di atas B.</div>
+    </div>
+  </div>
+
+  <div class="card"><h2>3. Garis pada bidang koordinat</h2>
+    <ul><li>Garis melalui titik-titik dengan <b>ordinat sama</b> (misalnya (−3, 2) dan (5, 2)) <b>sejajar sumbu X</b>. Jaraknya = selisih absis = 8.</li>
+      <li>Garis melalui titik-titik dengan <b>absis sama</b> (misalnya (2, 1) dan (2, −5)) <b>sejajar sumbu Y</b> (tegak lurus sumbu X). Jaraknya = selisih ordinat = 6.</li></ul>
+    <div class="ex"><span class="t">Contoh bangun</span> Persegi panjang ABCD dengan A(−2, 1), B(4, 1), C(4, 4). Titik D = <b>(−2, 4)</b>. Panjang AB = 6, BC = 3, luas = <b>18 satuan luas</b>.</div>
+    <div class="ex"><span class="t">Menggeser titik</span> P(3, −4) digeser 5 satuan ke kiri dan 2 satuan ke atas → (3 − 5, −4 + 2) = <b>(−2, −2)</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Posisi Titik</h2>
+    <p>Seret titik <b style="color:var(--acc)">P</b> dan titik acuan <b style="color:var(--b)">R</b>. Titik melekat ke koordinat bulat.</p>
+    <div class="grid2"><svg class="viz" id="pl" viewBox="0 0 440 440"></svg><div class="out" id="plOut"></div></div>
+  </div>
+</section>
+
+<section id="game" class="panel">
+  <div class="card"><h2>Lab: Tempatkan dan Baca Titik</h2>
+    <div class="seg" id="gm"><button data-m="tap" class="on">Ketuk koordinat</button><button data-m="read">Baca koordinat</button></div>
+    <div class="out big" id="task" style="text-align:center;margin-top:10px"></div>
+    <div class="row" id="readRow" style="display:none;justify-content:center"><input type="text" id="ans" placeholder="contoh: (-3, 2)" style="max-width:200px"><button class="btn" id="ck">Periksa</button></div>
+    <svg class="viz" id="gp" viewBox="0 0 440 440" style="max-width:520px;margin:10px auto;cursor:crosshair"></svg>
+    <div class="out" id="gOut"></div>
+    <div class="row" style="justify-content:center"><button class="btn ghost" id="nx">Soal berikutnya →</button><span class="counter" id="sc">Skor 0/0</span></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Koordinat ditulis seperti (3, -2). Kuadran boleh ditulis I, II, III, IV atau 1–4.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M} = VML;
+const pt = (x,y) => `(${M(x)}, ${M(y)})`;
+const quad = (x,y) => x===0&&y===0?'titik asal O':x===0?'sumbu Y':y===0?'sumbu X':x>0&&y>0?'kuadran I':x<0&&y>0?'kuadran II':x<0?'kuadran III':'kuadran IV';
+const pair = str => { const m=String(str).replace(/[−–]/g,'-').replace(/\s/g,'').match(/^\(?(-?\d+(?:[.,]\d+)?)[;,](-?\d+(?:[.,]\d+)?)\)?$/); return m?[+m[1].replace(',','.'),+m[2].replace(',','.')]:null; };
+const pairIs = (x,y) => inp => { const p=pair(inp); return !!p && p[0]===x && p[1]===y; };
+
+/* diagram kuadran di materi */
+(function(){ const g=$('#kv'); const P=VML.plane(g,{xmin:-6,xmax:6,ymin:-6,ymax:6,W:360,H:360,lab:2});
+  [['I',3,3],['II',-3,3],['III',-3,-3],['IV',3,-3]].forEach(([q,x,y])=>txt(g,P.X(x),P.Y(y)+8,'Kuadran '+q,{'font-weight':800,fill:'var(--acc)','font-size':15}));
+  s('circle',{cx:P.X(-4),cy:P.Y(2),r:6,fill:'var(--b)'},g); txt(g,P.X(-4),P.Y(2)-12,'(−4, 2)',{'font-weight':700,fill:'var(--b)','font-size':13}); })();
+
+/* LAB posisi */
+let Pp=[4,3], Rp=[-2,-1];
+function drawPl(){ const g=$('#pl'); clear(g); const C=VML.plane(g,{xmin:-10,xmax:10,ymin:-10,ymax:10,W:440,H:440,lab:2}); const [x,y]=Pp, [rx,ry]=Rp;
+  s('line',{x1:C.X(x),y1:C.Y(y),x2:C.X(x),y2:C.Y(0),stroke:'var(--acc)','stroke-dasharray':'5 4','stroke-width':2},g); s('line',{x1:C.X(x),y1:C.Y(y),x2:C.X(0),y2:C.Y(y),stroke:'var(--acc)','stroke-dasharray':'5 4','stroke-width':2},g);
+  if(y!==0) txt(g,C.X(x)+(x>=0?14:-14),C.Y(y/2)+4,String(Math.abs(y)),{fill:'var(--acc)','font-weight':800}); if(x!==0) txt(g,C.X(x/2),C.Y(y)+(y>=0?-8:18),String(Math.abs(x)),{fill:'var(--acc)','font-weight':800});
+  s('path',{d:`M${C.X(rx)},${C.Y(ry)} H${C.X(x)} V${C.Y(y)}`,fill:'none',stroke:'var(--b)','stroke-width':2.5,'stroke-dasharray':'2 4'},g);
+  [[Rp,'var(--b)','R'],[Pp,'var(--acc)','P']].forEach(([p,c,l])=>{ s('circle',{cx:C.X(p[0]),cy:C.Y(p[1]),r:11,fill:c,stroke:'var(--card)','stroke-width':3,style:'cursor:grab'},g); txt(g,C.X(p[0]),C.Y(p[1])-16,l+pt(...p),{'font-weight':800,fill:c,'font-size':13}); });
+  VML.dragSvg(g, p=>{ const dP=Math.hypot(p.x-C.X(Pp[0]),p.y-C.Y(Pp[1])), dR=Math.hypot(p.x-C.X(Rp[0]),p.y-C.Y(Rp[1])); return Math.min(dP,dR)>26?null:(dP<=dR?'P':'R'); },
+    (k,p)=>{ const q=[Math.max(-10,Math.min(10,Math.round(C.ix(p.x)))),Math.max(-10,Math.min(10,Math.round(C.iy(p.y))))]; if(k==='P') Pp=q; else Rp=q; drawPl(); });
+  const dx=x-rx, dy=y-ry;
+  $('#plOut').innerHTML=`<div class="huge" style="color:var(--acc)">P${pt(x,y)}</div><p>Absis <b>${M(x)}</b>, ordinat <b>${M(y)}</b> · letak: <b>${quad(x,y)}</b></p>
+   <p>Jarak P ke sumbu X = |${M(y)}| = <b>${Math.abs(y)}</b> satuan (${y>0?'di atas':y<0?'di bawah':'tepat pada'} sumbu X)<br>Jarak P ke sumbu Y = |${M(x)}| = <b>${Math.abs(x)}</b> satuan (${x>0?'di kanan':x<0?'di kiri':'tepat pada'} sumbu Y)</p>
+   <p style="color:var(--b)"><b>Posisi P terhadap R${pt(rx,ry)}</b>:<br>(${M(x)} − ${neg(rx)}, ${M(y)} − ${neg(ry)}) = <b>${pt(dx,dy)}</b><br>${dx===0&&dy===0?'P berimpit dengan R.':`${dx?Math.abs(dx)+' satuan ke '+(dx>0?'kanan':'kiri'):''}${dx&&dy?' dan ':''}${dy?Math.abs(dy)+' satuan ke '+(dy>0?'atas':'bawah'):''} dari R.`}</p>
+   <p class="muted">${y===ry?'P dan R memiliki ordinat sama → garis PR sejajar sumbu X.':x===rx?'P dan R memiliki absis sama → garis PR sejajar sumbu Y.':'Coba buat P dan R berordinat sama, atau berabsis sama.'}</p>`; }
+drawPl();
+
+/* LAB game */
+let gm='tap', tgt, tap=null, right=0, tot=0, done=false;
+document.querySelectorAll('#gm button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#gm button').forEach(x=>x.classList.remove('on'));b.classList.add('on');gm=b.dataset.m;$('#readRow').style.display=gm==='read'?'flex':'none';newT();});
+function newT(){ tgt=[rand(-8,8),rand(-8,8)]; tap=null; done=false; $('#gOut').innerHTML=''; $('#ans').value='';
+  $('#task').innerHTML = gm==='tap' ? `Ketuk titik <span style="color:var(--acc)">${pt(...tgt)}</span>` : 'Berapa koordinat titik oranye?'; drawG(); }
+function drawG(){ const g=$('#gp'); clear(g); const C=VML.plane(g,{xmin:-9,xmax:9,ymin:-9,ymax:9,W:440,H:440,lab:1});
+  if(gm==='read'||done) s('circle',{cx:C.X(tgt[0]),cy:C.Y(tgt[1]),r:9,fill:'var(--b)'},g);
+  if(tap) s('circle',{cx:C.X(tap[0]),cy:C.Y(tap[1]),r:9,fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+  VML.dragSvg(g, p=>gm==='tap'&&!done?1:null, (k,p)=>{ tap=[Math.round(C.ix(p.x)),Math.round(C.iy(p.y))]; judge(tap); });
+}
+function judge(a){ if(done) return; done=true; tot++; const ok=a&&a[0]===tgt[0]&&a[1]===tgt[1]; if(ok) right++; $('#sc').textContent=`Skor ${right}/${tot}`;
+  $('#gOut').innerHTML = ok ? `<b style="color:var(--ok)">✓ Tepat!</b> ${pt(...tgt)}: ${Math.abs(tgt[0])} ke ${tgt[0]<0?'kiri':'kanan'}, ${Math.abs(tgt[1])} ke ${tgt[1]<0?'bawah':'atas'} dari O.`
+   : `<b style="color:var(--bad)">✗ Belum tepat.</b> ${a?'Jawabanmu '+pt(...a)+'. ':''}Titik yang benar ${pt(...tgt)} (oranye). Ingat: absis (mendatar) dulu, baru ordinat (tegak).`; drawG(); }
+$('#ck').onclick=()=>{ const p=pair($('#ans').value); if(!p){ $('#gOut').innerHTML='Tulis seperti (−3, 2).'; return; } judge(p); };
+$('#ans').onkeydown=e=>{ if(e.key==='Enter') $('#ck').click(); };
+$('#nx').onclick=newT; newT();
+
+/* LATIHAN */
+const R=['I','II','III','IV'];
+VML.practice($('#prac'), [
+  {name:'Kuadran', gen(){ const x=randNZ(-12,12), y=randNZ(-12,12), q=x>0&&y>0?1:x<0&&y>0?2:x<0?3:4; return {q:`Titik ${pt(x,y)} terletak di kuadran …`, a:[R[q-1],String(q),R[q-1].toLowerCase()], show:R[q-1], hint:'Lihat tanda absis dan ordinat.', ex:`x ${x>0?'positif':'negatif'}, y ${y>0?'positif':'negatif'} → kuadran ${R[q-1]}`}; }},
+  {name:'Jarak ke sumbu', gen(){ const x=randNZ(-12,12), y=randNZ(-12,12), ax=pick(['X','Y']); return {q:`Berapa jarak titik ${pt(x,y)} terhadap sumbu ${ax}?`, a:String(ax==='X'?Math.abs(y):Math.abs(x)), unit:'satuan', hint:`Jarak ke sumbu X = |ordinat|, jarak ke sumbu Y = |absis|.`, ex:`|${M(ax==='X'?y:x)}| = ${ax==='X'?Math.abs(y):Math.abs(x)}`}; }},
+  {name:'Terhadap titik lain', gen(){ const a=[rand(-8,8),rand(-8,8)], b=[rand(-8,8),rand(-8,8)], d=[a[0]-b[0],a[1]-b[1]]; return {q:`Tentukan koordinat titik A${pt(...a)} terhadap titik B${pt(...b)}.`, a:pairIs(...d), show:pt(...d), hint:'(x<sub>A</sub> − x<sub>B</sub>, y<sub>A</sub> − y<sub>B</sub>)', ex:`(${M(a[0])} − ${neg(b[0])}, ${M(a[1])} − ${neg(b[1])}) = ${pt(...d)}`}; }},
+  {name:'Geser titik', gen(){ const p=[rand(-6,6),rand(-6,6)], h=randNZ(-5,5), v=randNZ(-5,5), r=[p[0]+h,p[1]+v]; return {q:`Titik ${pt(...p)} digeser ${Math.abs(h)} satuan ke ${h>0?'kanan':'kiri'} dan ${Math.abs(v)} satuan ke ${v>0?'atas':'bawah'}. Koordinat barunya …`, a:pairIs(...r), show:pt(...r), hint:'Kanan/kiri mengubah x, atas/bawah mengubah y.', ex:`(${M(p[0])} ${h>0?'+':'−'} ${Math.abs(h)}, ${M(p[1])} ${v>0?'+':'−'} ${Math.abs(v)}) = ${pt(...r)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Titik (−3, 5) terletak di …', o:['kuadran II','kuadran I','kuadran III','kuadran IV'], a:0, ex:'x negatif, y positif → kuadran II.'},
+ {q:'Titik (4, −2) terletak di …', o:['kuadran IV','kuadran II','kuadran III','kuadran I'], a:0, ex:'x positif, y negatif → kuadran IV.'},
+ {q:'Titik (0, −6) terletak …', o:['pada sumbu Y','pada sumbu X','di kuadran III','di kuadran IV'], a:0, ex:'Absisnya 0 → tepat pada sumbu Y.'},
+ {q:'Jarak titik (−7, 3) terhadap sumbu X adalah …', o:['3 satuan','7 satuan','−7 satuan','10 satuan'], a:0, ex:'Jarak ke sumbu X = |ordinat| = 3.'},
+ {q:'Jarak titik (−7, 3) terhadap sumbu Y adalah …', o:['7 satuan','3 satuan','−7 satuan','4 satuan'], a:0, ex:'Jarak ke sumbu Y = |absis| = 7.'},
+ {q:'Koordinat titik A(2, 5) terhadap titik B(−1, 3) adalah …', o:['(3, 2)','(1, 8)','(−3, −2)','(1, 2)'], a:0, ex:'(2 − (−1), 5 − 3) = (3, 2).'},
+ {q:'Titik yang berada 4 satuan di kiri sumbu Y dan 2 satuan di bawah sumbu X adalah …', o:['(−4, −2)','(−2, −4)','(4, −2)','(−4, 2)'], a:0, ex:'Kiri → x negatif, bawah → y negatif.'},
+ {q:'Garis yang melalui titik (2, 1) dan (2, −5) …', o:['sejajar sumbu Y','sejajar sumbu X','melalui titik asal','berada di kuadran I saja'], a:0, ex:'Absisnya sama (2) → garis tegak, sejajar sumbu Y.'},
+ {q:'Persegi panjang ABCD dengan A(−2, 1), B(4, 1), dan C(4, 4). Koordinat titik D adalah …', o:['(−2, 4)','(4, −2)','(−4, 2)','(−2, −4)'], a:0, ex:'D sejajar A secara tegak dan sejajar C secara mendatar.'},
+ {q:'Titik P(3, −4) digeser 5 satuan ke kiri dan 2 satuan ke atas. Bayangannya adalah …', o:['(−2, −2)','(8, −2)','(−2, −6)','(8, −6)'], a:0, ex:'(3 − 5, −4 + 2) = (−2, −2).'},
+ {q:'Titik yang absis dan ordinatnya sama-sama negatif berada di …', o:['kuadran III','kuadran II','kuadran IV','kuadran I'], a:0, ex:'(−, −) → kuadran III.'},
+ {q:'Absis dari titik (−8, 6) adalah …', o:['−8','6','8','−6'], a:0, ex:'Absis adalah nilai x.'},
+ {q:'Persegi panjang dengan titik sudut (−2, 1), (4, 1), (4, 4), dan (−2, 4). Berapa luasnya?', input:true, a:['18'], unit:'satuan luas', ex:'Panjang 6, lebar 3 → 18.'},
+ {q:'Berapa jarak antara titik (−3, 4) dan titik (5, 4)?', input:true, a:['8'], unit:'satuan', ex:'Ordinat sama, jarak = 5 − (−3) = 8.'},
+ {q:'Koordinat titik asal adalah …', o:['(0, 0)','(1, 1)','(0, 1)','(1, 0)'], a:0, ex:'Titik potong kedua sumbu.'}
+], 'k8m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

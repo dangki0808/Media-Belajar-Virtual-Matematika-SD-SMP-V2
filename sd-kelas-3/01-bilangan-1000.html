@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan sampai 1.000 · Virtual Math Lab SD III</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#2b7de0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>🧊 Bilangan sampai 1.000</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membaca dan menulis bilangan sampai 1.000.</li>
+    <li>Menentukan nilai tempat ratusan, puluhan, dan satuan.</li>
+    <li>Membandingkan dan mengurutkan bilangan, serta mengenal bilangan genap dan ganjil.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧊 Lab Balok Bilangan</button><button data-target="buaya">🐊 Lab Mulut Buaya</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Ratusan, puluhan, satuan</h2>
+    <div class="grid3"><div class="ex"><span class="t">Satuan</span><br>1 kotak kecil = 1</div><div class="ex"><span class="t">Puluhan</span><br>1 batang = 10 kotak</div><div class="ex"><span class="t">Ratusan</span><br>1 papan = 10 batang = 100</div></div>
+    <p>Bilangan <b>346</b> terdiri atas <b>3 ratusan</b>, <b>4 puluhan</b>, dan <b>6 satuan</b>.</p>
+    <div class="def">346 = 300 + 40 + 6 &nbsp;·&nbsp; dibaca <b>tiga ratus empat puluh enam</b></div>
+    <div class="note">10 ratusan = 1.000 (seribu).</div>
+  </div>
+  <div class="card"><h2>2. Membandingkan bilangan</h2>
+    <p>Tanda <b>&gt;</b> artinya lebih dari, <b>&lt;</b> artinya kurang dari, <b>=</b> artinya sama dengan. Bayangkan mulut buaya selalu membuka ke bilangan yang <b>lebih besar</b>! 🐊</p>
+    <ol class="steps"><li>Bandingkan ratusannya dulu: 512 &gt; 498 karena 5 &gt; 4.</li><li>Jika ratusannya sama, bandingkan puluhannya: 347 &lt; 372.</li><li>Jika masih sama, bandingkan satuannya: 625 &gt; 621.</li></ol>
+  </div>
+  <div class="card"><h2>3. Mengurutkan dan pola bilangan</h2>
+    <div class="ex"><span class="t">Dari terkecil</span> 205, 250, 502, 520</div>
+    <div class="ex"><span class="t">Loncat 5</span> 300, 305, 310, 315, … &nbsp; <span class="t">Loncat 100</span> 150, 250, 350, 450, …</div>
+  </div>
+  <div class="card"><h2>4. Genap dan ganjil</h2>
+    <div class="grid2"><div class="ex"><span class="t">Genap</span><br>Angka satuannya 0, 2, 4, 6, 8. Contoh 136, 470. Bisa dibagi dua sama rata.</div><div class="ex"><span class="t">Ganjil</span><br>Angka satuannya 1, 3, 5, 7, 9. Contoh 245, 999.</div></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Balok Bilangan</h2>
+    <p>Tambahkan papan ratusan, batang puluhan, dan kotak satuan. Jika ada 10 kotak, otomatis ditukar menjadi 1 batang!</p>
+    <div class="row">
+      <button class="btn" data-a="100" style="background:#ef4f5a">+ Ratusan</button><button class="btn" data-a="10" style="background:#2b7de0">+ Puluhan</button><button class="btn" data-a="1" style="background:#1fa36b">+ Satuan</button>
+      <button class="btn ghost" data-a="-100">− 100</button><button class="btn ghost" data-a="-10">− 10</button><button class="btn ghost" data-a="-1">− 1</button><button class="btn soft" id="rnd">🎲 Acak</button>
+    </div>
+    <svg class="viz" id="bk" viewBox="0 0 720 300" style="margin-top:10px"></svg>
+    <div class="out" id="bOut"></div>
+  </div>
+</section>
+
+<section id="buaya" class="panel">
+  <div class="card"><h2>Lab: Mulut Buaya Lapar 🐊</h2>
+    <p>Buaya selalu ingin memakan bilangan yang <b>lebih besar</b>. Pilih tanda yang tepat!</p>
+    <div class="row" style="justify-content:center;gap:24px;margin:14px 0"><span class="huge" id="L"></span><span class="huge" id="sign" style="min-width:90px;text-align:center">❔</span><span class="huge" id="R"></span></div>
+    <div class="row" style="justify-content:center"><button class="btn" data-s="<" style="font-size:1.6rem;min-width:80px">&lt;</button><button class="btn" data-s="=" style="font-size:1.6rem;min-width:80px">=</button><button class="btn" data-s=">" style="font-size:1.6rem;min-width:80px">&gt;</button></div>
+    <div id="cfb"></div>
+    <div class="row" style="justify-content:center"><button class="btn ghost" id="nx">Soal berikutnya →</button><span class="counter" id="sc">Skor 0/0</span></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas III · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const id=n=>Number(n).toLocaleString('id-ID');
+const sat=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];
+function terbilang(n){ if(n===1000) return 'seribu'; if(n<12) return n?sat[n]:'nol'; if(n<20) return sat[n-10]+' belas'; if(n<100) return sat[Math.floor(n/10)]+' puluh'+(n%10?' '+sat[n%10]:''); return (n<200?'seratus':sat[Math.floor(n/100)]+' ratus')+(n%100?' '+terbilang(n%100):''); }
+
+/* balok */
+let N=346, msg='';
+document.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{ const a=+b.dataset.a, before=N; if(N+a<0||N+a>1000) return; N+=a; msg = a===1&&before%10===9?'🔄 10 satuan ditukar menjadi 1 puluhan!':a===10&&Math.floor(before/10)%10===9?'🔄 10 puluhan ditukar menjadi 1 ratusan!':a===-1&&before%10===0&&before>0?'🔄 1 puluhan dipecah menjadi 10 satuan.':''; drawB(); });
+$('#rnd').onclick=()=>{ N=rand(100,999); msg=''; drawB(); };
+function drawB(){
+  const h=Math.floor(N/100), t=Math.floor(N/10)%10, o=N%10, g=$('#bk'); clear(g); const W=VML.narrow()?440:720;
+  const big=N===1000; let x=14; const u=W<600?6:9;
+  if(big){ s('rect',{x:14,y:30,width:u*10*1.4,height:u*10*1.4,rx:6,fill:'#ef4f5a'},g); txt(g,14+u*7,30+u*7+6,'1.000',{fill:'#fff','font-weight':900,'font-size':18}); }
+  else {
+    for(let i=0;i<h;i++){ const px=x+(i%5)*(u*10+6), py=20+Math.floor(i/5)*(u*10+6); s('rect',{x:px,y:py,width:u*10,height:u*10,rx:4,fill:'#ef4f5a'},g); for(let k=1;k<10;k++){ s('line',{x1:px+k*u,y1:py,x2:px+k*u,y2:py+u*10,stroke:'#fff','stroke-opacity':.4},g); s('line',{x1:px,y1:py+k*u,x2:px+u*10,y2:py+k*u,stroke:'#fff','stroke-opacity':.4},g); } }
+    x+= Math.min(h,5)*(u*10+6)+12;
+    for(let i=0;i<t;i++){ const px=x+i*(u+6); s('rect',{x:px,y:20,width:u,height:u*10,rx:3,fill:'#2b7de0'},g); for(let k=1;k<10;k++) s('line',{x1:px,y1:20+k*u,x2:px+u,y2:20+k*u,stroke:'#fff','stroke-opacity':.5},g); }
+    x+= t*(u+6)+12;
+    for(let i=0;i<o;i++){ s('rect',{x:x+(i%3)*(u+5),y:20+Math.floor(i/3)*(u+5),width:u,height:u,rx:2,fill:'#1fa36b'},g); } }
+  txt(g,W/2,270,big?'Seribu!':`${h} ratusan · ${t} puluhan · ${o} satuan`,{'font-weight':900,'font-size':W<600?15:20});
+  g.setAttribute('viewBox',`0 0 ${W} 300`);
+  $('#bOut').innerHTML=`${msg?`<div class="fb hint" style="margin:0 0 10px">${msg}</div>`:''}<div class="huge">${id(N)}</div><p><b>Dibaca:</b> ${terbilang(N)}</p>${big?'':`<p><b>Bentuk panjang:</b> <span style="color:#ef4f5a;font-weight:800">${h*100}</span> + <span style="color:#2b7de0;font-weight:800">${t*10}</span> + <span style="color:#1fa36b;font-weight:800">${o}</span></p>`}<p>${N} adalah bilangan <b>${N%2?'ganjil':'genap'}</b>.</p>`;
+}
+drawB(); VML.onResize(drawB);
+
+/* buaya */
+let A,B,done,r=0,t_=0;
+function newC(){ A=rand(100,999); B=Math.random()<.15?A:(Math.random()<.5?rand(100,999):A+pick([-10,-1,1,10,100,-100])); if(B<0||B>1000) B=rand(100,999); done=false; $('#L').textContent=A; $('#R').textContent=B; $('#sign').textContent='❔'; $('#cfb').innerHTML=''; }
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ if(done) return; done=true; t_++; const right=A>B?'>':A<B?'<':'='; const ok=b.dataset.s===right; if(ok) r++; $('#sc').textContent=`Skor ${r}/${t_}`;
+  $('#sign').innerHTML=right==='='?'=':`<span style="display:inline-block;${right==='<'?'transform:scaleX(-1)':''}">🐊</span>`;
+  $('#cfb').innerHTML=`<div class="fb ${ok?'ok':'no'}" style="text-align:center"><b>${ok?'✓ Benar!':'✗ Belum tepat.'}</b> ${A} ${right.replace('<','&lt;').replace('>','&gt;')} ${B}. ${right==='='?'Kedua bilangan sama.':`Mulut buaya membuka ke ${Math.max(A,B)} karena lebih besar.`}</div>`; });
+$('#nx').onclick=newC; newC();
+
+/* LATIHAN */
+const PL=['ratusan','puluhan','satuan'], PV=[100,10,1];
+VML.practice($('#prac'), [
+  {name:'Nilai tempat', gen(){ const n=rand(100,999), i=rand(0,2), d=Math.floor(n/PV[i])%10; return {q:`Pada bilangan ${n}, angka ${d} menempati tempat ${PL[i]}. Berapa nilainya?`, a:String(d*PV[i]), hint:`${d} × ${PV[i]}`, ex:`${d*PV[i]}`}; }},
+  {name:'Lambang bilangan', gen(){ const n=rand(100,999); return {q:`Tulis lambang bilangan: <i>${terbilang(n)}</i>`, a:String(n), hint:'Tulis ratusan, puluhan, lalu satuan.', ex:String(n)}; }},
+  {name:'Pola bilangan', gen(){ const st=rand(1,8)*100+pick([0,5,10,20]), k=pick([2,5,10,50,100]), dir=pick([1,-1]); const seq=[0,1,2,3].map(i=>st+dir*k*i); if(seq.some(v=>v<0||v>1000)) return this.gen(); return {q:`Lanjutkan pola: ${seq.join(', ')}, …`, a:String(st+dir*k*4), hint:`Cari selisihnya.`, ex:`${dir>0?'+':'−'}${k} → ${st+dir*k*4}`}; }},
+  {name:'Genap/ganjil', gen(){ const n=rand(100,999); return {q:`Apakah ${n} bilangan genap atau ganjil?`, a:[n%2?'ganjil':'genap'], show:n%2?'ganjil':'genap', hint:'Lihat angka satuannya.', ex:`Satuannya ${n%10} → ${n%2?'ganjil':'genap'}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Bilangan 346 terdiri atas …', o:['3 ratusan, 4 puluhan, 6 satuan','3 puluhan, 4 ratusan, 6 satuan','34 ratusan, 6 satuan','3 ratusan, 46 satuan'], a:0, ex:'300 + 40 + 6.'},
+ {q:'Nilai angka 5 pada bilangan 752 adalah …', o:['50','5','500','52'], a:0, ex:'5 di tempat puluhan.'},
+ {q:'"Enam ratus delapan" ditulis …', o:['608','680','6.008','68'], a:0, ex:'600 + 8.'},
+ {q:'Bilangan 419 dibaca …', o:['empat ratus sembilan belas','empat ratus sembilan puluh','empat sembilan belas','empat ratus satu sembilan'], a:0, ex:'400 + 19.'},
+ {q:'Bentuk panjang dari 873 adalah …', o:['800 + 70 + 3','80 + 70 + 3','800 + 7 + 3','8 + 7 + 3'], a:0, ex:'8 ratusan, 7 puluhan, 3 satuan.'},
+ {q:'Tanda yang tepat: 512 … 498', o:['&gt;','&lt;','=','+'], a:0, ex:'Ratusan 5 > 4.'},
+ {q:'Tanda yang tepat: 347 … 372', o:['&lt;','&gt;','=','−'], a:0, ex:'Puluhan 4 < 7.'},
+ {q:'Urutan dari yang terkecil: 520, 205, 502, 250 adalah …', o:['205, 250, 502, 520','520, 502, 250, 205','250, 205, 520, 502','205, 502, 250, 520'], a:0, ex:'Bandingkan ratusan dulu.'},
+ {q:'Bilangan genap di antara pilihan berikut adalah …', o:['136','245','999','471'], a:0, ex:'Satuannya 6.'},
+ {q:'Pola 300, 305, 310, … bilangan berikutnya adalah …', o:['315','320','311','400'], a:0, ex:'Loncat 5.'},
+ {q:'10 ratusan sama dengan …', o:['1.000','100','10','110'], a:0, ex:'Seribu.'},
+ {q:'Bilangan terbesar yang dapat disusun dari angka 4, 9, 2 adalah …', o:['942','924','249','492'], a:0, ex:'Angka terbesar di depan.'},
+ {q:'Tulis lambang bilangan "tujuh ratus dua puluh".', input:true, a:['720'], ex:'700 + 20.'},
+ {q:'Berapa nilai angka 8 pada bilangan 853?', input:true, a:['800'], ex:'Ratusan.'},
+ {q:'Bilangan ganjil terbesar yang kurang dari 500 adalah …', o:['499','498','501','490'], a:0, ex:'Satuannya 9.'}
+], 'sd3m1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

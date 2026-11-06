@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Persamaan Kuadrat · Virtual Math Lab IX</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#d0502f">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Aljabar</span>
+  <h1>Persamaan Kuadrat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menyelesaikan persamaan kuadrat dengan pemfaktoran, melengkapkan kuadrat sempurna, dan rumus ABC.</li>
+    <li>Menentukan jenis akar dengan diskriminan serta jumlah dan hasil kali akar.</li>
+    <li>Menyusun persamaan kuadrat dan memodelkan masalah nyata.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧩 Lab Pemfaktoran</button><button data-target="abc">🧮 Lab Rumus ABC</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bentuk umum</h2>
+    <div class="def"><b>ax² + bx + c = 0</b> dengan a ≠ 0. Nilai x yang memenuhi disebut <b>akar</b> (penyelesaian).</div>
+    <p>Contoh: x² − 5x + 6 = 0 (a = 1, b = −5, c = 6). Akarnya 2 dan 3 karena 2² − 10 + 6 = 0 dan 3² − 15 + 6 = 0.</p>
+  </div>
+  <div class="card"><h2>2. Pemfaktoran</h2>
+    <p>Untuk x² + bx + c: cari dua bilangan p dan q dengan <b>p × q = c</b> dan <b>p + q = b</b>. Maka x² + bx + c = (x + p)(x + q).</p>
+    <div class="grid3">
+      <div class="ex">x² − 5x + 6 = 0<br>(x − 2)(x − 3) = 0<br><b>x = 2 atau x = 3</b></div>
+      <div class="ex">x² − 9 = 0<br>(x + 3)(x − 3) = 0<br><b>x = ±3</b></div>
+      <div class="ex">x² − 4x = 0<br>x(x − 4) = 0<br><b>x = 0 atau x = 4</b></div>
+    </div>
+    <div class="ex"><span class="t">a ≠ 1</span> 2x² + 7x + 3 = 0: cari p × q = a·c = 6 dan p + q = 7 → 1 dan 6.<br>2x² + x + 6x + 3 = x(2x + 1) + 3(2x + 1) = (2x + 1)(x + 3) → <b>x = −½ atau x = −3</b></div>
+    <div class="note">Sifat kunci: jika A × B = 0, maka A = 0 atau B = 0.</div>
+  </div>
+  <div class="card"><h2>3. Melengkapkan kuadrat sempurna</h2>
+    <ol class="steps"><li>x² + 6x + 2 = 0 → x² + 6x = −2</li><li>Tambahkan (½ × 6)² = 9 pada kedua ruas: x² + 6x + 9 = 7</li><li>(x + 3)² = 7 → x + 3 = ±√7 → <b>x = −3 ± √7</b></li></ol>
+  </div>
+  <div class="card"><h2>4. Rumus ABC dan diskriminan</h2>
+    <div class="def"><span class="big">x = <span class="fr"><span>−b ± √(b² − 4ac)</span><span>2a</span></span></span><br>D = b² − 4ac disebut <b>diskriminan</b></div>
+    <table class="t"><tr><th>Nilai D</th><th>Jenis akar</th></tr><tr><td>D &gt; 0</td><td>dua akar real berbeda</td></tr><tr><td>D = 0</td><td>dua akar real kembar (sama)</td></tr><tr><td>D &lt; 0</td><td>tidak mempunyai akar real</td></tr></table>
+    <div class="ex"><span class="t">Contoh</span> x² + 2x − 4 = 0: D = 4 + 16 = 20 → x = (−2 ± 2√5)/2 = <b>−1 ± √5</b></div>
+    <div class="ex"><span class="t">Akar kembar</span> x² − 6x + k = 0 berakar kembar jika D = 36 − 4k = 0 → <b>k = 9</b>.</div>
+  </div>
+  <div class="card"><h2>5. Jumlah dan hasil kali akar</h2>
+    <div class="grid2"><div class="def">x₁ + x₂ = <span class="fr"><span>−b</span><span>a</span></span></div><div class="def">x₁ × x₂ = <span class="fr"><span>c</span><span>a</span></span></div></div>
+    <p>Persamaan kuadrat yang akarnya x₁ dan x₂: <b>x² − (x₁ + x₂)x + x₁x₂ = 0</b>. Akar 3 dan −2 → x² − x − 6 = 0.</p>
+    <div class="ex"><span class="t">Soal cerita</span> Luas persegi panjang 60 cm², panjangnya 4 cm lebih dari lebarnya. l(l + 4) = 60 → l² + 4l − 60 = 0 → (l + 10)(l − 6) = 0 → <b>l = 6 cm</b> (l = −10 tidak mungkin).</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Mencari Pasangan Faktor</h2>
+    <p>Persamaan <b>x² + bx + c = 0</b>. Daftar di bawah berisi semua pasangan p × q = c. Pasangan yang jumlahnya b akan menyala.</p>
+    <div class="ctrl"><label>b <span class="v" id="b-v"></span><input type="range" id="b" min="-12" max="12" value="-5"></label><label>c <span class="v" id="c-v"></span><input type="range" id="c" min="-36" max="36" value="6"></label><button class="btn soft" id="rnd">🎲 Soal yang bisa difaktorkan</button></div>
+    <div class="grid2"><div class="out" id="pairs"></div><div><svg class="viz" id="area" viewBox="0 0 400 320"></svg><div class="out" id="fOut"></div></div></div>
+  </div>
+</section>
+
+<section id="abc" class="panel">
+  <div class="card"><h2>Lab: Rumus ABC dan Diskriminan</h2>
+    <div class="ctrl"><label>a <span class="v" id="a2-v"></span><input type="range" id="a2" min="-5" max="5" value="1"></label><label>b <span class="v" id="b2-v"></span><input type="range" id="b2" min="-10" max="10" value="2"></label><label>c <span class="v" id="c2-v"></span><input type="range" id="c2" min="-15" max="15" value="-4"></label></div>
+    <div class="grid2"><div class="out" id="abcOut"></div><svg class="viz" id="pg" viewBox="0 0 400 360"></svg></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Persamaan ditulis seperti x^2 - 5x + 6 (tanpa "= 0" juga boleh).</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas IX · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, F, gcd, fracHTML, fracTxt, num} = VML;
+const quad=(a,b,c)=>{ let o=''; const add=(k,v)=>{ if(k===0) return; const ab=Math.abs(k), cs=(ab===1&&v)?'':ab; o+= o?(k>0?' + ':' − ')+cs+v:(k<0?'−':'')+cs+v; }; add(a,'x²'); add(b,'x'); add(c,''); return o||'0'; };
+const lin1=p=>p===0?'x':`x ${p>0?'+':'−'} ${Math.abs(p)}`;
+
+/* LAB faktor */
+$('#rnd').onclick=()=>{ const p=randNZ(-6,6), q=randNZ(-6,6); $('#b').value=p+q; $('#c').value=p*q; drawF(); };
+function drawF(){
+  const b=+$('#b').value, c=+$('#c').value; $('#b-v').textContent=M(b); $('#c-v').textContent=M(c);
+  const pairs=[]; if(c===0) pairs.push([0,b]); else for(let p=-Math.abs(c);p<=Math.abs(c);p++){ if(p!==0&&c%p===0){ const q=c/p; if(p<=q) pairs.push([p,q]); } }
+  const hit=pairs.find(([p,q])=>p+q===b);
+  $('#pairs').innerHTML=`<div class="big">${quad(1,b,c)} = 0</div><p>Pasangan p × q = ${M(c)}:</p><table class="t"><tr><th>p</th><th>q</th><th>p + q</th></tr>${pairs.map(([p,q])=>`<tr style="${p+q===b?'background:var(--ok-soft);font-weight:800':''}"><td>${M(p)}</td><td>${M(q)}</td><td>${M(p+q)} ${p+q===b?'✓':''}</td></tr>`).join('')}</table>`;
+  const g=$('#area'); clear(g);
+  if(hit){ const [p,q]=hit;
+    $('#fOut').innerHTML=`<div class="big">(${lin1(p)})(${lin1(q)}) = 0</div><p>${lin1(p)} = 0 → <b>x = ${M(-p)}</b> &nbsp; atau &nbsp; ${lin1(q)} = 0 → <b>x = ${M(-q)}</b></p>`;
+    if(p>0&&q>0){ const u=22, X=7*u, P=p*u, Q=q*u, ox=50, oy=40;
+      const box=(x,y,w,h,col,l)=>{ s('rect',{x,y,width:w,height:h,fill:col,'fill-opacity':.75,stroke:'var(--ink)','stroke-width':2},g); txt(g,x+w/2,y+h/2+6,l,{fill:'#fff','font-weight':800,'font-size':16}); };
+      box(ox,oy,X,X*0.7,'var(--acc)','x²'); box(ox+X,oy,Q,X*0.7,'var(--a)',q+'x'); box(ox,oy+X*0.7,X,P*0.7,'var(--a)',p+'x'); box(ox+X,oy+X*0.7,Q,P*0.7,'var(--d)',String(p*q));
+      txt(g,ox+X/2,oy-10,'x',{'font-weight':700}); txt(g,ox+X+Q/2,oy-10,String(q),{'font-weight':700}); txt(g,ox-14,oy+X*0.35,'x',{'font-weight':700}); txt(g,ox-14,oy+X*0.7+P*0.35+5,String(p),{'font-weight':700});
+      g.setAttribute('viewBox',`0 0 ${Math.max(400,ox+X+Q+20)} ${oy+X*0.7+P*0.7+20}`); }
+    else { g.setAttribute('viewBox','0 0 400 120'); txt(g,200,55,'Model luas hanya digambar jika p dan q positif.',{fill:'var(--muted)','font-size':13}); txt(g,200,80,`Tetap berlaku: (${lin1(p)})(${lin1(q)}) = ${quad(1,b,c)}`,{'font-size':13,'font-weight':700}); }
+  } else { g.setAttribute('viewBox','0 0 400 120'); txt(g,200,60,'Tidak ada pasangan bulat yang cocok.',{fill:'var(--bad)','font-weight':700}); const D=b*b-4*c;
+    $('#fOut').innerHTML=`<p>${quad(1,b,c)} tidak dapat difaktorkan dengan bilangan bulat. D = ${M(b*b)} − ${4*c<0?'('+M(4*c)+')':4*c} = ${M(D)}${D<0?' &lt; 0 → tidak ada akar real.':' → gunakan rumus ABC.'}</p>`; }
+}
+['#b','#c'].forEach(x=>$(x).oninput=drawF); drawF();
+
+/* LAB ABC */
+function rootTxt(a,b,D,sign){ // (−b ± √D)/(2a)
+  const sq=Math.round(Math.sqrt(D)); if(sq*sq===D) return fracHTML(-b+sign*sq,2*a);
+  let k=1; for(let i=Math.floor(Math.sqrt(D));i>=1;i--) if(D%(i*i)===0){k=i;break;} const r=D/(k*k);
+  let g=gcd(gcd(Math.abs(b),k),Math.abs(2*a)); let B=-b/g, K=k/g, A=2*a/g; if(A<0){A=-A;B=-B;K=-K;}
+  const rad=(Math.abs(K)===1?'':Math.abs(K))+'√'+r, pm= (sign*K)>0?'+':'−';
+  const top = B===0 ? (pm==='−'?'−':'')+rad : `${M(B)} ${pm} ${rad}`; return A===1?top:F(top,A); }
+function drawABC(){
+  let a=+$('#a2').value; if(a===0){a=1;$('#a2').value=1;} const b=+$('#b2').value, c=+$('#c2').value; $('#a2-v').textContent=M(a); $('#b2-v').textContent=M(b); $('#c2-v').textContent=M(c);
+  const D=b*b-4*a*c, kind=D>0?'dua akar real berbeda':D===0?'akar kembar':'tidak mempunyai akar real', col=D>0?'var(--ok)':D===0?'var(--a)':'var(--bad)';
+  let html=`<div class="big">${quad(a,b,c)} = 0</div><p>a = ${M(a)}, b = ${M(b)}, c = ${M(c)}</p>
+   <p><b>D</b> = b² − 4ac = ${b<0?'('+M(b)+')':b}² − 4·${neg(a)}·${neg(c)} = <b style="color:${col}">${M(D)}</b> → <b style="color:${col}">${kind}</b></p>`;
+  if(D>=0){ const x1=(-b+Math.sqrt(D))/(2*a), x2=(-b-Math.sqrt(D))/(2*a);
+    html+=`<p>x = ${F(`${M(-b)} ± √${D}`,`2·${neg(a)}`)}</p><p>x₁ = <b>${rootTxt(a,b,D,1)}</b> ≈ ${num(x1,3)}<br>x₂ = <b>${rootTxt(a,b,D,-1)}</b> ≈ ${num(x2,3)}</p>`; }
+  html+=`<p class="muted">x₁ + x₂ = −b/a = ${fracHTML(-b,a)} &nbsp; · &nbsp; x₁ × x₂ = c/a = ${fracHTML(c,a)}${D<0?' (berlaku untuk akar tidak real juga)':''}</p>`;
+  $('#abcOut').innerHTML=html;
+  const g=$('#pg'); clear(g); const f=x=>a*x*x+b*x+c, xv=-b/(2*a), xs=[]; for(let x=-8;x<=8;x+=0.1) xs.push(f(x));
+  const C=VML.plane(g,{xmin:-8,xmax:8,ymin:-12,ymax:12,W:400,H:360,lab:2,grid:1});
+  let d=''; for(let x=-8;x<=8.001;x+=0.05){ const y=f(x); if(y<-13||y>13){ d+=' '; continue; } d+=(d&&!d.endsWith(' ')?'L':'M')+C.X(x).toFixed(1)+','+C.Y(y).toFixed(1); }
+  s('path',{d,fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+  if(D>=0) [(-b+Math.sqrt(D))/(2*a),(-b-Math.sqrt(D))/(2*a)].forEach(x=>{ if(Math.abs(x)<=8) s('circle',{cx:C.X(x),cy:C.Y(0),r:7,fill:'var(--b)',stroke:'var(--card)','stroke-width':2},g); });
+  txt(g,200,18,'Akar = titik potong grafik y = '+quad(a,b,c)+' dengan sumbu X',{'font-size':11,fill:'var(--muted)'});
+}
+['#a2','#b2','#c2'].forEach(x=>$(x).oninput=drawABC); drawABC();
+
+/* LATIHAN */
+const qEq=(a,b,c)=>inp=>{ const t=String(inp).replace(/\s/g,'').replace(/=0$/,''); const P=VML.poly(t); if(!P) return false; const k=(P.x2||0)/a; if(!k) return false; return Math.abs((P.x||0)-k*b)<1e-9&&Math.abs((P['']||0)-k*c)<1e-9&&Object.keys(P).every(z=>['x2','x',''].includes(z)); };
+VML.practice($('#prac'), [
+  {name:'Pemfaktoran', gen(){ const p=randNZ(-8,8), q=randNZ(-8,8); if(p===q) return this.gen(); const big=Math.max(-p,-q);
+    return {q:`Tentukan akar <b>terbesar</b> dari ${quad(1,p+q,p*q)} = 0.`, a:String(big), hint:`Cari dua bilangan yang hasil kalinya ${M(p*q)} dan jumlahnya ${M(p+q)}.`, ex:`(${lin1(p)})(${lin1(q)}) = 0 → x = ${M(-p)} atau ${M(-q)}`}; }},
+  {name:'Diskriminan', gen(){ const a=randNZ(-4,4), b=rand(-9,9), c=rand(-9,9), D=b*b-4*a*c; return {q:`Diskriminan dari ${quad(a,b,c)} = 0 adalah …`, a:String(D), hint:'D = b² − 4ac', ex:`${b*b} − 4·${neg(a)}·${neg(c)} = ${M(D)} → ${D>0?'dua akar berbeda':D===0?'kembar':'tidak real'}`}; }},
+  {name:'Jumlah & hasil kali', gen(){ const a=randNZ(-4,4), b=rand(-12,12), c=rand(-12,12), t=pick(['jumlah','hasil kali']); return {q:`Tentukan ${t} akar-akar ${quad(a,b,c)} = 0.`, a:t==='jumlah'?fracTxt(-b,a):fracTxt(c,a), hint:t==='jumlah'?'x₁ + x₂ = −b/a':'x₁ × x₂ = c/a', ex:t==='jumlah'?`${M(-b)}/${M(a)} = ${fracHTML(-b,a)}`:`${M(c)}/${M(a)} = ${fracHTML(c,a)}`}; }},
+  {name:'Menyusun PK', gen(){ const p=randNZ(-7,7), q=rand(-7,7); return {q:`Persamaan kuadrat yang akar-akarnya ${M(p)} dan ${M(q)} adalah … = 0`, a:qEq(1,-(p+q),p*q), show:quad(1,-(p+q),p*q)+' = 0', hint:'x² − (x₁ + x₂)x + x₁x₂ = 0', ex:`x² − (${M(p+q)})x + (${M(p*q)}) = ${quad(1,-(p+q),p*q)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Bentuk umum persamaan kuadrat adalah …', o:['ax² + bx + c = 0, a ≠ 0','ax + b = 0','ax² + bx + c = 0, a = 0','y = mx + c'], a:0, ex:'Pangkat tertinggi variabelnya 2 dan a ≠ 0.'},
+ {q:'Akar-akar dari x² − 5x + 6 = 0 adalah …', o:['2 dan 3','−2 dan −3','1 dan 6','−1 dan 6'], a:0, ex:'(x − 2)(x − 3) = 0.'},
+ {q:'Penyelesaian x² − 9 = 0 adalah …', o:['x = 3 atau x = −3','x = 9','x = 3 saja','x = 81'], a:0, ex:'(x + 3)(x − 3) = 0.'},
+ {q:'Akar-akar dari 2x² + 7x + 3 = 0 adalah …', o:['−½ dan −3','½ dan 3','−2 dan −3','2 dan 3'], a:0, ex:'(2x + 1)(x + 3) = 0.'},
+ {q:'Persamaan x² + 4x + 5 = 0 …', o:['tidak mempunyai akar real','mempunyai dua akar berbeda','mempunyai akar kembar','akarnya −4 dan 5'], a:0, ex:'D = 16 − 20 = −4 < 0.'},
+ {q:'Jika diskriminan suatu persamaan kuadrat sama dengan nol, akarnya …', o:['kembar (sama)','tidak real','berlainan tanda','dua akar berbeda'], a:0, ex:'D = 0 → satu nilai x (akar kembar).'},
+ {q:'Persamaan x² − 6x + k = 0 mempunyai akar kembar. Nilai k adalah …', o:['9','6','36','3'], a:0, ex:'36 − 4k = 0 → k = 9.'},
+ {q:'Jumlah akar-akar 2x² − 8x + 3 = 0 adalah …', o:['4','−4',F(3,2),'8'], a:0, ex:'−b/a = 8/2 = 4.'},
+ {q:'Hasil kali akar-akar 2x² − 8x + 3 = 0 adalah …', o:[F(3,2),'4','3','−4'], a:0, ex:'c/a = 3/2.'},
+ {q:'Persamaan kuadrat yang akarnya 3 dan −2 adalah …', o:['x² − x − 6 = 0','x² + x − 6 = 0','x² − 5x + 6 = 0','x² + x + 6 = 0'], a:0, ex:'x² − (1)x + (−6) = 0.'},
+ {q:'Dengan melengkapkan kuadrat sempurna, x² + 6x + 2 = 0 menjadi …', o:['(x + 3)² = 7','(x + 6)² = 34','(x + 3)² = −2','(x + 3)² = 11'], a:0, ex:'x² + 6x + 9 = −2 + 9 = 7.'},
+ {q:'Akar-akar x² + 2x − 4 = 0 adalah …', o:['−1 ± √5','1 ± √5','−2 ± √5','−1 ± √3'], a:0, ex:'(−2 ± √20)/2 = −1 ± √5.'},
+ {q:'Tentukan akar positif dari x² + x − 12 = 0.', input:true, a:['3'], ex:'(x + 4)(x − 3) = 0 → x = 3.'},
+ {q:'Luas persegi panjang 60 cm². Panjangnya 4 cm lebih dari lebarnya. Berapa lebarnya?', input:true, a:['6'], unit:'cm', ex:'l² + 4l − 60 = 0 → (l + 10)(l − 6) = 0 → l = 6.'},
+ {q:'Penyelesaian x(x − 4) = 0 adalah …', o:['x = 0 atau x = 4','x = 4 saja','x = −4','x = 0 saja'], a:0, ex:'x = 0 atau x − 4 = 0.'}
+], 'k9m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

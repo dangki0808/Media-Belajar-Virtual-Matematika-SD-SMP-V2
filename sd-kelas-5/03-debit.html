@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Debit · Virtual Math Lab SD V</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0a8fa8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas V</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Pengukuran</span>
+  <h1>🚰 Debit Air</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami arti debit sebagai banyak air yang mengalir setiap satuan waktu.</li>
+    <li>Menghitung debit, volume, atau waktu jika dua besaran lainnya diketahui.</li>
+    <li>Mengubah satuan volume (liter, mL, dm³, cm³, m³) dan satuan waktu.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🚰 Lab Mengisi Bak</button><button data-target="konv">🔄 Lab Ubah Satuan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Apa itu debit?</h2>
+    <p><b>Debit</b> adalah banyaknya air (volume) yang mengalir dalam satu satuan waktu. Keran berdebit 5 liter/menit artinya setiap <b>1 menit</b> mengalirkan <b>5 liter</b> air.</p>
+    <div class="grid3"><div class="def">Debit = <span class="fr"><span>Volume</span><span>Waktu</span></span></div><div class="def">Volume = Debit × Waktu</div><div class="def">Waktu = <span class="fr"><span>Volume</span><span>Debit</span></span></div></div>
+    <div class="note">Rumusnya mirip kecepatan! Kecepatan = jarak : waktu, debit = volume : waktu.</div>
+  </div>
+  <div class="card"><h2>2. Satuan volume</h2>
+    <table class="t"><tr><th>Satuan</th><th>Sama dengan</th></tr><tr><td>1 liter</td><td>1 dm³ = 1.000 mL = 1.000 cm³</td></tr><tr><td>1 m³</td><td>1.000 liter</td></tr><tr><td>1 mL</td><td>1 cm³ (cc)</td></tr></table>
+    <p>Satuan debit yang sering dipakai: liter/detik, liter/menit, liter/jam, m³/detik, mL/detik.</p>
+  </div>
+  <div class="card"><h2>3. Contoh</h2>
+    <div class="grid3"><div class="ex"><span class="t">Mencari debit</span><br>Bak 120 liter penuh dalam 20 menit.<br>D = 120 : 20 = <b>6 liter/menit</b></div>
+      <div class="ex"><span class="t">Mencari volume</span><br>Debit 3 liter/menit selama 15 menit.<br>V = 3 × 15 = <b>45 liter</b></div>
+      <div class="ex"><span class="t">Mencari waktu</span><br>Kolam 900 liter, debit 30 liter/menit.<br>W = 900 : 30 = <b>30 menit</b></div></div>
+    <div class="ex"><span class="t">Ubah satuan dulu</span> Debit 2 liter/detik = 2 × 60 = <b>120 liter/menit</b>. Debit 6.000 mL/menit = <b>6 liter/menit</b> = 0,1 liter/detik.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Mengisi Bak Mandi</h2>
+    <p>Atur ukuran bak dan debit keran, lalu buka keran!</p>
+    <div class="ctrl"><label>Volume bak <span class="v" id="vb-v"></span><input type="range" id="vb" min="20" max="300" step="10" value="120"></label><label>Debit keran <span class="v" id="db-v"></span><input type="range" id="db" min="1" max="30" value="6"></label></div>
+    <div class="row"><button class="btn" id="open">🚰 Buka keran</button><button class="btn ghost" id="emp">Kosongkan</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="tub" viewBox="0 0 400 340"></svg><div class="out" id="tOut"></div></div>
+  </div>
+</section>
+
+<section id="konv" class="panel">
+  <div class="card"><h2>Lab: Tangga Satuan Volume</h2>
+    <p>Setiap turun satu anak tangga, dikali 10. Setiap naik, dibagi 10. (Untuk satuan kubik seperti m³ → dm³, setiap langkah dikali 1.000.)</p>
+    <div class="ctrl"><label>Nilai <input type="number" id="cv" value="2.5" step="any" style="width:130px"></label><label>Dari <select id="cf"></select></label><label>Ke <select id="ct"></select></label></div>
+    <div class="grid2"><svg class="viz" id="st" viewBox="0 0 420 320"></svg><div class="out" id="cOut"></div></div>
+  </div>
+  <div class="card"><h2>Ubah Satuan Debit</h2>
+    <div class="ctrl"><label>Debit (liter per …) <input type="number" id="dv" value="2" step="any" style="width:110px"></label><label>per <select id="dfrom"><option value="1">detik</option><option value="60">menit</option><option value="3600">jam</option></select></label></div>
+    <div class="out" id="dOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Desimal boleh memakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas V · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const id=n=>Number(VML.round(n,6)).toLocaleString('id-ID',{maximumFractionDigits:6});
+
+/* bak */
+let filled=0, raf=null, tmin=0;
+function drawB(){
+  const V=+$('#vb').value, D=+$('#db').value; $('#vb-v').textContent=V+' liter'; $('#db-v').textContent=D+' liter/menit'; filled=Math.min(filled,V);
+  const g=$('#tub'); clear(g); const x=70, y=110, w=260, h=190, lvl=filled/V*h;
+  // keran
+  s('path',{d:'M40,40 H140 V70',fill:'none',stroke:'#7d8a96','stroke-width':16,'stroke-linecap':'round'},g); s('rect',{x:90,y:22,width:22,height:14,rx:4,fill:'var(--b)'},g);
+  if(raf) s('rect',{x:134,y:76,width:Math.min(12,3+D/3),height:y+h-lvl-76,fill:'#4fb3ff','fill-opacity':.8},g);
+  s('rect',{x,y:y+h-lvl,width:w,height:lvl,fill:'#4fb3ff','fill-opacity':.65},g);
+  s('path',{d:`M${x},${y} V${y+h} H${x+w} V${y}`,fill:'none',stroke:'var(--ink)','stroke-width':5,'stroke-linejoin':'round'},g);
+  for(let k=1;k<4;k++){ const yy=y+h-h*k/4; s('line',{x1:x+w,y1:yy,x2:x+w+12,y2:yy,stroke:'var(--ink)','stroke-width':2},g); txt(g,x+w+16,yy+5,num(V*k/4)+' L',{'font-size':12,'text-anchor':'start'}); }
+  txt(g,x+w/2,y+h+28,'Bak '+V+' liter',{'font-weight':800});
+  const T=V/D;
+  $('#tOut').innerHTML=`<p>Waktu berjalan: <b>${num(tmin,2)} menit</b></p><div class="big">Air di bak: ${num(filled,2)} liter</div><p>Volume = debit × waktu = ${D} × ${num(tmin,2)} = ${num(D*tmin,2)} liter</p>
+   <p><b>Waktu sampai penuh</b> = volume : debit = ${V} : ${D} = <b>${num(T,2)} menit</b>${T>=60?` = ${Math.floor(T/60)} jam ${num(T%60,1)} menit`:''}</p>${filled>=V?'<p class="big">🛁 Bak penuh!</p>':''}`;
+}
+$('#open').onclick=()=>{ if(raf) return; const V=+$('#vb').value, D=+$('#db').value, T=V/D, t0=performance.now(), start=tmin, dur=Math.min(6000,(T-start)*250+800);
+  const st=now=>{ tmin=Math.min(T,start+(now-t0)/dur*(T-start)); filled=D*tmin; if(tmin<T){ drawB(); raf=requestAnimationFrame(st); } else { raf=null; drawB(); } }; raf=requestAnimationFrame(st); };
+$('#emp').onclick=()=>{ cancelAnimationFrame(raf); raf=null; filled=0; tmin=0; drawB(); };
+['#vb','#db'].forEach(x=>$(x).oninput=()=>{ cancelAnimationFrame(raf); raf=null; filled=0; tmin=0; drawB(); }); drawB();
+
+/* tangga satuan liter */
+const U=['kL','hL','daL','L','dL','cL','mL'];
+const NOTE={kL:'kiloliter = 1 m³',L:'liter = 1 dm³',mL:'mililiter = 1 cm³'};
+['#cf','#ct'].forEach((sel,j)=>$(sel).innerHTML=U.map(u=>`<option${(j===0&&u==='L')||(j===1&&u==='mL')?' selected':''}>${u}</option>`).join(''));
+function drawC(){
+  const v=Number(String($('#cv').value).replace(',','.')), f=U.indexOf($('#cf').value), t=U.indexOf($('#ct').value), g=$('#st'); clear(g);
+  U.forEach((u,i)=>{ const x=10+i*44, y=30+i*38; s('rect',{x,y,width:100,height:34,rx:10,fill:i===f?'var(--b)':i===t?'var(--c)':'var(--card)',stroke:'var(--acc)','stroke-width':2},g); txt(g,x+50,y+23,u,{'font-weight':800,fill:(i===f||i===t)?'#fff':'var(--ink)'}); if(NOTE[u]) txt(g,i>4?x-6:x+108,y+22,NOTE[u],{'font-size':11,'text-anchor':i>4?'end':'start',fill:'var(--muted)'}); });
+  if(isNaN(v)){ $('#cOut').innerHTML='Tulis sebuah bilangan.'; return; }
+  const k=t-f, r=v*Math.pow(10,k);
+  $('#cOut').innerHTML=`<p>${k>0?`Turun <b>${k}</b> tangga → dikali 10<sup>${k}</sup> = ${id(Math.pow(10,k))}`:k<0?`Naik <b>${-k}</b> tangga → dibagi ${id(Math.pow(10,-k))}`:'Satuan sama.'}</p><div class="huge">${id(v)} ${U[f]} = ${id(r)} ${U[t]}</div>`;
+}
+['#cv','#cf','#ct'].forEach(x=>$(x).oninput=drawC); drawC();
+function drawDv(){ const v=Number(String($('#dv').value).replace(',','.')), per=+$('#dfrom').value; if(isNaN(v)){ $('#dOut').innerHTML='Tulis sebuah bilangan.'; return; } const perSec=v/per;
+  $('#dOut').innerHTML=`<table class="t"><tr><th>liter/detik</th><th>liter/menit</th><th>liter/jam</th><th>mL/detik</th></tr><tr><td>${id(perSec)}</td><td>${id(perSec*60)}</td><td>${id(perSec*3600)}</td><td>${id(perSec*1000)}</td></tr></table><p class="muted">1 menit = 60 detik, 1 jam = 3.600 detik, 1 liter = 1.000 mL.</p>`; }
+['#dv','#dfrom'].forEach(x=>$(x).oninput=drawDv); drawDv();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Debit', gen(){ const d=pick([2,3,4,5,6,8,10,12,15,20,25]), w=pick([5,10,12,15,20,30,40]); return {q:`Bak berisi ${d*w} liter air penuh dalam ${w} menit. Debitnya …`, a:String(d), unit:'liter/menit', hint:'D = V : W', ex:`${d*w} : ${w} = ${d}`}; }},
+  {name:'Volume', gen(){ const d=pick([2,3,4,5,8,10,15,20]), w=pick([5,6,10,12,15,20,30,45]); return {q:`Keran berdebit ${d} liter/menit dibuka selama ${w} menit. Volume air yang keluar …`, a:String(d*w), unit:'liter', hint:'V = D × W', ex:`${d} × ${w} = ${d*w}`}; }},
+  {name:'Waktu', gen(){ const d=pick([5,10,15,20,25,30,40,50]), w=pick([4,5,6,8,10,12,15,20,30]); return {q:`Kolam ${d*w} liter diisi air dengan debit ${d} liter/menit. Berapa menit sampai penuh?`, a:String(w), unit:'menit', hint:'W = V : D', ex:`${d*w} : ${d} = ${w}`}; }},
+  {name:'Ubah satuan', gen(){ const t=rand(0,3);
+    if(t===0){ const l=pick([1,2,3,4,5,0.5]); return {q:`${num(l)} liter/detik = … liter/menit`, a:String(l*60), hint:'1 menit = 60 detik → kali 60.', ex:`${num(l)} × 60 = ${num(l*60)}`}; }
+    if(t===1){ const ml=pick([2000,3000,5000,6000,1500,500]); return {q:`${id(ml)} mL = … liter`, a:String(ml/1000), hint:'1 liter = 1.000 mL → bagi 1.000.', ex:`${id(ml)} : 1.000 = ${num(ml/1000)}`}; }
+    if(t===2){ const m=pick([1,2,3,0.5,1.5]); return {q:`${num(m)} m³ = … liter`, a:String(m*1000), hint:'1 m³ = 1.000 liter.', ex:`${num(m)} × 1.000 = ${id(m*1000)}`}; }
+    const lm=pick([60,120,180,300,600]); return {q:`${lm} liter/menit = … liter/detik`, a:String(lm/60), hint:'Bagi 60.', ex:`${lm} : 60 = ${num(lm/60)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Rumus debit adalah …', o:['volume : waktu','volume × waktu','waktu : volume','volume + waktu'], a:0, ex:'D = V : W.'},
+ {q:'Bak 120 liter penuh dalam 20 menit. Debitnya …', o:['6 liter/menit','2.400 liter/menit','100 liter/menit','140 liter/menit'], a:0, ex:'120 : 20.'},
+ {q:'Debit 3 liter/menit selama 15 menit. Volumenya …', o:['45 liter','5 liter','18 liter','12 liter'], a:0, ex:'3 × 15.'},
+ {q:'Kolam 900 liter diisi dengan debit 30 liter/menit. Waktunya …', o:['30 menit','27.000 menit','870 menit','3 menit'], a:0, ex:'900 : 30.'},
+ {q:'1 liter sama dengan …', o:['1 dm³','1 m³','1 cm³','100 mL'], a:0, ex:'1 L = 1 dm³ = 1.000 cm³.'},
+ {q:'1 m³ sama dengan …', o:['1.000 liter','100 liter','10 liter','1 liter'], a:0, ex:'1 m³ = 1.000 dm³.'},
+ {q:'2 liter/detik = … liter/menit', o:['120','2','60','30'], a:0, ex:'2 × 60.'},
+ {q:'6.000 mL/menit = … liter/menit', o:['6','60','600','0,6'], a:0, ex:'6.000 : 1.000.'},
+ {q:'Keran berdebit 5 liter/menit artinya …', o:['setiap 1 menit mengalirkan 5 liter','setiap 5 menit mengalirkan 1 liter','dalam 1 jam mengalirkan 5 liter','bak berisi 5 liter'], a:0, ex:'Volume per satuan waktu.'},
+ {q:'Tangki 1,5 m³ dikuras dengan debit 25 liter/menit. Waktunya …', o:['60 menit','6 menit','37,5 menit','600 menit'], a:0, ex:'1.500 : 25 = 60.'},
+ {q:'Debit selang 0,5 liter/detik. Dalam 2 menit mengalirkan …', o:['60 liter','1 liter','120 liter','30 liter'], a:0, ex:'0,5 × 120 detik = 60.'},
+ {q:'Ember 10 liter terisi penuh dalam 50 detik. Debitnya …', o:['0,2 liter/detik','5 liter/detik','500 liter/detik','2 liter/detik'], a:0, ex:'10 : 50.'},
+ {q:'Bak 240 liter, debit keran 8 liter/menit. Berapa menit sampai penuh?', input:true, a:['30'], unit:'menit', ex:'240 : 8.'},
+ {q:'Ubah 3.500 mL ke liter.', input:true, a:['3,5','3.5'], unit:'liter', ex:'3.500 : 1.000.'},
+ {q:'Rumus debit mirip dengan rumus …', o:['kecepatan','luas','keliling','rata-rata'], a:0, ex:'Keduanya "per satuan waktu".'}
+], 'sd5m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Persamaan Garis Lurus · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#6a3fd1">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Aljabar</span>
+  <h1>Persamaan Garis Lurus</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan gradien garis dari dua titik, dari persamaan, dan dari grafik.</li>
+    <li>Menentukan persamaan garis lurus dan menggambar grafiknya.</li>
+    <li>Menggunakan hubungan gradien garis sejajar dan garis tegak lurus.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📈 Lab y = mx + c</button><button data-target="dua">📍 Lab Dua Titik</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bentuk persamaan garis lurus</h2>
+    <div class="grid2"><div class="def"><b>y = mx + c</b><br>m = gradien (kemiringan), c = titik potong sumbu Y di (0, c)</div><div class="def"><b>ax + by = c</b> (bentuk umum)<br>gradien m = <span class="fr"><span>−a</span><span>b</span></span></div></div>
+    <p>Contoh: 3x + 4y = 12 → 4y = −3x + 12 → y = −<span class="fr"><span>3</span><span>4</span></span>x + 3. Gradiennya −¾ dan memotong sumbu Y di (0, 3).</p>
+  </div>
+  <div class="card"><h2>2. Gradien</h2>
+    <div class="def">Gradien = <span class="fr"><span>perubahan y</span><span>perubahan x</span></span> = <span class="fr"><span>y<sub>2</sub> − y<sub>1</sub></span><span>x<sub>2</sub> − x<sub>1</sub></span></span></div>
+    <div class="grid2">
+      <div><ul><li>m &gt; 0: garis <b>naik</b> dari kiri ke kanan.</li><li>m &lt; 0: garis <b>turun</b>.</li><li>m = 0: garis <b>mendatar</b> (sejajar sumbu X), misalnya y = 5.</li><li>Garis tegak (sejajar sumbu Y), misalnya x = 2: gradien <b>tidak terdefinisi</b>.</li></ul></div>
+      <div class="ex"><span class="t">Contoh</span> Melalui (1, 2) dan (3, 8): m = <span class="fr"><span>8 − 2</span><span>3 − 1</span></span> = <span class="fr"><span>6</span><span>2</span></span> = <b>3</b></div>
+    </div>
+  </div>
+  <div class="card"><h2>3. Garis sejajar dan tegak lurus</h2>
+    <div class="grid2"><div class="ex"><span class="t">Sejajar</span><br>m<sub>1</sub> = m<sub>2</sub><br>Garis sejajar y = 2x − 1 juga bergradien 2.</div>
+      <div class="ex"><span class="t">Tegak lurus</span><br>m<sub>1</sub> × m<sub>2</sub> = −1<br>Tegak lurus garis bergradien <span class="fr"><span>2</span><span>3</span></span> → gradien −<span class="fr"><span>3</span><span>2</span></span> (dibalik dan berganti tanda).</div></div>
+  </div>
+  <div class="card"><h2>4. Menentukan persamaan garis</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Gradien m melalui (x<sub>1</sub>, y<sub>1</sub>)</span><br>y − y<sub>1</sub> = m(x − x<sub>1</sub>)<br>m = −1, melalui (2, 3): y − 3 = −(x − 2) → <b>y = −x + 5</b></div>
+      <div class="ex"><span class="t">Melalui dua titik</span><br>Hitung m dulu, lalu pakai rumus di samping.<br>(1, 1) dan (3, 5): m = 2 → y − 1 = 2(x − 1) → <b>y = 2x − 1</b></div>
+    </div>
+    <h3>Menggambar grafik</h3>
+    <ol class="steps"><li>Tentukan titik potong sumbu X (y = 0) dan sumbu Y (x = 0).</li><li>Gambar kedua titik itu pada bidang Kartesius.</li><li>Hubungkan dengan garis lurus.</li></ol>
+    <div class="ex">2x − 3y = 6: x = 0 → y = −2 → (0, −2); y = 0 → x = 3 → (3, 0).</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Menjelajahi y = mx + c</h2>
+    <p>Gradien diatur sebagai <b>naik</b> per <b>maju</b>. Perhatikan segitiga gradiennya.</p>
+    <div class="ctrl"><label>naik (Δy) <span class="v" id="r-v"></span><input type="range" id="r" min="-6" max="6" value="2"></label><label>maju (Δx) <span class="v" id="u-v"></span><input type="range" id="u" min="1" max="6" value="3"></label><label>c <span class="v" id="c-v"></span><input type="range" id="c" min="-6" max="6" value="1"></label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="par"> garis sejajar</label><label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="per"> garis tegak lurus</label></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="g1" viewBox="0 0 440 440"></svg><div class="out" id="o1"></div></div>
+  </div>
+</section>
+
+<section id="dua" class="panel">
+  <div class="card"><h2>Lab: Garis Melalui Dua Titik</h2>
+    <p>Seret titik <b style="color:var(--acc)">A</b> dan <b style="color:var(--b)">B</b>.</p>
+    <div class="grid2"><svg class="viz" id="g2" viewBox="0 0 440 440"></svg><div class="out" id="o2"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Gradien pecahan ditulis seperti -3/4. Persamaan ditulis seperti y = 2x - 3.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, F, simp, fracHTML, fracTxt, num} = VML;
+/* y = (mn/md)x + (cn/cd) */
+const term = (n,d,v) => { [n,d]=simp(n,d); if(n===0) return ''; const abs=Math.abs(n); const co = d===1 ? (abs===1&&v?'':String(abs)) : F(abs,d); return {neg:n<0, t:co+v}; };
+const eqY = (mn,md,cn,cd) => { const a=term(mn,md,'x'), b=term(cn,cd,''); let o='y = '; if(a) o+=(a.neg?'−':'')+a.t; if(b) o+= a ? (b.neg?' − ':' + ')+b.t : (b.neg?'−':'')+b.t; if(!a&&!b) o+='0'; return o; };
+const pt=(x,y)=>`(${M(x)}, ${M(y)})`;
+const clipLine=(C,f,x0=-8,x1=8,ymin=-8,ymax=8)=>{ let d=''; for(let x=x0;x<=x1+1e-9;x+=0.02){ const y=f(x); if(y<ymin-1||y>ymax+1){ d+=' '; continue; } d+=(d&&!d.endsWith(' ')?'L':'M')+C.X(x).toFixed(1)+','+C.Y(y).toFixed(1); } return d.replace(/ +/g,' '); };
+
+/* LAB 1 */
+function draw1(){
+  const r=+$('#r').value, u=+$('#u').value, c=+$('#c').value; ['r','u','c'].forEach(k=>$('#'+k+'-v').textContent=M({r,u,c}[k]));
+  const m=r/u, g=$('#g1'); clear(g); const C=VML.plane(g,{xmin:-8,xmax:8,ymin:-8,ymax:8,W:440,H:440,lab:2});
+  if($('#par').checked) s('path',{d:clipLine(C,x=>m*x+c+4),fill:'none',stroke:'var(--muted)','stroke-width':2.5,'stroke-dasharray':'8 5'},g);
+  if($('#per').checked&&r!==0) s('path',{d:clipLine(C,x=>-u/r*x+c),fill:'none',stroke:'var(--c)','stroke-width':2.5,'stroke-dasharray':'8 5'},g);
+  if($('#per').checked&&r===0) s('line',{x1:C.X(0),y1:C.Y(-8),x2:C.X(0),y2:C.Y(8),stroke:'var(--c)','stroke-width':2.5,'stroke-dasharray':'8 5'},g);
+  s('path',{d:clipLine(C,x=>m*x+c),fill:'none',stroke:'var(--acc)','stroke-width':3.5},g);
+  // segitiga gradien dari (0,c)
+  s('path',{d:`M${C.X(0)},${C.Y(c)} H${C.X(u)} V${C.Y(c+r)}`,fill:'none',stroke:'var(--b)','stroke-width':3},g);
+  txt(g,C.X(u/2),C.Y(c)+(r>=0?16:-8),'maju '+u,{fill:'var(--b)','font-weight':800,'font-size':12}); if(r) txt(g,C.X(u)+6,C.Y(c+r/2)+4,'naik '+M(r),{fill:'var(--b)','font-weight':800,'font-size':12,'text-anchor':'start'});
+  s('circle',{cx:C.X(0),cy:C.Y(c),r:6,fill:'var(--acc)'},g);
+  if(r!==0){ const xi=-c*u/r; if(Math.abs(xi)<=8) s('circle',{cx:C.X(xi),cy:C.Y(0),r:6,fill:'var(--b)'},g); }
+  const [mn,md]=simp(r,u);
+  $('#o1').innerHTML=`<div class="big">${eqY(r,u,c,1)}</div>
+   <p>Gradien m = <span class="fr"><span>naik</span><span>maju</span></span> = ${F(M(r),u)}${md!==u||md===1?' = '+fracHTML(r,u):''} ${m>0?'→ garis <b>naik</b>':m<0?'→ garis <b>turun</b>':'→ garis <b>mendatar</b>'}</p>
+   <p>Titik potong sumbu Y: <b>${pt(0,c)}</b><br>Titik potong sumbu X: ${r===0?(c===0?'seluruh sumbu X':'tidak ada (garis sejajar sumbu X)'):`<b>(${fracHTML(-c*u,r)}, 0)</b>`}</p>
+   <p>Bentuk umum: <b>${(()=>{ let A=-r, B=u, Cc=c*u; if(A<0||(A===0&&B<0)){A=-A;B=-B;Cc=-Cc;} let o=''; if(A) o+=(A===1?'':A)+'x'; o+= o?(B<0?' − ':' + ')+(Math.abs(B)===1?'':Math.abs(B))+'y':(B<0?'−':'')+(Math.abs(B)===1?'':Math.abs(B))+'y'; return o+' = '+M(Cc); })()}</b></p>
+   ${$('#par').checked?`<p class="muted">Garis abu-abu sejajar: gradien sama (${fracHTML(r,u)}), c berbeda.</p>`:''}
+   ${$('#per').checked?`<p style="color:var(--c)">Garis hijau tegak lurus: gradien ${r===0?'tidak terdefinisi (garis tegak)':fracHTML(-u,r)+'. Cek: '+fracHTML(r,u)+' × '+fracHTML(-u,r)+' = −1'}</p>`:''}`;
+}
+['#r','#u','#c'].forEach(x=>$(x).oninput=draw1); ['#par','#per'].forEach(x=>$(x).onchange=draw1); draw1();
+
+/* LAB 2 */
+let PA=[-3,-1], PB=[3,3];
+function draw2(){
+  const g=$('#g2'); clear(g); const C=VML.plane(g,{xmin:-8,xmax:8,ymin:-8,ymax:8,W:440,H:440,lab:2});
+  const [x1,y1]=PA, [x2,y2]=PB, dx=x2-x1, dy=y2-y1;
+  if(dx===0&&dy===0){} else if(dx===0) s('line',{x1:C.X(x1),y1:C.Y(-8),x2:C.X(x1),y2:C.Y(8),stroke:'var(--acc)','stroke-width':3},g);
+  else s('path',{d:clipLine(C,x=>y1+dy/dx*(x-x1)),fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+  s('path',{d:`M${C.X(x1)},${C.Y(y1)} H${C.X(x2)} V${C.Y(y2)}`,fill:'none',stroke:'var(--b)','stroke-width':2.5,'stroke-dasharray':'5 4'},g);
+  if(dx) txt(g,C.X((x1+x2)/2),C.Y(y1)+(dy>=0?16:-8),'Δx = '+M(dx),{fill:'var(--b)','font-weight':800,'font-size':12}); if(dy) txt(g,C.X(x2)+6,C.Y((y1+y2)/2)+4,'Δy = '+M(dy),{fill:'var(--b)','font-weight':800,'font-size':12,'text-anchor':'start'});
+  [[PA,'var(--acc)','A'],[PB,'var(--b)','B']].forEach(([p,col,l])=>{ s('circle',{cx:C.X(p[0]),cy:C.Y(p[1]),r:11,fill:col,stroke:'var(--card)','stroke-width':3,style:'cursor:grab'},g); txt(g,C.X(p[0]),C.Y(p[1])-16,l+pt(...p),{'font-weight':800,fill:col,'font-size':13}); });
+  VML.dragSvg(g, p=>{ const a=Math.hypot(p.x-C.X(PA[0]),p.y-C.Y(PA[1])), b=Math.hypot(p.x-C.X(PB[0]),p.y-C.Y(PB[1])); return Math.min(a,b)>26?null:(a<=b?'A':'B'); },
+   (k,p)=>{ const q=[Math.max(-8,Math.min(8,Math.round(C.ix(p.x)))),Math.max(-8,Math.min(8,Math.round(C.iy(p.y))))]; if(k==='A') PA=q; else PB=q; draw2(); });
+  let html;
+  if(dx===0&&dy===0) html='<p>A dan B berimpit. Geser salah satunya.</p>';
+  else if(dx===0) html=`<div class="big">x = ${M(x1)}</div><p>m = ${F(M(dy),0)} → <b>tidak terdefinisi</b> (pembagian dengan nol). Garisnya tegak, sejajar sumbu Y.</p>`;
+  else { const cn=y1*dx-dy*x1; html=`<p><b>1) Gradien</b><br>m = ${F(`${M(y2)} − ${neg(y1)}`,`${M(x2)} − ${neg(x1)}`)} = ${F(M(dy),M(dx))} = <b>${fracHTML(dy,dx)}</b></p>
+     <p><b>2) Persamaan</b> y − y<sub>1</sub> = m(x − x<sub>1</sub>)<br>y − ${neg(y1)} = ${fracHTML(dy,dx)}(x − ${neg(x1)})</p><div class="big">${eqY(dy,dx,cn,dx)}</div>
+     <p class="muted">${dy===0?'Gradien 0 → garis mendatar.':'Cek: masukkan titik B ke persamaan, hasilnya harus benar.'}</p>`; }
+  $('#o2').innerHTML=html;
+}
+draw2();
+
+/* LATIHAN */
+const eqChk=(m,c)=>inp=>{ const t=String(inp).replace(/\s/g,'').replace(/[−–]/g,'-').toLowerCase(); const r=t.replace(/^y=/,''); if(r===t&&!/^y/.test(t)) {} const P=VML.poly(r); if(!P) return false; return Math.abs((P.x||0)-m)<1e-9 && Math.abs((P['']||0)-c)<1e-9 && Object.keys(P).every(k=>k==='x'||k===''); };
+VML.practice($('#prac'), [
+  {name:'Gradien dua titik', gen(){ const x1=rand(-6,6), y1=rand(-6,6); let x2=rand(-6,6); if(x2===x1) x2=x1+rand(1,3); const y2=rand(-6,6);
+    return {q:`Gradien garis yang melalui ${pt(x1,y1)} dan ${pt(x2,y2)} adalah …`, a:fracTxt(y2-y1,x2-x1), hint:'(y₂ − y₁) : (x₂ − x₁)', ex:`${F(`${M(y2)} − ${neg(y1)}`,`${M(x2)} − ${neg(x1)}`)} = ${fracHTML(y2-y1,x2-x1)}`}; }},
+  {name:'Gradien dari persamaan', gen(){ const a=randNZ(-6,6), b=randNZ(-6,6), c=rand(-12,12); const t=rand(0,1);
+    const lhs=`${a===1?'':a===-1?'−':M(a)}x ${b<0?'−':'+'} ${Math.abs(b)===1?'':Math.abs(b)}y`;
+    if(t===0) return {q:`Gradien garis ${lhs} = ${M(c)} adalah …`, a:fracTxt(-a,b), hint:'m = −a/b', ex:`m = −(${M(a)}) : ${neg(b)} = ${fracHTML(-a,b)}`};
+    return {q:`Gradien garis yang <b>tegak lurus</b> garis ${lhs} = ${M(c)} adalah …`, a:fracTxt(b,a), hint:'Cari m₁ = −a/b, lalu m₂ = −1/m₁.', ex:`m₁ = ${fracHTML(-a,b)} → m₂ = ${fracHTML(b,a)}`}; }},
+  {name:'Persamaan garis', gen(){ const m=randNZ(-4,4), x1=rand(-5,5), y1=rand(-6,6), c=y1-m*x1; const e=`y = ${m===1?'':m===-1?'−':M(m)}x${c?(c>0?' + ':' − ')+Math.abs(c):''}`;
+    return {q:`Persamaan garis dengan gradien ${M(m)} yang melalui ${pt(x1,y1)} adalah …`, a:eqChk(m,c), show:e, hint:'y − y₁ = m(x − x₁)', ex:`y − ${neg(y1)} = ${M(m)}(x − ${neg(x1)}) → ${e}`}; }},
+  {name:'Titik potong', gen(){ const m=randNZ(-4,4), xi=rand(-5,5), c=-m*xi; const ax=pick(['X','Y']);
+    return {q:`Garis y = ${m===1?'':m===-1?'−':M(m)}x${c?(c>0?' + ':' − ')+Math.abs(c):''} memotong sumbu ${ax} di titik (…). Tulis koordinatnya.`, a:inp=>{ const t=String(inp).replace(/[−–]/g,'-').replace(/\s/g,'').match(/^\(?(-?\d+)[,;](-?\d+)\)?$/); return !!t && +t[1]===(ax==='X'?xi:0) && +t[2]===(ax==='X'?0:c); }, show:ax==='X'?pt(xi,0):pt(0,c), hint:ax==='X'?'Sumbu X: y = 0.':'Sumbu Y: x = 0.', ex:ax==='X'?`0 = ${M(m)}x ${c<0?'−':'+'} ${Math.abs(c)} → x = ${M(xi)}`:`x = 0 → y = ${M(c)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Gradien garis yang melalui titik (1, 2) dan (3, 8) adalah …', o:['3',F(1,3),'2','6'], a:0, ex:'(8 − 2)/(3 − 1) = 3.'},
+ {q:'Gradien garis y = −2x + 5 adalah …', o:['−2','5','2',F(5,2)], a:0, ex:'Pada y = mx + c, m = −2.'},
+ {q:'Gradien garis 3x + 4y = 12 adalah …', o:['−'+F(3,4),F(3,4),'−'+F(4,3),'3'], a:0, ex:'m = −a/b = −3/4.'},
+ {q:'Garis yang sejajar dengan y = 2x − 1 memiliki gradien …', o:['2','−2','−'+F(1,2),F(1,2)], a:0, ex:'Garis sejajar → gradien sama.'},
+ {q:`Gradien garis yang tegak lurus dengan garis bergradien ${F(2,3)} adalah …`, o:['−'+F(3,2),F(3,2),'−'+F(2,3),F(2,3)], a:0, ex:'m₁ × m₂ = −1 → m₂ = −3/2.'},
+ {q:'Persamaan garis dengan gradien 3 yang melalui titik (0, −4) adalah …', o:['y = 3x − 4','y = −4x + 3','y = 3x + 4','y = −3x − 4'], a:0, ex:'c = −4 karena memotong sumbu Y di (0, −4).'},
+ {q:'Persamaan garis dengan gradien −1 yang melalui (2, 3) adalah …', o:['y = −x + 5','y = −x + 1','y = x + 1','y = −x − 5'], a:0, ex:'y − 3 = −(x − 2) → y = −x + 5.'},
+ {q:'Persamaan garis yang melalui (1, 1) dan (3, 5) adalah …', o:['y = 2x − 1','y = 2x + 1','y = x + 2','y = 4x − 3'], a:0, ex:'m = 2; y − 1 = 2(x − 1).'},
+ {q:'Titik potong garis 2x − 3y = 6 dengan sumbu Y adalah …', o:['(0, −2)','(0, 2)','(3, 0)','(0, 3)'], a:0, ex:'x = 0 → −3y = 6 → y = −2.'},
+ {q:'Titik potong garis y = 2x − 6 dengan sumbu X adalah …', o:['(3, 0)','(−6, 0)','(0, −6)','(−3, 0)'], a:0, ex:'0 = 2x − 6 → x = 3.'},
+ {q:'Garis y = 5 …', o:['sejajar sumbu X dan bergradien 0','sejajar sumbu Y','bergradien 5','melalui titik asal'], a:0, ex:'Nilai y selalu 5 → garis mendatar.'},
+ {q:'Gradien garis yang melalui (2, 1) dan (2, 7) adalah …', o:['tidak terdefinisi','0','6','3'], a:0, ex:'Δx = 0 → pembagian dengan nol; garis tegak.'},
+ {q:'Tentukan gradien garis 6x − 2y + 5 = 0.', input:true, a:['3'], ex:'2y = 6x + 5 → y = 3x + 2,5 → m = 3.'},
+ {q:'Titik (1, k) terletak pada garis y = 4x − 1. Nilai k adalah …', input:true, a:['3'], ex:'k = 4(1) − 1 = 3.'},
+ {q:'Garis yang naik dari kiri bawah ke kanan atas memiliki gradien …', o:['positif','negatif','nol','tidak terdefinisi'], a:0, ex:'y bertambah saat x bertambah → m > 0.'}
+], 'k8m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

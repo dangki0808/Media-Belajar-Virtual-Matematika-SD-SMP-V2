@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Penjumlahan & Pengurangan · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#e23d5c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Bilangan</span>
+  <h1>🍓 Penjumlahan &amp; Pengurangan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menjumlahkan dan mengurangkan bilangan sampai 100 dengan bantuan benda dan garis bilangan.</li>
+    <li>Memakai strategi "membuat sepuluh" dan memecah bilangan menjadi puluhan dan satuan.</li>
+    <li>Menyelesaikan soal cerita penjumlahan dan pengurangan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🔟 Lab Bingkai Sepuluh</button><button data-target="garis">📏 Lab Garis Bilangan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Membuat sepuluh</h2>
+    <p>Pecah salah satu bilangan supaya yang lain menjadi <b>10</b>, karena menambah 10 itu mudah!</p>
+    <div class="ex"><span class="t">Contoh</span> 8 + 5 = 8 + <b>2</b> + 3 = <b>10</b> + 3 = <b>13</b></div>
+    <div class="ex"><span class="t">Contoh</span> 27 + 6 = 27 + <b>3</b> + 3 = <b>30</b> + 3 = <b>33</b></div>
+  </div>
+  <div class="card"><h2>2. Puluhan dengan puluhan, satuan dengan satuan</h2>
+    <div class="ex">34 + 25 = (30 + 20) + (4 + 5) = 50 + 9 = <b>59</b></div>
+    <div class="ex">68 − 23 = (60 − 20) + (8 − 3) = 40 + 5 = <b>45</b></div>
+  </div>
+  <div class="card"><h2>3. Garis bilangan</h2>
+    <p>Penjumlahan → loncat ke <b>kanan</b>. Pengurangan → loncat ke <b>kiri</b>. Loncat puluhan dulu, lalu satuan.</p>
+    <div class="ex">45 + 23: dari 45 loncat +10 → 55, +10 → 65, lalu +3 → <b>68</b></div>
+  </div>
+  <div class="card"><h2>4. Soal cerita</h2>
+    <div class="grid2"><div class="ex">Rina punya 24 stroberi, diberi kakak 15 lagi. Semuanya 24 + 15 = <b>39</b>.</div><div class="ex">Di pohon ada 50 burung, 18 terbang pergi. Sisa 50 − 18 = <b>32</b>.</div></div>
+    <div class="note">Penjumlahan bisa ditukar urutannya (5 + 3 = 3 + 5), tetapi pengurangan tidak!</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Bingkai Sepuluh</h2>
+    <p>Stroberi merah = bilangan pertama, stroberi hijau = bilangan kedua. Isi bingkai pertama sampai penuh 10 dulu!</p>
+    <div class="ctrl"><label style="color:var(--b)">Bilangan pertama <span class="v" id="a-v"></span><input type="range" id="a" min="1" max="10" value="8"></label><label style="color:var(--c)">Bilangan kedua <span class="v" id="b-v"></span><input type="range" id="b" min="1" max="10" value="5"></label></div>
+    <div class="row"><button class="btn" id="mk">✨ Buat sepuluh</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="tf" viewBox="0 0 360 260"></svg><div class="out" id="tOut"></div></div>
+  </div>
+</section>
+
+<section id="garis" class="panel">
+  <div class="card"><h2>Lab: Loncat di Garis Bilangan</h2>
+    <div class="ctrl"><label>Mulai <span class="v" id="x-v"></span><input type="range" id="x" min="0" max="99" value="45"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Operasi</div><div class="seg" id="op"><button data-o="+" class="on">+</button><button data-o="-">−</button></div></div>
+      <label>Bilangan <span class="v" id="y-v"></span><input type="range" id="y" min="1" max="50" value="23"></label></div>
+    <div class="row"><button class="btn" id="go">🦘 Loncat!</button></div>
+    <svg class="viz" id="nl" viewBox="0 0 720 190" style="margin-top:10px"></svg>
+    <div class="out" id="nOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+/* bingkai sepuluh */
+let made=false;
+function drawT(){
+  const a=+$('#a').value, b=+$('#b').value; $('#a-v').textContent=a; $('#b-v').textContent=b;
+  const g=$('#tf'); clear(g); const S=56, ox=40;
+  const need=Math.min(10-a,b), cells=[]; // isi frame1 dulu dengan merah a, lalu hijau
+  for(let f=0;f<2;f++){ const oy=20+f*120; for(let k=0;k<10;k++){ s('rect',{x:ox+(k%5)*S,y:oy+Math.floor(k/5)*S,width:S,height:S,fill:'var(--card)',stroke:'var(--ink)','stroke-width':2.5},g); } }
+  const put=(f,k,col)=>txt(g,ox+(k%5)*S+S/2,20+f*120+Math.floor(k/5)*S+S*0.7,col==='r'?'🍓':'🍏',{'font-size':34});
+  for(let k=0;k<a;k++) put(0,k,'r');
+  if(made){ for(let k=0;k<need;k++) put(0,a+k,'g'); for(let k=0;k<b-need;k++) put(1,k,'g'); }
+  else { for(let k=0;k<b;k++) put(1,k,'g'); }
+  const sum=a+b;
+  $('#tOut').innerHTML=`<div class="big">${a} + ${b} = ?</div>${made?`<p>Pindahkan <b>${need}</b> stroberi hijau ke bingkai atas supaya penuh 10.</p><p>${a} + ${b} = ${a} + <b>${need}</b> + ${b-need} = <b>10</b> + ${b-need}</p><div class="huge">= ${sum}</div>`:'<p>Tekan <b>Buat sepuluh</b> untuk memindahkan stroberi.</p>'}`;
+}
+$('#mk').onclick=()=>{ made=!made; $('#mk').textContent=made?'↩️ Kembalikan':'✨ Buat sepuluh'; drawT(); };
+['#a','#b'].forEach(x=>$(x).oninput=()=>{ made=false; $('#mk').textContent='✨ Buat sepuluh'; drawT(); }); drawT();
+
+/* garis bilangan */
+let op='+', jumps=[], pos=null;
+document.querySelectorAll('#op button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#op button').forEach(x=>x.classList.remove('on'));b.classList.add('on');op=b.dataset.o;jumps=[];drawN();});
+function plan(){ const x=+$('#x').value, y=+$('#y').value, d=op==='+'?1:-1, J=[]; let p=x; for(let i=0;i<Math.floor(y/10);i++){ J.push([p,p+d*10]); p+=d*10; } for(let i=0;i<y%10;i++){ J.push([p,p+d]); p+=d; } return J; }
+function drawN(frog){
+  const x=+$('#x').value, y=+$('#y').value; $('#x-v').textContent=x; $('#y-v').textContent=y; const r=op==='+'?x+y:x-y;
+  const g=$('#nl'); clear(g); const W=VML.narrow()?440:720, lo=Math.max(0,Math.floor(Math.min(x,r)/10)*10-10), hi=Math.max(x,r)+10-Math.max(x,r)%10, X=v=>25+(v-lo)/(hi-lo)*(W-50); g.setAttribute('viewBox',`0 0 ${W} 190`);
+  s('line',{x1:10,y1:140,x2:W-10,y2:140,stroke:'var(--ink)','stroke-width':3},g);
+  for(let v=lo;v<=hi;v++){ const big=v%10===0; if(!big&&(hi-lo)>60) continue; s('line',{x1:X(v),y1:big?128:134,x2:X(v),y2:big?152:146,stroke:'var(--ink)','stroke-width':big?2.5:1},g); if(big) txt(g,X(v),172,String(v),{'font-weight':800,'font-size':13}); }
+  jumps.forEach(([a,b])=>{ const big=Math.abs(b-a)===10; s('path',{d:`M${X(a)},136 Q${(X(a)+X(b))/2},${big?70:105} ${X(b)},136`,fill:'none',stroke:big?'var(--a)':'var(--b)','stroke-width':3},g); if(big) txt(g,(X(a)+X(b))/2,82,(op==='+'?'+':'−')+'10',{'font-size':12,'font-weight':800,fill:'var(--a)'}); });
+  s('circle',{cx:X(x),cy:140,r:7,fill:'var(--c)'},g); txt(g,X(x),118,String(x),{'font-weight':900,fill:'var(--c)','font-size':13});
+  const p=frog!==undefined?frog:(jumps.length?jumps[jumps.length-1][1]:x); txt(g,X(p),128,'🦘',{'font-size':28});
+  const done=jumps.length&&jumps.length===plan().length;
+  $('#nOut').innerHTML=`<div class="big">${x} ${op==='+'?'+':'−'} ${y} = ${done?r:'?'}</div><p>${Math.floor(y/10)} loncatan ${op==='+'?'+':'−'}10 (biru) dan ${y%10} loncatan ${op==='+'?'+':'−'}1 (merah).</p>${done?`<p>🎉 Kanguru mendarat di <b>${r}</b>!</p>`:''}`;
+}
+$('#go').onclick=()=>{ const J=plan(); jumps=[]; let i=0; const r=+$('#x').value+(op==='+'?1:-1)*+$('#y').value; if(r<0){ $('#nOut').innerHTML='<p>Hasilnya kurang dari 0 — pilih bilangan yang lebih kecil.</p>'; return; } const tick=()=>{ if(i>=J.length){ drawN(); return; } jumps.push(J[i++]); drawN(); setTimeout(tick, Math.abs(J[i-1][1]-J[i-1][0])===10?380:220); }; tick(); };
+['#x','#y'].forEach(x=>$(x).oninput=()=>{ jumps=[]; drawN(); }); drawN(); VML.onResize(()=>drawN());
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Sampai 20', gen(){ const a=rand(2,10), b=rand(2,10); return Math.random()<.6?{q:`${a} + ${b} = …`, a:String(a+b), hint:`Buat sepuluh: ${a} + ${Math.min(10-a,b)} = ${a+Math.min(10-a,b)}`, ex:String(a+b)}:{q:`${a+b} − ${b} = …`, a:String(a), hint:'Hitung mundur.', ex:String(a)}; }},
+  {name:'Puluhan', gen(){ const a=rand(1,9)*10, b=rand(1,9)*10; if(Math.random()<.5&&a+b<=100) return {q:`${a} + ${b} = …`, a:String(a+b), hint:`${a/10} puluhan + ${b/10} puluhan`, ex:String(a+b)}; const [p,q]=[Math.max(a,b),Math.min(a,b)]; return {q:`${p} − ${q} = …`, a:String(p-q), hint:`${p/10} puluhan − ${q/10} puluhan`, ex:String(p-q)}; }},
+  {name:'Sampai 100', gen(){ const a=rand(11,70), b=rand(5,99-a); if(Math.random()<.5) return {q:`${a} + ${b} = …`, a:String(a+b), hint:'Puluhan dengan puluhan, satuan dengan satuan.', ex:String(a+b)}; const c=a+b; return {q:`${c} − ${b} = …`, a:String(a), hint:'Kurangi puluhan dulu, lalu satuan.', ex:String(a)}; }},
+  {name:'Soal cerita', gen(){ const t=rand(0,1), a=rand(15,60), b=rand(5,35), it=pick(['kelereng','buku','permen','bunga']);
+    if(t===0) return {q:`Budi punya ${a} ${it}. Ia diberi ${b} ${it} lagi. Berapa ${it} Budi sekarang?`, a:String(a+b), hint:'"Diberi lagi" → tambah.', ex:`${a} + ${b} = ${a+b}`};
+    return {q:`Siti punya ${a+b} ${it}. Sebanyak ${b} diberikan kepada adik. Berapa sisanya?`, a:String(a), hint:'"Diberikan / sisa" → kurang.', ex:`${a+b} − ${b} = ${a}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'8 + 5 = …', o:['13','12','14','3'], a:0, ex:'8 + 2 = 10, 10 + 3 = 13.'},
+ {q:'Untuk membuat sepuluh, 9 + 4 dipecah menjadi …', o:['9 + 1 + 3','9 + 2 + 2','9 + 4 + 1','10 + 4'], a:0, ex:'9 + 1 = 10.'},
+ {q:'15 − 7 = …', o:['8','9','7','22'], a:0, ex:'15 − 5 − 2.'},
+ {q:'30 + 40 = …', o:['70','34','7','700'], a:0, ex:'3 puluhan + 4 puluhan.'},
+ {q:'34 + 25 = …', o:['59','69','58','95'], a:0, ex:'50 + 9.'},
+ {q:'68 − 23 = …', o:['45','35','91','44'], a:0, ex:'40 + 5.'},
+ {q:'27 + 6 = …', o:['33','32','23','87'], a:0, ex:'27 + 3 = 30, + 3 = 33.'},
+ {q:'Pada garis bilangan, pengurangan berarti loncat ke …', o:['kiri','kanan','atas','tidak bergerak'], a:0, ex:'Bilangan makin kecil.'},
+ {q:'5 + 3 = 3 + …', o:['5','3','8','2'], a:0, ex:'Urutan penjumlahan boleh ditukar.'},
+ {q:'Rina punya 24 stroberi, diberi 15 lagi. Stroberi Rina sekarang …', o:['39','9','29','40'], a:0, ex:'24 + 15.'},
+ {q:'Ada 50 burung, 18 terbang. Sisa burung …', o:['32','68','42','38'], a:0, ex:'50 − 18.'},
+ {q:'45 + 20 = …', o:['65','47','25','64'], a:0, ex:'Loncat 2 kali puluhan.'},
+ {q:'Hitunglah 56 + 32.', input:true, a:['88'], ex:'80 + 8.'},
+ {q:'Hitunglah 90 − 45.', input:true, a:['45'], ex:'90 − 40 − 5.'},
+ {q:'… + 7 = 12. Bilangan yang tepat adalah …', o:['5','19','4','6'], a:0, ex:'12 − 7 = 5.'}
+], 'sd2m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

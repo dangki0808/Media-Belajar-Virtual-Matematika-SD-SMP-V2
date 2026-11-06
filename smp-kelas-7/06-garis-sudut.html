@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garis dan Sudut · Virtual Math Lab</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0f8fa3">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Geometri</span>
+  <h1>Garis dan Sudut</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menjelaskan kedudukan dua garis serta jenis-jenis sudut dan mengukurnya dengan busur derajat.</li>
+    <li>Menentukan hubungan antarsudut: berpelurus, berpenyiku, dan bertolak belakang.</li>
+    <li>Menentukan besar sudut pada dua garis sejajar yang dipotong garis lain.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📐 Lab Busur Derajat</button><button data-target="sejajar">⫽ Lab Garis Sejajar</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Titik, garis, sinar, dan ruas garis</h2>
+    <svg class="viz" viewBox="0 0 720 110" id="gs"></svg>
+    <div class="grid2"><div><p><b>Garis</b> panjangnya tak terbatas ke dua arah. <b>Sinar</b> berpangkal di satu titik dan tak terbatas ke satu arah. <b>Ruas garis</b> dibatasi dua titik ujung.</p></div>
+      <div><p><b>Kedudukan dua garis:</b> sejajar (tidak pernah bertemu, pada satu bidang), berpotongan (bertemu di satu titik), berimpit (semua titiknya sama), dan bersilangan (tidak sejajar dan tidak berpotongan, berada pada bidang berbeda — contohnya rusuk-rusuk kubus).</p></div></div>
+  </div>
+
+  <div class="card"><h2>2. Sudut dan jenisnya</h2>
+    <p><b>Sudut</b> dibentuk oleh dua sinar yang berpangkal di titik yang sama. Titik pangkal itu disebut <b>titik sudut</b>, kedua sinarnya disebut <b>kaki sudut</b>. Besar sudut diukur dalam derajat (°); satu putaran penuh = 360°.</p>
+    <table class="t"><tr><th>Jenis</th><th>Besar</th><th>Contoh</th></tr>
+      <tr><td>Lancip</td><td>0° &lt; α &lt; 90°</td><td>45°</td></tr><tr><td>Siku-siku</td><td>α = 90°</td><td>pojok buku</td></tr>
+      <tr><td>Tumpul</td><td>90° &lt; α &lt; 180°</td><td>125°</td></tr><tr><td>Lurus</td><td>α = 180°</td><td>jarum jam pukul 06.00</td></tr>
+      <tr><td>Refleks</td><td>180° &lt; α &lt; 360°</td><td>250°</td></tr><tr><td>Satu putaran</td><td>α = 360°</td><td>—</td></tr></table>
+    <div class="note">Mengukur dengan busur: letakkan titik pusat busur tepat di titik sudut, garis 0° berimpit dengan salah satu kaki, lalu baca skala yang dimulai dari 0° pada kaki tersebut.</div>
+  </div>
+
+  <div class="card"><h2>3. Hubungan antarsudut</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Berpelurus</span><br>Jumlahnya 180°.<br>Pelurus 112° = 180° − 112° = <b>68°</b></div>
+      <div class="ex"><span class="t">Berpenyiku</span><br>Jumlahnya 90°.<br>Penyiku 35° = 90° − 35° = <b>55°</b></div>
+      <div class="ex"><span class="t">Bertolak belakang</span><br>Terbentuk dari dua garis berpotongan. Besarnya <b>sama</b>.</div>
+    </div>
+    <div class="ex"><span class="t">Contoh aljabar</span> Sudut (3x + 15)° dan (2x + 15)° berpelurus.<br>5x + 30 = 180 → 5x = 150 → <b>x = 30</b>. Kedua sudutnya 105° dan 75°.</div>
+  </div>
+
+  <div class="card"><h2>4. Dua garis sejajar dipotong garis lain</h2>
+    <svg class="viz" viewBox="0 0 520 260" id="par0" style="max-width:520px;margin:0 auto"></svg>
+    <table class="t"><tr><th>Pasangan sudut</th><th>Contoh</th><th>Hubungan</th></tr>
+      <tr><td>Sehadap</td><td>A₁ dan B₁</td><td>sama besar</td></tr>
+      <tr><td>Dalam berseberangan</td><td>A₃ dan B₁</td><td>sama besar</td></tr>
+      <tr><td>Luar berseberangan</td><td>A₂ dan B₄</td><td>sama besar</td></tr>
+      <tr><td>Dalam sepihak</td><td>A₄ dan B₁</td><td>jumlahnya 180°</td></tr>
+      <tr><td>Luar sepihak</td><td>A₂ dan B₃</td><td>jumlahnya 180°</td></tr></table>
+    <div class="note">Penomoran: 1 = kanan atas, 2 = kiri atas, 3 = kiri bawah, 4 = kanan bawah, berlaku di titik A maupun B.</div>
+  </div>
+
+  <div class="card"><h2>5. Sudut pada jam</h2>
+    <p>Jarum jam berputar 360° dalam 12 jam, jadi tiap angka berjarak 30°. Pukul 03.00 → 3 × 30° = <b>90°</b>. Pukul 04.00 → <b>120°</b>.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Sudut Dinamis dan Busur Derajat</h2>
+    <p>Seret titik merah (atau gunakan penggeser) untuk mengubah sudut. Perhatikan skala busur dan jenis sudutnya.</p>
+    <div class="ctrl"><label>Besar sudut <span class="v" id="ang-v"></span><input type="range" id="ang" min="0" max="360" value="60"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:600">Busur</div><div class="seg" id="pro"><button data-p="1" class="on">Tampilkan</button><button data-p="0">Sembunyikan</button></div></div></div>
+    <div class="grid2"><svg class="viz" id="ag" viewBox="0 0 440 360"></svg><div class="out" id="agOut"></div></div>
+  </div>
+</section>
+
+<section id="sejajar" class="panel">
+  <div class="card"><h2>Lab: Garis Sejajar dan Garis Transversal</h2>
+    <div class="ctrl"><label>Kemiringan garis potong (sudut A₁) <span class="v" id="t-v"></span><input type="range" id="t" min="20" max="160" value="65"></label></div>
+    <div class="seg" id="pairs"><button data-k="sehadap" class="on">Sehadap</button><button data-k="dalBer">Dalam berseberangan</button><button data-k="luaBer">Luar berseberangan</button><button data-k="dalSep">Dalam sepihak</button><button data-k="luaSep">Luar sepihak</button><button data-k="tolak">Bertolak belakang</button></div>
+    <svg class="viz" id="par" viewBox="0 0 640 330" style="margin-top:10px"></svg>
+    <div class="out" id="parOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis besar sudut tanpa tanda derajat, misalnya <b>55</b>.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VII · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const rad = d => d*Math.PI/180;
+const arcPath = (cx,cy,r,a0,a1) => { const x0=cx+r*Math.cos(rad(a0)), y0=cy-r*Math.sin(rad(a0)), x1=cx+r*Math.cos(rad(a1)), y1=cy-r*Math.sin(rad(a1)); const large=(a1-a0)>180?1:0; return `M${cx},${cy} L${x0},${y0} A${r},${r} 0 ${large} 0 ${x1},${y1} Z`; };
+
+/* gambar garis/sinar/ruas */
+(function(){ const g=$('#gs'); const arrow=(x,y,d)=>s('path',{d:`M${x},${y} l${-10*d},-6 v12 z`,fill:'var(--ink)'},g);
+  s('line',{x1:30,y1:50,x2:210,y2:50,stroke:'var(--ink)','stroke-width':2.5},g); arrow(220,50,1); arrow(20,50,-1); txt(g,120,90,'Garis AB');
+  s('line',{x1:270,y1:50,x2:440,y2:50,stroke:'var(--ink)','stroke-width':2.5},g); arrow(450,50,1); s('circle',{cx:270,cy:50,r:5,fill:'var(--acc)'},g); txt(g,360,90,'Sinar AB');
+  s('line',{x1:500,y1:50,x2:680,y2:50,stroke:'var(--ink)','stroke-width':2.5},g); s('circle',{cx:500,cy:50,r:5,fill:'var(--acc)'},g); s('circle',{cx:680,cy:50,r:5,fill:'var(--acc)'},g); txt(g,590,90,'Ruas garis AB');
+  [[30,'A'],[200,'B'],[270,'A'],[430,'B'],[500,'A'],[680,'B']].forEach(([x,l])=>txt(g,x,35,l,{'font-weight':700}));
+})();
+
+/* LAB sudut */
+let showPro=true;
+document.querySelectorAll('#pro button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pro button').forEach(x=>x.classList.remove('on'));b.classList.add('on');showPro=b.dataset.p==='1';drawAngle();});
+const jenis = a => a===0?'Sudut nol':a<90?'Sudut lancip':a===90?'Sudut siku-siku':a<180?'Sudut tumpul':a===180?'Sudut lurus':a<360?'Sudut refleks':'Sudut satu putaran';
+function drawAngle(){
+  const a=+$('#ang').value; $('#ang-v').textContent=a+'°'; const g=$('#ag'); clear(g); const cx=220, cy=200, R=150;
+  if(showPro){ s('path',{d:`M${cx-R-10},${cy} A${R+10},${R+10} 0 0 1 ${cx+R+10},${cy} Z`,fill:'var(--acc)','fill-opacity':.07,stroke:'var(--acc)','stroke-width':1.5},g);
+    for(let d=0;d<=180;d++){ const L=d%10===0?14:d%5===0?9:5, c=Math.cos(rad(d)), sn=Math.sin(rad(d)); s('line',{x1:cx+(R+10)*c,y1:cy-(R+10)*sn,x2:cx+(R+10-L)*c,y2:cy-(R+10-L)*sn,stroke:'var(--acc)','stroke-width':d%10===0?1.5:1},g);
+      if(d%30===0){ txt(g,cx+(R-14)*c,cy-(R-14)*sn+4,String(d),{'font-size':11,fill:'var(--acc)','font-weight':700}); txt(g,cx+(R-34)*c,cy-(R-34)*sn+4,String(180-d),{'font-size':10,fill:'var(--muted)'}); } } }
+  s('path',{d:a===360?`M${cx+45},${cy} A45,45 0 1 0 ${cx+44.99},${cy-0.5} Z`:arcPath(cx,cy,45,0,a),fill:'var(--b)','fill-opacity':.25,stroke:'var(--b)','stroke-width':2},g);
+  if(a===90) s('path',{d:`M${cx+22},${cy} v-22 h-22`,fill:'none',stroke:'var(--ink)','stroke-width':2},g);
+  s('line',{x1:cx,y1:cy,x2:cx+R+20,y2:cy,stroke:'var(--ink)','stroke-width':3},g);
+  const ex=cx+(R+20)*Math.cos(rad(a)), ey=cy-(R+20)*Math.sin(rad(a));
+  s('line',{x1:cx,y1:cy,x2:ex,y2:ey,stroke:'var(--ink)','stroke-width':3},g);
+  s('circle',{cx,cy,r:5,fill:'var(--ink)'},g);
+  const h=s('circle',{cx:ex,cy:ey,r:14,fill:'var(--b)',stroke:'var(--card)','stroke-width':3,style:'cursor:grab'},g);
+  txt(g,cx+70*Math.cos(rad(a/2)),cy-70*Math.sin(rad(a/2))+5,a+'°',{'font-weight':800,fill:'var(--b)','font-size':16});
+  VML.dragSvg(g, p=>Math.hypot(p.x-cx,p.y-cy)>40?1:null, (id,p)=>{ let d=Math.round(Math.atan2(cy-p.y,p.x-cx)*180/Math.PI); if(d<0) d+=360; $('#ang').value=d; drawAngle(); });
+  const pel=180-a, pen=90-a;
+  $('#agOut').innerHTML=`<div class="huge">${a}°</div><div class="big">${jenis(a)}</div>
+    <p>${a<=180?`Pelurusnya: 180° − ${a}° = <b>${pel}°</b>`:'Sudut refleks tidak memiliki pelurus.'}<br>${a<=90?`Penyikunya: 90° − ${a}° = <b>${pen}°</b>`:'Sudut lebih dari 90° tidak memiliki penyiku.'}</p>
+    ${a>180&&a<360?`<p>Sudut refleks ${a}° = 360° − ${360-a}°. Busur hanya sampai 180°, jadi ukur dulu sudut kecilnya (${360-a}°), lalu kurangkan dari 360°.</p>`:''}
+    <p class="muted">Pada busur: kaki mendatar menunjuk 0° skala luar, jadi bacalah skala luar (berwarna).</p>`;
+}
+$('#ang').oninput=drawAngle; drawAngle();
+
+/* gambar garis sejajar (statis + lab) */
+function drawParallel(g, t, hl){
+  clear(g); const W=+g.getAttribute('viewBox').split(' ')[2], H=+g.getAttribute('viewBox').split(' ')[3];
+  const y1=H*0.33, y2=H*0.7, cxA=W/2+((y2-y1)/2)/Math.tan(rad(t)), cxB=W/2-((y2-y1)/2)/Math.tan(rad(t));
+  [y1,y2].forEach(y=>{ s('line',{x1:20,y1:y,x2:W-20,y2:y,stroke:'var(--ink)','stroke-width':2.5},g); s('path',{d:`M${W/2-110},${y-6} l8,6 l-8,6`,fill:'none',stroke:'var(--muted)','stroke-width':2},g); });
+  const dx=Math.cos(rad(t)), dy=Math.sin(rad(t)), Lg=H*0.55;
+  s('line',{x1:cxA+dx*Lg*0.5,y1:y1-dy*Lg*0.5,x2:cxB-dx*Lg*0.5,y2:y2+dy*Lg*0.5,stroke:'var(--ink)','stroke-width':2.5},g);
+  // sudut per titik: 1 kanan-atas (0..t), 2 kiri-atas (t..180), 3 kiri-bawah (180..180+t), 4 kanan-bawah (180+t..360)
+  const ranges={1:[0,t],2:[t,180],3:[180,180+t],4:[180+t,360]};
+  const val=k=>(k%2===1)?t:180-t;
+  [['A',cxA,y1],['B',cxB,y2]].forEach(([P,x,y])=>{ for(let k=1;k<=4;k++){ const key=P+k, on=hl&&hl.includes(key), [a0,a1]=ranges[k];
+      s('path',{d:arcPath(x,y,on?34:26,a0,a1),fill:on?(hl[0]===key?'var(--b)':'var(--acc)'):'var(--line)','fill-opacity':on?.55:.45,stroke:on?'var(--ink)':'none','stroke-width':1},g);
+      const mid=(a0+a1)/2; txt(g,x+50*Math.cos(rad(mid)),y-50*Math.sin(rad(mid))+5,P+['₁','₂','₃','₄'][k-1]+(on?` ${val(k)}°`:''),{'font-size':on?14:12,'font-weight':on?800:500,fill:on?'var(--ink)':'var(--muted)'}); }
+    s('circle',{cx:x,cy:y,r:4,fill:'var(--ink)'},g); });
+  txt(g,30,y1-10,'g',{'font-style':'italic','font-weight':700}); txt(g,30,y2-10,'h',{'font-style':'italic','font-weight':700});
+}
+drawParallel($('#par0'), 60, null);
+
+const pairs={
+  sehadap:{n:'Sehadap',sets:[['A1','B1'],['A2','B2'],['A3','B3'],['A4','B4']],rel:'sama besar'},
+  dalBer:{n:'Dalam berseberangan',sets:[['A3','B1'],['A4','B2']],rel:'sama besar'},
+  luaBer:{n:'Luar berseberangan',sets:[['A1','B3'],['A2','B4']],rel:'sama besar'},
+  dalSep:{n:'Dalam sepihak',sets:[['A4','B1'],['A3','B2']],rel:'berjumlah 180°'},
+  luaSep:{n:'Luar sepihak',sets:[['A1','B4'],['A2','B3']],rel:'berjumlah 180°'},
+  tolak:{n:'Bertolak belakang',sets:[['A1','A3'],['A2','A4'],['B1','B3'],['B2','B4']],rel:'sama besar'} };
+let pk='sehadap', pi=0;
+document.querySelectorAll('#pairs button').forEach(b=>b.onclick=()=>{ if(pk===b.dataset.k) pi=(pi+1)%pairs[pk].sets.length; else { pk=b.dataset.k; pi=0; } document.querySelectorAll('#pairs button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); drawPar(); });
+function drawPar(){ const t=+$('#t').value; $('#t-v').textContent=t+'°'; const P=pairs[pk], set=P.sets[pi];
+  drawParallel($('#par'), t, set);
+  const v=k=>(+k[1]%2===1)?t:180-t, sub=k=>k[0]+['₁','₂','₃','₄'][+k[1]-1];
+  $('#parOut').innerHTML=`<div class="big">${P.n}: ∠${sub(set[0])} dan ∠${sub(set[1])}</div>
+   <p>∠${sub(set[0])} = ${v(set[0])}° dan ∠${sub(set[1])} = ${v(set[1])}° → keduanya <b>${P.rel}</b>${P.rel.includes('180')?` (${v(set[0])}° + ${v(set[1])}° = 180°)`:''}.</p>
+   <p class="muted">Tekan tombol yang sama sekali lagi untuk melihat pasangan ${P.n.toLowerCase()} lainnya (${pi+1}/${P.sets.length}). Ubah kemiringan: hubungannya selalu tetap!</p>`; }
+$('#t').oninput=drawPar; drawPar();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Pelurus & penyiku', gen(){ if(Math.random()<.5){ const a=rand(5,85); return {q:`Tentukan penyiku sudut ${a}°.`, a:String(90-a), hint:'Penyiku: jumlahnya 90°.', ex:`90° − ${a}° = ${90-a}°`}; }
+    const a=rand(5,175); return {q:`Tentukan pelurus sudut ${a}°.`, a:String(180-a), hint:'Pelurus: jumlahnya 180°.', ex:`180° − ${a}° = ${180-a}°`}; }},
+  {name:'Garis sejajar', gen(){ const t=rand(30,150), k=pick(Object.keys(pairs).filter(x=>x!=='tolak')), P=pairs[k], set=pick(P.sets), sub=x=>x[0]+['₁','₂','₃','₄'][+x[1]-1], v=x=>(+x[1]%2===1)?t:180-t;
+    return {q:`Dua garis sejajar dipotong garis lain. Jika ∠${sub(set[0])} = ${v(set[0])}°, berapa ∠${sub(set[1])}? <span class="muted">(${P.n.toLowerCase()})</span>`, a:String(v(set[1])), hint:`Pasangan ${P.n.toLowerCase()} ${P.rel}.`, ex:`${P.n} ${P.rel} → ${v(set[1])}°`}; }},
+  {name:'Aljabar sudut', gen(){ const t=rand(0,1); const x=rand(5,30), p=rand(2,5), q=rand(1,4);
+    if(t===0){ const tot=180, c1=p*x, rest=tot-c1-q*x; if(rest<=0) return this.gen(); return {q:`Sudut (${p}x)° dan (${q}x + ${rest})° saling berpelurus. Tentukan x.`, a:String(x), hint:'Jumlah kedua sudut = 180°.', ex:`${p+q}x + ${rest} = 180 → ${p+q}x = ${180-rest} → x = ${x}`}; }
+    const p2=rand(2,4), q2=rand(1,3); if(90%(p2+q2)!==0) return this.gen(); return {q:`Sudut (${p2}x)° dan (${q2}x)° saling berpenyiku. Tentukan x.`, a:String(90/(p2+q2)), hint:'Jumlah kedua sudut = 90°.', ex:`${p2+q2}x = 90 → x = ${90/(p2+q2)}`}; }},
+  {name:'Sudut jam', gen(){ const h=rand(1,11); const a=Math.min(h*30,360-h*30); return {q:`Berapa besar sudut terkecil antara jarum jam pada pukul ${String(h).padStart(2,'0')}.00?`, a:String(a), hint:'Tiap angka pada jam berjarak 30°.', ex:`${Math.min(h,12-h)} × 30° = ${a}°`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Sudut yang besarnya 125° termasuk sudut …', o:['tumpul','lancip','refleks','lurus'], a:0, ex:'90° < 125° < 180° → tumpul.'},
+ {q:'Penyiku sudut 35° adalah …', o:['55°','145°','65°','325°'], a:0, ex:'90° − 35° = 55°.'},
+ {q:'Pelurus sudut 112° adalah …', o:['68°','22°','248°','78°'], a:0, ex:'180° − 112° = 68°.'},
+ {q:'Dua garis berpotongan membentuk empat sudut. Jika salah satunya 74°, sudut yang bertolak belakang dengannya adalah …', o:['74°','106°','16°','286°'], a:0, ex:'Sudut bertolak belakang sama besar.'},
+ {q:'Sudut (3x + 15)° dan (2x + 15)° saling berpelurus. Nilai x adalah …', o:['30','33','15','36'], a:0, ex:'5x + 30 = 180 → x = 30.'},
+ {q:'Dua garis sejajar dipotong garis lain. Pasangan sudut sehadap besarnya …', o:['sama besar','berjumlah 180°','berjumlah 90°','selalu 90°'], a:0, ex:'Sudut sehadap selalu sama besar.'},
+ {q:'Pasangan sudut dalam sepihak pada dua garis sejajar jumlahnya …', o:['180°','90°','360°','sama besar'], a:0, ex:'Sudut dalam sepihak saling berpelurus.'},
+ {q:'Pada dua garis sejajar yang dipotong garis lain, sebuah sudut dalam berseberangan besarnya 65°. Pasangannya besarnya …', o:['65°','115°','25°','130°'], a:0, ex:'Sudut dalam berseberangan sama besar.'},
+ {q:'Besar sudut yang dibentuk jarum jam pada pukul 03.00 adalah …', o:['90°','30°','180°','45°'], a:0, ex:'3 × 30° = 90°.'},
+ {q:'Besar sudut terkecil antara jarum jam pada pukul 04.00 adalah …', o:['120°','240°','100°','140°'], a:0, ex:'4 × 30° = 120°.'},
+ {q:'Dua garis yang tidak sejajar, tidak berpotongan, dan terletak pada bidang yang berbeda disebut …', o:['bersilangan','berimpit','tegak lurus','berpotongan'], a:0, ex:'Contohnya dua rusuk kubus yang tidak sebidang.'},
+ {q:'Berikut yang merupakan sudut refleks adalah …', o:['250°','170°','90°','360°'], a:0, ex:'Sudut refleks: lebih dari 180° dan kurang dari 360°.'},
+ {q:'Sudut (3x)° dan (2x)° saling berpenyiku. Nilai x adalah …', input:true, a:['18'], ex:'5x = 90 → x = 18.'},
+ {q:'Dua garis sejajar dipotong garis lain. Sudut dalam sepihaknya (x + 20)° dan 110°. Nilai x adalah …', input:true, a:['50'], ex:'x + 20 + 110 = 180 → x = 50.'},
+ {q:'Satu putaran penuh besarnya …', o:['360°','180°','90°','270°'], a:0, ex:'Satu putaran = 360°.'}
+], 'm6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

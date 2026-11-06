@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan Cacah Besar · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#3550d6">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>🔢 Bilangan Cacah Besar</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membaca dan menulis bilangan cacah sampai 100.000 serta menentukan nilai tempatnya.</li>
+    <li>Membandingkan dan mengurutkan bilangan cacah besar.</li>
+    <li>Membulatkan bilangan dan menaksir hasil penjumlahan, pengurangan, perkalian, dan pembagian.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧮 Lab Sempoa Nilai Tempat</button><button data-target="bulat">🎯 Lab Pembulatan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Nilai tempat</h2>
+    <p>Setiap angka dalam bilangan punya <b>nilai tempat</b>. Contoh 47.385:</p>
+    <table class="t"><tr><th>Puluh ribuan</th><th>Ribuan</th><th>Ratusan</th><th>Puluhan</th><th>Satuan</th></tr><tr><td>4</td><td>7</td><td>3</td><td>8</td><td>5</td></tr><tr><td>40.000</td><td>7.000</td><td>300</td><td>80</td><td>5</td></tr></table>
+    <p><b>Bentuk panjang:</b> 47.385 = 40.000 + 7.000 + 300 + 80 + 5</p>
+    <p><b>Dibaca:</b> empat puluh tujuh ribu tiga ratus delapan puluh lima.</p>
+    <div class="note">Angka 7 pada 47.385 menempati nilai tempat <b>ribuan</b>, jadi nilainya <b>7.000</b>.</div>
+  </div>
+  <div class="card"><h2>2. Membandingkan dan mengurutkan</h2>
+    <ol class="steps"><li>Bilangan dengan angka lebih banyak lebih besar: 10.002 &gt; 9.999.</li><li>Jika banyak angkanya sama, bandingkan dari kiri (nilai tempat terbesar).</li><li>Jika sama, lanjutkan ke angka berikutnya: 45.<b>8</b>21 &gt; 45.<b>2</b>99.</li></ol>
+    <div class="ex"><span class="t">Mengurutkan dari terkecil</span> 23.450; 23.504; 32.045; 32.405</div>
+  </div>
+  <div class="card"><h2>3. Pembulatan</h2>
+    <p>Lihat angka di <b>kanan</b> tempat pembulatan: jika <b>5 atau lebih</b> → dibulatkan <b>ke atas</b>; jika <b>kurang dari 5</b> → <b>ke bawah</b>.</p>
+    <div class="grid3"><div class="ex"><span class="t">Ke puluhan terdekat</span><br>4.3<b>7</b>6 → 4.380</div><div class="ex"><span class="t">Ke ratusan terdekat</span><br>4.3<b>7</b>6 → 4.400</div><div class="ex"><span class="t">Ke ribuan terdekat</span><br>4.<b>3</b>76 → 4.000</div></div>
+  </div>
+  <div class="card"><h2>4. Menaksir</h2>
+    <p>Menaksir adalah memperkirakan hasil dengan membulatkan dulu.</p>
+    <div class="ex">Taksiran 3.890 + 2.150 (ke ribuan) ≈ 4.000 + 2.000 = <b>6.000</b> (hasil sebenarnya 6.040).</div>
+    <div class="ex">Ibu belanja Rp18.700 dan Rp24.400. Taksiran (ke ribuan) ≈ Rp19.000 + Rp24.000 = <b>Rp43.000</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Sempoa Nilai Tempat</h2>
+    <p>Ketuk ➕ atau ➖ untuk menambah atau mengurangi manik. Jika satu tiang mencapai 10 manik, manik ditukar menjadi 1 manik di tiang sebelah kiri.</p>
+    <div class="row"><input type="number" id="num" value="47385" min="0" max="99999" style="width:150px" aria-label="Bilangan"><button class="btn soft" id="set">Tampilkan</button><button class="btn soft" id="rnd">🎲 Acak</button></div>
+    <svg class="viz" id="ab" viewBox="0 0 720 360" style="margin-top:10px"></svg>
+    <div class="out" id="aOut"></div>
+  </div>
+</section>
+
+<section id="bulat" class="panel">
+  <div class="card"><h2>Lab: Pembulatan di Garis Bilangan</h2>
+    <p>Bilangan berada di antara dua kelipatan. Ke kelipatan mana yang lebih dekat?</p>
+    <div class="ctrl"><label>Bilangan <span class="v" id="bn-v"></span><input type="range" id="bn" min="0" max="9999" value="4376"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Bulatkan ke</div><div class="seg" id="ke"><button data-k="10">puluhan</button><button data-k="100" class="on">ratusan</button><button data-k="1000">ribuan</button></div></div></div>
+    <svg class="viz" id="bl" viewBox="0 0 720 180"></svg>
+    <div class="out" id="bOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis bilangan dengan atau tanpa titik, misalnya 47.000 atau 47000.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const id=n=>Number(n).toLocaleString('id-ID');
+const PL=['puluh ribuan','ribuan','ratusan','puluhan','satuan'], PV=[10000,1000,100,10,1], COL=['#e04ca0','#9a5cf0','#3d6dff','#11a7c4','#20a46b'];
+const sat=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];
+function terbilang(n){ if(n<12) return n?sat[n]:'nol'; if(n<20) return sat[n-10]+' belas'; if(n<100) return sat[Math.floor(n/10)]+' puluh'+(n%10?' '+sat[n%10]:'');
+  if(n<200) return 'seratus'+(n%100?' '+terbilang(n%100):''); if(n<1000) return sat[Math.floor(n/100)]+' ratus'+(n%100?' '+terbilang(n%100):'');
+  if(n<2000) return 'seribu'+(n%1000?' '+terbilang(n%1000):''); return terbilang(Math.floor(n/1000))+' ribu'+(n%1000?' '+terbilang(n%1000):''); }
+const accept=v=>[String(v), id(v)];
+
+/* sempoa */
+let N=47385;
+function digits(n){ return PV.map(p=>Math.floor(n/p)%10); }
+function drawA(msg){
+  const d=digits(N), g=$('#ab'); clear(g); const W=VML.narrow()?440:720, gap=(W-40)/5; g.setAttribute('viewBox',`0 0 ${W} 360`);
+  s('rect',{x:10,y:270,width:W-20,height:18,rx:8,fill:'#8a5a2b'},g);
+  d.forEach((v,i)=>{ const x=30+gap*i+gap/2-10;
+    s('line',{x1:x,y1:40,x2:x,y2:270,stroke:'#b88a5a','stroke-width':6},g);
+    for(let k=0;k<v;k++) s('ellipse',{cx:x,cy:258-k*22,rx:Math.min(26,gap*0.32),ry:10,fill:COL[i],stroke:'#fff','stroke-width':2},g);
+    txt(g,x,312,String(v),{'font-weight':900,'font-size':24,fill:COL[i]}); txt(g,x,334,PL[i],{'font-size':W<600?10:12,'font-weight':700});
+    const plus=s('g',{style:'cursor:pointer'},g); s('circle',{cx:x-16,cy:20,r:13,fill:'var(--c)'},plus); txt(plus,x-16,26,'+',{fill:'#fff','font-weight':900,'font-size':18}); plus.addEventListener('click',()=>{ if(N+PV[i]<=99999){ const before=d[i]; N+=PV[i]; drawA(before===9?`Tiang ${PL[i]} penuh (10 manik) → ditukar menjadi 1 manik ${PL[i-1]||''}!`:''); } });
+    const minus=s('g',{style:'cursor:pointer'},g); s('circle',{cx:x+16,cy:20,r:13,fill:'var(--b)'},minus); txt(minus,x+16,26,'−',{fill:'#fff','font-weight':900,'font-size':18}); minus.addEventListener('click',()=>{ if(N-PV[i]>=0){ const before=d[i]; N-=PV[i]; drawA(before===0?`Tiang ${PL[i]} kosong → pinjam 1 manik dari ${PL[i-1]||''} = 10 manik ${PL[i]}.`:''); } }); });
+  $('#num').value=N;
+  $('#aOut').innerHTML=`${msg?`<div class="fb hint" style="margin:0 0 10px">${msg}</div>`:''}<div class="huge">${id(N)}</div><p><b>Dibaca:</b> ${terbilang(N)}</p>
+   <p><b>Bentuk panjang:</b> ${d.map((v,i)=>v?`<span style="color:${COL[i]};font-weight:800">${id(v*PV[i])}</span>`:null).filter(Boolean).join(' + ')||'0'}</p>`;
+}
+$('#set').onclick=()=>{ N=Math.max(0,Math.min(99999,Math.round(+$('#num').value||0))); drawA(); };
+$('#num').onkeydown=e=>{ if(e.key==='Enter') $('#set').click(); };
+$('#rnd').onclick=()=>{ N=rand(1000,99999); drawA(); };
+drawA(); VML.onResize(()=>drawA());
+
+/* pembulatan */
+let ke=100;
+document.querySelectorAll('#ke button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#ke button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ke=+b.dataset.k;drawB();});
+function drawB(){
+  const n=+$('#bn').value; $('#bn-v').textContent=id(n); const lo=Math.floor(n/ke)*ke, hi=lo+ke, mid=lo+ke/2, r=Math.round(n/ke)*ke;
+  const g=$('#bl'); clear(g); const W=VML.narrow()?440:720, X=v=>40+(v-lo)/ke*(W-80); g.setAttribute('viewBox',`0 0 ${W} 180`);
+  s('line',{x1:20,y1:110,x2:W-20,y2:110,stroke:'var(--ink)','stroke-width':3},g);
+  for(let k=0;k<=10;k++){ const v=lo+k*ke/10; s('line',{x1:X(v),y1:k%5===0?96:102,x2:X(v),y2:k%5===0?124:118,stroke:'var(--ink)','stroke-width':k%5===0?3:1.5},g); }
+  [[lo,'var(--a)'],[hi,'var(--a)']].forEach(([v,c])=>txt(g,X(v),150,id(v),{'font-weight':900,fill:c,'font-size':16}));
+  txt(g,X(mid),150,id(mid),{'font-size':12,fill:'var(--muted)'}); s('line',{x1:X(mid),y1:40,x2:X(mid),y2:96,stroke:'var(--muted)','stroke-dasharray':'4 4'},g); txt(g,X(mid),34,'tengah',{'font-size':11,fill:'var(--muted)'});
+  s('path',{d:`M${X(n)},${110} Q${(X(n)+X(r))/2},${60} ${X(r)},${110}`,fill:'none',stroke:'var(--d)','stroke-width':3,'stroke-dasharray':'6 4'},g);
+  txt(g,X(n),88,'⭐',{'font-size':24}); txt(g,X(n),64,id(n),{'font-weight':900,'font-size':14});
+  const dig=Math.floor(n/(ke/10))%10;
+  $('#bOut').innerHTML=`<p>${id(n)} berada di antara <b>${id(lo)}</b> dan <b>${id(hi)}</b>.</p><p>Angka penentu (di kanan tempat ${ke===10?'puluhan':ke===100?'ratusan':'ribuan'}) adalah <b>${dig}</b> → ${dig>=5?'5 atau lebih, dibulatkan <b>ke atas</b>':'kurang dari 5, dibulatkan <b>ke bawah</b>'}.</p><div class="huge">${id(n)} ≈ ${id(r)}</div>`;
+}
+$('#bn').oninput=drawB; drawB(); VML.onResize(drawB);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Nilai tempat', gen(){ const n=rand(10000,99999), i=rand(0,4), dg=Math.floor(n/PV[i])%10; if(!dg) return this.gen(); return {q:`Pada bilangan ${id(n)}, berapa <b>nilai</b> angka ${dg} yang menempati tempat ${PL[i]}?`, a:accept(dg*PV[i]), show:id(dg*PV[i]), hint:`Angka ${dg} di tempat ${PL[i]} bernilai ${dg} × ${id(PV[i])}.`, ex:id(dg*PV[i])}; }},
+  {name:'Lambang bilangan', gen(){ const n=rand(1000,99999); return {q:`Tulis lambang bilangan dari: <i>${terbilang(n)}</i>`, a:accept(n), show:id(n), hint:'Pisahkan bagian "ribu" dan sisanya.', ex:id(n)}; }},
+  {name:'Pembulatan', gen(){ const k=pick([10,100,1000]), n=rand(1000,99999), r=Math.round(n/k)*k; return {q:`Bulatkan ${id(n)} ke ${k===10?'puluhan':k===100?'ratusan':'ribuan'} terdekat.`, a:accept(r), show:id(r), hint:'Lihat angka di kanannya: 5 atau lebih → ke atas.', ex:`${id(n)} ≈ ${id(r)}`}; }},
+  {name:'Menaksir', gen(){ const a=rand(1000,9999), b=rand(1000,9999), o=pick(['+','−']); if(o==='−'&&Math.round(a/1000)<Math.round(b/1000)) return this.gen(); const ra=Math.round(a/1000)*1000, rb=Math.round(b/1000)*1000, r=o==='+'?ra+rb:ra-rb;
+    return {q:`Taksiran ${id(a)} ${o} ${id(b)} jika dibulatkan ke ribuan terdekat adalah …`, a:accept(r), show:id(r), hint:'Bulatkan setiap bilangan dulu, baru dihitung.', ex:`${id(ra)} ${o} ${id(rb)} = ${id(r)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Angka 7 pada bilangan 47.385 menempati nilai tempat …', o:['ribuan','ratusan','puluh ribuan','puluhan'], a:0, ex:'4 puluh ribuan, 7 ribuan.'},
+ {q:'Nilai angka 3 pada bilangan 47.385 adalah …', o:['300','3','30','3.000'], a:0, ex:'Angka 3 di tempat ratusan.'},
+ {q:'Bentuk panjang dari 62.509 adalah …', o:['60.000 + 2.000 + 500 + 9','60.000 + 2.000 + 50 + 9','6.000 + 2.000 + 500 + 9','62.000 + 509 + 0'], a:0, ex:'Tidak ada puluhan (0).'},
+ {q:'Lambang bilangan "tiga puluh ribu empat ratus dua" adalah …', o:['30.402','34.002','30.042','3.402'], a:0, ex:'30.000 + 400 + 2.'},
+ {q:'Bilangan 15.070 dibaca …', o:['lima belas ribu tujuh puluh','lima belas ribu tujuh ratus','seratus lima puluh tujuh','lima belas ribu tujuh'], a:0, ex:'15.000 + 70.'},
+ {q:'Tanda yang tepat untuk 45.821 … 45.299 adalah …', o:['&gt;','&lt;','=','≤'], a:0, ex:'Ratusan: 8 > 2.'},
+ {q:'Urutan dari yang terkecil: 32.405; 23.504; 32.045; 23.450 adalah …', o:['23.450; 23.504; 32.045; 32.405','23.504; 23.450; 32.405; 32.045','32.405; 32.045; 23.504; 23.450','23.450; 32.045; 23.504; 32.405'], a:0, ex:'Bandingkan dari kiri.'},
+ {q:'4.376 dibulatkan ke ratusan terdekat menjadi …', o:['4.400','4.300','4.380','4.000'], a:0, ex:'Angka puluhan 7 ≥ 5 → naik.'},
+ {q:'4.376 dibulatkan ke ribuan terdekat menjadi …', o:['4.000','5.000','4.400','4.300'], a:0, ex:'Angka ratusan 3 < 5 → turun.'},
+ {q:'8.250 dibulatkan ke ratusan terdekat menjadi …', o:['8.300','8.200','8.000','8.250'], a:0, ex:'Puluhan 5 → ke atas.'},
+ {q:'Taksiran 3.890 + 2.150 (ke ribuan terdekat) adalah …', o:['6.000','5.000','7.000','6.040'], a:0, ex:'4.000 + 2.000.'},
+ {q:'Ibu belanja Rp18.700 dan Rp24.400. Taksiran (ke ribuan terdekat) …', o:['Rp43.000','Rp42.000','Rp44.000','Rp43.100'], a:0, ex:'19.000 + 24.000.'},
+ {q:'Bulatkan 27.649 ke ribuan terdekat.', input:true, a:['28000','28.000'], ex:'Ratusan 6 → ke atas.'},
+ {q:'Berapa nilai angka 9 pada bilangan 93.105?', input:true, a:['90000','90.000'], ex:'Puluh ribuan.'},
+ {q:'Bilangan terbesar yang dapat disusun dari angka 3, 8, 0, 5, 1 (masing-masing sekali) adalah …', o:['85.310','10.358','85.301','80.531'], a:0, ex:'Urutkan dari angka terbesar.'}
+], 'sd4m1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

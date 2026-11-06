@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waktu & Jam · Virtual Math Lab SD III</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#8a55e0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Pengukuran</span>
+  <h1>⏰ Waktu &amp; Jam</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membaca dan menunjukkan waktu pada jam analog dan digital.</li>
+    <li>Mengenal satuan waktu: detik, menit, jam, hari, minggu, bulan, tahun.</li>
+    <li>Menghitung lama suatu kegiatan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">⏰ Lab Atur Jam</button><button data-target="lama">⏳ Lab Lama Kegiatan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Membaca jam</h2>
+    <ul><li><b>Jarum pendek</b> menunjukkan <b>jam</b>.</li><li><b>Jarum panjang</b> menunjukkan <b>menit</b>. Dari satu angka ke angka berikutnya = <b>5 menit</b>.</li></ul>
+    <div class="grid3"><div class="ex">Jarum panjang di 12 → pukul tepat. <b>07.00</b></div><div class="ex">Jarum panjang di 6 → setengah jam. <b>07.30</b> = setengah delapan</div><div class="ex">Jarum panjang di 3 → <b>07.15</b> = pukul tujuh lewat seperempat</div></div>
+    <div class="note">Pukul <b>setengah delapan</b> artinya 07.30 (setengah jam <i>sebelum</i> pukul delapan), bukan 08.30!</div>
+  </div>
+  <div class="card"><h2>2. Satuan waktu</h2>
+    <table class="t"><tr><th>Satuan</th><th>Sama dengan</th></tr><tr><td>1 menit</td><td>60 detik</td></tr><tr><td>1 jam</td><td>60 menit</td></tr><tr><td>1 hari</td><td>24 jam</td></tr><tr><td>1 minggu</td><td>7 hari</td></tr><tr><td>1 bulan</td><td>± 30 hari (28–31 hari)</td></tr><tr><td>1 tahun</td><td>12 bulan = 365 hari</td></tr></table>
+  </div>
+  <div class="card"><h2>3. Lama kegiatan</h2>
+    <div class="ex">Mengaji mulai pukul 16.00 selesai pukul 17.30. Lamanya <b>1 jam 30 menit</b>.</div>
+    <div class="ex">Berangkat pukul 06.45, perjalanan 20 menit. Tiba pukul <b>07.05</b>.</div>
+    <p>Pagi hari dan malam hari: pukul 7 pagi ditulis 07.00, pukul 7 malam ditulis <b>19.00</b> (7 + 12).</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Atur Jam</h2>
+    <p>Seret jarum panjang atau pakai penggeser. Jarum pendek ikut bergerak pelan!</p>
+    <div class="ctrl"><label>Jam <span class="v" id="h-v"></span><input type="range" id="h" min="0" max="23" value="7"></label><label>Menit <span class="v" id="m-v"></span><input type="range" id="m" min="0" max="59" value="30"></label></div>
+    <div class="row"><button class="btn soft" id="tg">🎯 Tantangan: tunjukkan waktu!</button><span id="task" style="font-weight:800"></span></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="ck" viewBox="0 0 360 360" style="max-width:380px;margin:0 auto"></svg><div class="out" id="cOut"></div></div>
+  </div>
+</section>
+
+<section id="lama" class="panel">
+  <div class="card"><h2>Lab: Berapa Lama?</h2>
+    <div class="row" id="pre"></div>
+    <div class="ctrl"><label>Mulai <span class="v" id="s-v"></span><input type="range" id="s" min="0" max="1425" step="5" value="960"></label><label>Selesai <span class="v" id="e-v"></span><input type="range" id="e" min="0" max="1435" step="5" value="1050"></label></div>
+    <svg class="viz" id="tl" viewBox="0 0 720 150"></svg>
+    <div class="out" id="lOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Waktu ditulis seperti 07.30. Lama kegiatan tulis dalam menit, misalnya 90.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas III · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const p2=n=>String(n).padStart(2,'0'), hh=t=>p2(Math.floor(t/60)%24)+'.'+p2(t%60);
+const ANG=['dua belas','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];
+const bagian=h=>h<4?'dini hari':h<11?'pagi':h<15?'siang':h<18?'sore':'malam';
+function sebut(h,m){ const h12=h%12, nx=(h+1)%12; if(m===0) return `pukul ${ANG[h12]} tepat`; if(m===30) return `pukul setengah ${ANG[nx]}`; if(m===15) return `pukul ${ANG[h12]} lewat seperempat`; if(m===45) return `pukul ${ANG[nx]} kurang seperempat`; return m<30?`pukul ${ANG[h12]} lewat ${m} menit`:`pukul ${ANG[nx]} kurang ${60-m} menit`; }
+let target=null;
+function drawC(){
+  const h=+$('#h').value, m=+$('#m').value; $('#h-v').textContent=p2(h); $('#m-v').textContent=p2(m);
+  const g=$('#ck'); clear(g); const cx=180, cy=180, R=150, P=(a,r)=>[cx+r*Math.sin(a*Math.PI/180),cy-r*Math.cos(a*Math.PI/180)];
+  s('circle',{cx,cy,r:R+10,fill:h>=6&&h<18?'#fff7d6':'#e3e3ff',stroke:'var(--acc)','stroke-width':8},g);
+  for(let k=0;k<60;k++){ const [a,b]=P(k*6,R-(k%5?6:14)), [c,d]=P(k*6,R); s('line',{x1:a,y1:b,x2:c,y2:d,stroke:'#555','stroke-width':k%5?1.5:3},g); }
+  for(let k=1;k<=12;k++){ const [x,y]=P(k*30,R-34); txt(g,x,y+8,String(k),{'font-size':24,'font-weight':900,fill:'#333'}); const [x2,y2]=P(k*30,R+28); }
+  const ha=(h%12)*30+m*0.5, ma=m*6, [hx,hy]=P(ha,R*0.5), [mx,my]=P(ma,R*0.82);
+  s('line',{x1:cx,y1:cy,x2:hx,y2:hy,stroke:'#e0472f','stroke-width':10,'stroke-linecap':'round'},g); s('line',{x1:cx,y1:cy,x2:mx,y2:my,stroke:'#2b7de0','stroke-width':6,'stroke-linecap':'round'},g);
+  s('circle',{cx:mx,cy:my,r:13,fill:'#2b7de0',stroke:'#fff','stroke-width':3,style:'cursor:grab'},g); s('circle',{cx,cy,r:9,fill:'#333'},g);
+  txt(g,cx,cy-62,h>=6&&h<18?'☀️':'🌙',{'font-size':22});
+  VML.dragSvg(g, q=>Math.hypot(q.x-mx,q.y-my)<30?1:null, (k,q)=>{ let a=Math.atan2(q.x-cx,cy-q.y)*180/Math.PI; if(a<0) a+=360; let nm=Math.round(a/6)%60; const old=+$('#m').value; let H=+$('#h').value; if(old>45&&nm<15) H=(H+1)%24; if(old<15&&nm>45) H=(H+23)%24; $('#h').value=H; $('#m').value=nm; drawC(); });
+  const ok=target&&target[0]===h&&target[1]===m;
+  $('#cOut').innerHTML=`<div class="huge" style="font-family:var(--mono)">${p2(h)}.${p2(m)}</div><p>Dibaca: <b>${sebut(h,m)} ${bagian(h)}</b></p>
+   <p><span style="color:#e0472f;font-weight:800">Jarum pendek</span> di dekat angka ${h%12||12}${m?` (bergeser ke ${(h+1)%12||12})`:''} · <span style="color:#2b7de0;font-weight:800">jarum panjang</span> di ${m%5===0?`angka ${m/5||12}`:`antara ${Math.floor(m/5)||12} dan ${Math.floor(m/5)+1}`} = ${m} menit</p>
+   ${target?(ok?'<p class="big">🎉 Tepat sekali!</p>':`<p class="muted">Tantangan: tunjukkan <b>${p2(target[0])}.${p2(target[1])}</b></p>`):''}`;
+}
+['#h','#m'].forEach(x=>$(x).oninput=drawC);
+$('#tg').onclick=()=>{ target=[rand(1,23),pick([0,5,10,15,20,25,30,35,40,45,50,55])]; $('#task').textContent=`Tunjukkan ${sebut(target[0],target[1])} ${bagian(target[0])}`; drawC(); };
+drawC();
+
+/* lama */
+const PRE=[['🕌 Mengaji',960,1050],['🏫 Sekolah',420,720],['😴 Tidur siang',780,870],['⚽ Main bola',930,1005]];
+$('#pre').innerHTML=PRE.map(([n],i)=>`<button class="btn soft" data-p="${i}">${n}</button>`).join('');
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{ const [,a,z]=PRE[+b.dataset.p]; $('#s').value=a; $('#e').value=z; drawL(); });
+function drawL(){
+  let a=+$('#s').value, z=+$('#e').value; if(z<=a){ z=a+5; $('#e').value=z; } $('#s-v').textContent=hh(a); $('#e-v').textContent=hh(z);
+  const g=$('#tl'); clear(g); const W=VML.narrow()?440:720, lo=Math.floor(a/60)*60, hi=Math.ceil(z/60)*60, X=t=>30+(t-lo)/(hi-lo||60)*(W-60); g.setAttribute('viewBox',`0 0 ${W} 150`);
+  s('line',{x1:20,y1:80,x2:W-20,y2:80,stroke:'var(--ink)','stroke-width':3},g);
+  const step=(hi-lo)>360?120:(hi-lo)>180?60:30;
+  for(let t=lo;t<=hi;t+=step){ s('line',{x1:X(t),y1:70,x2:X(t),y2:90,stroke:'var(--ink)','stroke-width':2},g); txt(g,X(t),112,hh(t),{'font-size':12}); }
+  s('rect',{x:X(a),y:66,width:X(z)-X(a),height:28,rx:14,fill:'var(--acc)','fill-opacity':.55},g);
+  let t=a, k=0; const firstHour=Math.ceil(a/60)*60; const pts=[a]; if(firstHour>a&&firstHour<z) pts.push(firstHour); for(let q=firstHour+60;q<z;q+=60) pts.push(q); pts.push(z);
+  for(let i=0;i<pts.length-1;i++){ s('path',{d:`M${X(pts[i])},60 Q${(X(pts[i])+X(pts[i+1]))/2},${30} ${X(pts[i+1])},60`,fill:'none',stroke:'var(--b)','stroke-width':2.5},g); txt(g,(X(pts[i])+X(pts[i+1]))/2,32,(pts[i+1]-pts[i])+'′',{'font-size':12,'font-weight':800,fill:'var(--b)'}); }
+  const d=z-a, H=Math.floor(d/60), M=d%60;
+  $('#lOut').innerHTML=`<p>Mulai <b>${hh(a)}</b> → selesai <b>${hh(z)}</b></p><p>Lompatan: ${pts.slice(1).map((p,i)=>p-pts[i]).join(' + ')} = ${d} menit</p><div class="huge">${H?H+' jam ':''}${M?M+' menit':H?'':'0 menit'}</div><p class="muted">= ${d} menit (1 jam = 60 menit)</p>`;
+}
+['#s','#e'].forEach(x=>$(x).oninput=drawL); drawL(); VML.onResize(drawL);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Membaca jam', gen(){ const h=rand(1,11), m=pick([0,15,30,45]); const show=hh(h*60+m); return {q:`Tulis dengan angka: <i>${sebut(h,m)} pagi</i>`, a:[show,show.replace('.',':')], show, hint:'Setengah delapan = 07.30; kurang seperempat = 45 menit.', ex:show}; }},
+  {name:'Satuan waktu', gen(){ const t=rand(0,3); if(t===0){ const j=rand(2,5); return {q:`${j} jam = … menit`, a:String(j*60), hint:'1 jam = 60 menit.', ex:`${j} × 60 = ${j*60}`}; } if(t===1){ const w=rand(2,6); return {q:`${w} minggu = … hari`, a:String(w*7), hint:'1 minggu = 7 hari.', ex:`${w} × 7 = ${w*7}`}; } if(t===2){ const d=rand(2,4); return {q:`${d} hari = … jam`, a:String(d*24), hint:'1 hari = 24 jam.', ex:`${d} × 24 = ${d*24}`}; } const mm=rand(2,5); return {q:`${mm} menit = … detik`, a:String(mm*60), hint:'1 menit = 60 detik.', ex:`${mm} × 60 = ${mm*60}`}; }},
+  {name:'Lama kegiatan', gen(){ const a=rand(6*12,18*12)*5, d=pick([15,20,30,45,60,75,90,120]); return {q:`Kegiatan dimulai pukul ${hh(a)} dan selesai pukul ${hh(a+d)}. Berapa menit lamanya?`, a:String(d), unit:'menit', hint:'Hitung dari jam mulai sampai jam selesai.', ex:`${d} menit`}; }},
+  {name:'Waktu selesai', gen(){ const a=rand(6*12,18*12)*5, d=pick([10,15,20,25,30,40,45,50,60,90]); const show=hh(a+d); return {q:`Ali berangkat pukul ${hh(a)}. Perjalanannya ${d} menit. Pukul berapa Ali tiba?`, a:[show,show.replace('.',':')], show, hint:'Tambahkan menitnya. Ingat 60 menit = 1 jam.', ex:show}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Jarum pendek pada jam menunjukkan …', o:['jam','menit','detik','hari'], a:0, ex:'Pendek = jam.'},
+ {q:'Jarum panjang di angka 6 dan jarum pendek di antara 7 dan 8. Pukul …', o:['07.30','06.35','08.30','07.06'], a:0, ex:'Setengah delapan.'},
+ {q:'Pukul "setengah sembilan" ditulis …', o:['08.30','09.30','09.00','08.00'], a:0, ex:'Setengah jam sebelum pukul 9.'},
+ {q:'Pukul 07.15 dibaca …', o:['pukul tujuh lewat seperempat','pukul tujuh kurang seperempat','setengah tujuh','pukul tujuh lima belas jam'], a:0, ex:'15 menit = seperempat jam.'},
+ {q:'Pukul 09.45 dibaca …', o:['pukul sepuluh kurang seperempat','pukul sembilan kurang seperempat','setengah sepuluh','pukul sembilan lewat setengah'], a:0, ex:'15 menit lagi pukul 10.'},
+ {q:'1 jam = … menit', o:['60','100','24','30'], a:0, ex:'1 jam = 60 menit.'},
+ {q:'1 hari = … jam', o:['24','12','60','7'], a:0, ex:'Siang dan malam.'},
+ {q:'2 minggu = … hari', o:['14','7','12','20'], a:0, ex:'2 × 7.'},
+ {q:'Pukul 7 malam ditulis …', o:['19.00','07.00','17.00','21.00'], a:0, ex:'7 + 12 = 19.'},
+ {q:'Mengaji mulai 16.00 selesai 17.30. Lamanya …', o:['1 jam 30 menit','1 jam','2 jam 30 menit','30 menit'], a:0, ex:'90 menit.'},
+ {q:'Berangkat pukul 06.45, perjalanan 20 menit. Tiba pukul …', o:['07.05','06.65','07.15','06.25'], a:0, ex:'45 + 20 = 65 menit = 1 jam 5 menit.'},
+ {q:'Dari angka 2 ke angka 3, jarum panjang menempuh …', o:['5 menit','1 menit','10 menit','1 jam'], a:0, ex:'Setiap angka = 5 menit.'},
+ {q:'Berapa menit dalam 2 jam?', input:true, a:['120'], unit:'menit', ex:'2 × 60.'},
+ {q:'Sekolah mulai 07.00 dan pulang 12.00. Berapa jam lamanya?', input:true, a:['5'], unit:'jam', ex:'12 − 7.'},
+ {q:'1 tahun = … bulan', o:['12','10','365','52'], a:0, ex:'Januari sampai Desember.'}
+], 'sd3m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fungsi Kuadrat · Virtual Math Lab IX</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#1f6fc9">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Aljabar</span>
+  <h1>Fungsi Kuadrat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menggambar grafik fungsi kuadrat (parabola) dan menjelaskan pengaruh nilai a, b, dan c.</li>
+    <li>Menentukan sumbu simetri, titik puncak, nilai maksimum/minimum, dan titik potong dengan sumbu.</li>
+    <li>Menyelesaikan masalah optimasi sederhana dengan fungsi kuadrat.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📈 Lab Parabola</button><button data-target="maks">🔲 Lab Luas Maksimum</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bentuk dan grafik</h2>
+    <div class="def"><b>f(x) = ax² + bx + c</b>, a ≠ 0. Grafiknya berbentuk <b>parabola</b>.</div>
+    <table class="t"><tr><th>Nilai</th><th>Pengaruh pada grafik</th></tr>
+      <tr><td>a &gt; 0 / a &lt; 0</td><td>terbuka ke atas (punya nilai minimum) / ke bawah (punya nilai maksimum)</td></tr>
+      <tr><td>|a| besar / kecil</td><td>parabola makin sempit / makin lebar</td></tr>
+      <tr><td>c</td><td>titik potong sumbu Y di (0, c)</td></tr>
+      <tr><td>b (bersama a)</td><td>menggeser sumbu simetri x = −b/2a ke kiri atau kanan</td></tr>
+      <tr><td>D = b² − 4ac</td><td>D &gt; 0 memotong sumbu X di dua titik, D = 0 menyinggung, D &lt; 0 tidak memotong</td></tr></table>
+  </div>
+  <div class="card"><h2>2. Sumbu simetri dan titik puncak</h2>
+    <div class="grid2"><div class="def">Sumbu simetri: <b>x = <span class="fr"><span>−b</span><span>2a</span></span></b></div><div class="def">Titik puncak: <b>(<span class="fr"><span>−b</span><span>2a</span></span>, <span class="fr"><span>−D</span><span>4a</span></span>)</b></div></div>
+    <div class="ex"><span class="t">Contoh</span> y = x² − 4x + 3 → x = 4/2 = 2, y = 4 − 8 + 3 = −1. Puncak <b>(2, −1)</b>, nilai minimum −1.</div>
+    <p><b>Bentuk puncak:</b> y = a(x − h)² + k dengan puncak (h, k). Contoh puncak (1, 2) melalui (0, 3): 3 = a(1) + 2 → a = 1 → y = (x − 1)² + 2 = x² − 2x + 3.</p>
+  </div>
+  <div class="card"><h2>3. Langkah menggambar grafik</h2>
+    <ol class="steps"><li>Tentukan arah buka dari tanda a.</li><li>Titik potong sumbu Y: (0, c).</li><li>Titik potong sumbu X: selesaikan ax² + bx + c = 0 (jika D ≥ 0).</li><li>Sumbu simetri dan titik puncak.</li><li>Hubungkan titik-titik dengan kurva mulus yang simetris.</li></ol>
+    <div class="ex">y = x² − x − 6: buka ke atas, potong Y di (0, −6), potong X di (−2, 0) dan (3, 0), puncak (½, −6¼).</div>
+  </div>
+  <div class="card"><h2>4. Masalah maksimum–minimum</h2>
+    <div class="ex"><span class="t">Luas maksimum</span> Kawat 40 cm dibentuk persegi panjang. Jika panjang x, lebar 20 − x. Luas L = x(20 − x) = −x² + 20x. Puncak x = 10 → L maks = <b>100 cm²</b> (bentuknya persegi).</div>
+    <div class="ex"><span class="t">Lintasan bola</span> h(t) = 20t − 5t². Puncak t = 20/10 = 2 detik, tinggi maksimum h(2) = 40 − 20 = <b>20 m</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Menjelajahi Parabola</h2>
+    <div class="ctrl"><label>a <span class="v" id="a-v"></span><input type="range" id="a" min="-3" max="3" step="0.5" value="1"></label><label>b <span class="v" id="b-v"></span><input type="range" id="b" min="-8" max="8" value="-4"></label><label>c <span class="v" id="c-v"></span><input type="range" id="c" min="-8" max="8" value="3"></label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="ref" checked> tampilkan y = x² sebagai pembanding</label></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="g" viewBox="0 0 440 440"></svg><div class="out" id="o"></div></div>
+  </div>
+</section>
+
+<section id="maks" class="panel">
+  <div class="card"><h2>Lab: Pagar dengan Luas Maksimum</h2>
+    <p>Seutas kawat dibentuk menjadi persegi panjang. Ubah panjangnya dan perhatikan luasnya pada grafik.</p>
+    <div class="ctrl"><label>Panjang kawat K <span class="v" id="k-v"></span><input type="range" id="k" min="12" max="60" step="4" value="40"></label><label>Panjang x <span class="v" id="x-v"></span><input type="range" id="x" min="0" max="20" step="0.5" value="6"></label></div>
+    <div class="grid2"><svg class="viz" id="rect" viewBox="0 0 400 300"></svg><svg class="viz" id="lg" viewBox="0 0 400 300"></svg></div>
+    <div class="out" id="mo"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Titik ditulis seperti (2, -1).</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas IX · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, F, fracHTML, fracTxt, num} = VML;
+const quad=(a,b,c)=>{ let o=''; const add=(k,v)=>{ if(k===0) return; const ab=Math.abs(k), cs=(ab===1&&v)?'':num(ab); o+= o?(k>0?' + ':' − ')+cs+v:(k<0?'−':'')+cs+v; }; add(a,'x²'); add(b,'x'); add(c,''); return o||'0'; };
+const pathF=(C,f,lo,hi,ymin,ymax)=>{ let d=''; for(let x=lo;x<=hi+1e-9;x+=0.04){ const y=f(x); if(y<ymin-1||y>ymax+1){ d+=' '; continue; } d+=(d&&!d.endsWith(' ')?'L':'M')+C.X(x).toFixed(1)+','+C.Y(y).toFixed(1); } return d; };
+const dec=v=>Number.isInteger(v)?M(v):num(v,2);
+
+/* LAB parabola */
+function draw(){
+  let a=+$('#a').value; if(a===0){ a=0.5; $('#a').value=0.5; } const b=+$('#b').value, c=+$('#c').value; $('#a-v').textContent=M(num(a)); $('#b-v').textContent=M(b); $('#c-v').textContent=M(c);
+  const f=x=>a*x*x+b*x+c, h=-b/(2*a), k=f(h), D=b*b-4*a*c, g=$('#g'); clear(g);
+  const C=VML.plane(g,{xmin:-10,xmax:10,ymin:-10,ymax:10,W:440,H:440,lab:2});
+  if($('#ref').checked) s('path',{d:pathF(C,x=>x*x,-10,10,-10,10),fill:'none',stroke:'var(--muted)','stroke-width':2,'stroke-dasharray':'5 5'},g);
+  if(Math.abs(h)<=10) s('line',{x1:C.X(h),y1:C.Y(-10),x2:C.X(h),y2:C.Y(10),stroke:'var(--b)','stroke-width':1.5,'stroke-dasharray':'6 4'},g);
+  s('path',{d:pathF(C,f,-10,10,-10,10),fill:'none',stroke:'var(--acc)','stroke-width':3.5},g);
+  const dot=(x,y,col)=>{ if(Math.abs(x)<=10&&Math.abs(y)<=10) s('circle',{cx:C.X(x),cy:C.Y(y),r:6.5,fill:col,stroke:'var(--card)','stroke-width':2},g); };
+  dot(h,k,'var(--b)'); dot(0,c,'var(--c)'); let xs=[]; if(D>=0){ xs=[(-b-Math.sqrt(D))/(2*a),(-b+Math.sqrt(D))/(2*a)]; xs.forEach(x=>dot(x,0,'var(--e)')); }
+  $('#o').innerHTML=`<div class="big">f(x) = ${quad(a,b,c)}</div>
+   <p>Terbuka ke <b>${a>0?'atas':'bawah'}</b>, ${Math.abs(a)>1?'lebih sempit':Math.abs(a)<1?'lebih lebar':'sama lebar'} dari y = x².</p>
+   <p><span style="color:var(--b)">●</span> <b>Sumbu simetri</b> x = −b/2a = ${F(M(-b),num(2*a))} = <b>${dec(h)}</b><br><span style="color:var(--b)">●</span> <b>Titik puncak</b> (${dec(h)}, ${dec(k)}) → nilai ${a>0?'minimum':'maksimum'} <b>${dec(k)}</b></p>
+   <p><span style="color:var(--c)">●</span> Potong sumbu Y: (0, ${M(c)})<br><span style="color:var(--e)">●</span> Potong sumbu X: ${D>0?xs.map(x=>`(${dec(x)}, 0)`).join(' dan '):D===0?`menyinggung di (${dec(h)}, 0)`:'tidak ada (D &lt; 0)'}</p>
+   <p class="muted">D = ${num(D)} · Bentuk puncak: y = ${num(a)===1?'':num(a)==='-1'?'−':M(num(a))}(x ${h<0?'+':'−'} ${num(Math.abs(h))})² ${k<0?'−':'+'} ${num(Math.abs(k))}</p>`;
+}
+['#a','#b','#c'].forEach(x=>$(x).oninput=draw); $('#ref').onchange=draw; draw();
+
+/* LAB pagar */
+function drawM(){
+  const K=+$('#k').value, half=K/2, X=$('#x'); X.max=half; if(+X.value>half) X.value=half; const x=+X.value, l=half-x, L=x*l; $('#k-v').textContent=K+' cm'; $('#x-v').textContent=num(x)+' cm';
+  const g=$('#rect'); clear(g); const U=Math.min(340/half,240/half);
+  s('rect',{x:30,y:30,width:Math.max(1,x*U),height:Math.max(1,l*U),fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':3},g);
+  txt(g,30+x*U/2,22,'x = '+num(x),{'font-weight':700}); txt(g,30+x*U+8,30+l*U/2,'l = '+num(l),{'font-weight':700,'text-anchor':'start'});
+  txt(g,200,290,`Luas = ${num(L)} cm²`,{'font-weight':800,fill:'var(--acc)','font-size':16});
+  const G=$('#lg'); clear(G); const Lmax=half*half/4, C=VML.plane(G,{xmin:0,xmax:half,ymin:0,ymax:Lmax*1.15,W:400,H:300,lab:Math.max(2,Math.round(half/6)),grid:Math.max(1,Math.round(half/12)),labY:Math.max(5,Math.round(Lmax/25)*5),gridY:Math.max(5,Math.round(Lmax/25)*5),names:false});
+  s('path',{d:pathF(C,t=>t*(half-t),0,half,0,Lmax*1.2),fill:'none',stroke:'var(--acc)','stroke-width':3},G);
+  s('line',{x1:C.X(half/2),y1:C.Y(0),x2:C.X(half/2),y2:C.Y(Lmax),stroke:'var(--b)','stroke-dasharray':'5 4'},G);
+  s('circle',{cx:C.X(x),cy:C.Y(L),r:8,fill:'var(--b)',stroke:'var(--card)','stroke-width':2},G);
+  txt(G,200,16,'Grafik L(x) = x('+half+' − x)',{'font-size':12,'font-weight':700});
+  $('#mo').innerHTML=`<p>Panjang + lebar = K/2 = ${half}, jadi l = ${half} − x dan <b>L(x) = x(${half} − x) = −x² + ${half}x</b>.</p>
+   <p>Puncak di x = −b/2a = ${half}/2 = <b>${num(half/2)}</b> → L maksimum = ${num(half/2)} × ${num(half/2)} = <b>${num(Lmax)} cm²</b>, saat bentuknya <b>persegi</b>.</p>
+   <p class="muted">${Math.abs(x-half/2)<1e-9?'🎉 Tepat di puncak!':`Luas sekarang ${num(L)} cm², masih ${num(Lmax-L)} cm² di bawah maksimum.`}</p>`;
+}
+['#k','#x'].forEach(x=>$(x).oninput=drawM); drawM();
+
+/* LATIHAN */
+const ptChk=(x,y)=>inp=>{ const m=String(inp).replace(/[−–]/g,'-').replace(/\s/g,'').match(/^\(?(-?\d+(?:[.,]\d+)?)[;,](-?\d+(?:[.,]\d+)?)\)?$/); return !!m && Math.abs(+m[1].replace(',','.')-x)<1e-9 && Math.abs(+m[2].replace(',','.')-y)<1e-9; };
+VML.practice($('#prac'), [
+  {name:'Sumbu simetri', gen(){ const a=randNZ(-3,3), h=rand(-5,5), b=-2*a*h, c=rand(-9,9); return {q:`Sumbu simetri grafik f(x) = ${quad(a,b,c)} adalah x = …`, a:String(h), hint:'x = −b/2a', ex:`−(${M(b)}) : (2 × ${neg(a)}) = ${M(h)}`}; }},
+  {name:'Titik puncak', gen(){ const a=randNZ(-2,2), h=rand(-4,4), k=rand(-8,8), b=-2*a*h, c=a*h*h+k; return {q:`Titik puncak grafik f(x) = ${quad(a,b,c)} adalah …`, a:ptChk(h,k), show:`(${M(h)}, ${M(k)})`, hint:'Cari x = −b/2a, lalu hitung f(x).', ex:`x = ${M(h)}, f(${M(h)}) = ${M(k)}`}; }},
+  {name:'Nilai ekstrem', gen(){ const a=randNZ(-3,3), h=rand(-4,4), k=rand(-10,10), b=-2*a*h, c=a*h*h+k; return {q:`Nilai ${a>0?'minimum':'maksimum'} dari f(x) = ${quad(a,b,c)} adalah …`, a:String(k), hint:`Nilai ekstrem = f(−b/2a) = −D/4a.`, ex:`x = ${M(h)} → f = ${M(k)}`}; }},
+  {name:'Terapan', gen(){ if(Math.random()<.5){ const K=pick([20,24,32,40,48,60,80]); return {q:`Kawat sepanjang ${K} cm dibentuk persegi panjang. Berapa luas maksimum yang dapat dibuat?`, a:String((K/4)**2), unit:'cm²', hint:'Luas maksimum tercapai saat berbentuk persegi.', ex:`sisi = ${K}/4 = ${K/4} → ${(K/4)**2}`}; }
+    const v=pick([10,20,30,40]), tm=v/10; return {q:`Tinggi bola h(t) = ${v}t − 5t² meter. Berapa tinggi maksimumnya?`, a:String(v*tm-5*tm*tm), unit:'m', hint:'t puncak = −b/2a.', ex:`t = ${v}/10 = ${tm} → h = ${v*tm-5*tm*tm}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Grafik fungsi y = −2x² + 3x + 1 terbuka ke …', o:['bawah','atas','kanan','kiri'], a:0, ex:'a = −2 < 0.'},
+ {q:'Persamaan sumbu simetri grafik y = x² − 6x + 5 adalah …', o:['x = 3','x = −3','x = 6','x = 5'], a:0, ex:'x = 6/2 = 3.'},
+ {q:'Titik puncak grafik y = x² − 4x + 3 adalah …', o:['(2, −1)','(−2, 15)','(2, 3)','(4, 3)'], a:0, ex:'x = 2, y = 4 − 8 + 3 = −1.'},
+ {q:'Titik potong grafik y = 2x² − 3x + 5 dengan sumbu Y adalah …', o:['(0, 5)','(5, 0)','(0, −3)','(0, 2)'], a:0, ex:'x = 0 → y = c = 5.'},
+ {q:'Titik potong grafik y = x² − x − 6 dengan sumbu X adalah …', o:['(−2, 0) dan (3, 0)','(2, 0) dan (−3, 0)','(0, −6)','(1, 0) dan (−6, 0)'], a:0, ex:'(x + 2)(x − 3) = 0.'},
+ {q:'Nilai minimum fungsi f(x) = x² + 2x − 8 adalah …', o:['−9','−8','−1','9'], a:0, ex:'x = −1 → 1 − 2 − 8 = −9.'},
+ {q:'Nilai maksimum fungsi f(x) = −x² + 4x + 1 adalah …', o:['5','2','1','4'], a:0, ex:'x = 2 → −4 + 8 + 1 = 5.'},
+ {q:'Grafik fungsi kuadrat tidak memotong sumbu X jika …', o:['D &lt; 0','D = 0','D &gt; 0','a &gt; 0'], a:0, ex:'Tidak ada akar real.'},
+ {q:'Fungsi kuadrat dengan titik puncak (1, 2) dan melalui (0, 3) adalah …', o:['y = x² − 2x + 3','y = x² + 2x + 3','y = −x² + 2x + 1','y = x² − 2x + 2'], a:0, ex:'y = a(x − 1)² + 2, a = 1.'},
+ {q:'Kawat 40 cm dibentuk persegi panjang. Luas maksimumnya …', o:['100 cm²','400 cm²','200 cm²','96 cm²'], a:0, ex:'Persegi bersisi 10 cm.'},
+ {q:'Tinggi bola h(t) = 20t − 5t². Tinggi maksimumnya …', o:['20 m','40 m','10 m','15 m'], a:0, ex:'t = 2 → 40 − 20 = 20.'},
+ {q:'Jika nilai |a| pada y = ax² diperbesar, grafiknya menjadi …', o:['makin sempit','makin lebar','bergeser ke kanan','bergeser ke atas'], a:0, ex:'Nilai y naik lebih cepat.'},
+ {q:'Tentukan sumbu simetri grafik y = 2x² + 8x − 1 (tulis nilai x).', input:true, a:['-2'], ex:'x = −8/4 = −2.'},
+ {q:'Diketahui f(x) = x² − 3x + 2. Tentukan f(4).', input:true, a:['6'], ex:'16 − 12 + 2 = 6.'},
+ {q:'Grafik y = x² digeser 3 satuan ke kanan menjadi …', o:['y = (x − 3)²','y = (x + 3)²','y = x² + 3','y = x² − 3'], a:0, ex:'Puncak pindah ke (3, 0).'}
+], 'k9m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

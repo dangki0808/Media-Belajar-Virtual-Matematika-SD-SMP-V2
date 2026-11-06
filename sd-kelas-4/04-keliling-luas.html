@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keliling & Luas · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#169c74">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 4 · Geometri</span>
+  <h1>📐 Keliling &amp; Luas</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami keliling sebagai panjang tepi dan luas sebagai banyak persegi satuan.</li>
+    <li>Menghitung keliling dan luas persegi, persegi panjang, dan segitiga.</li>
+    <li>Menghitung keliling dan luas bangun gabungan sederhana.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📏 Lab Papan Paku</button><button data-target="cat">🎨 Lab Mewarnai Petak</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Keliling dan luas</h2>
+    <div class="grid2"><div class="def"><b>Keliling</b> = panjang seluruh tepi bangun. Satuannya cm, m.</div><div class="def"><b>Luas</b> = banyak persegi satuan yang menutupi bangun. Satuannya cm², m².</div></div>
+  </div>
+  <div class="card"><h2>2. Rumus</h2>
+    <table class="t"><tr><th>Bangun</th><th>Keliling</th><th>Luas</th></tr>
+      <tr><td>Persegi (sisi s)</td><td>4 × s</td><td>s × s</td></tr><tr><td>Persegi panjang (p, l)</td><td>2 × (p + l)</td><td>p × l</td></tr><tr><td>Segitiga (alas a, tinggi t)</td><td>jumlah ketiga sisi</td><td>½ × a × t</td></tr></table>
+    <div class="grid3"><div class="ex">Persegi s = 7 cm<br>K = <b>28 cm</b>, L = <b>49 cm²</b></div><div class="ex">Persegi panjang 9 × 4 cm<br>K = <b>26 cm</b>, L = <b>36 cm²</b></div><div class="ex">Segitiga a = 10, t = 6 cm<br>L = ½ × 10 × 6 = <b>30 cm²</b></div></div>
+    <div class="note">Luas segitiga = setengah luas persegi panjang yang alas dan tingginya sama.</div>
+  </div>
+  <div class="card"><h2>3. Mencari ukuran yang belum diketahui</h2>
+    <div class="grid2"><div class="ex">Luas persegi 64 cm² → s × s = 64 → <b>s = 8 cm</b></div><div class="ex">Keliling persegi panjang 30 cm, panjang 9 cm → 2 × (9 + l) = 30 → <b>l = 6 cm</b></div></div>
+  </div>
+  <div class="card"><h2>4. Bangun gabungan</h2>
+    <p>Pecah menjadi beberapa bangun sederhana, hitung luas masing-masing, lalu jumlahkan. Untuk keliling, telusuri tepi luarnya saja.</p>
+    <div class="ex">Bentuk L dari persegi panjang 6 × 2 dan 2 × 3 → luas = 12 + 6 = <b>18 cm²</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Papan Paku</h2>
+    <p>Seret titik sudut <b style="color:var(--b)">merah</b> untuk mengubah ukuran persegi panjang. Pilih juga bentuk segitiga!</p>
+    <div class="seg" id="sh"><button data-s="pp" class="on">Persegi panjang</button><button data-s="sg">Segitiga</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="gb" viewBox="0 0 400 340"></svg><div class="out" id="gOut"></div></div>
+  </div>
+</section>
+
+<section id="cat" class="panel">
+  <div class="card"><h2>Lab: Mewarnai Petak</h2>
+    <p>Ketuk atau seret di petak untuk mewarnai. Hitung luas (banyak petak) dan keliling (garis tepi luar). Satu petak = 1 cm × 1 cm.</p>
+    <div class="row"><button class="btn soft" id="pL">Bentuk L</button><button class="btn soft" id="pT">Bentuk T</button><button class="btn soft" id="pR">Persegi 3 × 3</button><button class="btn ghost" id="pC">Hapus semua</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="pg" viewBox="0 0 400 320" style="cursor:pointer"></svg><div class="out" id="pOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 4</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const U=30, OX=20, OY=20, COLS=12, ROWS=10;
+let sh='pp', C=[6,4];
+document.querySelectorAll('#sh button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sh button').forEach(x=>x.classList.remove('on'));b.classList.add('on');sh=b.dataset.s;drawG();});
+function drawG(){
+  const g=$('#gb'); clear(g); const X=x=>OX+x*U, Y=y=>OY+(ROWS-y)*U;
+  for(let x=0;x<=COLS;x++) for(let y=0;y<=ROWS;y++) s('circle',{cx:X(x),cy:Y(y),r:2.5,fill:'var(--muted)'},g);
+  const [p,l]=C;
+  if(sh==='pp'){ for(let i=0;i<p;i++) for(let j=0;j<l;j++) s('rect',{x:X(i)+1,y:Y(j+1)+1,width:U-2,height:U-2,fill:'var(--acc)','fill-opacity':.25},g);
+    s('rect',{x:X(0),y:Y(l),width:p*U,height:l*U,fill:'none',stroke:'var(--acc)','stroke-width':4},g);
+    txt(g,X(p/2),Y(0)+18,'p = '+p+' cm',{'font-weight':800}); txt(g,X(p)+8,Y(l/2)+5,'l = '+l+' cm',{'font-weight':800,'text-anchor':'start'}); }
+  else { s('polygon',{points:`${X(0)},${Y(0)} ${X(p)},${Y(0)} ${X(0)},${Y(l)}`,fill:'var(--acc)','fill-opacity':.3,stroke:'var(--acc)','stroke-width':4},g);
+    s('rect',{x:X(0),y:Y(l),width:p*U,height:l*U,fill:'none',stroke:'var(--muted)','stroke-width':2,'stroke-dasharray':'6 4'},g);
+    txt(g,X(p/2),Y(0)+18,'alas = '+p+' cm',{'font-weight':800}); txt(g,X(0)-6,Y(l/2)+5,'t = '+l,{'font-weight':800,'text-anchor':'end'}); }
+  s('circle',{cx:X(p),cy:Y(l),r:12,fill:'var(--b)',stroke:'#fff','stroke-width':3,style:'cursor:grab'},g);
+  VML.dragSvg(g, q=>Math.hypot(q.x-X(C[0]),q.y-Y(C[1]))<28?1:null, (k,q)=>{ C=[Math.max(1,Math.min(COLS,Math.round((q.x-OX)/U))),Math.max(1,Math.min(ROWS,Math.round(ROWS-(q.y-OY)/U)))]; drawG(); });
+  if(sh==='pp') $('#gOut').innerHTML=`<div class="big">${p===l?'Persegi':'Persegi panjang'} ${p} cm × ${l} cm</div><p><b>Keliling</b> = 2 × (${p} + ${l}) = <b>${2*(p+l)} cm</b></p><p><b>Luas</b> = ${p} × ${l} = <b>${p*l} cm²</b> <span class="muted">(hitung petaknya: ${p*l})</span></p>${p===l?'<p>🌟 Panjang = lebar, jadi bangunnya persegi!</p>':''}`;
+  else { const hyp=Math.hypot(p,l); $('#gOut').innerHTML=`<div class="big">Segitiga siku-siku</div><p><b>Luas</b> = ½ × ${p} × ${l} = <b>${p*l/2} cm²</b></p><p>Itu tepat <b>setengah</b> dari persegi panjang ${p} × ${l} (garis putus-putus) yang luasnya ${p*l} cm².</p><p class="muted">Keliling = ${p} + ${l} + sisi miring (≈ ${VML.num(hyp,2)}) ≈ ${VML.num(p+l+hyp,2)} cm</p>`; }
+}
+drawG();
+
+/* mewarnai petak */
+const PC=12, PR=9; let cells=new Set(['2,2','3,2','4,2','2,3','2,4','2,5']);
+let paint=true;
+function perim(){ let P=0; cells.forEach(k=>{ const [x,y]=k.split(',').map(Number); [[1,0],[-1,0],[0,1],[0,-1]].forEach(([a,b])=>{ if(!cells.has((x+a)+','+(y+b))) P++; }); }); return P; }
+function drawP(){
+  const g=$('#pg'); clear(g); const S=30, o=20;
+  for(let x=0;x<PC;x++) for(let y=0;y<PR;y++){ const on=cells.has(x+','+y); s('rect',{x:o+x*S,y:o+y*S,width:S,height:S,fill:on?'#f5b000':'var(--card)','fill-opacity':on?.85:1,stroke:'var(--line)'},g); }
+  cells.forEach(k=>{ const [x,y]=k.split(',').map(Number); const e=(a,b,x1,y1,x2,y2)=>{ if(!cells.has((x+a)+','+(y+b))) s('line',{x1:o+x1*S,y1:o+y1*S,x2:o+x2*S,y2:o+y2*S,stroke:'var(--b)','stroke-width':4,'stroke-linecap':'round'},g); };
+    e(0,-1,x,y,x+1,y); e(0,1,x,y+1,x+1,y+1); e(-1,0,x,y,x,y+1); e(1,0,x+1,y,x+1,y+1); });
+  const L=cells.size, P=perim();
+  $('#pOut').innerHTML=`<div class="big">Luas = ${L} cm²</div><p>(banyak petak kuning)</p><div class="big" style="color:var(--b)">Keliling = ${P} cm</div><p>(banyak sisi petak di garis tepi merah)</p><p class="muted">Coba buat bentuk berbeda dengan luas sama — apakah kelilingnya juga sama?</p>`;
+}
+const svgP=$('#pg');
+VML.dragSvg(svgP, q=>{ const x=Math.floor((q.x-20)/30), y=Math.floor((q.y-20)/30); if(x<0||y<0||x>=PC||y>=PR) return null; paint=!cells.has(x+','+y); return 1; },
+  (k,q)=>{ const x=Math.floor((q.x-20)/30), y=Math.floor((q.y-20)/30); if(x<0||y<0||x>=PC||y>=PR) return; paint?cells.add(x+','+y):cells.delete(x+','+y); drawP(); });
+const preset=arr=>{ cells=new Set(arr); drawP(); };
+$('#pL').onclick=()=>preset(['2,2','2,3','2,4','2,5','3,5','4,5','5,5']); $('#pT').onclick=()=>preset(['2,2','3,2','4,2','5,2','6,2','4,3','4,4','4,5']); $('#pR').onclick=()=>preset(['3,3','4,3','5,3','3,4','4,4','5,4','3,5','4,5','5,5']); $('#pC').onclick=()=>preset([]);
+drawP();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Persegi', gen(){ const s_=rand(2,15); if(Math.random()<.5) return {q:`Keliling persegi dengan sisi ${s_} cm adalah …`, a:String(4*s_), unit:'cm', hint:'4 × s', ex:`4 × ${s_} = ${4*s_}`}; return {q:`Luas persegi dengan sisi ${s_} cm adalah …`, a:String(s_*s_), unit:'cm²', hint:'s × s', ex:`${s_} × ${s_} = ${s_*s_}`}; }},
+  {name:'Persegi panjang', gen(){ const p=rand(3,20), l=rand(2,p); if(Math.random()<.5) return {q:`Keliling persegi panjang ${p} cm × ${l} cm adalah …`, a:String(2*(p+l)), unit:'cm', hint:'2 × (p + l)', ex:`2 × ${p+l} = ${2*(p+l)}`}; return {q:`Luas persegi panjang ${p} cm × ${l} cm adalah …`, a:String(p*l), unit:'cm²', hint:'p × l', ex:`${p} × ${l} = ${p*l}`}; }},
+  {name:'Segitiga', gen(){ const a=rand(2,12)*2, t=rand(2,15); return {q:`Luas segitiga dengan alas ${a} cm dan tinggi ${t} cm adalah …`, a:String(a*t/2), unit:'cm²', hint:'½ × alas × tinggi', ex:`½ × ${a} × ${t} = ${a*t/2}`}; }},
+  {name:'Mencari ukuran', gen(){ const t=rand(0,2); if(t===0){ const s_=rand(2,12); return {q:`Luas persegi ${s_*s_} cm². Panjang sisinya …`, a:String(s_), unit:'cm', hint:'Bilangan berapa dikali dirinya sendiri?', ex:`${s_} × ${s_} = ${s_*s_}`}; }
+    const p=rand(4,15), l=rand(2,p); if(t===1) return {q:`Luas persegi panjang ${p*l} cm², panjangnya ${p} cm. Lebarnya …`, a:String(l), unit:'cm', hint:'l = L : p', ex:`${p*l} : ${p} = ${l}`}; return {q:`Keliling persegi panjang ${2*(p+l)} cm, panjangnya ${p} cm. Lebarnya …`, a:String(l), unit:'cm', hint:'p + l = K : 2', ex:`${2*(p+l)} : 2 = ${p+l}, ${p+l} − ${p} = ${l}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Keliling adalah …', o:['panjang seluruh tepi bangun','banyak persegi di dalam bangun','tinggi bangun','sisi terpanjang'], a:0, ex:'Keliling = jarak mengelilingi tepi.'},
+ {q:'Satuan luas yang tepat adalah …', o:['cm²','cm','kg','liter'], a:0, ex:'Luas memakai satuan persegi.'},
+ {q:'Keliling persegi dengan sisi 7 cm adalah …', o:['28 cm','49 cm','14 cm','21 cm'], a:0, ex:'4 × 7.'},
+ {q:'Luas persegi dengan sisi 7 cm adalah …', o:['49 cm²','28 cm²','14 cm²','77 cm²'], a:0, ex:'7 × 7.'},
+ {q:'Keliling persegi panjang 9 cm × 4 cm adalah …', o:['26 cm','36 cm','13 cm','18 cm'], a:0, ex:'2 × 13.'},
+ {q:'Luas persegi panjang 9 cm × 4 cm adalah …', o:['36 cm²','26 cm²','13 cm²','18 cm²'], a:0, ex:'9 × 4.'},
+ {q:'Luas segitiga dengan alas 10 cm dan tinggi 6 cm adalah …', o:['30 cm²','60 cm²','16 cm²','32 cm²'], a:0, ex:'½ × 60.'},
+ {q:'Luas persegi 64 cm². Panjang sisinya …', o:['8 cm','16 cm','32 cm','6 cm'], a:0, ex:'8 × 8.'},
+ {q:'Keliling persegi panjang 30 cm dan panjangnya 9 cm. Lebarnya …', o:['6 cm','21 cm','12 cm','3 cm'], a:0, ex:'15 − 9.'},
+ {q:'Kebun 8 m × 5 m akan dipagari. Panjang pagar yang dibutuhkan …', o:['26 m','40 m','13 m','80 m'], a:0, ex:'Keliling = 2 × 13.'},
+ {q:'Lantai 4 m × 3 m akan dipasang karpet. Luas karpet …', o:['12 m²','14 m²','7 m²','24 m²'], a:0, ex:'Luas = 4 × 3.'},
+ {q:'Bentuk L tersusun dari persegi panjang 6 × 2 cm dan 2 × 3 cm. Luasnya …', o:['18 cm²','13 cm²','24 cm²','36 cm²'], a:0, ex:'12 + 6.'},
+ {q:'Hitung keliling persegi dengan sisi 12 cm.', input:true, a:['48'], unit:'cm', ex:'4 × 12.'},
+ {q:'Hitung luas persegi panjang 15 cm × 6 cm.', input:true, a:['90'], unit:'cm²', ex:'15 × 6.'},
+ {q:'Luas segitiga sama dengan … luas persegi panjang yang alas dan tingginya sama.', o:['setengah','dua kali','sepertiga','sama dengan'], a:0, ex:'½ × a × t.'}
+], 'sd4m4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

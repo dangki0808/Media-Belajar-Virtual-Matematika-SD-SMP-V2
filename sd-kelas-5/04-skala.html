@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skala & Denah · Virtual Math Lab SD V</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#8e46d8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas V</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 4 · Pengukuran</span>
+  <h1>🗺️ Skala, Peta &amp; Denah</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami arti skala pada peta dan denah.</li>
+    <li>Menghitung jarak sebenarnya, jarak pada peta, atau skalanya.</li>
+    <li>Membaca dan membuat denah sederhana.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🗺️ Lab Peta Pulau</button><button data-target="denah">🏠 Lab Denah Rumah</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Apa itu skala?</h2>
+    <div class="def"><b>Skala</b> = jarak pada peta : jarak sebenarnya (satuannya sama).</div>
+    <p>Skala <b>1 : 100.000</b> artinya 1 cm pada peta mewakili 100.000 cm (= 1 km) jarak sebenarnya.</p>
+    <div class="grid3"><div class="def">Jarak sebenarnya = jarak peta × penyebut skala</div><div class="def">Jarak peta = jarak sebenarnya : penyebut skala</div><div class="def">Skala = jarak peta : jarak sebenarnya</div></div>
+  </div>
+  <div class="card"><h2>2. Ingat satuan panjang</h2>
+    <table class="t"><tr><th>Satuan</th><th>Sama dengan</th></tr><tr><td>1 km</td><td>1.000 m = 100.000 cm</td></tr><tr><td>1 m</td><td>100 cm</td></tr></table>
+    <div class="note">Cara cepat cm → km: coret lima angka nol (bagi 100.000). 800.000 cm = 8 km.</div>
+  </div>
+  <div class="card"><h2>3. Contoh</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Jarak sebenarnya</span><br>Skala 1 : 2.000.000, jarak peta 4 cm.<br>4 × 2.000.000 = 8.000.000 cm = <b>80 km</b></div>
+      <div class="ex"><span class="t">Jarak peta</span><br>Jarak 45 km, skala 1 : 1.500.000.<br>4.500.000 : 1.500.000 = <b>3 cm</b></div>
+      <div class="ex"><span class="t">Skala</span><br>Jarak 60 km digambar 6 cm.<br>6 : 6.000.000 = <b>1 : 1.000.000</b></div>
+    </div>
+    <div class="ex"><span class="t">Denah</span> Denah kelas skala 1 : 100. Ukuran pada denah 8 cm × 6 cm. Ukuran sebenarnya 800 cm × 600 cm = <b>8 m × 6 m</b>, luas <b>48 m²</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Peta Pulau Harta Karun</h2>
+    <p>Seret penggaris dari satu kota ke kota lain. Ubah skalanya dan lihat jarak sebenarnya.</p>
+    <div class="ctrl"><label>Skala 1 : <span class="v" id="sk-v"></span><input type="range" id="sk" min="0" max="5" value="2"></label></div>
+    <div class="grid2"><svg class="viz" id="mp" viewBox="0 0 440 400"></svg><div class="out" id="mOut"></div></div>
+  </div>
+</section>
+
+<section id="denah" class="panel">
+  <div class="card"><h2>Lab: Denah Rumah</h2>
+    <p>Denah digambar dengan skala <b>1 : 100</b> (1 kotak = 1 cm pada denah = 1 m sebenarnya). Ketuk ruangan untuk melihat ukurannya.</p>
+    <div class="grid2"><svg class="viz" id="dn" viewBox="0 0 440 340"></svg><div class="out" id="dOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis jawaban angkanya saja sesuai satuan yang diminta. Skala tulis seperti 1:500000.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas V · Modul 4</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const id=n=>Number(VML.round(n,4)).toLocaleString('id-ID',{maximumFractionDigits:4});
+
+/* peta: 1 cm peta = 40 unit svg */
+const SK=[100000,200000,500000,1000000,2000000,5000000], CM=40;
+const CITY=[['🏰 Benteng',80,90],['⛵ Pelabuhan',330,80],['🌴 Pantai',360,300],['⛰️ Gunung',150,250],['💎 Harta',250,180]];
+let A=[80,90], B=[250,180];
+function drawM(){
+  const k=SK[+$('#sk').value]; $('#sk-v').textContent=id(k);
+  const g=$('#mp'); clear(g);
+  s('path',{d:'M40,60 Q120,10 260,30 Q400,40 410,160 Q430,300 330,360 Q200,390 100,330 Q20,270 40,170 Z',fill:'#f6e3a6',stroke:'#c9a24a','stroke-width':3},g);
+  s('path',{d:'M120,230 l30,-45 l30,45 Z',fill:'#7a9a5a'},g);
+  for(let x=20;x<440;x+=CM) s('line',{x1:x,y1:0,x2:x,y2:400,stroke:'rgba(0,0,0,.07)'},g); for(let y=0;y<400;y+=CM) s('line',{x1:0,y1:y,x2:440,y2:y,stroke:'rgba(0,0,0,.07)'},g);
+  CITY.forEach(([n,x,y])=>{ s('circle',{cx:x,cy:y,r:6,fill:'var(--ink)'},g); txt(g,x,y-12,n,{'font-size':13,'font-weight':800}); });
+  s('line',{x1:A[0],y1:A[1],x2:B[0],y2:B[1],stroke:'var(--b)','stroke-width':4,'stroke-dasharray':'2 6','stroke-linecap':'round'},g);
+  [A,B].forEach(p=>s('circle',{cx:p[0],cy:p[1],r:12,fill:'var(--b)','fill-opacity':.85,stroke:'#fff','stroke-width':3,style:'cursor:grab'},g));
+  // skala batang
+  s('rect',{x:20,y:372,width:CM,height:8,fill:'var(--ink)'},g); s('rect',{x:20+CM,y:372,width:CM,height:8,fill:'#fff',stroke:'var(--ink)'},g); txt(g,20,394,'0',{'font-size':11}); txt(g,20+CM*2,394,id(2*k/100000)+' km',{'font-size':11});
+  VML.dragSvg(g, p=>{ const da=Math.hypot(p.x-A[0],p.y-A[1]), db=Math.hypot(p.x-B[0],p.y-B[1]); if(Math.min(da,db)>28) return null; return da<=db?'A':'B'; },
+    (key,p)=>{ let q=[Math.max(10,Math.min(430,p.x)),Math.max(10,Math.min(390,p.y))]; CITY.forEach(([,x,y])=>{ if(Math.hypot(q[0]-x,q[1]-y)<16) q=[x,y]; }); if(key==='A') A=q; else B=q; drawM(); });
+  const cm=Math.hypot(B[0]-A[0],B[1]-A[1])/CM, real=cm*k;
+  const name=p=>{ const c=CITY.find(([,x,y])=>x===p[0]&&y===p[1]); return c?c[0]:'titik'; };
+  $('#mOut').innerHTML=`<p>${name(A)} ➡ ${name(B)}</p><p>Jarak pada peta = <b>${num(cm,1)} cm</b> <span class="muted">(1 kotak = 1 cm)</span></p>
+   <p>Jarak sebenarnya ≈ ${num(cm,1)} × ${id(k)} ≈ ${id(Math.round(cm*10)/10*k)} cm</p><div class="huge">≈ ${num(Math.round(cm*10)/10*k/100000,2)} km</div>
+   <p class="muted">Skala 1 : ${id(k)} → 1 cm pada peta = ${id(k/100000)} km. Penyebut skala makin besar, jarak sebenarnya makin jauh.</p>`;
+}
+$('#sk').oninput=drawM; drawM();
+
+/* denah */
+const R=[['Ruang tamu',0,0,4,4,'var(--a)'],['Kamar 1',4,0,4,4,'var(--e)'],['Kamar 2',8,0,3,4,'var(--b)'],['Dapur',0,4,4,3,'var(--d)'],['Ruang keluarga',4,4,5,3,'var(--c)'],['Kamar mandi',9,4,2,3,'var(--f)']];
+let sel=0;
+function drawD(){
+  const g=$('#dn'); clear(g); const U=36, ox=22, oy=30;
+  for(let x=0;x<=11;x++) s('line',{x1:ox+x*U,y1:oy,x2:ox+x*U,y2:oy+7*U,stroke:'rgba(0,0,0,.08)'},g); for(let y=0;y<=7;y++) s('line',{x1:ox,y1:oy+y*U,x2:ox+11*U,y2:oy+y*U,stroke:'rgba(0,0,0,.08)'},g);
+  R.forEach(([n,x,y,w,h,c],i)=>{ const r=s('rect',{x:ox+x*U,y:oy+y*U,width:w*U,height:h*U,fill:c,'fill-opacity':i===sel?.55:.2,stroke:'var(--ink)','stroke-width':3,style:'cursor:pointer'},g); r.addEventListener('click',()=>{sel=i;drawD();}); txt(g,ox+(x+w/2)*U,oy+(y+h/2)*U+5,n,{'font-size':12,'font-weight':800,'pointer-events':'none'}); });
+  txt(g,ox+5.5*U,oy+7*U+26,'1 kotak = 1 cm pada denah = 1 m sebenarnya',{'font-size':12,fill:'var(--muted)'});
+  const [n,,,w,h]=R[sel];
+  $('#dOut').innerHTML=`<div class="big">${n}</div><p>Ukuran pada denah: <b>${w} cm × ${h} cm</b></p><p>Ukuran sebenarnya: ${w} × 100 = ${w*100} cm = <b>${w} m</b> dan ${h} × 100 = ${h*100} cm = <b>${h} m</b></p><div class="huge">Luas = ${w*h} m²</div><p class="muted">Seluruh rumah: 11 m × 7 m = 77 m².</p>`;
+}
+drawD();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Jarak sebenarnya', gen(){ const k=pick([100000,200000,250000,500000,1000000,1500000,2000000]), c=rand(2,12); return {q:`Skala peta 1 : ${id(k)}. Jarak dua kota pada peta ${c} cm. Jarak sebenarnya … km`, a:String(c*k/100000), unit:'km', hint:'Kalikan, lalu bagi 100.000 untuk mengubah ke km.', ex:`${c} × ${id(k)} = ${id(c*k)} cm = ${id(c*k/100000)} km`}; }},
+  {name:'Jarak pada peta', gen(){ const k=pick([100000,200000,500000,1000000,2000000]), c=rand(2,10); return {q:`Jarak sebenarnya ${id(c*k/100000)} km. Skala peta 1 : ${id(k)}. Jarak pada peta … cm`, a:String(c), unit:'cm', hint:'Ubah km ke cm (kali 100.000), lalu bagi penyebut skala.', ex:`${id(c*k)} : ${id(k)} = ${c}`}; }},
+  {name:'Menentukan skala', gen(){ const k=pick([100000,200000,500000,1000000,2000000]), c=rand(2,10); return {q:`Jarak ${id(c*k/100000)} km digambar ${c} cm pada peta. Skala peta itu 1 : …`, a:[String(k),'1:'+k], show:'1 : '+id(k), hint:'Ubah km ke cm, lalu bagi dengan jarak peta.', ex:`${id(c*k)} : ${c} = ${id(k)}`}; }},
+  {name:'Denah', gen(){ const k=pick([100,200,50]), p=rand(2,8), l=rand(2,6); return {q:`Denah kamar berskala 1 : ${k}. Ukuran pada denah ${p} cm × ${l} cm. Luas kamar sebenarnya … m²`, a:String(p*k/100*l*k/100), unit:'m²', hint:'Hitung panjang dan lebar sebenarnya dalam meter dulu.', ex:`${num(p*k/100)} m × ${num(l*k/100)} m = ${num(p*k/100*l*k/100)} m²`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Skala 1 : 100.000 artinya …', o:['1 cm pada peta = 1 km sebenarnya','1 km pada peta = 1 cm sebenarnya','1 cm pada peta = 100 m','1 m pada peta = 100 km'], a:0, ex:'100.000 cm = 1 km.'},
+ {q:'1 km sama dengan …', o:['100.000 cm','1.000 cm','10.000 cm','100 cm'], a:0, ex:'1 km = 1.000 m = 100.000 cm.'},
+ {q:'Skala 1 : 2.000.000, jarak pada peta 4 cm. Jarak sebenarnya …', o:['80 km','8 km','800 km','20 km'], a:0, ex:'8.000.000 cm = 80 km.'},
+ {q:'Jarak sebenarnya 45 km, skala 1 : 1.500.000. Jarak pada peta …', o:['3 cm','30 cm','4,5 cm','1,5 cm'], a:0, ex:'4.500.000 : 1.500.000.'},
+ {q:'Jarak 60 km digambar 6 cm. Skalanya …', o:['1 : 1.000.000','1 : 10','1 : 100.000','1 : 600.000'], a:0, ex:'6.000.000 : 6.'},
+ {q:'Denah skala 1 : 100. Panjang ruang pada denah 8 cm. Panjang sebenarnya …', o:['8 m','80 m','0,8 m','800 m'], a:0, ex:'800 cm = 8 m.'},
+ {q:'Denah kelas 8 cm × 6 cm dengan skala 1 : 100. Luas kelas sebenarnya …', o:['48 m²','48 cm²','4.800 m²','14 m²'], a:0, ex:'8 m × 6 m.'},
+ {q:'Peta A berskala 1 : 500.000 dan peta B 1 : 1.000.000. Gambar kota yang sama lebih besar pada peta …', o:['A','B','sama besar','tidak dapat ditentukan'], a:0, ex:'Penyebut lebih kecil → gambar lebih besar.'},
+ {q:'Skala 1 : 300.000, jarak pada peta 5 cm. Jarak sebenarnya …', o:['15 km','1,5 km','150 km','60 km'], a:0, ex:'1.500.000 cm = 15 km.'},
+ {q:'Jarak Sumbawa Besar–Taliwang ±90 km. Pada peta 1 : 1.500.000 jaraknya …', o:['6 cm','60 cm','9 cm','1,5 cm'], a:0, ex:'9.000.000 : 1.500.000 = 6.'},
+ {q:'800.000 cm sama dengan …', o:['8 km','80 km','0,8 km','800 km'], a:0, ex:'Bagi 100.000.'},
+ {q:'Gambar rumah skala 1 : 200. Lebar pada gambar 5 cm. Lebar sebenarnya …', o:['10 m','1 m','100 m','2,5 m'], a:0, ex:'1.000 cm = 10 m.'},
+ {q:'Skala 1 : 250.000, jarak peta 8 cm. Berapa km jarak sebenarnya?', input:true, a:['20'], unit:'km', ex:'2.000.000 cm = 20 km.'},
+ {q:'Jarak 12 km digambar 3 cm. Skala 1 : … (tulis angkanya)', input:true, a:['400000','400.000'], ex:'1.200.000 : 3 = 400.000.'},
+ {q:'Rumus jarak sebenarnya adalah …', o:['jarak peta × penyebut skala','jarak peta : penyebut skala','penyebut skala : jarak peta','jarak peta + skala'], a:0, ex:'J sebenarnya = J peta × penyebut.'}
+], 'sd5m4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bangun Datar & Keliling · Virtual Math Lab SD III</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0a8fb0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Geometri</span>
+  <h1>🔷 Bangun Datar &amp; Keliling</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal bangun datar: segitiga, persegi, persegi panjang, lingkaran, dan lainnya.</li>
+    <li>Menyebutkan banyak sisi dan titik sudut bangun datar.</li>
+    <li>Menghitung keliling bangun datar sederhana.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🔍 Lab Tebak Bangun</button><button data-target="semut">🐜 Lab Semut Keliling</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Mengenal bangun datar</h2>
+    <svg class="viz" id="gal" viewBox="0 0 720 200"></svg>
+    <div class="scroll"><table class="t"><tr><th>Bangun</th><th>Sisi</th><th>Titik sudut</th><th>Ciri</th></tr>
+      <tr><td>Segitiga</td><td>3</td><td>3</td><td>—</td></tr><tr><td>Persegi</td><td>4</td><td>4</td><td>semua sisi sama panjang</td></tr><tr><td>Persegi panjang</td><td>4</td><td>4</td><td>sisi berhadapan sama panjang</td></tr><tr><td>Segi lima</td><td>5</td><td>5</td><td>—</td></tr><tr><td>Segi enam</td><td>6</td><td>6</td><td>seperti sarang lebah</td></tr><tr><td>Lingkaran</td><td>1 (lengkung)</td><td>0</td><td>tidak punya titik sudut</td></tr></table></div>
+  </div>
+  <div class="card"><h2>2. Keliling</h2>
+    <div class="def"><b>Keliling</b> adalah panjang garis yang mengelilingi bangun. Jumlahkan semua sisinya!</div>
+    <div class="grid3"><div class="ex"><span class="t">Segitiga</span><br>3 + 4 + 5 = <b>12 cm</b></div><div class="ex"><span class="t">Persegi</span><br>sisi 6 cm → 6 + 6 + 6 + 6 = <b>24 cm</b></div><div class="ex"><span class="t">Persegi panjang</span><br>8 cm dan 3 cm → 8 + 3 + 8 + 3 = <b>22 cm</b></div></div>
+    <div class="note">Keliling persegi = 4 × sisi. Keliling persegi panjang = 2 × (panjang + lebar).</div>
+  </div>
+  <div class="card"><h2>3. Di sekitar kita</h2>
+    <p>Kebun Pak Amin berbentuk persegi panjang 10 m × 6 m. Untuk memagari sekelilingnya dibutuhkan 10 + 6 + 10 + 6 = <b>32 m</b> pagar.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Tebak Bangun Datar</h2>
+    <p>Lihat bangunnya, hitung sisi dan sudutnya, lalu pilih namanya!</p>
+    <div class="grid2"><svg class="viz" id="tg" viewBox="0 0 300 300" style="max-width:320px;margin:0 auto"></svg><div><div class="opts" id="to"></div><div id="tfb"></div><div class="row"><button class="btn ghost" id="tn">Soal berikutnya →</button><span class="counter" id="ts">Skor 0/0</span></div></div></div>
+  </div>
+</section>
+
+<section id="semut" class="panel">
+  <div class="card"><h2>Lab: Semut Mengelilingi Bangun 🐜</h2>
+    <p>Semut berjalan menyusuri tepi bangun. Jarak yang ditempuh satu putaran = <b>keliling</b>.</p>
+    <div class="seg" id="sh"><button data-s="pp" class="on">Persegi panjang</button><button data-s="p">Persegi</button><button data-s="s">Segitiga</button></div>
+    <div class="ctrl" id="sl"></div>
+    <div class="row"><button class="btn" id="go">🐜 Jalan!</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="ag" viewBox="0 0 400 320"></svg><div class="out" id="aOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas III · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, shuffle} = VML;
+const reg=(n,cx,cy,R,rot=-90)=>[...Array(n)].map((_,k)=>{ const a=(rot+k*360/n)*Math.PI/180; return [cx+R*Math.cos(a),cy+R*Math.sin(a)]; });
+const SHP={
+  'Segitiga':(cx,cy,R)=>reg(3,cx,cy,R),
+  'Persegi':(cx,cy,R)=>reg(4,cx,cy,R,-45),
+  'Persegi panjang':(cx,cy,R)=>[[cx-R,cy-R*0.55],[cx+R,cy-R*0.55],[cx+R,cy+R*0.55],[cx-R,cy+R*0.55]],
+  'Segi lima':(cx,cy,R)=>reg(5,cx,cy,R),
+  'Segi enam':(cx,cy,R)=>reg(6,cx,cy,R,0),
+  'Lingkaran':null,
+  'Belah ketupat':(cx,cy,R)=>[[cx,cy-R],[cx+R*0.65,cy],[cx,cy+R],[cx-R*0.65,cy]],
+  'Trapesium':(cx,cy,R)=>[[cx-R*0.5,cy-R*0.5],[cx+R*0.5,cy-R*0.5],[cx+R,cy+R*0.5],[cx-R,cy+R*0.5]]};
+const COL=['#ef4f5a','#2b7de0','#1fa36b','#f29a00','#8a55e0','#0a9fb5','#e0472f','#c2499a'];
+function drawShape(g,name,cx,cy,R,col,showDots){ if(name==='Lingkaran'){ s('circle',{cx,cy,r:R,fill:col,'fill-opacity':.3,stroke:col,'stroke-width':4},g); return 0; }
+  const P=SHP[name](cx,cy,R); s('polygon',{points:P.map(p=>p.join(',')).join(' '),fill:col,'fill-opacity':.3,stroke:col,'stroke-width':4,'stroke-linejoin':'round'},g); if(showDots) P.forEach(p=>s('circle',{cx:p[0],cy:p[1],r:6,fill:col},g)); return P.length; }
+(function(){ const g=$('#gal'); Object.keys(SHP).forEach((n,i)=>{ const cx=50+i*88; drawShape(g,n,cx,85,34,COL[i]); txt(g,cx,160,n,{'font-size':11,'font-weight':800}); }); })();
+
+/* tebak */
+let Q, done, tr=0, tt=0;
+function newT(){ const names=Object.keys(SHP), ans=pick(names); const opts=shuffle([ans,...shuffle(names.filter(n=>n!==ans)).slice(0,3)]); Q={ans,opts}; done=false;
+  const g=$('#tg'); clear(g); drawShape(g,ans,150,150,105,pick(COL),true);
+  $('#to').innerHTML=opts.map((o,i)=>`<button class="opt" data-i="${i}"><b>${'ABCD'[i]}</b><span>${o}</span></button>`).join(''); $('#tfb').innerHTML='';
+  document.querySelectorAll('#to .opt').forEach(b=>b.onclick=()=>{ if(done) return; done=true; tt++; const ok=Q.opts[+b.dataset.i]===Q.ans; if(ok) tr++; $('#ts').textContent=`Skor ${tr}/${tt}`;
+    document.querySelectorAll('#to .opt').forEach((x,i)=>{ x.disabled=true; if(Q.opts[i]===Q.ans) x.classList.add('ok'); }); if(!ok) b.classList.add('no');
+    const n=Q.ans==='Lingkaran'?0:SHP[Q.ans](0,0,1).length; $('#tfb').innerHTML=`<div class="fb ${ok?'ok':'no'}"><b>${ok?'✓ Tepat!':'✗ Belum tepat.'}</b> Ini <b>${Q.ans}</b>${n?`: ${n} sisi dan ${n} titik sudut.`:': tidak punya titik sudut.'}</div>`; }); }
+$('#tn').onclick=newT; newT();
+
+/* semut */
+let sh='pp', V={p:8,l:5,s:6,a:6,b:5,c:5}, prog=0, raf=null;
+document.querySelectorAll('#sh button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sh button').forEach(x=>x.classList.remove('on'));b.classList.add('on');sh=b.dataset.s;build();});
+function build(){ const L={pp:[['p','panjang',2,10],['l','lebar',1,7]],p:[['s','sisi',1,8]],s:[['a','alas',2,9]]}[sh];
+  $('#sl').innerHTML=L.map(([k,n,mn,mx])=>`<label>${n} (cm) <span class="v" id="${k}-v">${V[k]}</span><input type="range" data-k="${k}" min="${mn}" max="${mx}" value="${V[k]}"></label>`).join('');
+  document.querySelectorAll('#sl input').forEach(i=>i.oninput=()=>{ V[i.dataset.k]=+i.value; $('#'+i.dataset.k+'-v').textContent=i.value; prog=0; drawA(); }); prog=0; drawA(); }
+function pts(){ const U=30, ox=40, oy=40; if(sh==='pp') return [[ox,oy],[ox+V.p*U,oy],[ox+V.p*U,oy+V.l*U],[ox,oy+V.l*U]].map(p=>p); if(sh==='p') return [[ox,oy],[ox+V.s*U,oy],[ox+V.s*U,oy+V.s*U],[ox,oy+V.s*U]]; const a=V.a*U, h=a*0.8; return [[ox,oy+h],[ox+a,oy+h],[ox+a/2,oy]]; }
+function sides(){ if(sh==='pp') return [V.p,V.l,V.p,V.l]; if(sh==='p') return [V.s,V.s,V.s,V.s]; const a=V.a, sl=Math.round(Math.hypot(a/2,a*0.8)*10)/10; return [a,sl,sl]; }
+function drawA(){
+  const P=pts(), S=sides(), g=$('#ag'); clear(g); const maxX=Math.max(...P.map(p=>p[0]))+40, maxY=Math.max(...P.map(p=>p[1]))+40; g.setAttribute('viewBox',`0 0 ${Math.max(400,maxX)} ${Math.max(300,maxY)}`);
+  s('polygon',{points:P.map(p=>p.join(',')).join(' '),fill:'var(--acc)','fill-opacity':.12,stroke:'var(--acc)','stroke-width':4},g);
+  const n=P.length, tot=S.reduce((a,b)=>a+b,0); let walked=prog*tot, acc=0, ant=P[0], trail=`M${P[0][0]},${P[0][1]}`, doneSides=0;
+  for(let i=0;i<n;i++){ const A=P[i], B=P[(i+1)%n]; const mid=[(A[0]+B[0])/2,(A[1]+B[1])/2], cx=P.reduce((a,p)=>a+p[0],0)/n, cy=P.reduce((a,p)=>a+p[1],0)/n, dx=mid[0]-cx, dy=mid[1]-cy, L=Math.hypot(dx,dy)||1;
+    txt(g,mid[0]+dx/L*20,mid[1]+dy/L*20+5,S[i]+' cm',{'font-weight':800,'font-size':13});
+    if(walked>acc){ const f=Math.min(1,(walked-acc)/S[i]); ant=[A[0]+(B[0]-A[0])*f,A[1]+(B[1]-A[1])*f]; trail+=` L${ant[0]},${ant[1]}`; if(f>=1) doneSides++; } acc+=S[i]; }
+  s('path',{d:trail,fill:'none',stroke:'var(--b)','stroke-width':6,'stroke-linecap':'round'},g);
+  txt(g,ant[0],ant[1]+8,'🐜',{'font-size':26});
+  const walkedTxt=S.slice(0,doneSides).join(' + ');
+  $('#aOut').innerHTML=`<p>Sisi-sisinya: ${S.join(' cm, ')} cm</p><p>Sudah ditempuh: <b>${walkedTxt||'0'}${doneSides&&doneSides<n?' …':''}</b></p>${prog>=1?`<div class="huge">Keliling = ${S.join(' + ')} = ${Math.round(tot*10)/10} cm</div>${sh==='p'?`<p>Cara cepat: 4 × ${V.s} = ${4*V.s} cm</p>`:sh==='pp'?`<p>Cara cepat: 2 × (${V.p} + ${V.l}) = ${2*(V.p+V.l)} cm</p>`:''}`:'<p>Tekan <b>Jalan!</b></p>'}`;
+}
+$('#go').onclick=()=>{ cancelAnimationFrame(raf); const t0=performance.now(); const st=now=>{ prog=Math.min(1,(now-t0)/3000); drawA(); if(prog<1) raf=requestAnimationFrame(st); }; raf=requestAnimationFrame(st); };
+build();
+
+/* LATIHAN */
+const NS={'segitiga':3,'persegi':4,'persegi panjang':4,'segi lima':5,'segi enam':6,'trapesium':4,'belah ketupat':4,'lingkaran':0};
+VML.practice($('#prac'), [
+  {name:'Sisi & sudut', gen(){ const n=pick(Object.keys(NS)), w=pick(['sisi','titik sudut']); const v=n==='lingkaran'?(w==='sisi'?1:0):NS[n]; return {q:`Berapa banyak ${w} pada bangun ${n}?`, a:String(v), hint:n==='lingkaran'?'Lingkaran punya satu sisi lengkung dan tidak punya titik sudut.':'Hitung garis lurus dan pojoknya.', ex:String(v)}; }},
+  {name:'Keliling persegi', gen(){ const s_=rand(2,15); return {q:`Keliling persegi dengan sisi ${s_} cm adalah …`, a:String(4*s_), unit:'cm', hint:`${s_} + ${s_} + ${s_} + ${s_}`, ex:`4 × ${s_} = ${4*s_}`}; }},
+  {name:'Keliling persegi panjang', gen(){ const p=rand(3,15), l=rand(2,p); return {q:`Keliling persegi panjang dengan panjang ${p} cm dan lebar ${l} cm adalah …`, a:String(2*(p+l)), unit:'cm', hint:`${p} + ${l} + ${p} + ${l}`, ex:`${2*(p+l)}`}; }},
+  {name:'Keliling segitiga', gen(){ const a=rand(3,12), b=rand(3,12), c=rand(Math.abs(a-b)+1,a+b-1); return {q:`Keliling segitiga dengan sisi ${a} cm, ${b} cm, dan ${c} cm adalah …`, a:String(a+b+c), unit:'cm', hint:'Jumlahkan ketiga sisinya.', ex:`${a} + ${b} + ${c} = ${a+b+c}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Bangun datar yang memiliki 3 sisi adalah …', o:['segitiga','persegi','lingkaran','segi lima'], a:0, ex:'Tri = tiga.'},
+ {q:'Bangun datar yang tidak memiliki titik sudut adalah …', o:['lingkaran','segitiga','persegi','trapesium'], a:0, ex:'Lingkaran melengkung.'},
+ {q:'Banyak titik sudut persegi panjang adalah …', o:['4','3','5','0'], a:0, ex:'4 pojok.'},
+ {q:'Persegi memiliki … sisi yang sama panjang.', o:['4','2','3','6'], a:0, ex:'Semua sisi sama.'},
+ {q:'Sarang lebah berbentuk …', o:['segi enam','segi lima','persegi','lingkaran'], a:0, ex:'6 sisi.'},
+ {q:'Keliling adalah …', o:['jumlah panjang semua sisi','banyaknya titik sudut','sisi terpanjang','isi bangun'], a:0, ex:'Garis tepi keliling.'},
+ {q:'Keliling segitiga dengan sisi 3 cm, 4 cm, 5 cm adalah …', o:['12 cm','60 cm','7 cm','9 cm'], a:0, ex:'3 + 4 + 5.'},
+ {q:'Keliling persegi dengan sisi 6 cm adalah …', o:['24 cm','36 cm','12 cm','18 cm'], a:0, ex:'4 × 6.'},
+ {q:'Keliling persegi panjang 8 cm × 3 cm adalah …', o:['22 cm','24 cm','11 cm','16 cm'], a:0, ex:'8 + 3 + 8 + 3.'},
+ {q:'Kebun 10 m × 6 m akan dipagari sekelilingnya. Panjang pagar …', o:['32 m','60 m','16 m','26 m'], a:0, ex:'10 + 6 + 10 + 6.'},
+ {q:'Papan tulis di kelas biasanya berbentuk …', o:['persegi panjang','lingkaran','segitiga','segi enam'], a:0, ex:'Panjang dan lebar berbeda.'},
+ {q:'Bangun datar dengan 5 sisi disebut …', o:['segi lima','segi enam','segi empat','segitiga'], a:0, ex:'Penta = lima.'},
+ {q:'Hitung keliling persegi dengan sisi 9 cm.', input:true, a:['36'], unit:'cm', ex:'4 × 9.'},
+ {q:'Hitung keliling persegi panjang dengan panjang 12 cm dan lebar 5 cm.', input:true, a:['34'], unit:'cm', ex:'12 + 5 + 12 + 5.'},
+ {q:'Roda sepeda berbentuk …', o:['lingkaran','persegi','segitiga','trapesium'], a:0, ex:'Bulat.'}
+], 'sd3m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

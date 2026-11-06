@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mengukur & Waktu · Virtual Math Lab SD I</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#f0a500">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas I</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Pengukuran</span>
+  <h1>⏰ Mengukur Panjang, Berat &amp; Waktu</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membandingkan panjang (lebih panjang, lebih pendek) dan berat (lebih berat, lebih ringan) benda.</li>
+    <li>Mengukur panjang benda dengan satuan tidak baku, seperti klip, jengkal, dan langkah.</li>
+    <li>Membaca jam tepat dan jam setengah, serta mengenal waktu pagi, siang, sore, dan malam.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📎 Lab Ukur &amp; Timbang</button><button data-target="jam">🕐 Lab Jam Ceria</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Panjang dan pendek</h2>
+    <p>Letakkan dua benda sejajar dengan ujung yang sama, lalu lihat ujung lainnya.</p>
+    <div class="ex">✏️ pensil lebih <b>panjang</b> daripada 🖍️ krayon. Krayon lebih <b>pendek</b> daripada pensil.</div>
+  </div>
+  <div class="card"><h2>2. Mengukur dengan satuan tidak baku</h2>
+    <p>Kita bisa mengukur panjang dengan <b>klip</b>, <b>jengkal</b>, <b>depa</b>, atau <b>langkah kaki</b>. Pasang satuannya berderet tanpa celah, lalu hitung.</p>
+    <div class="ex">Panjang buku = 📎📎📎📎📎📎 = <b>6 klip</b>.</div>
+    <div class="note">Jengkal tiap orang berbeda, jadi hasil ukurnya bisa berbeda-beda.</div>
+  </div>
+  <div class="card"><h2>3. Berat dan ringan</h2>
+    <p>Pada timbangan atau jungkat-jungkit, sisi yang <b>turun</b> lebih <b>berat</b>.</p>
+    <div class="ex">🍉 semangka lebih <b>berat</b> daripada 🍓 stroberi.</div>
+  </div>
+  <div class="card"><h2>4. Membaca jam</h2>
+    <div class="grid2"><div class="ex"><span class="t">Jam tepat</span> Jarum panjang menunjuk angka <b>12</b>. Jarum pendek menunjuk jamnya. Contoh: pukul 7 tepat (07.00).</div><div class="ex"><span class="t">Jam setengah</span> Jarum panjang menunjuk angka <b>6</b>. Jarum pendek di antara dua angka. Contoh: pukul setengah 8 (07.30).</div></div>
+    <p>Waktu dalam sehari: <b>pagi</b> (bangun, berangkat sekolah), <b>siang</b> (makan siang), <b>sore</b> (bermain, mengaji), <b>malam</b> (belajar, tidur).</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ukur dengan Klip</h2>
+    <p>Pilih benda, lalu pasang klip satu per satu sampai sepanjang benda.</p>
+    <div class="row" id="objs"></div>
+    <div class="row"><button class="btn" id="klip">📎 Pasang klip</button><button class="btn ghost" id="lepas">Lepas semua</button></div>
+    <svg class="viz" id="ruler" viewBox="0 0 720 200" style="margin-top:10px"></svg>
+    <div class="out" id="rOut"></div>
+  </div>
+  <div class="card"><h2>Lab: Jungkat-jungkit Timbangan</h2>
+    <p>Pilih benda untuk sisi kiri dan kanan. Sisi yang lebih berat akan turun.</p>
+    <div class="ctrl"><label>Kiri <select id="kiri"></select></label><label>Kanan <select id="kanan"></select></label></div>
+    <svg class="viz" id="see" viewBox="0 0 720 230" style="margin-top:10px"></svg>
+    <div class="out" id="wOut"></div>
+  </div>
+</section>
+
+<section id="jam" class="panel">
+  <div class="card"><h2>Lab: Jam Ceria</h2>
+    <p>Atur jamnya dengan tombol. Pilih jam <b>tepat</b> atau jam <b>setengah</b>.</p>
+    <div class="row"><button class="btn soft" id="hm">◀ Jam mundur</button><button class="btn" id="hp">Jam maju ▶</button><div class="seg" id="mn"><button data-v="0" class="on">Tepat</button><button data-v="30">Setengah</button></div><button class="btn ghost" id="tant">🎯 Tantangan</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="clk" viewBox="0 0 300 300" style="max-width:340px;margin:auto"></svg><div class="out" id="jOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jam ditulis seperti 07.00 atau 7.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas I · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, nama, sp} = VML;
+/* UKUR KLIP */
+const OB=[['Pensil','✏️',8,'#f0a500'],['Krayon','🖍️',4,'#ff6f59'],['Penghapus','🧽',2,'#8a5cd8'],['Buku','📘',6,'#1f7fd6'],['Sendok','🥄',5,'#7a8a90'],['Penggaris','📏',10,'#2fa36b']];
+let cur=0, clips=0;
+$('#objs').innerHTML=OB.map((o,i)=>`<button class="btn ${i?'ghost':''}" data-i="${i}">${o[1]} ${o[0]}</button>`).join('');
+$$('#objs button').forEach(b=>b.onclick=()=>{ $$('#objs button').forEach(x=>x.classList.add('ghost')); b.classList.remove('ghost'); cur=+b.dataset.i; clips=0; drawR(); });
+const U=58;
+function drawR(){
+  const o=OB[cur], g=$('#ruler'); clear(g); const x0=40;
+  s('rect',{x:0,y:0,width:720,height:200,fill:'#fffaf0'},g);
+  s('rect',{x:x0,y:40,width:o[2]*U,height:44,rx:12,fill:o[3],'fill-opacity':.85},g); txt(g,x0+26,72,o[1],{'font-size':26}); txt(g,x0+o[2]*U/2,70,o[0],{'font-size':16,'font-weight':900,fill:'#fff'});
+  s('line',{x1:x0,y1:30,x2:x0,y2:170,stroke:'#0f3640','stroke-dasharray':'5 5'},g); s('line',{x1:x0+o[2]*U,y1:30,x2:x0+o[2]*U,y2:170,stroke:'#0f3640','stroke-dasharray':'5 5'},g);
+  for(let i=0;i<clips;i++){ const x=x0+i*U; s('rect',{x:x+3,y:112,width:U-6,height:20,rx:10,fill:'none',stroke:'#4d6d74','stroke-width':4},g); s('rect',{x:x+12,y:117,width:U-24,height:10,rx:5,fill:'none',stroke:'#4d6d74','stroke-width':3},g); txt(g,x+U/2,156,String(i+1),{'font-size':14,'font-weight':900,fill:'#0f3640'}); }
+  const done=clips===o[2];
+  $('#rOut').innerHTML=done?`<p class="big">Panjang ${o[0].toLowerCase()} = <b>${o[2]} klip</b> ${sp('Panjang '+o[0]+' '+nama(o[2])+' klip')}</p><p class="muted">${OB.filter(x=>x[2]<o[2]).length?`${o[0]} lebih panjang daripada ${OB.filter(x=>x[2]<o[2]).map(x=>x[0].toLowerCase()).join(', ')}.`:''} ${OB.filter(x=>x[2]>o[2]).length?`${o[0]} lebih pendek daripada ${OB.filter(x=>x[2]>o[2]).map(x=>x[0].toLowerCase()).join(', ')}.`:''}</p>`:`<p class="big">${clips} klip terpasang${clips>o[2]?' — terlalu banyak!':''}</p><p>Terus pasang sampai ujung ${o[0].toLowerCase()}.</p>`;
+}
+$('#klip').onclick=()=>{ if(clips<OB[cur][2]){ clips++; VML.say(nama(clips),1); drawR(); } };
+$('#lepas').onclick=()=>{ clips=0; drawR(); }; drawR();
+
+/* JUNGKAT-JUNGKIT */
+const W=[['Semangka','🍉',8],['Nanas','🍍',5],['Apel','🍎',3],['Stroberi','🍓',1],['Buku','📘',4],['Bola','⚽',2],['Kucing','🐱',6],['Bulu','🪶',0.2]];
+['#kiri','#kanan'].forEach((id,j)=>{ $(id).innerHTML=W.map((w,i)=>`<option value="${i}" ${i===(j?3:0)?'selected':''}>${w[1]} ${w[0]}</option>`).join(''); $(id).oninput=drawW; });
+function drawW(){
+  const a=W[+$('#kiri').value], b=W[+$('#kanan').value], g=$('#see'); clear(g);
+  const tilt=a[2]>b[2]?-12:a[2]<b[2]?12:0, r=tilt*Math.PI/180, L=260, cx=360, cy=140;
+  const lx=cx-Math.cos(r)*L, ly=cy-Math.sin(r)*L, rx=cx+Math.cos(r)*L, ry=cy+Math.sin(r)*L;
+  s('rect',{x:0,y:0,width:720,height:230,fill:'#fffaf0'},g); s('path',{d:`M${cx-40},210 L${cx},${cy+6} L${cx+40},210 Z`,fill:'#8a5a2b'},g);
+  s('line',{x1:lx,y1:ly,x2:rx,y2:ry,stroke:'#b97a3a','stroke-width':14,'stroke-linecap':'round'},g);
+  txt(g,lx+30,ly-12,a[1],{'font-size':44}); txt(g,rx-30,ry-12,b[1],{'font-size':44});
+  s('rect',{x:0,y:210,width:720,height:20,fill:'#f8e6b8'},g);
+  const sen=a[2]===b[2]?`${a[0]} sama berat dengan ${b[0].toLowerCase()}.`:a[2]>b[2]?`${a[0]} lebih berat daripada ${b[0].toLowerCase()}.`:`${a[0]} lebih ringan daripada ${b[0].toLowerCase()}.`;
+  $('#wOut').innerHTML=`<p class="big">${sen} ${sp(sen)}</p><p class="muted">${a[2]===b[2]?'Jungkat-jungkit seimbang.':'Sisi yang turun adalah sisi yang lebih berat.'}</p>`;
+}
+drawW();
+
+/* JAM */
+let H=7, M=0, target=null;
+function drawJ(){
+  const g=$('#clk'); clear(g); const C=150, R=125;
+  s('circle',{cx:C,cy:C,r:R+12,fill:'#fff7e0',stroke:'#f0a500','stroke-width':10},g);
+  for(let i=1;i<=12;i++){ const a=i*30*Math.PI/180; txt(g,C+Math.sin(a)*(R-28),C-Math.cos(a)*(R-28)+9,String(i),{'font-size':24,'font-weight':900,fill:i===12||i===6?'#ff6f59':'#0f3640'}); }
+  for(let i=0;i<60;i++){ if(i%5) continue; const a=i*6*Math.PI/180; s('line',{x1:C+Math.sin(a)*(R-6),y1:C-Math.cos(a)*(R-6),x2:C+Math.sin(a)*R,y2:C-Math.cos(a)*R,stroke:'#0f3640','stroke-width':3},g); }
+  const ha=((H%12)+M/60)*30*Math.PI/180, ma=M*6*Math.PI/180;
+  s('line',{x1:C,y1:C,x2:C+Math.sin(ha)*62,y2:C-Math.cos(ha)*62,stroke:'#1f7fd6','stroke-width':11,'stroke-linecap':'round'},g);
+  s('line',{x1:C,y1:C,x2:C+Math.sin(ma)*98,y2:C-Math.cos(ma)*98,stroke:'#ff6f59','stroke-width':7,'stroke-linecap':'round'},g);
+  s('circle',{cx:C,cy:C,r:9,fill:'#0f3640'},g);
+  const h12=H%12||12, waktu=H<11?'pagi':H<15?'siang':H<18?'sore':'malam', act={5:'bangun tidur 🛏️',6:'mandi dan sarapan 🍳',7:'berangkat sekolah 🎒',10:'istirahat sekolah 🍪',12:'makan siang 🍱',13:'pulang sekolah 🏠',15:'mengaji 📖',16:'bermain di halaman ⚽',18:'salat Magrib 🕌',19:'belajar di rumah ✏️',20:'tidur malam 🌙'}[H];
+  const dig=String(H).padStart(2,'0')+'.'+(M?'30':'00'), baca=M?`setengah ${nama(((H+1)%12)||12)}`:`${nama(h12)} tepat`;
+  let ch=''; if(target){ const ok=target[0]%12===H%12&&target[1]===M; ch=`<div class="fb ${ok?'ok':'hint'}"><b>Tantangan:</b> Atur jam ke pukul ${target[1]?'setengah '+(((target[0]+1)%12)||12):(target[0]%12||12)+' tepat'}. ${ok?'✓ Tepat sekali! <button class="btn" id="tn">Tantangan baru</button>':''}</div>`; }
+  $('#jOut').innerHTML=`${ch}<div class="mega">${dig}</div><p class="big">Pukul ${baca} ${sp('Pukul '+baca)}</p><p>Jarum <span style="color:#1f7fd6;font-weight:900">pendek</span> menunjuk ${M?`di antara ${h12} dan ${(h12%12)+1}`:`angka ${h12}`}. Jarum <span style="color:#ff6f59;font-weight:900">panjang</span> menunjuk angka ${M?6:12}.</p><p>Waktu <b>${waktu}</b>${act?` · saatnya ${act}`:''}.</p>`;
+  const tn=$('#tn'); if(tn) tn.onclick=newT;
+}
+function newT(){ target=[rand(1,12),pick([0,30])]; drawJ(); }
+$('#hp').onclick=()=>{ H=(H+1)%24; drawJ(); }; $('#hm').onclick=()=>{ H=(H+23)%24; drawJ(); };
+$$('#mn button').forEach(b=>b.onclick=()=>{ $$('#mn button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); M=+b.dataset.v; drawJ(); });
+$('#tant').onclick=()=>{ if(target){ target=null; $('#tant').textContent='🎯 Tantangan'; drawJ(); } else { $('#tant').textContent='↩️ Mode bebas'; newT(); } };
+drawJ();
+
+/* LATIHAN */
+VML.practice($('#prac'),[
+  {name:'Ukur klip', gen(){ const k=rand(2,12); return {q:`Panjang pita: <div style="font-size:1.4rem">${'📎'.repeat(k)}</div> Panjangnya berapa klip?`, a:String(k), hint:'Hitung klipnya satu per satu.', ex:`${k} klip.`}; }},
+  {name:'Membaca jam', gen(){ const h=rand(1,12), m=pick([0,30]); return {q:`Jarum pendek ${m?`di antara ${h} dan ${h%12+1}`:`menunjuk ${h}`}, jarum panjang menunjuk ${m?6:12}. Pukul berapa? <span class="muted">(tulis seperti ${m?'07.30':'07.00'})</span>`, a:[`${String(h).padStart(2,'0')}.${m?'30':'00'}`,`${h}.${m?'30':'00'}`].concat(m?[]:[String(h)]), show:`${String(h).padStart(2,'0')}.${m?'30':'00'}`, strict:true, hint:m?'Jarum panjang di 6 berarti setengah jam.':'Jarum panjang di 12 berarti jam tepat.', ex:m?`Pukul setengah ${h%12+1} = ${String(h).padStart(2,'0')}.30`:`Pukul ${h} tepat.`}; }},
+  {name:'Lebih panjang', gen(){ const a=rand(2,12); let b=rand(2,12); while(b===a) b=rand(2,12); return {q:`Pita merah ${a} klip, pita biru ${b} klip. Lebih panjang berapa klip?`, a:String(Math.abs(a-b)), hint:'Kurangkan yang panjang dengan yang pendek.', ex:`${Math.max(a,b)} − ${Math.min(a,b)} = ${Math.abs(a-b)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'✏️ pensil 8 klip, 🖍️ krayon 4 klip. Pernyataan yang benar …', o:['pensil lebih panjang','krayon lebih panjang','sama panjang','pensil lebih pendek'], a:0, ex:'8 klip lebih panjang dari 4 klip.'},
+ {q:'Benda yang lebih berat adalah …', o:['🍉 semangka','🍓 stroberi','🪶 bulu','🎈 balon'], a:0, ex:'Semangka paling berat.'},
+ {q:'Pada jungkat-jungkit, sisi yang turun adalah sisi yang lebih …', o:['berat','ringan','panjang','pendek'], a:0, ex:'Yang berat akan turun.'},
+ {q:'Satuan tidak baku untuk mengukur panjang adalah …', o:['jengkal','kilogram','liter','jam'], a:0, ex:'Jengkal, depa, langkah, klip.'},
+ {q:'Panjang meja 📏 = 5 jengkal. Artinya …', o:['meja diukur dengan 5 jengkal','meja beratnya 5','meja ada 5','meja 5 jam'], a:0, ex:'Jengkal dipakai untuk mengukur panjang.'},
+ {q:'Jarum panjang di 12 dan jarum pendek di 7. Pukul …', o:['07.00','12.07','07.30','12.00'], a:0, ex:'Jam tepat: pukul 7.'},
+ {q:'Jarum panjang di 6 dan jarum pendek di antara 8 dan 9. Pukul …', o:['08.30','09.30','06.08','08.00'], a:0, ex:'Setengah 9 = 08.30.'},
+ {q:'Pukul 12.00 siang biasanya kita …', o:['makan siang','bangun tidur','tidur malam','sarapan'], a:0, ex:'Siang hari waktunya makan siang.'},
+ {q:'Kita berangkat sekolah pada waktu …', o:['pagi','malam','tengah malam','sore'], a:0, ex:'Sekolah dimulai pagi hari.'},
+ {q:'Pukul setengah 10 ditulis …', o:['09.30','10.30','10.00','09.00'], a:0, ex:'Setengah 10 = 9 lebih 30 menit.'},
+ {q:'Jarum yang menunjukkan jam adalah jarum …', o:['pendek','panjang','detik','merah'], a:0, ex:'Jarum pendek = jam.'},
+ {q:'Penghapus 2 klip, penggaris 10 klip. Yang lebih pendek adalah …', o:['penghapus','penggaris','sama','tidak tahu'], a:0, ex:'2 &lt; 10.'},
+ {q:'Panjang pita 📎📎📎📎📎📎📎 adalah … klip.', input:true, a:['7'], ex:'Ada 7 klip.'},
+ {q:'Jarum panjang menunjuk 12, jarum pendek menunjuk 3. Pukul berapa? (tulis angka jamnya)', input:true, a:['3','03.00','3.00'], ex:'Pukul 3 tepat.'},
+ {q:'Buku 6 klip, pensil 8 klip. Pensil lebih panjang berapa klip?', input:true, a:['2'], ex:'8 − 6 = 2.'}
+],'sd1m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

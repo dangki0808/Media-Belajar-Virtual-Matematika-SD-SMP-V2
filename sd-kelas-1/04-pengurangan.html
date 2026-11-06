@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pengurangan sampai 20 · Virtual Math Lab SD I</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#8a5cd8">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas I</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 4 · Operasi Bilangan</span>
+  <h1>🦀 Pengurangan sampai 20</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami pengurangan sebagai mengambil atau memisahkan benda.</li>
+    <li>Mengurangkan bilangan sampai 20 dengan menghitung mundur dan garis bilangan.</li>
+    <li>Memahami hubungan penjumlahan dan pengurangan, serta menyelesaikan soal cerita.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🦀 Lab Kepiting Pergi</button><button data-target="lompat">🐸 Lab Lompat Mundur</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Pengurangan = mengambil</h2>
+    <div class="ex"><span class="t">Contoh</span> Ada 🦀🦀🦀🦀🦀. Dua kepiting pergi. Sisa 🦀🦀🦀. Ditulis <b>5 − 2 = 3</b>, dibaca "lima dikurangi dua sama dengan tiga".</div>
+  </div>
+  <div class="card"><h2>2. Menghitung mundur</h2>
+    <div class="ex">9 − 3 → mulai dari 9, hitung mundur 3 kali: 8, 7, <b>6</b>.</div>
+    <p>Di garis bilangan, pengurangan berarti melompat ke <b>kiri</b>.</p>
+  </div>
+  <div class="card"><h2>3. Lewat sepuluh</h2>
+    <div class="ex">13 − 5 → kurangi 3 dulu supaya menjadi 10: 13 − 3 = 10. Lalu kurangi sisanya 2: 10 − 2 = <b>8</b>.</div>
+  </div>
+  <div class="card"><h2>4. Keluarga bilangan</h2>
+    <p>Tiga bilangan yang sama dapat membuat penjumlahan dan pengurangan.</p>
+    <div class="grid2"><div class="ex">4 + 6 = 10<br>6 + 4 = 10</div><div class="ex">10 − 4 = 6<br>10 − 6 = 4</div></div>
+  </div>
+  <div class="card"><h2>5. Soal cerita</h2>
+    <div class="ex">Ada 12 balon. 4 balon meletus. Sisa balon 12 − 4 = <b>8</b>.</div>
+    <p>Kata kunci pengurangan: <i>sisa, pergi, dimakan, hilang, diberikan, meletus, berapa lebih banyak</i>.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Kepiting Pergi</h2>
+    <p>Ketuk kepiting untuk menyuruhnya pergi ke laut. Kalimat pengurangannya ikut berubah.</p>
+    <div class="ctrl"><label>Banyak kepiting <span class="v" id="n-v"></span><input type="range" id="n" min="1" max="20" value="9"></label></div>
+    <div class="row"><button class="btn soft" id="balik">↩️ Panggil kembali</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="crab" viewBox="0 0 380 260"></svg><div class="out" id="kOut"></div></div>
+  </div>
+</section>
+
+<section id="lompat" class="panel">
+  <div class="card"><h2>Lab: Katak Lompat Mundur</h2>
+    <div class="ctrl"><label>Mulai dari <span class="v" id="x-v"></span><input type="range" id="x" min="1" max="20" value="13"></label><label>Dikurangi <span class="v" id="y-v"></span><input type="range" id="y" min="1" max="13" value="5"></label></div>
+    <div class="row"><button class="btn" id="go">🐸 Lompat!</button></div>
+    <svg class="viz" id="nl" viewBox="0 0 720 180" style="margin-top:10px"></svg>
+    <div class="out" id="lOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas I · Modul 4</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, nama, sp} = VML;
+/* KEPITING */
+let gone=new Set();
+function drawK(){
+  const n=+$('#n').value; $('#n-v').textContent=n; [...gone].forEach(i=>{ if(i>=n) gone.delete(i); });
+  const g=$('#crab'); clear(g);
+  s('rect',{x:0,y:0,width:380,height:70,fill:'#2fc4d4'},g); s('path',{d:'M0,70 Q20,60 40,70 T80,70 T120,70 T160,70 T200,70 T240,70 T280,70 T320,70 T360,70 T400,70 V260 H0 Z',fill:'#f8e6b8'},g);
+  txt(g,190,44,'🌊 laut 🌊',{'font-size':16,'font-weight':800,fill:'#fff'});
+  let gi=0;
+  for(let i=0;i<n;i++){ const x=40+(i%5)*72, y=110+Math.floor(i/5)*42; const away=gone.has(i);
+    if(away){ txt(g,30+gi*17,60,'🦀',{'font-size':16,opacity:.8}); gi++; s('circle',{cx:x,cy:y-8,r:14,fill:'none',stroke:'#c9b07a','stroke-dasharray':'4 4'},g); continue; }
+    const c=txt(g,x,y,'🦀',{'font-size':30,style:'cursor:pointer'}); c.addEventListener('click',()=>{ gone.add(i); drawK(); VML.say(nama(n-gone.size)); }); }
+  const k=gone.size, r=n-k;
+  $('#kOut').innerHTML=`<p class="big">${n} − ${k} = ${r}</p><div class="mega">${r}</div><p>Ada <b>${n}</b> kepiting, <b>${k}</b> pergi ke laut, sisa <b>${r}</b>. ${sp(nama(n)+' dikurangi '+nama(k)+' sama dengan '+nama(r))}</p><p class="muted">Cek dengan penjumlahan: ${r} + ${k} = ${n} ✔</p>`;
+}
+$('#n').oninput=()=>{ gone.clear(); drawK(); }; $('#balik').onclick=()=>{ gone.clear(); drawK(); }; drawK();
+
+/* LOMPAT */
+let path=[];
+function drawL(){
+  const x=+$('#x').value; const Y=$('#y'); Y.max=x; if(+Y.value>x) Y.value=x; const y=+Y.value; $('#x-v').textContent=x; $('#y-v').textContent=y;
+  const g=$('#nl'); clear(g); const X=v=>25+v*33.5;
+  s('line',{x1:15,y1:130,x2:705,y2:130,stroke:'#0f3640','stroke-width':3},g);
+  for(let v=0;v<=20;v++){ s('line',{x1:X(v),y1:v%5?124:118,x2:X(v),y2:v%5?136:142,stroke:'#0f3640','stroke-width':v===10?3:1.5},g); txt(g,X(v),162,String(v),{'font-size':14,'font-weight':v===x||v===x-y?900:600,fill:v===x?'#2fa36b':v===x-y&&path.length===y?'#ff6f59':'#0f3640'}); }
+  path.forEach((v,i)=>{ const a=X(v+1), b=X(v); s('path',{d:`M${a},126 Q${(a+b)/2},86 ${b},126`,fill:'none',stroke:'#8a5cd8','stroke-width':3},g); txt(g,(a+b)/2,98,'−1',{'font-size':11,'font-weight':800,fill:'#8a5cd8'}); });
+  const at=path.length?path[path.length-1]:x; txt(g,X(at),116,'🐸',{'font-size':28});
+  const done=path.length===y;
+  $('#lOut').innerHTML=`<p class="big">${x} − ${y} = ${done?x-y:'?'}</p>${done?`<p>🎉 Katak mendarat di <b>${x-y}</b> setelah ${y} kali lompat ke kiri.</p>${x>10&&x-y<10?`<p class="muted">Lewat sepuluh: ${x} − ${x-10} = 10, lalu 10 − ${y-(x-10)} = ${x-y}.</p>`:''}`:'<p>Tekan <b>Lompat!</b></p>'}`;
+}
+$('#go').onclick=()=>{ path=[]; const x=+$('#x').value, y=+$('#y').value; let i=0; const t=()=>{ if(i>=y){ drawL(); VML.say('sama dengan '+nama(x-y)); return; } path.push(x-i-1); i++; drawL(); setTimeout(t,380); }; t(); };
+['#x','#y'].forEach(z=>$(z).oninput=()=>{ path=[]; drawL(); }); drawL();
+
+/* LATIHAN */
+const IT=['balon','kue','apel','kelereng','layang-layang'];
+VML.practice($('#prac'),[
+  {name:'Sampai 10', gen(){ const a=rand(2,10), b=rand(1,a); return {q:`${a} − ${b} = …`, a:String(a-b), hint:'Hitung mundur dari bilangan pertama.', ex:`${a-b}`}; }},
+  {name:'Sampai 20', gen(){ const a=rand(11,20), b=rand(1,10); return {q:`${a} − ${b} = …`, a:String(a-b), hint:a-b<10?`Kurangi ${a-10} dulu supaya menjadi 10.`:'Kurangi satuannya.', ex:`${a} − ${b} = ${a-b}`}; }},
+  {name:'Bilangan hilang', gen(){ const a=rand(5,20), b=rand(1,a-1); return {q:`${a} − … = ${a-b}`, a:String(b), hint:`Berapa langkah dari ${a-b} ke ${a}?`, ex:`${a} − ${b} = ${a-b}`}; }},
+  {name:'Soal cerita', gen(){ const a=rand(5,20), b=rand(1,a-1), it=pick(IT); return {q:`Ada ${a} ${it}. Sebanyak ${b} ${it} ${it==='balon'?'meletus':'diberikan kepada teman'}. Berapa sisanya?`, a:String(a-b), hint:'"Sisa" berarti dikurangi.', ex:`${a} − ${b} = ${a-b}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Ada 🦀🦀🦀🦀🦀🦀. Dua kepiting pergi. Sisa …', o:['4','8','3','6'], a:0, ex:'6 − 2 = 4.'},
+ {q:'9 − 3 = …', o:['6','12','5','7'], a:0, ex:'Hitung mundur: 8, 7, 6.'},
+ {q:'10 − 4 = …', o:['6','14','5','4'], a:0, ex:'4 + 6 = 10.'},
+ {q:'15 − 5 = …', o:['10','20','5','11'], a:0, ex:'Kurangi satuannya: 10.'},
+ {q:'13 − 5 = …', o:['8','18','7','9'], a:0, ex:'13 − 3 = 10, 10 − 2 = 8.'},
+ {q:'12 − 9 = …', o:['3','21','4','2'], a:0, ex:'Hitung maju dari 9 ke 12: 3 langkah.'},
+ {q:'Pada garis bilangan, pengurangan berarti melompat ke …', o:['kiri','kanan','atas','bawah'], a:0, ex:'Bilangan makin kecil.'},
+ {q:'Jika 4 + 6 = 10, maka 10 − 6 = …', o:['4','16','6','10'], a:0, ex:'Keluarga bilangan.'},
+ {q:'Tanda "−" dibaca …', o:['kurang','tambah','sama dengan','kali'], a:0, ex:'− dibaca kurang.'},
+ {q:'Ada 12 balon, 4 meletus. Sisa balon …', o:['8','16','7','9'], a:0, ex:'12 − 4 = 8.'},
+ {q:'Ibu membeli 8 kue. Adik makan 3 kue. Kue yang tersisa …', o:['5','11','4','6'], a:0, ex:'8 − 3 = 5.'},
+ {q:'Dika punya 14 kelereng, Bayu punya 10. Kelereng Dika lebih banyak …', o:['4','24','3','5'], a:0, ex:'14 − 10 = 4.'},
+ {q:'Hitunglah 18 − 6.', input:true, a:['12'], ex:'Kurangi satuannya: 8 − 6 = 2, jadi 12.'},
+ {q:'Hitunglah 11 − 7.', input:true, a:['4'], ex:'11 − 1 = 10, 10 − 6 = 4.'},
+ {q:'17 − … = 10', input:true, a:['7'], ex:'17 − 7 = 10.'}
+],'sd1m4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lingkaran · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0087c0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 4 · Geometri</span>
+  <h1>⭕ Lingkaran</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal unsur lingkaran: titik pusat, jari-jari, diameter, dan keliling.</li>
+    <li>Menemukan dan menghitung keliling serta luas lingkaran.</li>
+    <li>Menyelesaikan soal sehari-hari tentang lingkaran (roda, taman, setengah dan seperempat lingkaran).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🛞 Lab Roda Menggelinding</button><button data-target="luas">🍰 Lab Potong Lingkaran</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Unsur lingkaran</h2>
+    <div class="grid2"><svg class="viz" id="un" viewBox="0 0 320 300" style="max-width:340px;margin:0 auto"></svg>
+      <ul><li><b>Titik pusat</b>: titik di tengah lingkaran.</li><li><b>Jari-jari (r)</b>: jarak pusat ke tepi lingkaran.</li><li><b>Diameter (d)</b>: garis tengah yang melewati pusat. <b>d = 2 × r</b></li><li><b>Keliling</b>: panjang garis lengkung yang mengelilingi lingkaran.</li></ul></div>
+  </div>
+  <div class="card"><h2>2. Bilangan π (pi)</h2>
+    <p>Pada <b>setiap</b> lingkaran, keliling dibagi diameter hasilnya selalu sekitar <b>3,14</b>. Bilangan ini disebut <b>π</b>. Kita boleh memakai π = 3,14 atau π = <span class="fr"><span>22</span><span>7</span></span> (pakai 22/7 jika jari-jari atau diameternya kelipatan 7).</p>
+  </div>
+  <div class="card"><h2>3. Keliling lingkaran</h2>
+    <div class="def">K = π × d &nbsp;&nbsp; atau &nbsp;&nbsp; K = 2 × π × r</div>
+    <div class="grid2"><div class="ex">r = 7 cm → K = 2 × <span class="fr"><span>22</span><span>7</span></span> × 7 = <b>44 cm</b></div><div class="ex">d = 10 cm → K = 3,14 × 10 = <b>31,4 cm</b></div></div>
+  </div>
+  <div class="card"><h2>4. Luas lingkaran</h2>
+    <div class="def">L = π × r × r</div>
+    <div class="grid2"><div class="ex">r = 14 cm → L = <span class="fr"><span>22</span><span>7</span></span> × 14 × 14 = <b>616 cm²</b></div><div class="ex">r = 10 cm → L = 3,14 × 10 × 10 = <b>314 cm²</b></div></div>
+    <div class="ex"><span class="t">Setengah dan seperempat</span> Setengah lingkaran r = 7 → ½ × 154 = <b>77 cm²</b>. Seperempat lingkaran r = 14 → ¼ × 616 = <b>154 cm²</b>.</div>
+    <div class="note">Hati-hati: jika yang diketahui diameter, bagi 2 dulu untuk mendapat jari-jari sebelum menghitung luas!</div>
+  </div>
+  <div class="card"><h2>5. Soal sehari-hari</h2>
+    <div class="grid2"><div class="ex"><span class="t">Roda</span><br>Roda sepeda r = 35 cm berputar 10 kali. Jarak = 10 × 2 × <span class="fr"><span>22</span><span>7</span></span> × 35 = 2.200 cm = <b>22 m</b></div>
+      <div class="ex"><span class="t">Taman</span><br>Taman lingkaran d = 20 m dipasang lampu setiap 3,14 m di tepinya. Keliling = 62,8 m → banyak lampu = 62,8 : 3,14 = <b>20 lampu</b></div></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Roda Menggelinding</h2>
+    <p>Gelindingkan roda satu putaran penuh. Jarak yang ditempuh sama dengan <b>keliling</b> roda. Bandingkan dengan diameternya!</p>
+    <div class="ctrl"><label>Jari-jari roda <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="7" value="5"></label></div>
+    <div class="row"><button class="btn" id="roll">🛞 Gelindingkan</button></div>
+    <svg class="viz" id="rg" viewBox="0 0 720 230" style="margin-top:10px"></svg>
+    <div class="out" id="rOut"></div>
+  </div>
+</section>
+
+<section id="luas" class="panel">
+  <div class="card"><h2>Lab: Potong Lingkaran Menjadi Juring</h2>
+    <p>Potong lingkaran menjadi banyak juring, lalu susun bergantian. Makin banyak potongan, makin mirip <b>persegi panjang</b>!</p>
+    <div class="ctrl"><label>Banyak potongan <span class="v" id="n-v"></span><input type="range" id="n" min="4" max="36" step="2" value="8"></label></div>
+    <svg class="viz" id="lg" viewBox="0 0 720 260"></svg>
+    <div class="out" id="lOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Gunakan π sesuai soal. Desimal boleh pakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 4</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F} = VML;
+const PI=r=>r%7===0?[22/7,'22/7']:[3.14,'3,14'];
+
+(function(){ const g=$('#un'), cx=160, cy=150, R=110;
+  s('circle',{cx,cy,r:R,fill:'var(--acc)','fill-opacity':.1,stroke:'var(--acc)','stroke-width':4},g);
+  s('line',{x1:cx-R,y1:cy,x2:cx+R,y2:cy,stroke:'var(--b)','stroke-width':3.5},g); s('line',{x1:cx,y1:cy,x2:cx+R*Math.cos(-1.1),y2:cy+R*Math.sin(-1.1),stroke:'var(--c)','stroke-width':3.5},g);
+  s('circle',{cx,cy,r:6,fill:'var(--ink)'},g); txt(g,cx-14,cy+22,'pusat',{'font-weight':700,'font-size':13});
+  txt(g,cx-55,cy-10,'diameter (d)',{'font-weight':800,fill:'var(--b)','font-size':14}); txt(g,cx+58,cy-48,'r',{'font-weight':800,fill:'var(--c)','font-size':18}); txt(g,cx+90,cy+108,'keliling',{'font-weight':800,fill:'var(--acc)','font-size':14}); })();
+
+/* roda */
+let rollT=0, busy=false;
+function drawR(){
+  const r=+$('#r').value, U=Math.min(14, 640/(2*Math.PI*r+2*r)), R=r*U, K=2*Math.PI*r, x0=30+R, Y=200, x=x0+rollT*K*U, ang=rollT*360;
+  $('#r-v').textContent=r+' cm';
+  const g=$('#rg'); clear(g);
+  s('line',{x1:10,y1:Y,x2:710,y2:Y,stroke:'var(--ink)','stroke-width':3},g);
+  for(let k=0;k<=3;k++){ const xd=x0+k*2*r*U; s('line',{x1:xd,y1:Y+8,x2:xd,y2:Y+18,stroke:'var(--b)','stroke-width':2},g); if(k) txt(g,xd,Y+30,k+'d',{'font-size':12,fill:'var(--b)','font-weight':800}); }
+  s('rect',{x:x0,y:Y-4,width:rollT*K*U,height:8,rx:4,fill:'var(--acc)'},g);
+  const w=s('g',{transform:`rotate(${ang} ${x} ${Y-R})`},g);
+  s('circle',{cx:x,cy:Y-R,r:R,fill:'#333',stroke:'#111','stroke-width':2},w); s('circle',{cx:x,cy:Y-R,r:R*0.7,fill:'#ddd'},w);
+  for(let k=0;k<6;k++) s('line',{x1:x,y1:Y-R,x2:x+R*0.7*Math.cos(k*Math.PI/3),y2:Y-R+R*0.7*Math.sin(k*Math.PI/3),stroke:'#888','stroke-width':2},w);
+  s('circle',{cx:x,cy:Y,r:6,fill:'var(--b)'},w);
+  const [pi,pt]=PI(r);
+  $('#rOut').innerHTML=`<p>Jari-jari ${r} cm, diameter ${2*r} cm.</p><div class="big">Jarak 1 putaran = keliling ≈ ${num(K,2)} cm</div><p>Keliling : diameter = ${num(K,2)} : ${2*r} ≈ <b>3,14</b> = π. Garis biru menempuh sedikit lebih dari <b>3 diameter</b>!</p><p class="muted">Dengan rumus: K = 2 × ${pt} × ${r} = ${num(2*pi*r,2)} cm</p>`;
+}
+$('#roll').onclick=()=>{ if(busy) return; busy=true; rollT=0; const t0=performance.now(); const st=now=>{ rollT=Math.min(1,(now-t0)/2200); drawR(); if(rollT<1) requestAnimationFrame(st); else busy=false; }; requestAnimationFrame(st); };
+$('#r').oninput=()=>{ rollT=0; drawR(); }; drawR();
+
+/* potong lingkaran */
+function drawL(){
+  const n=+$('#n').value; $('#n-v').textContent=n; const g=$('#lg'); clear(g); const R=90, cx=120, cy=130, a=2*Math.PI/n;
+  for(let k=0;k<n;k++){ const a0=k*a-Math.PI/2, a1=a0+a; s('path',{d:`M${cx},${cy} L${cx+R*Math.cos(a0)},${cy+R*Math.sin(a0)} A${R},${R} 0 0 1 ${cx+R*Math.cos(a1)},${cy+R*Math.sin(a1)} Z`,fill:k%2?'var(--acc)':'var(--d)',stroke:'#fff','stroke-width':1},g); }
+  txt(g,cx,240,'lingkaran (r)',{'font-weight':700});
+  txt(g,262,135,'➡',{'font-size':28});
+  // susunan: juring berselang naik/turun
+  const half=Math.PI*R, w=half/(n/2), ox=300, base=180;
+  for(let k=0;k<n;k++){ const up=k%2===0, x=ox+k*w/2; const half2=w/2;
+    const P = up ? `M${x},${base} L${x+w/2},${base-R} L${x+w},${base} Z` : `M${x},${base-R} L${x+w/2},${base} L${x+w},${base-R} Z`;
+    const arc = up ? `M${x},${base} Q${x+w/2},${base+R*a*0.25*0} ${x+w},${base}` : '';
+    s('path',{d: up ? `M${x+w/2},${base-R} L${x},${base} A${R},${R} 0 0 0 ${x+w},${base} Z` : `M${x+w/2},${base} L${x},${base-R} A${R},${R} 0 0 1 ${x+w},${base-R} Z`,fill:k%2?'var(--acc)':'var(--d)',stroke:'#fff','stroke-width':1},g); }
+  const totW=half+w/2;
+  s('line',{x1:ox,y1:base+22,x2:ox+half,y2:base+22,stroke:'var(--b)','stroke-width':3},g); txt(g,ox+half/2,base+44,'½ keliling = π × r',{'font-weight':800,fill:'var(--b)'});
+  s('line',{x1:ox+totW+12,y1:base,x2:ox+totW+12,y2:base-R,stroke:'var(--c)','stroke-width':3},g); txt(g,ox+totW+20,base-R/2,'r',{'font-weight':800,fill:'var(--c)','text-anchor':'start','font-size':18});
+  $('#lOut').innerHTML=`<p>Bangun hasil susunan mirip persegi panjang dengan <b>panjang = setengah keliling = π × r</b> dan <b>lebar = r</b>.</p><div class="big">Luas lingkaran = (π × r) × r = π × r × r</div><p class="muted">${n<12?'Tambah banyak potongan supaya tepinya makin lurus.':'Lihat, tepinya hampir lurus!'}</p>`;
+}
+$('#n').oninput=drawL; drawL();
+
+/* LATIHAN */
+const R4=a=>String(VML.round(a,4)), rs7=[7,14,21,28,35], rsx=[5,10,20,3,6];
+VML.practice($('#prac'), [
+  {name:'Keliling', gen(){ const u7=Math.random()<.6, r=u7?pick(rs7):pick(rsx), [pi,pt]=PI(r), useD=Math.random()<.5;
+    return {q:`Keliling lingkaran dengan ${useD?'diameter '+2*r:'jari-jari '+r} cm (π = ${pt}) adalah …`, a:R4(2*pi*r), unit:'cm', hint:useD?'K = π × d':'K = 2 × π × r', ex:`${num(2*pi*r)} cm`}; }},
+  {name:'Luas', gen(){ const u7=Math.random()<.6, r=u7?pick(rs7):pick(rsx), [pi,pt]=PI(r), useD=Math.random()<.4;
+    return {q:`Luas lingkaran dengan ${useD?'diameter '+2*r:'jari-jari '+r} cm (π = ${pt}) adalah …`, a:R4(pi*r*r), unit:'cm²', hint:useD?`Jari-jari = ${2*r} : 2 = ${r}. L = π × r × r`:'L = π × r × r', ex:`${pt} × ${r} × ${r} = ${num(pi*r*r)}`}; }},
+  {name:'Setengah & seperempat', gen(){ const r=pick(rs7), L=22/7*r*r, f=pick([2,4]); return {q:`Luas ${f===2?'setengah':'seperempat'} lingkaran dengan jari-jari ${r} cm (π = 22/7) adalah …`, a:R4(L/f), unit:'cm²', hint:`Hitung luas lingkaran penuh, lalu bagi ${f}.`, ex:`${num(L)} : ${f} = ${num(L/f)}`}; }},
+  {name:'Cerita', gen(){ if(Math.random()<.5){ const r=pick([14,21,28,35]), n=rand(5,50); return {q:`Roda berjari-jari ${r} cm berputar ${n} kali. Berapa cm jarak yang ditempuh? (π = 22/7)`, a:R4(n*2*22/7*r), unit:'cm', hint:'Jarak = banyak putaran × keliling.', ex:`${n} × ${num(2*22/7*r)} = ${num(n*2*22/7*r)}`}; }
+    const r=pick([7,14,21]), K=2*22/7*r; return {q:`Keliling sebuah lingkaran ${num(K)} cm (π = 22/7). Berapa jari-jarinya?`, a:String(r), unit:'cm', hint:'r = K : (2 × π)', ex:`${num(K)} : (2 × 22/7) = ${r}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Garis tengah lingkaran yang melalui titik pusat disebut …', o:['diameter','jari-jari','keliling','busur'], a:0, ex:'Diameter = 2 × jari-jari.'},
+ {q:'Jari-jari lingkaran 7 cm. Diameternya …', o:['14 cm','3,5 cm','7 cm','21 cm'], a:0, ex:'d = 2 × 7.'},
+ {q:'Keliling lingkaran berjari-jari 7 cm (π = 22/7) adalah …', o:['44 cm','22 cm','154 cm','14 cm'], a:0, ex:'2 × 22/7 × 7 = 44.'},
+ {q:'Keliling lingkaran berdiameter 10 cm (π = 3,14) adalah …', o:['31,4 cm','62,8 cm','314 cm','78,5 cm'], a:0, ex:'3,14 × 10.'},
+ {q:'Luas lingkaran berjari-jari 14 cm (π = 22/7) adalah …', o:['616 cm²','88 cm²','308 cm²','196 cm²'], a:0, ex:'22/7 × 14 × 14.'},
+ {q:'Luas lingkaran berjari-jari 10 cm (π = 3,14) adalah …', o:['314 cm²','31,4 cm²','62,8 cm²','100 cm²'], a:0, ex:'3,14 × 100.'},
+ {q:'Luas setengah lingkaran berjari-jari 7 cm (π = 22/7) adalah …', o:['77 cm²','154 cm²','22 cm²','38,5 cm²'], a:0, ex:'½ × 154 = 77.'},
+ {q:'Keliling lingkaran 88 cm (π = 22/7). Diameternya …', o:['28 cm','14 cm','44 cm','7 cm'], a:0, ex:'d = 88 : 22/7 = 28.'},
+ {q:'Roda berjari-jari 35 cm berputar 10 kali (π = 22/7). Jarak yang ditempuh …', o:['22 m','220 cm','2,2 m','11 m'], a:0, ex:'10 × 220 cm = 2.200 cm = 22 m.'},
+ {q:'Luas seperempat lingkaran berjari-jari 14 cm (π = 22/7) adalah …', o:['154 cm²','616 cm²','44 cm²','308 cm²'], a:0, ex:'¼ × 616.'},
+ {q:'Nilai π kira-kira sama dengan …', o:['3,14 atau 22/7','2,14','7/22','31,4'], a:0, ex:'Keliling : diameter.'},
+ {q:'Taman lingkaran berdiameter 20 m dipasang lampu setiap 3,14 m di tepinya. Banyak lampu …', o:['20','10','62','40'], a:0, ex:'62,8 : 3,14 = 20.'},
+ {q:'Hitung keliling lingkaran berjari-jari 21 cm (π = 22/7).', input:true, a:['132'], unit:'cm', ex:'2 × 22/7 × 21 = 132.'},
+ {q:'Hitung luas lingkaran berdiameter 28 cm (π = 22/7).', input:true, a:['616'], unit:'cm²', ex:'r = 14 → 616.'},
+ {q:'Jari-jari lingkaran sama dengan …', o:['setengah diameter','dua kali diameter','keliling dibagi 2','diameter dikali π'], a:0, ex:'r = d : 2.'}
+], 'sd6m4');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

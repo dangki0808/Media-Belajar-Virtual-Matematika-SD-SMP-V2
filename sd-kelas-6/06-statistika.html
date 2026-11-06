@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statistika · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#3d6dff">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Data</span>
+  <h1>📊 Statistika: Mengolah Data</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengumpulkan data dan menyajikannya dalam tabel, diagram batang, diagram garis, dan diagram lingkaran.</li>
+    <li>Membaca dan menafsirkan diagram.</li>
+    <li>Menentukan rata-rata (mean), median, dan modus.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🍎 Lab Pilih Buah</button><button data-target="rata">⚖️ Lab Rata-rata</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Menyajikan data</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Diagram batang</span><br>Untuk membandingkan banyak data, misalnya buah kesukaan.</div>
+      <div class="ex"><span class="t">Diagram garis</span><br>Untuk melihat perubahan dari waktu ke waktu, misalnya tinggi tanaman tiap minggu.</div>
+      <div class="ex"><span class="t">Diagram lingkaran</span><br>Untuk melihat bagian dari keseluruhan (persen atau sudut).</div>
+    </div>
+    <div class="def">Pada diagram lingkaran: <b>sudut</b> = <span class="fr"><span>banyak data</span><span>jumlah semua</span></span> × 360°, <b>persen</b> = <span class="fr"><span>banyak data</span><span>jumlah semua</span></span> × 100%</div>
+    <div class="ex">Dari 40 siswa, 10 suka mangga → sudut = <span class="fr"><span>10</span><span>40</span></span> × 360° = <b>90°</b> = 25%.</div>
+  </div>
+  <div class="card"><h2>2. Rata-rata, median, dan modus</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Rata-rata (mean)</span><br>jumlah semua data : banyak data<br>7, 8, 6, 9, 10 → 40 : 5 = <b>8</b></div>
+      <div class="ex"><span class="t">Median (nilai tengah)</span><br>Urutkan dulu, ambil yang di tengah.<br>3, 5, <b>6</b>, 8, 9 → 6<br>Jika genap: (5 + 7) : 2 = 6</div>
+      <div class="ex"><span class="t">Modus</span><br>Data yang paling sering muncul.<br>6, 7, 7, 8, 7, 9 → <b>7</b></div>
+    </div>
+    <div class="ex"><span class="t">Rata-rata dari tabel</span> Nilai 6 (2 anak), 7 (5 anak), 8 (3 anak): (12 + 35 + 24) : 10 = <b>7,1</b></div>
+    <div class="ex"><span class="t">Nilai yang hilang</span> Rata-rata 4 ulangan Dina 80. Agar rata-rata 5 ulangan menjadi 82, nilai ulangan ke-5 = 5 × 82 − 4 × 80 = <b>90</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Survei Buah Kesukaan</h2>
+    <p>Ketuk tombol buah untuk menambah satu suara (seperti turus). Diagram langsung berubah!</p>
+    <div class="row" id="fb"></div>
+    <div class="row"><button class="btn soft" id="rnd">🎲 Isi acak 30 suara</button><button class="btn ghost" id="rs">Ulang</button><div class="seg" id="ch"><button data-c="bar" class="on">Batang</button><button data-c="pie">Lingkaran</button></div></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="sv" viewBox="0 0 420 300"></svg><div><div class="scroll"><table class="t" id="tb"></table></div><div class="out" id="so"></div></div></div>
+  </div>
+</section>
+
+<section id="rata" class="panel">
+  <div class="card"><h2>Lab: Rata-rata = Meratakan Tumpukan</h2>
+    <p>Atur tinggi tumpukan balok. Tekan <b>Ratakan</b> untuk memindahkan balok sampai semua tumpukan sama tinggi.</p>
+    <div class="ctrl" id="cols"></div>
+    <div class="row"><button class="btn" id="lvl">⚖️ Ratakan</button><button class="btn ghost" id="bk">Kembalikan</button></div>
+    <svg class="viz" id="rv" viewBox="0 0 720 300" style="margin-top:10px"></svg>
+    <div class="out" id="ro"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Desimal boleh pakai koma, misalnya 7,5.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F} = VML;
+const FR=[['Apel','🍎','#ff5a6e'],['Pisang','🍌','#f5b800'],['Jeruk','🍊','#ff8a1f'],['Anggur','🍇','#9b5cff'],['Semangka','🍉','#22b07d']];
+let V=[6,4,5,3,2], ch='bar';
+$('#fb').innerHTML=FR.map(([n,e],i)=>`<button class="btn soft" data-i="${i}" style="font-size:1.1rem">${e} ${n} +1</button>`).join('');
+document.querySelectorAll('#fb [data-i]').forEach(b=>b.onclick=()=>{ V[+b.dataset.i]++; drawS(); });
+$('#rnd').onclick=()=>{ V=[0,0,0,0,0]; for(let i=0;i<30;i++) V[pick([0,0,1,1,2,2,2,3,4])]++; drawS(); };
+$('#rs').onclick=()=>{ V=[0,0,0,0,0]; drawS(); };
+document.querySelectorAll('#ch button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#ch button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ch=b.dataset.c;drawS();});
+function drawS(){
+  const tot=V.reduce((a,b)=>a+b,0), g=$('#sv'); clear(g);
+  if(ch==='bar'){ const mx=Math.max(...V,1), step=mx<=6?1:mx<=12?2:Math.ceil(mx/6), top=Math.ceil(mx/step)*step, Y=v=>255-v*(205/top);
+    for(let v=0;v<=top;v+=step){ s('line',{x1:40,y1:Y(v),x2:410,y2:Y(v),stroke:'var(--line)'},g); txt(g,32,Y(v)+5,String(v),{'font-size':12,'text-anchor':'end'}); }
+    FR.forEach(([n,e,c],i)=>{ const x=55+i*72; s('rect',{x,y:Y(V[i]),width:50,height:255-Y(V[i]),fill:c,rx:6},g); txt(g,x+25,Y(V[i])-6,String(V[i]),{'font-weight':800}); txt(g,x+25,285,e,{'font-size':22}); });
+    s('line',{x1:40,y1:255,x2:410,y2:255,stroke:'var(--ink)','stroke-width':2},g); txt(g,210,22,'Banyak siswa',{'font-weight':700,'font-size':13}); }
+  else { const cx=150, cy=150, R=120; let a0=-90;
+    if(!tot) txt(g,210,150,'Belum ada data',{fill:'var(--muted)'});
+    FR.forEach(([n,e,c],i)=>{ if(!V[i]) return; const ang=V[i]/tot*360, a1=a0+ang, r=d=>d*Math.PI/180;
+      if(ang>=359.99) s('circle',{cx,cy,r:R,fill:c},g); else s('path',{d:`M${cx},${cy} L${cx+R*Math.cos(r(a0))},${cy+R*Math.sin(r(a0))} A${R},${R} 0 ${ang>180?1:0} 1 ${cx+R*Math.cos(r(a1))},${cy+R*Math.sin(r(a1))} Z`,fill:c,stroke:'#fff','stroke-width':2},g);
+      if(ang>20){ const m=r(a0+ang/2); txt(g,cx+R*.62*Math.cos(m),cy+R*.62*Math.sin(m)+6,e,{'font-size':20}); } a0=a1; });
+    FR.forEach(([n,e,c],i)=>{ s('rect',{x:290,y:60+i*30,width:16,height:16,rx:4,fill:c},g); txt(g,312,73+i*30,`${n} ${tot?num(V[i]/tot*100,0)+'%':''}`,{'font-size':13,'text-anchor':'start'}); }); }
+  $('#tb').innerHTML='<tr><th>Buah</th><th>Turus</th><th>Banyak</th><th>Sudut</th></tr>'+FR.map(([n,e],i)=>`<tr><td>${e} ${n}</td><td style="font-family:var(--mono);letter-spacing:1px">${'𝍸'.repeat(Math.floor(V[i]/5))}${'|'.repeat(V[i]%5)}</td><td>${V[i]}</td><td>${tot?num(V[i]/tot*360,1)+'°':'—'}</td></tr>`).join('')+`<tr><th>Jumlah</th><td></td><th>${tot}</th><th>360°</th></tr>`;
+  const mx=Math.max(...V), fav=FR.filter((_,i)=>V[i]===mx&&mx>0).map(f=>f[1]+' '+f[0]);
+  $('#so').innerHTML= tot ? `<p>Buah paling disukai (<b>modus</b>): <b>${fav.join(', ')}</b> (${mx} siswa).</p><p>Contoh: sudut ${FR[0][0]} = ${F(V[0],tot)} × 360° = <b>${num(V[0]/tot*360,1)}°</b></p>` : 'Ketuk tombol buah untuk mulai.';
+}
+drawS();
+
+/* rata-rata */
+let H=[2,7,4,5,2], lev=0, anim=null;
+function buildC(){ $('#cols').innerHTML=H.map((h,i)=>`<label>Tumpukan ${i+1} <span class="v" id="c${i}-v">${h}</span><input type="range" data-i="${i}" min="0" max="10" value="${h}"></label>`).join('');
+  document.querySelectorAll('#cols input').forEach(x=>x.oninput=()=>{ H[+x.dataset.i]=+x.value; $('#c'+x.dataset.i+'-v').textContent=x.value; lev=0; drawR(); }); }
+function drawR(){
+  const n=H.length, sum=H.reduce((a,b)=>a+b,0), m=sum/n, g=$('#rv'); clear(g); const U=22, base=270, w=90, cols=['var(--b)','var(--a)','var(--c)','var(--d)','var(--e)'];
+  const cur=H.map(h=>h+(m-h)*lev);
+  s('line',{x1:20,y1:base,x2:700,y2:base,stroke:'var(--ink)','stroke-width':2.5},g);
+  cur.forEach((h,i)=>{ const x=60+i*130; const full=Math.floor(h+1e-9), part=h-full;
+    for(let k=0;k<full;k++) s('rect',{x,y:base-(k+1)*U,width:w,height:U-2,rx:4,fill:cols[i]},g);
+    if(part>1e-6) s('rect',{x,y:base-full*U-part*U,width:w,height:part*U-1,rx:3,fill:cols[i],'fill-opacity':.6},g);
+    txt(g,x+w/2,base+22,num(h,1),{'font-weight':800}); });
+  s('line',{x1:30,y1:base-m*U,x2:690,y2:base-m*U,stroke:'var(--ink)','stroke-width':2,'stroke-dasharray':'8 5'},g); txt(g,690,base-m*U-8,'rata-rata '+num(m,2),{'font-weight':800,'text-anchor':'end'});
+  $('#ro').innerHTML=`<p>Jumlah balok = ${H.join(' + ')} = <b>${sum}</b>. Ada <b>${n}</b> tumpukan.</p><div class="big">Rata-rata = ${sum} : ${n} = ${num(m,2)}</div><p class="muted">Rata-rata adalah tinggi tumpukan jika semua balok dibagi sama rata.${!Number.isInteger(m)?' Hasilnya bukan bilangan bulat, jadi ada balok yang harus dipotong!':''}</p>`;
+}
+$('#lvl').onclick=()=>{ cancelAnimationFrame(anim); const t0=performance.now(); const st=now=>{ lev=Math.min(1,(now-t0)/1200); drawR(); if(lev<1) anim=requestAnimationFrame(st); }; anim=requestAnimationFrame(st); };
+$('#bk').onclick=()=>{ cancelAnimationFrame(anim); lev=0; drawR(); };
+buildC(); drawR();
+
+/* LATIHAN */
+const med=a=>{ const b=a.slice().sort((x,y)=>x-y), n=b.length; return n%2?b[(n-1)/2]:(b[n/2-1]+b[n/2])/2; };
+VML.practice($('#prac'), [
+  {name:'Rata-rata', gen(){ const n=rand(4,6), d=[...Array(n)].map(()=>rand(5,10)); const r=d.reduce((a,b)=>a+b,0)%n; if(r) d[0]+=n-r; if(d[0]>12) return this.gen(); const S=d.reduce((a,b)=>a+b,0);
+    return {q:`Rata-rata dari ${d.join(', ')} adalah …`, a:String(S/n), hint:'Jumlahkan semua, lalu bagi banyak data.', ex:`${S} : ${n} = ${S/n}`}; }},
+  {name:'Median', gen(){ const d=[...Array(rand(5,8))].map(()=>rand(1,20)); return {q:`Median dari ${d.join(', ')} adalah …`, a:String(med(d)), hint:'Urutkan dulu dari yang terkecil!', ex:`Urutan: ${d.slice().sort((a,b)=>a-b).join(', ')} → ${num(med(d))}`}; }},
+  {name:'Modus', gen(){ const m=rand(3,9), d=[m,m,m,...[...Array(rand(3,5))].map(()=>rand(1,10))]; const c={}; d.forEach(x=>c[x]=(c[x]||0)+1); if(Object.values(c).filter(v=>v===Math.max(...Object.values(c))).length>1) return this.gen(); const D=VML.shuffle(d);
+    return {q:`Modus dari ${D.join(', ')} adalah …`, a:String(Object.keys(c).find(k=>c[k]===Math.max(...Object.values(c)))), hint:'Cari yang paling sering muncul.', ex:`Muncul ${Math.max(...Object.values(c))} kali`}; }},
+  {name:'Diagram lingkaran', gen(){ const tot=pick([20,24,30,36,40,60,72,90,120]), opts=[...Array(tot).keys()].slice(1).filter(f=>(f*360)%tot===0), f=pick(opts);
+    if(Math.random()<.5) return {q:`Dari ${tot} siswa, ${f} siswa suka melukis. Berapa derajat sudut "melukis" pada diagram lingkaran?`, a:String(f*360/tot), unit:'°', hint:'banyak/jumlah × 360°', ex:`${f}/${tot} × 360 = ${f*360/tot}`};
+    return {q:`Diagram lingkaran ${tot} siswa: sudut "menari" ${f*360/tot}°. Berapa siswa yang suka menari?`, a:String(f), unit:'siswa', hint:'sudut/360 × jumlah', ex:`${f*360/tot}/360 × ${tot} = ${f}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Rata-rata dari 7, 8, 6, 9, 10 adalah …', o:['8','7','9','40'], a:0, ex:'40 : 5 = 8.'},
+ {q:'Median dari 9, 3, 6, 8, 5 adalah …', o:['6','5','8','6,2'], a:0, ex:'Urutkan: 3, 5, 6, 8, 9.'},
+ {q:'Modus dari 6, 7, 7, 8, 7, 9 adalah …', o:['7','6','8','9'], a:0, ex:'7 muncul 3 kali.'},
+ {q:'Median dari 2, 4, 6, 8 adalah …', o:['5','4','6','20'], a:0, ex:'(4 + 6) : 2 = 5.'},
+ {q:'Diagram yang paling tepat untuk menunjukkan perubahan tinggi tanaman setiap minggu adalah …', o:['diagram garis','diagram lingkaran','tabel turus','piktogram'], a:0, ex:'Perubahan menurut waktu → diagram garis.'},
+ {q:'Dari 40 siswa, 10 siswa suka mangga. Sudut "mangga" pada diagram lingkaran …', o:['90°','40°','10°','36°'], a:0, ex:'10/40 × 360° = 90°.'},
+ {q:'Dari 40 siswa, 10 siswa suka mangga. Persentasenya …', o:['25%','10%','40%','4%'], a:0, ex:'10/40 × 100% = 25%.'},
+ {q:'Diagram lingkaran 36 siswa, sudut "futsal" 120°. Banyak siswa suka futsal …', o:['12','10','120','30'], a:0, ex:'120/360 × 36 = 12.'},
+ {q:'Nilai 6 (2 anak), 7 (5 anak), 8 (3 anak). Rata-ratanya …', o:['7,1','7','21','6,9'], a:0, ex:'(12 + 35 + 24) : 10 = 7,1.'},
+ {q:'Rata-rata 4 ulangan Dina 80. Agar rata-rata 5 ulangan menjadi 82, nilai ulangan ke-5 harus …', o:['90','82','86','100'], a:0, ex:'410 − 320 = 90.'},
+ {q:'Data tinggi badan (cm): 140, 145, 138, 145, 150. Modusnya …', o:['145','140','150','143,6'], a:0, ex:'145 muncul 2 kali.'},
+ {q:'Jumlah semua sudut pada diagram lingkaran adalah …', o:['360°','180°','100°','90°'], a:0, ex:'Satu lingkaran penuh.'},
+ {q:'Hitung rata-rata dari 4, 8, 6, 10, 7.', input:true, a:['7'], ex:'35 : 5 = 7.'},
+ {q:'Hitung median dari 12, 7, 9, 15, 10, 8.', input:true, a:['9,5','9.5'], ex:'7, 8, 9, 10, 12, 15 → (9 + 10) : 2 = 9,5.'},
+ {q:'Langkah pertama mencari median adalah …', o:['mengurutkan data','menjumlahkan data','mencari data terbanyak','membagi data dengan 2'], a:0, ex:'Median = nilai tengah data terurut.'}
+], 'sd6m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

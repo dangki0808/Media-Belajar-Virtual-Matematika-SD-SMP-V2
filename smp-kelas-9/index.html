@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Math Lab · Kelas IX</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .home-hero{padding:44px 0 14px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;color:var(--onbg)}
+  .home-hero .chip{background:rgba(255,255,255,.16);color:#ffe2a6}
+  .home-hero h1{font-size:clamp(2.1rem,6vw,3.5rem);letter-spacing:-.5px;margin:.25em 0}
+  .home-hero h1 em{font-style:normal;background:linear-gradient(90deg,#ffd27a,#ff9466);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-hero p.lead{font-size:1.1rem;color:var(--onbg-soft);max-width:580px}
+  .stat{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px}
+  .stat div{font-size:.9rem;color:var(--onbg-soft)} .stat b{display:block;font-size:1.7rem;color:#fff}
+  .board{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:26px;padding:12px;backdrop-filter:blur(6px)}
+  .prog{height:6px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}.prog i{display:block;height:100%}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .feat div{background:color-mix(in srgb,var(--acc) 6%,var(--card));border:1px solid var(--line);border-radius:14px;padding:14px}
+  .feat b{display:block;margin-bottom:4px}
+  .mod .ic{box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  @media (max-width:760px){.home-hero{grid-template-columns:1fr}.board{display:none}}
+</style>
+</head>
+<body style="--acc:#0e8a83">
+<header class="top"><div class="wrap"><a class="back" href="../index.html">← Semua Kelas</a><div class="brand">🧪 Virtual Math Lab <small>· Matematika SMP Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="home-hero">
+  <div>
+    <span class="chip">Laboratorium Matematika Digital · Kelas IX</span>
+    <h1>Selami matematika, <em>lihat bentuknya bergerak.</em></h1>
+    <p class="lead">Enam modul Matematika Kelas IX. Setiap modul berisi materi ringkas, dua laboratorium interaktif, latihan acak bertingkat, dan kuis 15 soal dengan pembahasan.</p>
+    <div class="stat"><div><b>6</b>modul</div><div><b>12</b>lab interaktif</div><div><b>90</b>soal kuis</div><div><b id="avg">–</b>rata-rata nilaimu</div></div>
+  </div>
+  <div class="board"><svg viewBox="0 0 360 280" width="100%" aria-hidden="true">
+    <defs><pattern id="gp" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.18)"/></pattern></defs>
+    <rect width="360" height="280" rx="18" fill="url(#gp)"/>
+    <line x1="20" y1="200" x2="340" y2="200" stroke="#fff" stroke-width="2"/><line x1="180" y1="260" x2="180" y2="20" stroke="#fff" stroke-width="2"/>
+    <path d="M80,40 Q180,330 280,40" fill="none" stroke="#ffd27a" stroke-width="4"/>
+    <polygon points="200,170 250,170 215,130" fill="#ff9466" fill-opacity=".5" stroke="#fff" stroke-width="2"/>
+    <polygon points="160,170 110,170 145,130" fill="#7fe0d3" fill-opacity=".45" stroke="#fff" stroke-width="2" stroke-dasharray="5 4"/>
+    <ellipse cx="300" cy="235" rx="26" ry="8" fill="none" stroke="#fff" stroke-width="2"/><path d="M274,235 V190 M326,235 V190" stroke="#fff" stroke-width="2"/><ellipse cx="300" cy="190" rx="26" ry="8" fill="#7fe0d3" fill-opacity=".5" stroke="#fff" stroke-width="2"/>
+    <text x="20" y="40" fill="#fff" font-size="20" font-weight="800">ax² + bx + c</text>
+  </svg></div>
+</section>
+
+<h2 class="onbg">Pilih modul</h2>
+<div class="mods" id="mods"></div>
+
+<div class="card"><h2>Cara memakai</h2>
+  <div class="feat">
+    <div><b>📘 Materi</b>Ringkasan konsep, rumus, dan contoh soal bertahap.</div>
+    <div><b>🧪 Lab</b>Geser, seret, animasikan, dan tuang. Amati apa yang berubah dan apa yang tetap.</div>
+    <div><b>✏️ Latihan</b>Soal acak tak terbatas dengan beberapa tingkat, petunjuk, dan dua kesempatan menjawab.</div>
+    <div><b>🏆 Kuis</b>15 soal dengan penilaian otomatis, pembahasan, dan nilai terbaik yang tersimpan.</div>
+  </div>
+  <p class="muted" style="margin-top:12px">Untuk guru: semua berkas berjalan tanpa internet. Buka <b>index.html</b> di browser, atau unggah seluruh folder ke hosting (misalnya GitHub Pages) lalu sematkan alamatnya di Google Sites. Nilai terbaik disimpan di perangkat masing-masing siswa.</p>
+  <div class="row"><button class="btn ghost" id="reset">Hapus semua nilai di perangkat ini</button></div>
+</div>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Media Pembelajaran Matematika Interaktif SMP Kelas IX · Kurikulum Merdeka</div></footer>
+<script src="assets/core.js"></script>
+<script>
+const M=[
+ ['01-pangkat-akar.html','Perpangkatan & Bentuk Akar','Pangkat pecahan, bentuk sekawan, pertumbuhan dan peluruhan.','√','#0e8a83','k9m1'],
+ ['02-persamaan-kuadrat.html','Persamaan Kuadrat','Pemfaktoran, kuadrat sempurna, rumus ABC, diskriminan.','x²','#d0502f','k9m2'],
+ ['03-fungsi-kuadrat.html','Fungsi Kuadrat','Parabola interaktif, titik puncak, luas maksimum.','∪','#1f6fc9','k9m3'],
+ ['04-transformasi.html','Transformasi Geometri','Translasi, refleksi, rotasi, dilatasi beranimasi.','↻','#b0650f','k9m4'],
+ ['05-kesebangunan.html','Kesebangunan & Kekongruenan','Faktor skala, bayangan pohon, garis sejajar.','≅','#0d7a9c','k9m5'],
+ ['06-bangun-ruang-lengkung.html','Bangun Ruang Sisi Lengkung','Tabung, kerucut, bola, dan perbandingan Archimedes.','◍','#c2493a','k9m6']];
+function render(){ let sum=0,cnt=0;
+  document.getElementById('mods').innerHTML=M.map(([f,t,d,ic,c,k],i)=>{ const b=VML.store.get(k); if(b!=null){sum+=b;cnt++;}
+    return `<a class="mod" href="${f}"><div class="ic" style="background:linear-gradient(135deg,${c},${i%2?'#0e8a83':'#f0a83c'})">${ic}</div><span class="muted" style="font-size:.8rem;font-weight:700">MODUL ${i+1}</span><h3>${t}</h3><p>${d}</p>
+      <div class="best" style="color:${c}">${b!=null?'Nilai kuis terbaik: '+b:'Belum mengerjakan kuis'}</div><div class="prog"><i style="width:${b||0}%;background:linear-gradient(90deg,#0e8a83,#f0a83c)"></i></div></a>`; }).join('');
+  document.getElementById('avg').textContent = cnt ? Math.round(sum/cnt) : '–'; }
+render();
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis yang tersimpan di perangkat ini?')){ M.forEach(m=>{ try{localStorage.removeItem('vml9:'+m[5]);}catch(e){} }); render(); } };
+window.addEventListener('pageshow',render);
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

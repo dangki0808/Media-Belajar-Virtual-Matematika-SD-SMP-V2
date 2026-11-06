@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan sampai 20 · Virtual Math Lab SD I</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#1f7fd6">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas I</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>🐠 Bilangan sampai 20</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membilang banyak benda sampai 20 dengan tepat.</li>
+    <li>Membaca, menulis, dan menyebutkan lambang serta nama bilangan sampai 20.</li>
+    <li>Menentukan bilangan sebelum, sesudah, dan di antara dua bilangan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🐠 Lab Akuarium</button><button data-target="jalur">⛵ Lab Perahu Bilangan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Membilang</h2>
+    <p>Tunjuk benda satu per satu sambil menyebut bilangan. Bilangan terakhir yang disebut adalah <b>banyak benda</b>.</p>
+    <div class="ex"><span class="t">Contoh</span> 🐚🐚🐚🐚🐚 → satu, dua, tiga, empat, <b>lima</b>. Ada <b>5</b> kerang.</div>
+  </div>
+  <div class="card"><h2>2. Lambang dan nama bilangan</h2>
+    <p>Tekan 🔊 untuk mendengar nama bilangannya.</p>
+    <div id="tbl"></div>
+    <div class="note">Bilangan 11 sampai 19 dibaca dengan kata <b>belas</b>: 13 = tiga belas. Bilangan 11 dibaca <b>sebelas</b>.</div>
+  </div>
+  <div class="card"><h2>3. Puluhan dan satuan</h2>
+    <p>Bilangan 10 sampai 20 bisa dibuat dari <b>1 puluhan</b> (10 benda) ditambah beberapa <b>satuan</b>.</p>
+    <div class="ex"><span class="t">Contoh</span> 14 = 10 + 4 → 1 puluhan dan 4 satuan. 20 = 2 puluhan.</div>
+  </div>
+  <div class="card"><h2>4. Sebelum, sesudah, di antara</h2>
+    <div class="grid2"><div class="ex">Bilangan <b>sesudah</b> 8 adalah <b>9</b> (satu lebih banyak).</div><div class="ex">Bilangan <b>sebelum</b> 8 adalah <b>7</b> (satu lebih sedikit).</div></div>
+    <div class="ex">Bilangan <b>di antara</b> 12 dan 14 adalah <b>13</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Akuarium Ikan</h2>
+    <p>Ketuk tombol untuk menambah atau mengurangi ikan. Ikan disusun per 10 supaya mudah dihitung.</p>
+    <div class="row"><button class="btn" id="add">➕ Tambah ikan</button><button class="btn soft" id="sub">➖ Kurangi ikan</button><button class="btn ghost" id="cnt">🔢 Hitung bersama</button><button class="btn ghost" id="tebak">🎯 Tebak banyaknya</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="aq" viewBox="0 0 380 250"></svg><div class="out" id="aOut"></div></div>
+  </div>
+</section>
+
+<section id="jalur" class="panel">
+  <div class="card"><h2>Lab: Perahu di Jalur Bilangan</h2>
+    <p>Gerakkan perahu maju dan mundur. Lihat bilangan <b>sebelum</b> dan <b>sesudah</b> tempat perahu berlabuh.</p>
+    <div class="row"><button class="btn soft" id="mund">◀ Mundur 1</button><button class="btn" id="maju">Maju 1 ▶</button><button class="btn ghost" id="acak">🎲 Acak</button></div>
+    <svg class="viz" id="track" viewBox="0 0 720 170" style="margin-top:10px"></svg>
+    <div class="out" id="jOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas I · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, $$, s, txt, clear, rand, pick, shuffle, nama, sp} = VML;
+$('#tbl').innerHTML=`<table class="t"><tr><th>Angka</th><th>Nama</th><th>Angka</th><th>Nama</th></tr>${Array.from({length:10},(_,i)=>{ const a=i+1,b=i+11; return `<tr><td><b>${a}</b></td><td>${nama(a)} ${sp(nama(a))}</td><td><b>${b}</b></td><td>${nama(b)} ${sp(nama(b))}</td></tr>`; }).join('')}</table>`;
+
+/* AKUARIUM */
+let n=7, mark=-1, hidden=false, guess=null;
+function fish(g,k,on){ const col=k%10, row=Math.floor(k/10), x=40+col*32, y=70+row*90; const tf=row===0?'🐠':'🐟';
+  txt(g,x,y+(col%2?12:0),tf,{'font-size':28,opacity:on?1:.35}); if(k<=mark&&!hidden) txt(g,x,y-22+(col%2?12:0),String(k+1),{'font-size':13,'font-weight':900,fill:'#0f3640'}); }
+function drawA(){
+  const g=$('#aq'); clear(g);
+  s('rect',{x:10,y:10,width:360,height:230,rx:22,fill:'#bfeff2',stroke:'#2fc4d4','stroke-width':5},g);
+  s('rect',{x:14,y:200,width:352,height:36,rx:14,fill:'#f8e6b8'},g);
+  [[40,220,'🪸'],[330,222,'🐚'],[300,224,'🌿']].forEach(([x,y,e])=>txt(g,x,y,e,{'font-size':22}));
+  s('line',{x1:24,y1:120,x2:356,y2:120,stroke:'#2fc4d4','stroke-dasharray':'6 6'},g);
+  if(hidden){ txt(g,190,130,'🫧 Berapa ikan tadi? 🫧',{'font-size':18,'font-weight':800,fill:'#0f3640'}); }
+  else for(let k=0;k<n;k++) fish(g,k,true);
+  const p=Math.floor(n/10), sat=n%10;
+  if(guess){ $('#aOut').innerHTML=`<p class="big">Ada berapa ikan?</p><div class="tapcards">${guess.map(v=>`<button data-v="${v}">${v}</button>`).join('')}</div><div id="gfb"></div>`;
+    $$('#aOut .tapcards button').forEach(b=>b.onclick=()=>{ const ok=+b.dataset.v===n; b.classList.add(ok?'good':'badx'); if(ok){ hidden=false; guess=null; $('#gfb').innerHTML=''; drawA(); VML.say('Benar! Ada '+nama(n)+' ikan'); } else $('#gfb').innerHTML='<div class="fb hint">Coba lagi, ya!</div>'; });
+    return; }
+  $('#aOut').innerHTML=`<div class="mega">${n}</div><p class="big">${nama(n)} ${sp(nama(n))}</p><p>${n>=10?`<b>${p}</b> puluhan dan <b>${sat}</b> satuan → ${p*10} + ${sat} = ${n}`:`Ada <b>${n}</b> ikan.`}</p><p class="muted">Sesudah ${n} adalah ${n+1}${n>0?`, sebelum ${n} adalah ${n-1}`:''}.</p>`;
+}
+$('#add').onclick=()=>{ if(n<20){ n++; mark=-1; hidden=false; guess=null; drawA(); } };
+$('#sub').onclick=()=>{ if(n>0){ n--; mark=-1; hidden=false; guess=null; drawA(); } };
+$('#cnt').onclick=()=>{ mark=-1; hidden=false; guess=null; let k=0; const t=()=>{ if(k>=n){ VML.say('Ada '+nama(n)+' ikan'); return; } mark=k; drawA(); VML.say(nama(k+1),1); k++; setTimeout(t,700); }; t(); };
+$('#tebak').onclick=()=>{ n=rand(3,20); mark=-1; hidden=false; guess=null; drawA(); setTimeout(()=>{ hidden=true; const o=new Set([n]); while(o.size<4){ const v=n+pick([-2,-1,1,2,3,-3]); if(v>0&&v<=20) o.add(v); } guess=shuffle([...o]); drawA(); },2500); $('#aOut').innerHTML='<p class="big">Lihat baik-baik… ikan akan bersembunyi dalam 3 detik! 👀</p>'; };
+drawA();
+
+/* PERAHU */
+let pos=8;
+function drawJ(){
+  const g=$('#track'); clear(g); const X=v=>30+v*33;
+  s('rect',{x:0,y:0,width:720,height:170,fill:'#9fe7e3'},g); s('path',{d:'M0,70 Q30,60 60,70 T120,70 T180,70 T240,70 T300,70 T360,70 T420,70 T480,70 T540,70 T600,70 T660,70 T720,70 V170 H0 Z',fill:'#2fc4d4','fill-opacity':.35},g);
+  for(let v=0;v<=20;v++){ const hl=v===pos-1||v===pos+1, me=v===pos;
+    s('rect',{x:X(v)-15,y:100,width:30,height:42,rx:8,fill:me?'#ff6f59':hl?'#ffd166':'#fff',stroke:'#0f3640','stroke-width':1.5},g);
+    txt(g,X(v),128,String(v),{'font-size':15,'font-weight':900,fill:me?'#fff':'#0f3640'}); }
+  txt(g,X(pos),88,'⛵',{'font-size':34});
+  if(pos>0) txt(g,X(pos-1),160,'sebelum',{'font-size':10,'font-weight':800,fill:'#0f3640'}); if(pos<20) txt(g,X(pos+1),160,'sesudah',{'font-size':10,'font-weight':800,fill:'#0f3640'});
+  $('#jOut').innerHTML=`<p class="big">Perahu berlabuh di <b>${pos}</b> (${nama(pos)}) ${sp(nama(pos))}</p>
+    <div class="grid2"><div class="ex"><span class="t">Sebelum</span> ${pos>0?`<b>${pos-1}</b> · satu lebih sedikit`:'—'}</div><div class="ex"><span class="t">Sesudah</span> ${pos<20?`<b>${pos+1}</b> · satu lebih banyak`:'—'}</div></div>
+    ${pos>0&&pos<20?`<p>${pos} berada <b>di antara</b> ${pos-1} dan ${pos+1}.</p>`:''}`;
+}
+$('#maju').onclick=()=>{ if(pos<20){ pos++; drawJ(); } }; $('#mund').onclick=()=>{ if(pos>0){ pos--; drawJ(); } }; $('#acak').onclick=()=>{ pos=rand(1,19); drawJ(); };
+VML.dragSvg($('#track'),p=>p.y>80?1:null,(k,p)=>{ const v=Math.max(0,Math.min(20,Math.round((p.x-30)/33))); if(v!==pos){ pos=v; drawJ(); } });
+drawJ();
+
+/* LATIHAN */
+const EM=['🐠','🐚','⭐','🦀','🍎','🎈'];
+VML.practice($('#prac'),[
+  {name:'Membilang', gen(){ const k=rand(3,20), e=pick(EM); return {q:`Ada berapa? <div style="font-size:1.6rem;letter-spacing:2px;line-height:1.5">${(e+' ').repeat(k)}</div>`, a:String(k), hint:'Tunjuk satu per satu sambil berhitung.', ex:`Ada ${k} (${nama(k)}).`}; }},
+  {name:'Nama bilangan', gen(){ const k=rand(1,20); return Math.random()<.5?{q:`Tulis angkanya: <b>${nama(k)}</b>`, a:String(k), hint:'Belas berarti sepuluh lebih.', ex:`${nama(k)} = ${k}`}:{q:`Tulis nama bilangan <b>${k}</b> dengan huruf.`, a:[nama(k)], show:nama(k), hint:'Contoh: 13 ditulis tiga belas.', ex:`${k} = ${nama(k)}`}; }},
+  {name:'Sebelum/sesudah', gen(){ const k=rand(1,19), t=rand(0,2); if(t===0) return {q:`Bilangan sesudah ${k} adalah …`, a:String(k+1), hint:'Satu lebih banyak.', ex:`${k} + 1 = ${k+1}`}; if(t===1) return {q:`Bilangan sebelum ${k} adalah …`, a:String(k-1), hint:'Satu lebih sedikit.', ex:`${k-1}`}; return {q:`Bilangan di antara ${k-1} dan ${k+1} adalah …`, a:String(k), hint:'Bilangan yang ada di tengah.', ex:String(k)}; }},
+  {name:'Puluhan & satuan', gen(){ const k=rand(10,20); return {q:`${k} = 10 + …`, a:String(k-10), hint:'1 puluhan = 10.', ex:`${k} = 10 + ${k-10}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'),[
+ {q:'Ada berapa bintang? ⭐⭐⭐⭐⭐⭐⭐', o:['7','6','8','5'], a:0, ex:'Hitung satu per satu: 7.'},
+ {q:'Lambang bilangan "dua belas" adalah …', o:['12','21','2','20'], a:0, ex:'Dua belas = 12.'},
+ {q:'Nama bilangan 15 adalah …', o:['lima belas','lima puluh','satu lima','lima'], a:0, ex:'15 = lima belas.'},
+ {q:'Bilangan 11 dibaca …', o:['sebelas','satu belas','satu satu','sepuluh satu'], a:0, ex:'11 dibaca sebelas.'},
+ {q:'Bilangan sesudah 9 adalah …', o:['10','8','19','90'], a:0, ex:'9 + 1 = 10.'},
+ {q:'Bilangan sebelum 16 adalah …', o:['15','17','14','6'], a:0, ex:'Satu lebih sedikit dari 16.'},
+ {q:'Bilangan di antara 13 dan 15 adalah …', o:['14','12','16','11'], a:0, ex:'13, 14, 15.'},
+ {q:'17 terdiri atas 1 puluhan dan … satuan.', o:['7','1','17','10'], a:0, ex:'17 = 10 + 7.'},
+ {q:'Ada berapa kerang? 🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚🐚', o:['12','10','11','13'], a:0, ex:'10 dan 2 lagi = 12.'},
+ {q:'Urutan yang benar adalah …', o:['17, 18, 19, 20','17, 19, 18, 20','20, 17, 18, 19','17, 18, 20, 19'], a:0, ex:'Bilangan bertambah satu-satu.', fixed:false},
+ {q:'Dua puluh ditulis …', o:['20','12','2','200'], a:0, ex:'Dua puluh = 2 puluhan = 20.'},
+ {q:'Satu lebih banyak dari 19 adalah …', o:['20','18','10','29'], a:0, ex:'19 + 1 = 20.'},
+ {q:'Tulis angka dari "delapan belas".', input:true, a:['18'], ex:'Delapan belas = 18.'},
+ {q:'Bilangan sesudah 13 adalah …', input:true, a:['14'], ex:'13 + 1 = 14.'},
+ {q:'Ada berapa apel? 🍎🍎🍎🍎🍎🍎🍎🍎🍎', input:true, a:['9'], ex:'Hitung: 9 apel.'}
+],'sd1m1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

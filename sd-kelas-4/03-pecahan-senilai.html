@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pecahan Senilai · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#9a4fe0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Bilangan</span>
+  <h1>🧱 Pecahan Senilai &amp; Membandingkan Pecahan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan pecahan senilai dengan gambar dan perkalian/pembagian.</li>
+    <li>Menyederhanakan pecahan.</li>
+    <li>Membandingkan dan mengurutkan pecahan, serta mengenal pecahan desimal persepuluhan dan perseratusan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧱 Lab Dinding Pecahan</button><button data-target="banding">⚖️ Lab Bandingkan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Pecahan senilai</h2>
+    <p>Pecahan senilai adalah pecahan yang nilainya sama walaupun pembilang dan penyebutnya berbeda.</p>
+    <div class="ex"><span class="fr"><span>1</span><span>2</span></span> = <span class="fr"><span>2</span><span>4</span></span> = <span class="fr"><span>3</span><span>6</span></span> = <span class="fr"><span>4</span><span>8</span></span> — sama-sama setengah bagian.</div>
+    <div class="def">Kalikan atau bagi pembilang <b>dan</b> penyebut dengan bilangan yang <b>sama</b>.<br><span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>2 × 4</span><span>3 × 4</span></span> = <span class="fr"><span>8</span><span>12</span></span></div>
+  </div>
+  <div class="card"><h2>2. Menyederhanakan pecahan</h2>
+    <p>Bagi pembilang dan penyebut dengan bilangan yang sama sampai tidak bisa dibagi lagi (pakai FPB).</p>
+    <div class="ex"><span class="fr"><span>12</span><span>18</span></span> = <span class="fr"><span>12 : 6</span><span>18 : 6</span></span> = <b><span class="fr"><span>2</span><span>3</span></span></b></div>
+  </div>
+  <div class="card"><h2>3. Membandingkan pecahan</h2>
+    <div class="grid3">
+      <div class="ex"><span class="t">Penyebut sama</span><br>Bandingkan pembilangnya.<br><span class="fr"><span>3</span><span>7</span></span> &lt; <span class="fr"><span>5</span><span>7</span></span></div>
+      <div class="ex"><span class="t">Pembilang sama</span><br>Penyebut lebih kecil → potongan lebih besar.<br><span class="fr"><span>1</span><span>3</span></span> &gt; <span class="fr"><span>1</span><span>5</span></span></div>
+      <div class="ex"><span class="t">Berbeda semua</span><br>Samakan penyebut dulu.<br><span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>8</span><span>12</span></span>, <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>9</span><span>12</span></span> → <span class="fr"><span>2</span><span>3</span></span> &lt; <span class="fr"><span>3</span><span>4</span></span></div>
+    </div>
+  </div>
+  <div class="card"><h2>4. Pecahan desimal</h2>
+    <p>Pecahan berpenyebut 10 atau 100 dapat ditulis sebagai desimal.</p>
+    <div class="grid2"><div class="ex"><span class="fr"><span>3</span><span>10</span></span> = 0,3 &nbsp; (tiga persepuluh)</div><div class="ex"><span class="fr"><span>45</span><span>100</span></span> = 0,45 &nbsp; (empat puluh lima perseratus)</div></div>
+    <div class="ex"><span class="fr"><span>1</span><span>2</span></span> = <span class="fr"><span>5</span><span>10</span></span> = 0,5 &nbsp;&nbsp; <span class="fr"><span>1</span><span>4</span></span> = <span class="fr"><span>25</span><span>100</span></span> = 0,25</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Dinding Pecahan</h2>
+    <p>Ketuk satu bata. Semua bata yang <b>sama panjang</b> dengan bagian yang kamu pilih akan menyala — itulah pecahan senilai!</p>
+    <svg class="viz" id="wall" viewBox="0 0 720 470"></svg>
+    <div class="out" id="wOut"></div>
+  </div>
+</section>
+
+<section id="banding" class="panel">
+  <div class="card"><h2>Lab: Siapa yang Lebih Besar?</h2>
+    <div class="grid2">
+      <div class="ctrl" style="margin:0"><label style="color:var(--a)">Pecahan A — pembilang <span class="v" id="an-v"></span><input type="range" id="an" min="0" max="12" value="2"></label><label style="color:var(--a)">penyebut <span class="v" id="ad-v"></span><input type="range" id="ad" min="1" max="12" value="3"></label></div>
+      <div class="ctrl" style="margin:0"><label style="color:var(--b)">Pecahan B — pembilang <span class="v" id="bn-v"></span><input type="range" id="bn" min="0" max="12" value="3"></label><label style="color:var(--b)">penyebut <span class="v" id="bd-v"></span><input type="range" id="bd" min="1" max="12" value="4"></label></div>
+    </div>
+    <svg class="viz" id="cmp" viewBox="0 0 720 200" style="margin-top:10px"></svg>
+    <div class="out" id="cOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Pecahan ditulis seperti 2/3. Untuk membandingkan, tulis &lt;, &gt;, atau =.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, gcd, lcm, F, simp, fracHTML, fracTxt, num} = VML;
+const ROWS=[1,2,3,4,5,6,8,10,12], COL={1:'#3d6dff',2:'#9a5cf0',3:'#e04ca0',4:'#ff6a55',5:'#f5b000',6:'#20a46b',8:'#11a7c4',10:'#5b4bc4',12:'#d6493a'};
+let pick_=[1,2];
+function drawW(){
+  const g=$('#wall'); clear(g); const W=VML.narrow()?440:720, X0=56, BW=W-X0-10, H=46; g.setAttribute('viewBox',`0 0 ${W} ${ROWS.length*(H+4)+20}`);
+  const v=pick_[0]/pick_[1];
+  ROWS.forEach((d,r)=>{ const y=10+r*(H+4); txt(g,28,y+H/2+6,d===1?'1':'1/'+d,{'font-weight':800,'font-size':13});
+    for(let k=0;k<d;k++){ const on=Math.abs((k+1)/d-v)<1e-9||((k+1)/d<v+1e-9); const eqv=Math.abs(Math.round(v*d)-v*d)<1e-9 && k<Math.round(v*d);
+      const rect=s('rect',{x:X0+k*BW/d+1,y,width:BW/d-2,height:H,rx:8,fill:COL[d],'fill-opacity':eqv?.95:.22,stroke:eqv?'#fff':'none','stroke-width':2,style:'cursor:pointer'},g);
+      rect.addEventListener('click',()=>{ pick_=[k+1,d]; drawW(); });
+      if(BW/d>34) txt(g,X0+(k+.5)*BW/d,y+H/2+5,d===1?'1':`1/${d}`,{'font-size':12,'font-weight':700,fill:eqv?'#fff':'var(--ink)','pointer-events':'none'}); } });
+  s('line',{x1:X0+v*BW,y1:4,x2:X0+v*BW,y2:10+ROWS.length*(H+4),stroke:'var(--ink)','stroke-width':3,'stroke-dasharray':'6 4'},g);
+  const eq=ROWS.filter(d=>Math.abs(Math.round(v*d)-v*d)<1e-9).map(d=>F(Math.round(v*d),d));
+  $('#wOut').innerHTML=`<div class="big">Kamu memilih ${F(pick_[0],pick_[1])}</div><p>Pecahan yang senilai (sama panjang) di dinding ini:</p><div class="big" style="line-height:2.2">${eq.join(' = ')}</div><p class="muted">Bentuk paling sederhana: ${fracHTML(pick_[0],pick_[1])} · desimal ${num(v,3)}</p>`;
+}
+drawW(); VML.onResize(drawW);
+
+function drawC(){
+  const ad=+$('#ad').value, bd=+$('#bd').value; $('#an').max=ad; $('#bn').max=bd; const an=Math.min(+$('#an').value,ad), bn=Math.min(+$('#bn').value,bd);
+  [['an',an],['ad',ad],['bn',bn],['bd',bd]].forEach(([k,v])=>$('#'+k+'-v').textContent=v);
+  const g=$('#cmp'); clear(g); const W=VML.narrow()?440:720, BW=W-110; g.setAttribute('viewBox',`0 0 ${W} 200`);
+  const bar=(y,n,d,c,l)=>{ for(let k=0;k<d;k++) s('rect',{x:80+k*BW/d,y,width:BW/d,height:50,fill:k<n?c:'var(--card)','fill-opacity':.85,stroke:'var(--ink)','stroke-width':1.5},g); txt(g,40,y+33,l,{'font-weight':900,'font-size':20,fill:c}); };
+  bar(20,an,ad,'var(--a)','A'); bar(110,bn,bd,'var(--b)','B');
+  const L=lcm(ad,bd), A=an*L/ad, B=bn*L/bd, sg=A>B?'&gt;':A<B?'&lt;':'=';
+  $('#cOut').innerHTML=`<div class="big">${F(an,ad)} ${sg} ${F(bn,bd)}</div><p>Samakan penyebut menjadi ${L}: ${F(an,ad)} = ${F(A,L)} dan ${F(bn,bd)} = ${F(B,L)}. Bandingkan pembilangnya: ${A} ${sg} ${B}.</p><p class="muted">${A===B?'Keduanya pecahan senilai!':'Batang yang lebih panjang adalah pecahan yang lebih besar.'}</p>`;
+}
+['#an','#ad','#bn','#bd'].forEach(x=>$(x).oninput=drawC); drawC(); VML.onResize(drawC);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Senilai', gen(){ const d=pick([2,3,4,5,6]), n=rand(1,d-1); if(gcd(n,d)>1) return this.gen(); const k=rand(2,6); return {q:`${F(n,d)} = ${F('?',d*k)}. Isi tanda tanya.`, a:String(n*k), hint:`${d} dikali berapa jadi ${d*k}?`, ex:`× ${k} → ${n*k}`}; }},
+  {name:'Sederhanakan', gen(){ const d=pick([2,3,4,5,7]), n=rand(1,d-1); if(gcd(n,d)>1) return this.gen(); const k=rand(2,6); return {q:`Bentuk paling sederhana dari ${F(n*k,d*k)} adalah …`, a:`${n}/${d}`, strict:true, hint:'Bagi pembilang dan penyebut dengan FPB-nya.', ex:`: ${k} → ${F(n,d)}`}; }},
+  {name:'Bandingkan', gen(){ const d1=rand(2,10), d2=rand(2,10), n1=rand(1,d1-1), n2=rand(1,d2-1), a=n1/d1, b=n2/d2, sg=Math.abs(a-b)<1e-9?'=':a<b?'<':'>'; return {q:`Isi dengan &lt;, &gt;, atau = : &nbsp; ${F(n1,d1)} … ${F(n2,d2)}`, a:[sg], show:sg.replace('<','&lt;').replace('>','&gt;'), hint:'Samakan penyebutnya dulu.', ex:`${F(n1*lcm(d1,d2)/d1,lcm(d1,d2))} dan ${F(n2*lcm(d1,d2)/d2,lcm(d1,d2))}`}; }},
+  {name:'Desimal', gen(){ if(Math.random()<.5){ const n=rand(1,99), d=n<10&&Math.random()<.5?10:100; const nn=d===10?rand(1,9):n; return {q:`Ubah ${F(nn,d)} ke bentuk desimal.`, a:String(nn/d), hint:d===10?'Persepuluhan: 1 angka di belakang koma.':'Perseratusan: 2 angka di belakang koma.', ex:num(nn/d,2)}; }
+    const [n,d]=pick([[1,2],[1,4],[3,4],[1,5],[2,5],[3,5],[4,5],[1,20],[3,20],[7,25]]); return {q:`Ubah ${F(n,d)} ke bentuk desimal.`, a:String(n/d), hint:`Jadikan penyebutnya 10 atau 100.`, ex:`${F(n*(100/d),100)} = ${num(n/d,2)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:`Pecahan yang senilai dengan ${F(1,2)} adalah …`, o:[F(3,6),F(2,3),F(1,4),F(2,5)], a:0, ex:'1×3 / 2×3.'},
+ {q:`${F(2,3)} = ${F('…',12)}`, o:['8','6','4','9'], a:0, ex:'3 × 4 = 12, 2 × 4 = 8.'},
+ {q:`Bentuk paling sederhana dari ${F(12,18)} adalah …`, o:[F(2,3),F(6,9),F(4,6),F(3,4)], a:0, ex:'Bagi 6.'},
+ {q:`Bentuk paling sederhana dari ${F(15,20)} adalah …`, o:[F(3,4),F(5,4),F(3,5),F(1,4)], a:0, ex:'Bagi 5.'},
+ {q:`Tanda yang tepat: ${F(3,7)} … ${F(5,7)}`, o:['&lt;','&gt;','=','≥'], a:0, ex:'Penyebut sama, 3 < 5.'},
+ {q:`Tanda yang tepat: ${F(1,3)} … ${F(1,5)}`, o:['&gt;','&lt;','=','≤'], a:0, ex:'Dibagi 3 potongnya lebih besar.'},
+ {q:`Tanda yang tepat: ${F(2,3)} … ${F(3,4)}`, o:['&lt;','&gt;','=','tidak dapat dibandingkan'], a:0, ex:'8/12 < 9/12.'},
+ {q:`Urutan dari yang terkecil: ${F(1,2)}, ${F(1,4)}, ${F(3,4)} adalah …`, o:[`${F(1,4)}, ${F(1,2)}, ${F(3,4)}`,`${F(3,4)}, ${F(1,2)}, ${F(1,4)}`,`${F(1,2)}, ${F(1,4)}, ${F(3,4)}`,`${F(1,4)}, ${F(3,4)}, ${F(1,2)}`], a:0, ex:'0,25 < 0,5 < 0,75.'},
+ {q:`${F(3,10)} dalam bentuk desimal adalah …`, o:['0,3','3,10','0,03','3,0'], a:0, ex:'Tiga persepuluh.'},
+ {q:'0,45 dibaca …', o:['empat puluh lima perseratus','empat puluh lima persepuluh','empat koma lima','empat ratus lima'], a:0, ex:'45/100.'},
+ {q:`${F(1,4)} dalam bentuk desimal adalah …`, o:['0,25','0,4','1,4','0,14'], a:0, ex:'25/100.'},
+ {q:'Ibu memotong kue menjadi 8 bagian sama besar. Adik makan 4 potong. Bagian yang dimakan adik senilai dengan …', o:[F(1,2),F(1,4),F(4,4),F(1,8)], a:0, ex:'4/8 = 1/2.'},
+ {q:`Isi titik-titik: ${F(3,5)} = ${F('…',20)}`, input:true, a:['12'], ex:'5 × 4 = 20, 3 × 4 = 12.'},
+ {q:`Ubah ${F(1,2)} ke bentuk desimal.`, input:true, a:['0,5','0.5'], ex:'5/10.'},
+ {q:`Pecahan berikut yang <b>tidak</b> senilai dengan ${F(2,4)} adalah …`, o:[F(2,6),F(1,2),F(4,8),F(3,6)], a:0, ex:'2/6 = 1/3.'}
+], 'sd4m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

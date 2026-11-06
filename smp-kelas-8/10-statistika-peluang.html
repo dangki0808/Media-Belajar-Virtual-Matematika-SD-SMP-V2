@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statistika & Peluang · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#cf5418">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 10 · Analisis Data & Peluang</span>
+  <h1>Statistika dan Peluang</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menentukan ukuran pemusatan dan ukuran penyebaran data (jangkauan, kuartil, jangkauan interkuartil).</li>
+    <li>Menentukan ruang sampel dan peluang teoretik suatu kejadian.</li>
+    <li>Membandingkan peluang empirik hasil percobaan dengan peluang teoretik dan menghitung frekuensi harapan.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📦 Lab Kuartil</button><button data-target="sim">🎲 Lab Simulasi Peluang</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Ukuran pemusatan (mengingat kembali)</h2>
+    <p><b>Mean</b> = jumlah data : banyak data. <b>Median</b> = nilai tengah data terurut. <b>Modus</b> = data yang paling sering muncul.</p>
+  </div>
+  <div class="card"><h2>2. Ukuran penyebaran</h2>
+    <p>Dua kelas bisa punya rata-rata sama tetapi sebarannya berbeda. Ukuran penyebaran menunjukkan seberapa jauh data menyebar.</p>
+    <ol class="steps"><li>Urutkan data dari terkecil.</li><li><b>Q₂</b> (kuartil tengah) = median seluruh data.</li><li><b>Q₁</b> (kuartil bawah) = median data di kiri Q₂, <b>Q₃</b> (kuartil atas) = median data di kanan Q₂. Jika banyak data ganjil, data tengah tidak diikutkan.</li></ol>
+    <table class="t"><tr><th>Ukuran</th><th>Rumus</th></tr><tr><td>Jangkauan</td><td>data terbesar − data terkecil</td></tr><tr><td>Jangkauan interkuartil</td><td>Q₃ − Q₁</td></tr><tr><td>Simpangan kuartil</td><td>½(Q₃ − Q₁)</td></tr></table>
+    <div class="ex"><span class="t">Contoh</span> 3, 5, 6, <b>7</b>, 8, 9, 12 → Q₂ = 7. Bagian kiri 3, 5, 6 → Q₁ = 5. Bagian kanan 8, 9, 12 → Q₃ = 9. Jangkauan interkuartil = 9 − 5 = <b>4</b>.</div>
+  </div>
+  <div class="card"><h2>3. Ruang sampel dan kejadian</h2>
+    <ul><li><b>Percobaan</b>: kegiatan yang hasilnya tidak pasti, misalnya melempar dadu.</li><li><b>Ruang sampel (S)</b>: himpunan semua hasil yang mungkin. Dadu: S = {1, 2, 3, 4, 5, 6}, n(S) = 6.</li><li><b>Titik sampel</b>: setiap anggota ruang sampel.</li><li><b>Kejadian (A)</b>: himpunan bagian dari S, misalnya "muncul bilangan genap" A = {2, 4, 6}.</li></ul>
+    <p>Dua koin: S = {AA, AG, GA, GG} (A = angka, G = gambar), n(S) = 4. Dua dadu: n(S) = 6 × 6 = 36.</p>
+  </div>
+  <div class="card"><h2>4. Peluang</h2>
+    <div class="grid2"><div class="def"><b>Peluang teoretik</b><br>P(A) = <span class="fr"><span>n(A)</span><span>n(S)</span></span></div><div class="def"><b>Peluang empirik</b> (hasil percobaan)<br>= <span class="fr"><span>banyak kejadian A muncul</span><span>banyak percobaan</span></span></div></div>
+    <ul><li>0 ≤ P(A) ≤ 1. P = 0 → <b>kejadian mustahil</b> (dadu muncul 7). P = 1 → <b>kejadian pasti</b>.</li><li><b>Komplemen</b>: P(bukan A) = 1 − P(A). P(hujan) = 0,3 → P(tidak hujan) = 0,7.</li><li><b>Frekuensi harapan</b>: F<sub>h</sub> = P(A) × banyak percobaan. Dadu dilempar 120 kali → harapan mata 6 muncul = <span class="fr"><span>1</span><span>6</span></span> × 120 = 20 kali.</li></ul>
+    <div class="note">Makin banyak percobaan, peluang empirik cenderung makin dekat ke peluang teoretik. Buktikan di Lab Simulasi!</div>
+    <div class="ex"><span class="t">Contoh</span> Kantong berisi 5 kelereng merah, 3 biru, 2 hijau. P(biru) = <span class="fr"><span>3</span><span>10</span></span>. Dua dadu, P(jumlah 7) = <span class="fr"><span>6</span><span>36</span></span> = <span class="fr"><span>1</span><span>6</span></span>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Kuartil dan Diagram Kotak-Garis</h2>
+    <textarea id="din">3, 5, 6, 7, 8, 9, 12</textarea>
+    <div class="row"><button class="btn soft" id="rnd">🎲 Data acak</button><button class="btn soft" id="even">Contoh data genap</button></div>
+    <div class="out" id="sorted" style="font-family:var(--mono);overflow-x:auto"></div>
+    <svg class="viz" id="bx" viewBox="0 0 720 160"></svg>
+    <div class="grid3" id="qs" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<section id="sim" class="panel">
+  <div class="card"><h2>Lab: Simulasi Peluang</h2>
+    <div class="seg" id="ex"><button data-e="koin" class="on">1 koin</button><button data-e="dadu">1 dadu</button><button data-e="koin2">2 koin (banyak G)</button><button data-e="dadu2">2 dadu (jumlah)</button></div>
+    <div class="row"><button class="btn" data-n="1">Lempar 1×</button><button class="btn" data-n="10">10×</button><button class="btn" data-n="100">100×</button><button class="btn" data-n="1000">1.000×</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <div class="out" id="last" style="text-align:center;font-size:1.6rem;min-height:60px"></div>
+    <svg class="viz" id="sc" viewBox="0 0 720 300"></svg>
+    <div class="legend" style="margin-top:6px"><span><i style="background:var(--acc)"></i>peluang empirik</span><span><i style="background:var(--a)"></i>peluang teoretik</span></div>
+    <div class="scroll"><table class="t" id="st"></table></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Peluang ditulis sebagai pecahan (misalnya 1/6) atau desimal.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 10</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F, fracHTML, fracTxt, gcd} = VML;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const med=a=>{ const n=a.length; return n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2; };
+function quart(d){ const a=d.slice().sort((x,y)=>x-y), n=a.length, lo=a.slice(0,Math.floor(n/2)), hi=a.slice(Math.ceil(n/2)); return {a,n,Q1:lo.length?med(lo):a[0],Q2:med(a),Q3:hi.length?med(hi):a[n-1],lo,hi}; }
+
+/* LAB kuartil */
+$('#rnd').onclick=()=>{ $('#din').value=[...Array(rand(7,14))].map(()=>rand(40,100)).join(', '); runQ(); };
+$('#even').onclick=()=>{ $('#din').value='2, 4, 5, 7, 8, 9'; runQ(); };
+function runQ(){
+  const raw=$('#din').value.split(/[\s,;]+/).filter(Boolean), d=raw.map(x=>Number(x.replace(',','.'))).filter(x=>!isNaN(x));
+  if(d.length<4){ $('#sorted').innerHTML='Masukkan minimal 4 bilangan.'; clear($('#bx')); $('#qs').innerHTML=''; return; }
+  const Q=quart(d), {a,n}=Q, midIdx=n%2?[(n-1)/2]:[n/2-1,n/2];
+  $('#sorted').innerHTML=a.map((v,i)=>{ const inLo=i<Math.floor(n/2), inHi=i>=Math.ceil(n/2); const st=midIdx.includes(i)?'color:var(--b);font-weight:800':inLo?'color:var(--acc)':inHi?'color:var(--a)':''; return `<span style="${st}">${num(v)}</span>`; }).join(', ')
+    +`<div style="font-family:var(--font);font-size:.85rem;margin-top:6px"><span style="color:var(--acc)">■ bagian bawah → Q₁</span> &nbsp; <span style="color:var(--b)">■ tengah → Q₂</span> &nbsp; <span style="color:var(--a)">■ bagian atas → Q₃</span></div>`;
+  const g=$('#bx'); clear(g); const lo=a[0], hi=a[n-1], span=(hi-lo)||1, X=v=>40+(v-lo)/span*640, y=70;
+  s('line',{x1:X(lo),y1:y,x2:X(Q.Q1),y2:y,stroke:'var(--ink)','stroke-width':2},g); s('line',{x1:X(Q.Q3),y1:y,x2:X(hi),y2:y,stroke:'var(--ink)','stroke-width':2},g);
+  s('rect',{x:X(Q.Q1),y:y-28,width:Math.max(2,X(Q.Q3)-X(Q.Q1)),height:56,fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':2.5},g);
+  s('line',{x1:X(Q.Q2),y1:y-28,x2:X(Q.Q2),y2:y+28,stroke:'var(--b)','stroke-width':3.5},g);
+  [lo,hi].forEach(v=>s('line',{x1:X(v),y1:y-16,x2:X(v),y2:y+16,stroke:'var(--ink)','stroke-width':2.5},g));
+  a.forEach(v=>s('circle',{cx:X(v),cy:y+50,r:4,fill:'var(--muted)'},g));
+  [[lo,'min'],[Q.Q1,'Q₁'],[Q.Q2,'Q₂'],[Q.Q3,'Q₃'],[hi,'maks']].forEach(([v,l],i)=>txt(g,X(v),i%2?y-36:y-36,`${l} ${num(v)}`,{'font-size':12,'font-weight':700,fill:l==='Q₂'?'var(--b)':'var(--ink)',dy:i%2?0:-14}));
+  const mean=d.reduce((p,q)=>p+q,0)/n, card=(t,v,sub)=>`<div class="out" style="margin:0"><div class="muted" style="font-size:.85rem;font-weight:700">${t}</div><div class="big">${v}</div><div class="muted" style="font-size:.85rem">${sub}</div></div>`;
+  $('#qs').innerHTML=card('Q₁ (kuartil bawah)',num(Q.Q1),`median dari ${Q.lo.map(x=>num(x)).join(', ')}`)+card('Q₂ (median)',num(Q.Q2),n%2?`data ke-${(n+1)/2}`:`(${num(a[n/2-1])} + ${num(a[n/2])}) : 2`)+card('Q₃ (kuartil atas)',num(Q.Q3),`median dari ${Q.hi.map(x=>num(x)).join(', ')}`)
+    +card('Jangkauan',num(hi-lo),`${num(hi)} − ${num(lo)}`)+card('Jangkauan interkuartil',num(Q.Q3-Q.Q1),`Q₃ − Q₁; simpangan kuartil ${num((Q.Q3-Q.Q1)/2)}`)+card('Rata-rata',num(mean,2),`${num(d.reduce((p,q)=>p+q,0))} : ${n}`);
+}
+$('#din').oninput=runQ; runQ();
+
+/* LAB simulasi */
+const EX={
+  koin:{lab:['Angka','Gambar'], p:[1,1], roll:()=>rand(0,1), show:k=>k?'🖼️ Gambar':'🪙 Angka'},
+  dadu:{lab:['1','2','3','4','5','6'], p:[1,1,1,1,1,1], roll:()=>rand(0,5), show:k=>['⚀','⚁','⚂','⚃','⚄','⚅'][k]+' '+(k+1)},
+  koin2:{lab:['0 G','1 G','2 G'], p:[1,2,1], roll:()=>rand(0,1)+rand(0,1), show:k=>`${k} gambar`},
+  dadu2:{lab:['2','3','4','5','6','7','8','9','10','11','12'], p:[1,2,3,4,5,6,5,4,3,2,1], roll:()=>rand(1,6)+rand(1,6)-2, show:k=>`jumlah ${k+2}`}
+};
+let ex='koin', cnt, tot;
+const reset=()=>{ cnt=EX[ex].lab.map(()=>0); tot=0; $('#last').innerHTML='Tekan tombol lempar'; drawSim(); };
+document.querySelectorAll('#ex button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#ex button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ex=b.dataset.e;reset();});
+document.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{ const n=+b.dataset.n; let k; for(let i=0;i<n;i++){ k=EX[ex].roll(); cnt[k]++; } tot+=n; $('#last').innerHTML = n===1?EX[ex].show(k):`${n.toLocaleString('id-ID')} lemparan selesai · total ${tot.toLocaleString('id-ID')}`; drawSim(); });
+$('#rs').onclick=reset;
+function drawSim(){
+  const E=EX[ex], S=E.p.reduce((a,b)=>a+b,0), th=E.p.map(p=>p/S), em=cnt.map(c=>tot?c/tot:0), g=$('#sc'); clear(g);
+  const mx=Math.max(...th,...em)*1.15||1, n=E.lab.length, w=640/n, Y=v=>260-v/mx*230;
+  for(let i=0;i<=4;i++){ const v=mx*i/4; s('line',{x1:40,y1:Y(v),x2:690,y2:Y(v),stroke:'var(--line)'},g); txt(g,34,Y(v)+4,num(v,2),{'font-size':11,'text-anchor':'end'}); }
+  E.lab.forEach((l,i)=>{ const x=45+i*w; s('rect',{x:x+w*0.18,y:Y(em[i]),width:w*0.64,height:260-Y(em[i]),fill:'var(--acc)','fill-opacity':.8,rx:3},g);
+    s('line',{x1:x+w*0.08,y1:Y(th[i]),x2:x+w*0.92,y2:Y(th[i]),stroke:'var(--a)','stroke-width':3.5},g); txt(g,x+w/2,280,l,{'font-size':n>8?11:13,'font-weight':700}); });
+  s('line',{x1:40,y1:260,x2:690,y2:260,stroke:'var(--ink)','stroke-width':2},g);
+  const sumErr=th.reduce((a,t,i)=>a+Math.abs(t-em[i]),0)/2;
+  $('#st').innerHTML=`<tr><th>Hasil</th>${E.lab.map(l=>`<th>${l}</th>`).join('')}</tr><tr><td>Frekuensi</td>${cnt.map(c=>`<td>${c}</td>`).join('')}</tr><tr><td>Empirik</td>${em.map(v=>`<td>${num(v,3)}</td>`).join('')}</tr><tr><td>Teoretik</td>${E.p.map(p=>`<td>${fracHTML(p,S)}</td>`).join('')}</tr><tr><td>F<sub>h</sub> (${tot}×)</td>${th.map(t=>`<td>${num(t*tot,1)}</td>`).join('')}</tr>`
+   +(tot?`<tr><td colspan="${n+1}" style="text-align:left">Selisih rata-rata empirik vs teoretik: <b>${num(sumErr*100,1)}%</b> ${tot<100?'— lempar lebih banyak, selisihnya akan mengecil.':''}</td></tr>`:'');
+}
+reset();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Kuartil', gen(){ const n=rand(6,11), d=[...Array(n)].map(()=>rand(1,30)), Q=quart(d), k=pick(['Q1','Q2','Q3']);
+    return {q:`Tentukan ${k.replace('Q','Q<sub>')+'</sub>'} dari data: ${d.join(', ')}`, a:String(Q[k]), hint:'Urutkan dulu, cari median, lalu median tiap bagian.', ex:`Urutan: ${Q.a.join(', ')} → Q₁ = ${num(Q.Q1)}, Q₂ = ${num(Q.Q2)}, Q₃ = ${num(Q.Q3)}`}; }},
+  {name:'Peluang dadu & koin', gen(){ const evs=[['bilangan genap',[2,4,6]],['bilangan prima',[2,3,5]],['bilangan lebih dari 4',[5,6]],['faktor dari 6',[1,2,3,6]],['bilangan kurang dari 3',[1,2]],['kelipatan 3',[3,6]]], e=pick(evs);
+    if(Math.random()<.7) return {q:`Sebuah dadu dilempar sekali. Peluang muncul ${e[0]} adalah …`, a:fracTxt(e[1].length,6), hint:'n(S) = 6. Daftar dulu anggota kejadiannya.', ex:`A = {${e[1].join(', ')}} → ${fracHTML(e[1].length,6)}`};
+    const t=rand(1,12); let k=0; for(let a=1;a<=6;a++) for(let b=1;b<=6;b++) if(a+b===t) k++; if(!k) return this.gen(); return {q:`Dua dadu dilempar bersamaan. Peluang jumlah mata dadu ${t} adalah …`, a:fracTxt(k,36), hint:'n(S) = 36. Daftar pasangan yang jumlahnya sesuai.', ex:`Ada ${k} pasangan → ${fracHTML(k,36)}`}; }},
+  {name:'Kantong & komplemen', gen(){ const m=rand(2,9), b=rand(1,8), h=rand(1,6), T=m+b+h, w=pick(['merah','biru','hijau']), v={merah:m,biru:b,hijau:h}[w];
+    if(Math.random()<.6) return {q:`Kantong berisi ${m} kelereng merah, ${b} biru, dan ${h} hijau. Satu kelereng diambil acak. Peluang terambil kelereng ${w} adalah …`, a:fracTxt(v,T), hint:`n(S) = ${T}.`, ex:`${v}/${T} = ${fracHTML(v,T)}`};
+    return {q:`Dari kantong yang sama (${m} merah, ${b} biru, ${h} hijau), peluang terambil kelereng <b>bukan</b> ${w} adalah …`, a:fracTxt(T-v,T), hint:'P(bukan A) = 1 − P(A).', ex:`1 − ${fracHTML(v,T)} = ${fracHTML(T-v,T)}`}; }},
+  {name:'Frekuensi harapan', gen(){ const n=pick([60,90,120,180,240,300,600]); if(Math.random()<.5){ return {q:`Sebuah dadu dilempar ${n} kali. Frekuensi harapan muncul mata dadu 3 adalah …`, a:String(n/6), unit:'kali', hint:'F<sub>h</sub> = P × n', ex:`⅙ × ${n} = ${n/6}`}; }
+    const p=pick([0.1,0.2,0.25,0.3,0.4,0.05]); return {q:`Peluang seorang siswa terlambat ${num(p)}. Dari ${n} siswa, berapa yang diperkirakan terlambat?`, a:String(VML.round(p*n,4)), unit:'siswa', hint:'F<sub>h</sub> = P × n', ex:`${num(p)} × ${n} = ${num(p*n)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Banyak titik sampel pada pelemparan sebuah dadu adalah …', o:['6','1','12','36'], a:0, ex:'S = {1, 2, 3, 4, 5, 6}.'},
+ {q:'Peluang muncul mata dadu genap pada pelemparan satu dadu adalah …', o:[F(1,2),F(1,3),F(1,6),F(2,3)], a:0, ex:'{2, 4, 6} → 3/6 = 1/2.'},
+ {q:'Peluang muncul mata dadu bilangan prima adalah …', o:[F(1,2),F(2,3),F(1,3),F(5,6)], a:0, ex:'{2, 3, 5} → 3/6 = 1/2.'},
+ {q:'Kantong berisi 5 kelereng merah, 3 biru, dan 2 hijau. Peluang terambil kelereng biru adalah …', o:[F(3,10),F(3,7),F(1,3),F(3,5)], a:0, ex:'3/10.'},
+ {q:'Dua koin dilempar bersamaan. Peluang muncul dua gambar adalah …', o:[F(1,4),F(1,2),F(1,3),F(3,4)], a:0, ex:'S = {AA, AG, GA, GG}; GG hanya satu.'},
+ {q:'Dua dadu dilempar bersamaan. Peluang jumlah mata dadu 7 adalah …', o:[F(1,6),F(7,36),F(1,12),F(5,36)], a:0, ex:'6 pasangan dari 36 → 1/6.'},
+ {q:'Peluang hujan besok 0,3. Peluang besok tidak hujan adalah …', o:['0,7','0,3','1,3','0'], a:0, ex:'1 − 0,3 = 0,7.'},
+ {q:'Sebuah koin dilempar 50 kali dan muncul angka 28 kali. Peluang empirik muncul angka adalah …', o:[F(14,25),F(1,2),F(11,25),F(28,100)], a:0, ex:'28/50 = 14/25.'},
+ {q:'Sebuah dadu dilempar 120 kali. Frekuensi harapan muncul mata 6 adalah …', o:['20 kali','6 kali','60 kali','12 kali'], a:0, ex:'⅙ × 120 = 20.'},
+ {q:'Peluang suatu kejadian yang mustahil terjadi adalah …', o:['0','1','½','−1'], a:0, ex:'Kejadian mustahil: P = 0.'},
+ {q:'Data: 3, 5, 6, 7, 8, 9, 12. Kuartil bawah dan kuartil atasnya adalah …', o:['Q₁ = 5 dan Q₃ = 9','Q₁ = 6 dan Q₃ = 8','Q₁ = 3 dan Q₃ = 12','Q₁ = 5,5 dan Q₃ = 8,5'], a:0, ex:'Median 7; kiri 3, 5, 6 → 5; kanan 8, 9, 12 → 9.'},
+ {q:'Jangkauan interkuartil dari data 3, 5, 6, 7, 8, 9, 12 adalah …', o:['4','9','2','7'], a:0, ex:'Q₃ − Q₁ = 9 − 5 = 4.'},
+ {q:'Tentukan median dari data 4, 8, 2, 9, 5, 7.', input:true, a:['6'], ex:'Urutkan: 2, 4, 5, 7, 8, 9 → (5 + 7) : 2 = 6.'},
+ {q:'Tentukan kuartil atas (Q₃) dari data 2, 4, 5, 7, 8, 9.', input:true, a:['8'], ex:'Bagian atas: 7, 8, 9 → mediannya 8.'},
+ {q:'Peluang muncul mata dadu lebih dari 6 pada pelemparan satu dadu adalah …', o:['0','1',F(1,6),F(5,6)], a:0, ex:'Tidak ada mata dadu lebih dari 6 → mustahil.'}
+], 'k8m10');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

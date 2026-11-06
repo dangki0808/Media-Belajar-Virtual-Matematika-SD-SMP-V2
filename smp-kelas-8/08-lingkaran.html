@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lingkaran · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#d8641c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 8 · Geometri</span>
+  <h1>Lingkaran</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenali unsur-unsur lingkaran: pusat, jari-jari, diameter, tali busur, busur, apotema, juring, dan tembereng.</li>
+    <li>Menghitung keliling, luas, panjang busur, dan luas juring.</li>
+    <li>Menentukan hubungan sudut pusat dan sudut keliling.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">⭕ Lab Unsur & Juring</button><button data-target="sudut">📐 Lab Sudut Keliling</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Unsur-unsur lingkaran</h2>
+    <div class="grid2"><svg class="viz" id="un" viewBox="0 0 360 340"></svg>
+      <table class="t"><tr><th>Unsur</th><th>Arti</th></tr>
+        <tr><td>Pusat (O)</td><td>titik tengah lingkaran</td></tr><tr><td>Jari-jari (r)</td><td>ruas garis dari pusat ke lingkaran</td></tr>
+        <tr><td>Diameter (d)</td><td>tali busur melalui pusat, d = 2r</td></tr><tr><td>Tali busur</td><td>ruas garis yang menghubungkan dua titik pada lingkaran</td></tr>
+        <tr><td>Busur</td><td>bagian dari keliling lingkaran</td></tr><tr><td>Apotema</td><td>jarak tegak lurus dari pusat ke tali busur</td></tr>
+        <tr><td>Juring</td><td>daerah antara dua jari-jari dan busur</td></tr><tr><td>Tembereng</td><td>daerah antara tali busur dan busur</td></tr></table></div>
+  </div>
+  <div class="card"><h2>2. Keliling dan luas</h2>
+    <div class="grid2"><div class="def"><b>Keliling</b> K = 2πr = πd</div><div class="def"><b>Luas</b> L = πr²</div></div>
+    <p>π ≈ <span class="fr"><span>22</span><span>7</span></span> (praktis jika r kelipatan 7) atau π ≈ 3,14. π adalah perbandingan keliling dengan diameter pada <b>setiap</b> lingkaran.</p>
+    <div class="grid2"><div class="ex">r = 7 cm → K = 2 × <span class="fr"><span>22</span><span>7</span></span> × 7 = <b>44 cm</b></div><div class="ex">d = 20 cm → r = 10 → L = 3,14 × 100 = <b>314 cm²</b></div></div>
+    <div class="ex"><span class="t">Terapan</span> Roda berjari-jari 35 cm berputar 100 kali. Jarak tempuh = 100 × 2 × <span class="fr"><span>22</span><span>7</span></span> × 35 = 22.000 cm = <b>220 m</b>.</div>
+  </div>
+  <div class="card"><h2>3. Panjang busur dan luas juring</h2>
+    <p>Keduanya sebanding dengan sudut pusat α:</p>
+    <div class="def">Panjang busur = <span class="fr"><span>α</span><span>360°</span></span> × 2πr &nbsp;&nbsp;&nbsp; Luas juring = <span class="fr"><span>α</span><span>360°</span></span> × πr²</div>
+    <div class="grid2"><div class="ex">α = 60°, r = 21 cm → busur = <span class="fr"><span>1</span><span>6</span></span> × 132 = <b>22 cm</b></div><div class="ex">α = 90°, r = 14 cm → juring = <span class="fr"><span>1</span><span>4</span></span> × 616 = <b>154 cm²</b></div></div>
+    <p>Luas tembereng = luas juring − luas segitiga yang dibentuk dua jari-jari dan tali busur.</p>
+  </div>
+  <div class="card"><h2>4. Sudut pusat dan sudut keliling</h2>
+    <div class="def"><b>Sudut keliling = ½ × sudut pusat</b>, jika keduanya menghadap busur yang sama.</div>
+    <ul><li>Sudut pusat 100° → sudut keliling yang menghadap busur sama = <b>50°</b>.</li><li>Sudut keliling yang menghadap <b>diameter</b> selalu <b>90°</b>.</li><li>Sudut-sudut keliling yang menghadap busur yang sama besarnya <b>sama</b>.</li></ul>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Unsur, Busur, dan Juring</h2>
+    <div class="ctrl"><label>Jari-jari r (cm) <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="28" value="14"></label><label>Sudut pusat α <span class="v" id="al-v"></span><input type="range" id="al" min="0" max="360" value="90"></label></div>
+    <div class="seg" id="hl"><button data-h="juring" class="on">Juring</button><button data-h="tembereng">Tembereng</button><button data-h="tali">Tali busur & apotema</button><button data-h="diameter">Diameter</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="cv" viewBox="0 0 400 400"></svg><div class="out" id="cOut"></div></div>
+  </div>
+</section>
+
+<section id="sudut" class="panel">
+  <div class="card"><h2>Lab: Sudut Pusat dan Sudut Keliling</h2>
+    <p>Atur sudut pusat ∠AOB, lalu seret titik <b style="color:var(--b)">C</b> di sepanjang lingkaran.</p>
+    <div class="ctrl"><label>Sudut pusat ∠AOB <span class="v" id="th-v"></span><input type="range" id="th" min="20" max="340" value="100"></label></div>
+    <div class="grid2"><svg class="viz" id="sv" viewBox="0 0 400 400"></svg><div class="out" id="sOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Gunakan π yang disebutkan di soal. Desimal boleh memakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 8</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F} = VML;
+const rad=d=>d*Math.PI/180;
+const P=(cx,cy,R,deg)=>[cx+R*Math.cos(rad(deg)), cy-R*Math.sin(rad(deg))];
+const sector=(cx,cy,R,a0,a1)=>{ const [x0,y0]=P(cx,cy,R,a0), [x1,y1]=P(cx,cy,R,a1); return `M${cx},${cy} L${x0},${y0} A${R},${R} 0 ${(a1-a0)>180?1:0} 0 ${x1},${y1} Z`; };
+const seg=(cx,cy,R,a0,a1)=>{ const [x0,y0]=P(cx,cy,R,a0), [x1,y1]=P(cx,cy,R,a1); return `M${x0},${y0} A${R},${R} 0 ${(a1-a0)>180?1:0} 0 ${x1},${y1} Z`; };
+
+/* diagram unsur */
+(function(){ const g=$('#un'), cx=180, cy=170, R=130;
+  s('path',{d:sector(cx,cy,R,20,75),fill:'var(--acc)','fill-opacity':.3},g); s('path',{d:seg(cx,cy,R,200,260),fill:'var(--a)','fill-opacity':.3},g);
+  s('circle',{cx,cy,r:R,fill:'none',stroke:'var(--ink)','stroke-width':2.5},g);
+  const [ax,ay]=P(cx,cy,R,200), [bx,by]=P(cx,cy,R,260); s('line',{x1:ax,y1:ay,x2:bx,y2:by,stroke:'var(--a)','stroke-width':2.5},g);
+  const mx=(ax+bx)/2,my=(ay+by)/2; s('line',{x1:cx,y1:cy,x2:mx,y2:my,stroke:'var(--c)','stroke-width':2,'stroke-dasharray':'5 4'},g);
+  const [dx,dy]=P(cx,cy,R,150), [ex,ey]=P(cx,cy,R,330); s('line',{x1:dx,y1:dy,x2:ex,y2:ey,stroke:'var(--f)','stroke-width':2.5},g);
+  s('circle',{cx,cy,r:4,fill:'var(--ink)'},g); txt(g,cx+12,cy+16,'O',{'font-weight':800});
+  txt(g,cx+70,cy-70,'juring',{'font-weight':700,fill:'var(--acc)'}); txt(g,cx-78,cy+108,'tembereng',{'font-weight':700,fill:'var(--a)','font-size':12});
+  txt(g,cx-90,cy-30,'diameter',{'font-weight':700,fill:'var(--f)','font-size':12}); txt(g,mx-30,my-8,'apotema',{'font-weight':700,fill:'var(--c)','font-size':11});
+  txt(g,cx+95,cy+80,'busur',{'font-weight':700}); txt(g,cx-20,cy+150,'tali busur',{'font-weight':700,fill:'var(--a)','font-size':12}); })();
+
+/* LAB unsur & juring */
+let hl='juring';
+document.querySelectorAll('#hl button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#hl button').forEach(x=>x.classList.remove('on'));b.classList.add('on');hl=b.dataset.h;drawC();});
+function drawC(){
+  const r=+$('#r').value, al=+$('#al').value; $('#r-v').textContent=r+' cm'; $('#al-v').textContent=al+'°';
+  const g=$('#cv'); clear(g); const cx=200, cy=200, R=165, pi=r%7===0?22/7:3.14, piT=r%7===0?F(22,7):'3,14';
+  if(hl==='juring'&&al>0) s('path',{d:al>=360?`M${cx+R},${cy} A${R},${R} 0 1 0 ${cx-R},${cy} A${R},${R} 0 1 0 ${cx+R},${cy}Z`:sector(cx,cy,R,0,al),fill:'var(--acc)','fill-opacity':.35},g);
+  if(hl==='tembereng'&&al>0&&al<360) s('path',{d:seg(cx,cy,R,0,al),fill:'var(--a)','fill-opacity':.35},g);
+  s('circle',{cx,cy,r:R,fill:'none',stroke:'var(--ink)','stroke-width':2.5},g);
+  if(al>0&&al<360){ const [ax,ay]=P(cx,cy,R,0), [bx,by]=P(cx,cy,R,al);
+    s('path',{d:`M${ax},${ay} A${R},${R} 0 ${al>180?1:0} 0 ${bx},${by}`,fill:'none',stroke:'var(--b)','stroke-width':6,'stroke-linecap':'round'},g);
+    s('line',{x1:cx,y1:cy,x2:ax,y2:ay,stroke:'var(--ink)','stroke-width':2},g); s('line',{x1:cx,y1:cy,x2:bx,y2:by,stroke:'var(--ink)','stroke-width':2},g);
+    if(hl==='tali'||hl==='tembereng'){ s('line',{x1:ax,y1:ay,x2:bx,y2:by,stroke:'var(--a)','stroke-width':3},g); if(hl==='tali'){ s('line',{x1:cx,y1:cy,x2:(ax+bx)/2,y2:(ay+by)/2,stroke:'var(--c)','stroke-width':2.5,'stroke-dasharray':'6 4'},g); } }
+    s('path',{d:sector(cx,cy,32,0,al),fill:'none',stroke:'var(--ink)'},g); const [lx,ly]=P(cx,cy,52,al/2); txt(g,lx,ly+5,al+'°',{'font-weight':800,'font-size':13}); }
+  if(hl==='diameter'){ s('line',{x1:cx-R,y1:cy,x2:cx+R,y2:cy,stroke:'var(--f)','stroke-width':3},g); txt(g,cx,cy-10,'d = 2r = '+2*r+' cm',{'font-weight':800,fill:'var(--f)'}); }
+  s('circle',{cx,cy,r:5,fill:'var(--ink)'},g);
+  const K=2*pi*r, L=pi*r*r, bus=al/360*K, jur=al/360*L, tri=0.5*r*r*Math.sin(rad(al)), apo=r*Math.cos(rad(al/2));
+  let extra='';
+  if(hl==='tembereng'&&al>0&&al<360) extra=`<p><b>Luas tembereng</b> = luas juring − luas segitiga ≈ ${num(jur,2)} − ${num(tri,2)} = <b>${num(jur-tri,2)} cm²</b><br><span class="muted">${al>180?'Untuk α > 180°, luas segitiganya dihitung negatif (segitiga di luar juring).':''}</span></p>`;
+  if(hl==='tali'&&al>0&&al<360) extra=`<p><b>Tali busur</b> ≈ ${num(2*r*Math.sin(rad(al/2)),2)} cm, <b>apotema</b> ≈ ${num(Math.abs(apo),2)} cm<br><span class="muted">Apotema, setengah tali busur, dan jari-jari membentuk segitiga siku-siku: apotema² + (½ tali)² = r².</span></p>`;
+  $('#cOut').innerHTML=`<p class="muted">π = ${piT}${r%7===0?' (r kelipatan 7)':''}</p>
+   <p><b>Keliling</b> = 2πr = 2 × ${piT} × ${r} = <b>${num(K,2)} cm</b><br><b>Luas</b> = πr² = ${piT} × ${r}² = <b>${num(L,2)} cm²</b></p>
+   <p><b>Panjang busur</b> = ${F(al,360)} × ${num(K,2)} = <b style="color:var(--b)">${num(bus,2)} cm</b><br><b>Luas juring</b> = ${F(al,360)} × ${num(L,2)} = <b style="color:var(--acc)">${num(jur,2)} cm²</b></p>${extra}`;
+}
+['#r','#al'].forEach(x=>$(x).oninput=drawC); drawC();
+
+/* LAB sudut keliling */
+let cAng=250;
+function drawS(){
+  const th=+$('#th').value; $('#th-v').textContent=th+'°'; const g=$('#sv'); clear(g); const cx=200, cy=200, R=160;
+  const a0=270-th/2, a1=270+th/2; // A dan B simetris di bawah
+  const A=P(cx,cy,R,a0), B=P(cx,cy,R,a1), C=P(cx,cy,R,cAng);
+  s('circle',{cx,cy,r:R,fill:'none',stroke:'var(--ink)','stroke-width':2.5},g);
+  s('path',{d:`M${A[0]},${A[1]} A${R},${R} 0 ${th>180?1:0} 0 ${B[0]},${B[1]}`,fill:'none',stroke:'var(--acc)','stroke-width':7,'stroke-linecap':'round','stroke-opacity':.6},g);
+  s('path',{d:sector(cx,cy,30,a0,a1),fill:'var(--acc)','fill-opacity':.35,stroke:'var(--acc)'},g);
+  s('line',{x1:cx,y1:cy,x2:A[0],y2:A[1],stroke:'var(--acc)','stroke-width':2.5},g); s('line',{x1:cx,y1:cy,x2:B[0],y2:B[1],stroke:'var(--acc)','stroke-width':2.5},g);
+  s('line',{x1:C[0],y1:C[1],x2:A[0],y2:A[1],stroke:'var(--b)','stroke-width':2.5},g); s('line',{x1:C[0],y1:C[1],x2:B[0],y2:B[1],stroke:'var(--b)','stroke-width':2.5},g);
+  // sudut di C
+  const vA=Math.atan2(-(A[1]-C[1]),A[0]-C[0])*180/Math.PI, vB=Math.atan2(-(B[1]-C[1]),B[0]-C[0])*180/Math.PI; let d=vB-vA; while(d<=-180) d+=360; while(d>180) d-=360;
+  const st=d>0?vA:vB, en=st+Math.abs(d); s('path',{d:sector(C[0],C[1],26,st,en),fill:'var(--b)','fill-opacity':.35,stroke:'var(--b)'},g);
+  const angC=Math.abs(d);
+  [[A,'A'],[B,'B']].forEach(([p,l])=>{ s('circle',{cx:p[0],cy:p[1],r:6,fill:'var(--acc)'},g); txt(g,p[0]+(p[0]<cx?-14:14),p[1]+16,l,{'font-weight':800}); });
+  s('circle',{cx:C[0],cy:C[1],r:12,fill:'var(--b)',stroke:'var(--card)','stroke-width':3,style:'cursor:grab'},g); txt(g,C[0],C[1]+5,'C',{fill:'#fff','font-weight':800,'font-size':12});
+  s('circle',{cx,cy,r:4,fill:'var(--ink)'},g); txt(g,cx+12,cy-8,'O',{'font-weight':800});
+  VML.dragSvg(g, p=>Math.abs(Math.hypot(p.x-cx,p.y-cy)-R)<35?1:null, (k,p)=>{ let a=Math.atan2(cy-p.y,p.x-cx)*180/Math.PI; if(a<0) a+=360; // C tidak boleh tepat di A/B
+    const nA=(a0%360+360)%360, nB=(a1%360+360)%360; if(Math.min(Math.abs(a-nA),Math.abs(a-nB))<4) return; cAng=a; drawS(); });
+  // apakah C di busur mayor (tidak di busur AB)?
+  let rel=((cAng-a0)%360+360)%360; const onArcAB = rel>0 && rel<th;
+  const expect = onArcAB ? (360-th)/2 : th/2;
+  $('#sOut').innerHTML=`<div class="big"><span style="color:var(--acc)">∠AOB = ${th}°</span></div><div class="big"><span style="color:var(--b)">∠ACB ≈ ${num(angC,1)}°</span></div>
+   ${onArcAB?`<p>C berada pada busur AB yang diwarnai, jadi ∠ACB menghadap busur <b>lainnya</b> yang sudut pusatnya 360° − ${th}° = ${360-th}°.<br>∠ACB = ½ × ${360-th}° = <b>${num(expect,1)}°</b></p>`:`<p>∠ACB menghadap busur AB (oranye), sehingga ∠ACB = ½ × ∠AOB = ½ × ${th}° = <b>${num(expect,1)}°</b></p>`}
+   <p class="muted">Seret C ke mana pun di busur yang sama — besar ∠ACB tidak berubah.${th===180?' Saat ∠AOB = 180°, AB adalah diameter dan ∠ACB = 90°.':''}</p>`;
+}
+$('#th').oninput=drawS; drawS();
+
+/* LATIHAN */
+const rs7=[7,14,21,28,35], rsx=[5,10,20,30];
+VML.practice($('#prac'), [
+  {name:'Keliling & luas', gen(){ const use7=Math.random()<.6, r=use7?pick(rs7):pick(rsx), pi=use7?22/7:3.14, piT=use7?'22/7':'3,14', t=rand(0,2);
+    if(t===0) return {q:`Keliling lingkaran berjari-jari ${r} cm (π = ${piT}) adalah …`, a:String(VML.round(2*pi*r,4)), unit:'cm', hint:'K = 2πr', ex:`2 × ${piT} × ${r} = ${num(2*pi*r)}`};
+    if(t===1) return {q:`Luas lingkaran berdiameter ${2*r} cm (π = ${piT}) adalah …`, a:String(VML.round(pi*r*r,4)), unit:'cm²', hint:'r = d : 2, lalu L = πr²', ex:`${piT} × ${r}² = ${num(pi*r*r)}`};
+    return {q:`Keliling sebuah lingkaran ${num(2*pi*r)} cm (π = ${piT}). Berapa jari-jarinya?`, a:String(r), unit:'cm', hint:'r = K : (2π)', ex:`${num(2*pi*r)} : (2 × ${piT}) = ${r}`}; }},
+  {name:'Busur & juring', gen(){ const r=pick(rs7), al=pick([30,45,60,72,90,120,135,180,210,270]), K=2*22/7*r, L=22/7*r*r;
+    if(Math.random()<.5) return {q:`Panjang busur dengan sudut pusat ${al}° pada lingkaran berjari-jari ${r} cm (π = 22/7) adalah …`, a:String(VML.round(al/360*K,4)), unit:'cm', hint:'α/360° × 2πr', ex:`${al}/360 × ${num(K)} = ${num(al/360*K)}`};
+    return {q:`Luas juring dengan sudut pusat ${al}° pada lingkaran berjari-jari ${r} cm (π = 22/7) adalah …`, a:String(VML.round(al/360*L,4)), unit:'cm²', hint:'α/360° × πr²', ex:`${al}/360 × ${num(L)} = ${num(al/360*L)}`}; }},
+  {name:'Sudut pusat & keliling', gen(){ const p=rand(10,85)*2; if(Math.random()<.5) return {q:`Sudut pusat AOB = ${p}°. Berapa besar sudut keliling ACB yang menghadap busur AB?`, a:String(p/2), unit:'°', hint:'Sudut keliling = ½ sudut pusat.', ex:`½ × ${p}° = ${p/2}°`};
+    return {q:`Sudut keliling PRQ = ${p/2}°. Berapa besar sudut pusat POQ yang menghadap busur yang sama?`, a:String(p), unit:'°', hint:'Sudut pusat = 2 × sudut keliling.', ex:`2 × ${p/2}° = ${p}°`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Ruas garis yang menghubungkan titik pusat dengan titik pada lingkaran disebut …', o:['jari-jari','diameter','tali busur','apotema'], a:0, ex:'Jari-jari (r).'},
+ {q:'Daerah yang dibatasi dua jari-jari dan sebuah busur disebut …', o:['juring','tembereng','apotema','busur'], a:0, ex:'Juring berbentuk seperti potongan pizza.'},
+ {q:'Keliling lingkaran berjari-jari 7 cm (π = 22/7) adalah …', o:['44 cm','22 cm','154 cm','88 cm'], a:0, ex:'2 × 22/7 × 7 = 44.'},
+ {q:'Luas lingkaran berjari-jari 14 cm (π = 22/7) adalah …', o:['616 cm²','88 cm²','308 cm²','1.232 cm²'], a:0, ex:'22/7 × 196 = 616.'},
+ {q:'Luas lingkaran berdiameter 20 cm (π = 3,14) adalah …', o:['314 cm²','1.256 cm²','62,8 cm²','628 cm²'], a:0, ex:'r = 10 → 3,14 × 100 = 314.'},
+ {q:'Keliling sebuah lingkaran 88 cm (π = 22/7). Jari-jarinya adalah …', o:['14 cm','28 cm','7 cm','44 cm'], a:0, ex:'r = 88 : (2 × 22/7) = 14.'},
+ {q:'Panjang busur dengan sudut pusat 60° pada lingkaran berjari-jari 21 cm (π = 22/7) adalah …', o:['22 cm','44 cm','66 cm','11 cm'], a:0, ex:'60/360 × 132 = 22.'},
+ {q:'Luas juring dengan sudut pusat 90° pada lingkaran berjari-jari 14 cm (π = 22/7) adalah …', o:['154 cm²','616 cm²','308 cm²','44 cm²'], a:0, ex:'¼ × 616 = 154.'},
+ {q:'Sudut pusat AOB = 100°. Sudut keliling ACB yang menghadap busur AB besarnya …', o:['50°','100°','200°','80°'], a:0, ex:'½ × 100° = 50°.'},
+ {q:'Sudut keliling yang menghadap diameter besarnya …', o:['90°','180°','45°','60°'], a:0, ex:'Sudut pusatnya 180°, jadi sudut kelilingnya 90°.'},
+ {q:'Dua sudut keliling yang menghadap busur yang sama …', o:['besarnya sama','jumlahnya 180°','jumlahnya 90°','selalu 45°'], a:0, ex:'Keduanya sama dengan ½ sudut pusat yang sama.'},
+ {q:'Roda berjari-jari 35 cm berputar 100 kali (π = 22/7). Jarak yang ditempuh adalah …', o:['220 m','22 m','110 m','2.200 m'], a:0, ex:'100 × 220 cm = 22.000 cm = 220 m.'},
+ {q:'Hitung luas lingkaran berjari-jari 10 cm (π = 3,14).', input:true, a:['314'], unit:'cm²', ex:'3,14 × 100 = 314.'},
+ {q:'Sudut keliling ACB = 35°. Berapa sudut pusat AOB yang menghadap busur yang sama?', input:true, a:['70'], unit:'°', ex:'2 × 35° = 70°.'},
+ {q:'Panjang busur seperempat lingkaran berjari-jari 14 cm (π = 22/7) adalah …', o:['22 cm','44 cm','11 cm','154 cm'], a:0, ex:'¼ × 88 = 22.'}
+], 'k8m8');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

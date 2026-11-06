@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Math Lab · Kelas VII</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .home-hero{padding:40px 0 10px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+  .home-hero h1{font-size:clamp(2.1rem,6vw,3.4rem);letter-spacing:-.5px;margin:.25em 0}
+  .home-hero h1 em{font-style:normal;color:var(--acc)}
+  .home-hero p.lead{font-size:1.1rem;color:var(--muted);max-width:560px}
+  .stat{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px}
+  .stat div{font-size:.9rem;color:var(--muted)} .stat b{display:block;font-size:1.6rem;color:var(--ink)}
+  .board{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:10px}
+  .prog{height:6px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}.prog i{display:block;height:100%}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .feat div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .feat b{display:block;margin-bottom:4px}
+  @media (max-width:760px){.home-hero{grid-template-columns:1fr}.board{display:none}}
+</style>
+</head>
+<body style="--acc:#2f6bd8">
+<header class="top"><div class="wrap"><a class="back" href="../index.html">← Semua Kelas</a><div class="brand">🧪 Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="home-hero">
+  <div>
+    <span class="chip">Laboratorium Matematika Digital</span>
+    <h1>Coba, amati, lalu <em>temukan</em> sendiri konsepnya.</h1>
+    <p class="lead">Delapan modul Matematika Kelas VII. Setiap modul berisi materi ringkas, laboratorium interaktif, latihan acak yang tak pernah habis, dan kuis 15 soal dengan pembahasan.</p>
+    <div class="stat"><div><b>8</b>modul</div><div><b>16</b>lab interaktif</div><div><b>120</b>soal kuis</div><div><b id="avg">–</b>rata-rata nilaimu</div></div>
+  </div>
+  <div class="board"><svg viewBox="0 0 360 260" width="100%" aria-hidden="true">
+    <defs><pattern id="gp" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="var(--line)"/></pattern></defs>
+    <rect width="360" height="260" rx="16" fill="url(#gp)"/>
+    <line x1="20" y1="200" x2="340" y2="200" stroke="var(--ink)" stroke-width="2"/><line x1="60" y1="240" x2="60" y2="20" stroke="var(--ink)" stroke-width="2"/>
+    <polyline points="60,200 120,170 180,140 240,110 300,80" fill="none" stroke="#b36b00" stroke-width="3"/>
+    <path d="M70,40 Q120,150 300,190" fill="none" stroke="#1f9d55" stroke-width="3" stroke-dasharray="6 5"/>
+    <rect x="200" y="150" width="26" height="50" fill="#4b5bd6" opacity=".8"/><rect x="232" y="125" width="26" height="75" fill="#d9483b" opacity=".8"/><rect x="264" y="165" width="26" height="35" fill="#8a4fd1" opacity=".8"/>
+    <path d="M100,200 L150,200 A50,50 0 0 0 125.0,156.7 Z" fill="#0f8fa3" opacity=".5"/>
+    <polygon points="250,60 320,60 300,20" fill="#c93a7f" opacity=".35" stroke="#c93a7f" stroke-width="2"/>
+    <text x="160" y="40" font-size="22" font-weight="800" fill="var(--ink)">x + 3 = 7</text>
+  </svg></div>
+</section>
+
+<h2 style="margin-top:20px">Pilih modul</h2>
+<div class="mods" id="mods"></div>
+
+<div class="card"><h2>Cara memakai</h2>
+  <div class="feat">
+    <div><b>📘 Materi</b>Ringkasan konsep, rumus, dan contoh soal bertahap.</div>
+    <div><b>🧪 Lab</b>Geser, seret, dan ubah nilai. Perhatikan apa yang berubah dan apa yang tetap.</div>
+    <div><b>✏️ Latihan</b>Soal acak dengan beberapa tingkat. Ada petunjuk dan kesempatan mencoba dua kali.</div>
+    <div><b>🏆 Kuis</b>15 soal dengan penilaian otomatis, pembahasan, dan nilai terbaik yang tersimpan.</div>
+  </div>
+  <p class="muted" style="margin-top:12px">Untuk guru: semua berkas berjalan tanpa internet. Buka <b>index.html</b> di browser, atau unggah seluruh folder ke hosting (misalnya GitHub Pages) lalu sematkan alamatnya di Google Sites. Nilai terbaik disimpan di perangkat masing-masing siswa.</p>
+  <div class="row"><button class="btn ghost" id="reset">Hapus semua nilai di perangkat ini</button></div>
+</div>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Media Pembelajaran Matematika Interaktif SMP Kelas VII · Kurikulum Merdeka</div></footer>
+<script src="assets/core.js"></script>
+<script>
+const M=[
+ ['01-bilangan-bulat.html','Bilangan Bulat','Garis bilangan, keping positif-negatif, operasi hitung dan sifatnya.','±','#2f6bd8','m1'],
+ ['02-bilangan-rasional.html','Bilangan Rasional','Pecahan, desimal, persen, membandingkan, dan operasi hitung.','½','#d9483b','m2'],
+ ['03-bentuk-aljabar.html','Bentuk Aljabar','Variabel, suku sejenis, ubin aljabar, model luas perkalian.','x²','#8a4fd1','m3'],
+ ['04-persamaan-linear.html','Persamaan & Pertidaksamaan Linear','Neraca keseimbangan dan pertidaksamaan di garis bilangan.','=','#1f9d55','m4'],
+ ['05-rasio-perbandingan.html','Rasio & Perbandingan','Rasio, skala, perbandingan senilai dan berbalik nilai.',':','#b36b00','m5'],
+ ['06-garis-sudut.html','Garis dan Sudut','Busur derajat digital dan sudut pada garis sejajar.','∠','#0f8fa3','m6'],
+ ['07-bangun-datar.html','Segitiga & Segiempat','Sifat, keliling, luas, dan jumlah sudut segitiga.','△','#c93a7f','m7'],
+ ['08-data-diagram.html','Data dan Diagram','Tabel frekuensi, diagram, mean, median, modus.','▥','#4b5bd6','m8']];
+function render(){ let sum=0,cnt=0;
+  document.getElementById('mods').innerHTML=M.map(([f,t,d,ic,c,k],i)=>{ const b=VML.store.get(k); if(b!=null){sum+=b;cnt++;}
+    return `<a class="mod" href="${f}"><div class="ic" style="background:${c}">${ic}</div><span class="muted" style="font-size:.8rem;font-weight:700">MODUL ${i+1}</span><h3>${t}</h3><p>${d}</p>
+      <div class="best" style="color:${c}">${b!=null?'Nilai kuis terbaik: '+b:'Belum mengerjakan kuis'}</div><div class="prog"><i style="width:${b||0}%;background:${c}"></i></div></a>`; }).join('');
+  document.getElementById('avg').textContent = cnt ? Math.round(sum/cnt) : '–'; }
+render();
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis yang tersimpan di perangkat ini?')){ M.forEach(m=>{ try{localStorage.removeItem('vml7:'+m[5]);}catch(e){} }); render(); } };
+window.addEventListener('pageshow',render);
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perkalian & Pembagian · Virtual Math Lab SD III</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#1fa36b">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Bilangan</span>
+  <h1>✖️ Perkalian &amp; Pembagian</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami perkalian sebagai penjumlahan berulang dan susunan baris.</li>
+    <li>Memahami pembagian sebagai pembagian sama rata dan pengurangan berulang.</li>
+    <li>Menghafal perkalian 1–10 dan menyelesaikan soal cerita.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🌸 Lab Kebun Bunga</button><button data-target="bagi">🍬 Lab Bagi Permen</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Perkalian = penjumlahan berulang</h2>
+    <div class="ex">4 × 3 = 3 + 3 + 3 + 3 = <b>12</b> &nbsp;(4 kelompok, masing-masing 3)</div>
+    <p>Perkalian juga bisa digambar sebagai <b>susunan baris</b>: 4 baris, setiap baris 3 bunga.</p>
+    <div class="note">Sifat pertukaran: 4 × 3 = 3 × 4 = 12. Urutannya boleh ditukar, hasilnya sama!</div>
+  </div>
+  <div class="card"><h2>2. Pembagian = membagi sama rata</h2>
+    <div class="ex">12 : 4 = <b>3</b> &nbsp;(12 permen dibagi rata ke 4 anak, setiap anak mendapat 3)</div>
+    <p>Pembagian juga <b>pengurangan berulang</b>: 12 − 4 − 4 − 4 = 0 → dikurangi 3 kali, jadi 12 : 4 = 3.</p>
+    <div class="def">Perkalian dan pembagian saling berkebalikan: 4 × 3 = 12 &nbsp;⇄&nbsp; 12 : 4 = 3 dan 12 : 3 = 4</div>
+  </div>
+  <div class="card"><h2>3. Trik perkalian</h2>
+    <div class="grid3"><div class="ex"><span class="t">× 1 dan × 0</span><br>7 × 1 = 7, 7 × 0 = 0</div><div class="ex"><span class="t">× 10</span><br>Tambahkan angka 0: 6 × 10 = 60</div><div class="ex"><span class="t">× 9</span><br>9 × 6: kurangkan 1 dari 6 → 5, lalu 9 − 5 = 4 → 54</div></div>
+  </div>
+  <div class="card"><h2>4. Soal cerita</h2>
+    <div class="grid2"><div class="ex">Ada 5 kotak, setiap kotak berisi 8 kue. Semua kue = 5 × 8 = <b>40</b>.</div><div class="ex">36 kelereng dibagi rata kepada 6 anak. Setiap anak = 36 : 6 = <b>6</b>.</div></div>
+    <p>Kata kunci: <b>setiap, masing-masing, … kali</b> → kali. <b>Dibagi rata, sama banyak</b> → bagi.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Kebun Bunga</h2>
+    <p>Atur banyak baris dan banyak bunga di setiap baris. Ketuk tombol <b>Putar</b> untuk melihat bahwa hasil kalinya tetap sama!</p>
+    <div class="ctrl"><label>Banyak baris <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="10" value="4"></label><label>Bunga per baris <span class="v" id="c-v"></span><input type="range" id="c" min="1" max="10" value="3"></label></div>
+    <div class="row"><button class="btn soft" id="rot">🔄 Putar kebun</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="gd" viewBox="0 0 400 400"></svg><div class="out" id="gOut"></div></div>
+  </div>
+  <div class="card"><h2>Tabel Perkalian</h2><p>Ketuk satu kotak untuk melihat perkaliannya.</p><div class="scroll"><table class="t" id="tbl"></table></div><div class="out" id="tOut"></div></div>
+</section>
+
+<section id="bagi" class="panel">
+  <div class="card"><h2>Lab: Bagi Permen Sama Rata</h2>
+    <p>Tekan <b>Bagikan</b> untuk membagi permen satu per satu ke setiap piring, bergiliran.</p>
+    <div class="ctrl"><label>Banyak permen <span class="v" id="n-v"></span><input type="range" id="n" min="1" max="40" value="12"></label><label>Banyak piring (anak) <span class="v" id="k-v"></span><input type="range" id="k" min="1" max="6" value="4"></label></div>
+    <div class="row"><button class="btn" id="go">🍬 Bagikan</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <svg class="viz" id="pl" viewBox="0 0 720 260" style="margin-top:10px"></svg>
+    <div class="out" id="pOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas III · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const FL=['🌷','🌻','🌼','🌸','🌺'];
+let rot=false;
+function drawG(){
+  let r=+$('#r').value, c=+$('#c').value; $('#r-v').textContent=r; $('#c-v').textContent=c; if(rot) [r,c]=[c,r];
+  const g=$('#gd'); clear(g); const S=Math.min(36, 360/Math.max(r,c));
+  for(let i=0;i<r;i++){ s('rect',{x:20,y:20+i*S,width:c*S,height:S-4,rx:8,fill:'#a8e6cf','fill-opacity':.5},g); for(let j=0;j<c;j++) txt(g,20+j*S+S/2,20+i*S+S*0.72,FL[i%5],{'font-size':S*0.75}); txt(g,20+c*S+8,20+i*S+S*0.65,String(c),{'font-size':12,'text-anchor':'start',fill:'var(--muted)'}); }
+  const R=+$('#r').value, C=+$('#c').value;
+  $('#gOut').innerHTML=`<div class="big">${r} baris × ${c} bunga</div><p>${Array(r).fill(c).join(' + ')} = <b>${r*c}</b></p><div class="huge">${r} × ${c} = ${r*c}</div>${rot?`<p>🔄 Setelah diputar, ${C} × ${R} menjadi ${R} × ${C} — jumlah bunganya tetap ${R*C}!</p>`:''}
+   <p class="muted">Pembagian yang berkaitan: ${r*c} : ${r} = ${c} dan ${r*c} : ${c} = ${r}</p>`;
+}
+['#r','#c'].forEach(x=>$(x).oninput=drawG); $('#rot').onclick=()=>{ rot=!rot; drawG(); }; drawG();
+// tabel
+let sel=[7,8];
+function drawT(){ let h='<tr><th>×</th>'+[...Array(10)].map((_,j)=>`<th>${j+1}</th>`).join('')+'</tr>';
+  for(let i=1;i<=10;i++){ h+=`<tr><th>${i}</th>`+[...Array(10)].map((_,j)=>{ const on=i===sel[0]&&j+1===sel[1], line=i===sel[0]||j+1===sel[1]; return `<td data-ij="${i},${j+1}" style="cursor:pointer;${on?'background:var(--acc);color:#fff;font-weight:900':line?'background:var(--acc-soft)':''}">${i*(j+1)}</td>`; }).join('')+'</tr>'; }
+  $('#tbl').innerHTML=h; document.querySelectorAll('#tbl [data-ij]').forEach(td=>td.onclick=()=>{ sel=td.dataset.ij.split(',').map(Number); drawT(); });
+  $('#tOut').innerHTML=`<div class="big">${sel[0]} × ${sel[1]} = ${sel[0]*sel[1]}</div><p>${sel[1]} × ${sel[0]} = ${sel[0]*sel[1]} juga · ${sel[0]*sel[1]} : ${sel[0]} = ${sel[1]}</p>`; }
+drawT();
+
+/* bagi permen */
+let given=0, timer=null;
+function drawP(){
+  const n=+$('#n').value, k=+$('#k').value; $('#n-v').textContent=n; $('#k-v').textContent=k; given=Math.min(given,n);
+  const g=$('#pl'); clear(g); const W=VML.narrow()?440:720, pw=(W-20)/k; g.setAttribute('viewBox',`0 0 ${W} 260`);
+  const left=n-given; for(let i=0;i<left;i++) txt(g,20+(i%20)*((W-40)/20),30+Math.floor(i/20)*24,'🍬',{'font-size':18});
+  for(let p=0;p<k;p++){ const cx=10+p*pw+pw/2; s('ellipse',{cx,cy:200,rx:pw*0.42,ry:26,fill:'#fff',stroke:'var(--d)','stroke-width':3},g); txt(g,cx,248,'🧒',{'font-size':22});
+    const got=Math.floor(given/k)+(p<given%k?1:0); for(let i=0;i<got;i++) txt(g,cx-pw*0.3+(i%4)*(pw*0.2),190-Math.floor(i/4)*20,'🍬',{'font-size':16}); }
+  const q=Math.floor(n/k), r=n%k, done=given>=n;
+  $('#pOut').innerHTML=done?`<div class="big">${n} : ${k} = ${q}${r?` sisa ${r}`:''}</div><p>Setiap anak mendapat <b>${q}</b> permen${r?`, tetapi ada <b>${r}</b> permen yang tidak bisa dibagi rata`:''}.</p><p class="muted">Cek: ${k} × ${q}${r?` + ${r}`:''} = ${n}</p>`:`<p>Permen yang belum dibagi: <b>${left}</b>. Sudah dibagi: ${given}.</p>`;
+}
+$('#go').onclick=()=>{ clearInterval(timer); const n=+$('#n').value, k=+$('#k').value, stopAt=n-(n%k); timer=setInterval(()=>{ if(given>=stopAt){ given=n; clearInterval(timer); } else given++; drawP(); },140); };
+$('#rs').onclick=()=>{ clearInterval(timer); given=0; drawP(); };
+['#n','#k'].forEach(x=>$(x).oninput=()=>{ clearInterval(timer); given=0; drawP(); }); drawP(); VML.onResize(drawP);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Perkalian', gen(){ const a=rand(2,10), b=rand(2,10); return {q:`${a} × ${b} = …`, a:String(a*b), hint:`${Array(Math.min(a,b)).fill(Math.max(a,b)).join(' + ')}`, ex:String(a*b)}; }},
+  {name:'Pembagian', gen(){ const a=rand(2,10), b=rand(2,10); return {q:`${a*b} : ${a} = …`, a:String(b), hint:`${a} × berapa = ${a*b}?`, ex:`${a} × ${b} = ${a*b}`}; }},
+  {name:'Isi kotak', gen(){ const a=rand(2,10), b=rand(2,10); return Math.random()<.5?{q:`${a} × … = ${a*b}`, a:String(b), hint:`${a*b} : ${a}`, ex:String(b)}:{q:`… : ${b} = ${a}`, a:String(a*b), hint:`${a} × ${b}`, ex:String(a*b)}; }},
+  {name:'Soal cerita', gen(){ const t=rand(0,1), a=rand(2,9), b=rand(2,9), it=pick([['kotak','kue'],['ikat','bunga'],['keranjang','jeruk'],['baris','kursi']]);
+    if(t===0) return {q:`Ada ${a} ${it[0]}. Setiap ${it[0]} berisi ${b} ${it[1]}. Berapa ${it[1]} semuanya?`, a:String(a*b), hint:'"Setiap" → kali.', ex:`${a} × ${b} = ${a*b}`};
+    return {q:`${a*b} ${it[1]} dibagi rata ke ${a} ${it[0]}. Berapa ${it[1]} di setiap ${it[0]}?`, a:String(b), hint:'"Dibagi rata" → bagi.', ex:`${a*b} : ${a} = ${b}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'4 × 3 sama dengan …', o:['3 + 3 + 3 + 3','4 + 3','4 + 4 + 4 + 4','3 + 4 + 3'], a:0, ex:'4 kelompok berisi 3.'},
+ {q:'6 × 7 = …', o:['42','36','48','13'], a:0, ex:'Hafalan perkalian.'},
+ {q:'8 × 9 = …', o:['72','81','64','17'], a:0, ex:'9 × 8: 8 − 1 = 7, 9 − 7 = 2 → 72.'},
+ {q:'5 × 0 = …', o:['0','5','1','50'], a:0, ex:'Dikali 0 hasilnya 0.'},
+ {q:'Jika 4 × 3 = 12, maka 3 × 4 = …', o:['12','7','43','1'], a:0, ex:'Sifat pertukaran.'},
+ {q:'12 : 4 = …', o:['3','4','8','16'], a:0, ex:'4 × 3 = 12.'},
+ {q:'56 : 8 = …', o:['7','6','8','48'], a:0, ex:'8 × 7 = 56.'},
+ {q:'Kalimat pembagian dari 5 × 6 = 30 adalah …', o:['30 : 5 = 6','30 : 6 = 30','5 : 6 = 30','6 : 30 = 5'], a:0, ex:'Berkebalikan.'},
+ {q:'Ada 5 kotak, setiap kotak berisi 8 kue. Jumlah kue …', o:['40','13','58','35'], a:0, ex:'5 × 8.'},
+ {q:'36 kelereng dibagi rata kepada 6 anak. Setiap anak mendapat …', o:['6','30','42','5'], a:0, ex:'36 : 6.'},
+ {q:'17 permen dibagi rata kepada 5 anak. Sisa permennya …', o:['2','3','12','0'], a:0, ex:'5 × 3 = 15, sisa 2.'},
+ {q:'7 × 10 = …', o:['70','17','710','700'], a:0, ex:'Tambah angka 0.'},
+ {q:'Hitunglah 9 × 6.', input:true, a:['54'], ex:'9 × 6 = 54.'},
+ {q:'Hitunglah 63 : 7.', input:true, a:['9'], ex:'7 × 9 = 63.'},
+ {q:'Ada 24 kursi disusun menjadi 4 baris sama panjang. Setiap baris berisi …', o:['6 kursi','8 kursi','20 kursi','4 kursi'], a:0, ex:'24 : 4.'}
+], 'sd3m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

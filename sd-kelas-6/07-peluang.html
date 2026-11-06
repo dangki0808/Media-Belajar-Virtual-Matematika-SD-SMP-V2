@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peluang · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#b0479c">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 7 · Peluang</span>
+  <h1>🎡 Peluang Sederhana</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menjelaskan kejadian pasti, mungkin, dan mustahil.</li>
+    <li>Menentukan semua hasil yang mungkin dan peluang suatu kejadian sederhana.</li>
+    <li>Melakukan percobaan dan membandingkan hasilnya dengan peluang.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🎡 Lab Roda Putar</button><button data-target="kantong">👜 Lab Kantong Kelereng</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Pasti, mungkin, atau mustahil?</h2>
+    <svg class="viz" id="scale" viewBox="0 0 720 140"></svg>
+    <div class="grid3"><div class="ex"><span class="t">Mustahil (peluang 0)</span><br>Dadu biasa muncul mata 7.</div><div class="ex"><span class="t">Mungkin</span><br>Besok hujan. Koin muncul gambar.</div><div class="ex"><span class="t">Pasti (peluang 1)</span><br>Matahari terbit dari timur.</div></div>
+  </div>
+  <div class="card"><h2>2. Semua hasil yang mungkin</h2>
+    <ul><li>Koin: <b>angka</b> atau <b>gambar</b> → 2 hasil.</li><li>Dadu: 1, 2, 3, 4, 5, 6 → 6 hasil.</li><li>Kantong berisi 3 kelereng merah dan 2 biru → 5 hasil.</li></ul>
+  </div>
+  <div class="card"><h2>3. Menghitung peluang</h2>
+    <div class="def">Peluang = <span class="fr"><span>banyak hasil yang diharapkan</span><span>banyak semua hasil yang mungkin</span></span></div>
+    <div class="grid2">
+      <div class="ex">Peluang koin muncul gambar = <span class="fr"><span>1</span><span>2</span></span></div>
+      <div class="ex">Peluang dadu muncul bilangan genap (2, 4, 6) = <span class="fr"><span>3</span><span>6</span></span> = <span class="fr"><span>1</span><span>2</span></span></div>
+      <div class="ex">Kantong 3 merah, 2 biru. Peluang terambil biru = <span class="fr"><span>2</span><span>5</span></span></div>
+      <div class="ex">Peluang dadu muncul angka lebih dari 4 (5, 6) = <span class="fr"><span>2</span><span>6</span></span> = <span class="fr"><span>1</span><span>3</span></span></div>
+    </div>
+    <div class="note">Peluang selalu di antara 0 dan 1. Makin dekat ke 1, makin besar kemungkinan terjadinya.</div>
+  </div>
+  <div class="card"><h2>4. Percobaan</h2>
+    <p>Jika koin dilempar 10 kali, belum tentu muncul gambar tepat 5 kali. Tetapi jika dilempar <b>sangat banyak</b>, banyaknya gambar akan mendekati setengahnya. Coba di Lab!</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Roda Putar Warna</h2>
+    <p>Atur banyak bagian setiap warna, lalu putar rodanya!</p>
+    <div class="ctrl" id="sl"></div>
+    <div class="row"><button class="btn" id="sp1">🎡 Putar 1×</button><button class="btn soft" id="sp20">20×</button><button class="btn soft" id="sp200">200×</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="wh" viewBox="0 0 360 360" style="max-width:380px;margin:0 auto"></svg><div class="out" id="wo"></div></div>
+  </div>
+</section>
+
+<section id="kantong" class="panel">
+  <div class="card"><h2>Lab: Kantong Kelereng</h2>
+    <p>Isi kantong dengan kelereng, lalu tebak warna mana yang paling mungkin terambil. Ambil satu kelereng (lalu dikembalikan).</p>
+    <div class="ctrl"><label style="color:var(--b)">Merah <span class="v" id="m-v"></span><input type="range" id="m" min="0" max="10" value="5"></label><label style="color:var(--a)">Biru <span class="v" id="bl-v"></span><input type="range" id="bl" min="0" max="10" value="3"></label><label style="color:var(--c)">Hijau <span class="v" id="h-v"></span><input type="range" id="h" min="0" max="10" value="2"></label></div>
+    <div class="row"><button class="btn" id="take">✋ Ambil 1</button><button class="btn soft" id="take50">Ambil 50 kali</button><button class="btn ghost" id="krs">Ulang hitungan</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="bag" viewBox="0 0 360 320"></svg><div class="out" id="bo"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Peluang ditulis sebagai pecahan, misalnya 1/2. Untuk soal pasti/mungkin/mustahil, tulis kata itu.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 7</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F, fracHTML, fracTxt} = VML;
+
+(function(){ const g=$('#scale'); const L=40, R=680;
+  const grd=s('linearGradient',{id:'pg',x1:0,x2:1},s('defs',{},g)); [['0','#ff6b8b'],['0.5','#f5b800'],['1','#22b07d']].forEach(([o,c])=>s('stop',{offset:o,'stop-color':c},grd));
+  s('rect',{x:L,y:50,width:R-L,height:22,rx:11,fill:'url(#pg)'},g);
+  [[0,'0','mustahil'],[0.5,'½','sama kuat'],[1,'1','pasti']].forEach(([v,a,b])=>{ const x=L+v*(R-L); txt(g,x,40,a,{'font-weight':800,'font-size':18}); txt(g,x,100,b,{'font-weight':700}); });
+  txt(g,L+0.2*(R-L),125,'kecil kemungkinannya',{fill:'var(--muted)','font-size':13}); txt(g,L+0.8*(R-L),125,'besar kemungkinannya',{fill:'var(--muted)','font-size':13}); })();
+
+/* roda */
+const WC=[['Merah','#ff5a6e',3],['Kuning','#f5b800',2],['Biru','#3d7bff',1]];
+let cnt=[0,0,0], tot=0, rot=0, spinning=false;
+$('#sl').innerHTML=WC.map(([n,c,v],i)=>`<label style="color:${c}">${n} <span class="v" id="w${i}-v">${v}</span><input type="range" data-i="${i}" min="0" max="6" value="${v}"></label>`).join('');
+document.querySelectorAll('#sl input').forEach(x=>x.oninput=()=>{ WC[+x.dataset.i][2]=+x.value; $('#w'+x.dataset.i+'-v').textContent=x.value; if(WC.every(w=>w[2]===0)){ WC[0][2]=1; document.querySelector('#sl input').value=1; $('#w0-v').textContent=1; } cnt=[0,0,0]; tot=0; drawW(); });
+const segs=()=>{ const a=[]; WC.forEach(([n,c,v],i)=>{ for(let k=0;k<v;k++) a.push(i); }); return a; };
+function drawW(last){
+  const sg=segs(), n=sg.length, g=$('#wh'); clear(g); const cx=180, cy=185, R=150;
+  const w=s('g',{transform:`rotate(${rot} ${cx} ${cy})`},g);
+  sg.forEach((ci,k)=>{ const a0=(k*360/n-90)*Math.PI/180, a1=((k+1)*360/n-90)*Math.PI/180;
+    if(n===1) s('circle',{cx,cy,r:R,fill:WC[ci][1]},w); else s('path',{d:`M${cx},${cy} L${cx+R*Math.cos(a0)},${cy+R*Math.sin(a0)} A${R},${R} 0 ${360/n>180?1:0} 1 ${cx+R*Math.cos(a1)},${cy+R*Math.sin(a1)} Z`,fill:WC[ci][1],stroke:'#fff','stroke-width':3},w); });
+  s('circle',{cx,cy,r:16,fill:'#fff',stroke:'var(--ink)','stroke-width':3},g);
+  s('path',{d:`M${cx},${cy-R-4} l-14,-26 h28 z`,fill:'var(--ink)'},g);
+  const total=n;
+  $('#wo').innerHTML=`${last!==undefined?`<div class="big">Hasil: <span style="color:${WC[last][1]}">${WC[last][0]}</span>!</div>`:''}
+   <table class="t"><tr><th>Warna</th><th>Peluang</th><th>Muncul</th><th>Dari percobaan</th></tr>${WC.map(([nm,c,v],i)=>`<tr><td style="color:${c};font-weight:800">${nm}</td><td>${v?F(v,total):'0'}</td><td>${cnt[i]}</td><td>${tot?F(cnt[i],tot):'—'}</td></tr>`).join('')}</table>
+   <p>Diputar <b>${tot}</b> kali. ${tot>=100?'Hasil percobaan sudah mendekati peluangnya!':'Putar lebih banyak untuk melihat polanya.'}</p>`;
+}
+const pickSeg=()=>{ const sg=segs(), k=rand(0,sg.length-1); return [sg[k],k,sg.length]; };
+$('#sp1').onclick=()=>{ if(spinning) return; spinning=true; const [ci,k,n]=pickSeg(); const target=360*5+(360-((k+0.5)*360/n)); const start=rot%360, t0=performance.now();
+  const st=now=>{ const p=Math.min(1,(now-t0)/1800), e=1-Math.pow(1-p,3); rot=start+(target-start)*e; drawW(); if(p<1) requestAnimationFrame(st); else { spinning=false; rot=target%360; cnt[ci]++; tot++; drawW(ci); } }; requestAnimationFrame(st); };
+const many=n=>{ if(spinning) return; for(let i=0;i<n;i++){ const [ci]=pickSeg(); cnt[ci]++; tot++; } drawW(); };
+$('#sp20').onclick=()=>many(20); $('#sp200').onclick=()=>many(200); $('#rs').onclick=()=>{ cnt=[0,0,0]; tot=0; drawW(); };
+drawW();
+
+/* kantong */
+const KC=[['merah','#ff5a6e','m'],['biru','#3d7bff','bl'],['hijau','#22b07d','h']];
+let kc=[0,0,0], kt=0, lastK=null;
+function drawK(){
+  const n=KC.map(k=>+$('#'+k[2]).value); KC.forEach((k,i)=>$('#'+k[2]+'-v').textContent=n[i]); const T=n.reduce((a,b)=>a+b,0);
+  const g=$('#bag'); clear(g);
+  s('path',{d:'M60,110 Q40,300 180,300 Q320,300 300,110 Z',fill:'#e8d3b0',stroke:'#a07b4a','stroke-width':3},g); s('path',{d:'M70,110 Q180,70 290,110',fill:'none',stroke:'#a07b4a','stroke-width':4},g);
+  let k=0; KC.forEach((c,i)=>{ for(let j=0;j<n[i];j++){ const col=k%7, row=Math.floor(k/7); s('circle',{cx:95+col*28+(row%2)*14,cy:275-row*26,r:12,fill:c[1],stroke:'#fff','stroke-width':2},g); k++; } });
+  if(lastK!==null){ s('circle',{cx:300,cy:50,r:22,fill:KC[lastK][1],stroke:'#fff','stroke-width':3},g); txt(g,300,92,'terambil!',{'font-weight':800,'font-size':13}); txt(g,250,56,'✋',{'font-size':28}); }
+  if(!T){ $('#bo').innerHTML='Kantong kosong — isi dulu kelerengnya!'; return; }
+  const best=Math.max(...n), likely=KC.filter((_,i)=>n[i]===best).map(c=>c[0]);
+  $('#bo').innerHTML=`<p>Semua kelereng: <b>${T}</b></p><table class="t"><tr><th>Warna</th><th>Peluang</th><th>Terambil</th></tr>${KC.map((c,i)=>`<tr><td style="color:${c[1]};font-weight:800">${c[0]}</td><td>${F(n[i],T)}${n[i]&&VML.gcd(n[i],T)>1?' = '+fracHTML(n[i],T):''}${n[i]===0?' (mustahil)':n[i]===T?' (pasti)':''}</td><td>${kc[i]}</td></tr>`).join('')}</table>
+   <p>Warna yang paling mungkin terambil: <b>${likely.join(' dan ')}</b>.</p><p class="muted">Sudah diambil ${kt} kali.</p>`;
+}
+const takeOne=()=>{ const n=KC.map(k=>+$('#'+k[2]).value), T=n.reduce((a,b)=>a+b,0); if(!T) return null; let r=rand(1,T); for(let i=0;i<3;i++){ if(r<=n[i]) return i; r-=n[i]; } };
+$('#take').onclick=()=>{ const i=takeOne(); if(i===null) return; kc[i]++; kt++; lastK=i; drawK(); };
+$('#take50').onclick=()=>{ for(let j=0;j<50;j++){ const i=takeOne(); if(i===null) return; kc[i]++; kt++; lastK=i; } drawK(); };
+$('#krs').onclick=()=>{ kc=[0,0,0]; kt=0; lastK=null; drawK(); };
+['#m','#bl','#h'].forEach(x=>$(x).oninput=()=>{ kc=[0,0,0]; kt=0; lastK=null; drawK(); }); drawK();
+
+/* LATIHAN */
+const EV=[['matahari terbit dari timur','pasti'],['dadu biasa muncul mata 7','mustahil'],['koin yang dilempar muncul gambar','mungkin'],['besok turun hujan','mungkin'],['seminggu ada 7 hari','pasti'],['ayam bertelur emas','mustahil'],['dadu muncul angka kurang dari 7','pasti'],['memutar roda warna dan mendapat merah','mungkin'],['bulan Februari ada 35 hari','mustahil']];
+VML.practice($('#prac'), [
+  {name:'Pasti/mungkin/mustahil', gen(){ const [e,a]=pick(EV); return {q:`Kejadian "${e}" termasuk kejadian …`, a:[a], show:a, hint:'Pasti selalu terjadi, mustahil tidak pernah terjadi.', ex:a}; }},
+  {name:'Dadu & koin', gen(){ const E=[['bilangan genap',[2,4,6]],['bilangan ganjil',[1,3,5]],['angka 4',[4]],['angka lebih dari 4',[5,6]],['angka kurang dari 3',[1,2]],['bilangan prima',[2,3,5]],['angka lebih dari 2',[3,4,5,6]]], [n,a]=pick(E);
+    return {q:`Sebuah dadu dilempar. Peluang muncul ${n} adalah …`, a:fracTxt(a.length,6), hint:'Ada 6 hasil yang mungkin.', ex:`{${a.join(', ')}} → ${F(a.length,6)}${VML.gcd(a.length,6)>1?' = '+fracHTML(a.length,6):''}`}; }},
+  {name:'Kantong', gen(){ const m=rand(1,8), b=rand(1,8), h=rand(0,6), T=m+b+h, w=pick(h?['merah','biru','hijau']:['merah','biru']); const v={merah:m,biru:b,hijau:h}[w];
+    return {q:`Kantong berisi ${m} kelereng merah, ${b} biru${h?`, dan ${h} hijau`:''}. Satu kelereng diambil. Peluang terambil kelereng ${w} adalah …`, a:fracTxt(v,T), hint:`Semua kelereng ada ${T}.`, ex:`${F(v,T)}${VML.gcd(v,T)>1?' = '+fracHTML(v,T):''}`}; }},
+  {name:'Harapan', gen(){ const n=pick([20,40,60,100,120]); if(Math.random()<.5) return {q:`Koin dilempar ${n} kali. Kira-kira berapa kali muncul gambar?`, a:String(n/2), unit:'kali', hint:'Peluang ½ dikali banyak lemparan.', ex:`½ × ${n} = ${n/2}`};
+    const m=pick([60,120,180,240,300]); return {q:`Dadu dilempar ${m} kali. Kira-kira berapa kali muncul angka 6?`, a:String(m/6), unit:'kali', hint:'Peluang 1/6 dikali banyak lemparan.', ex:`1/6 × ${m} = ${m/6}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Kejadian "matahari terbit dari timur" termasuk kejadian …', o:['pasti','mustahil','mungkin','jarang'], a:0, ex:'Selalu terjadi.'},
+ {q:'Kejadian "dadu biasa muncul mata 7" termasuk kejadian …', o:['mustahil','pasti','mungkin','sering'], a:0, ex:'Dadu hanya 1–6.'},
+ {q:'Banyak hasil yang mungkin saat melempar satu dadu adalah …', o:['6','2','1','12'], a:0, ex:'1, 2, 3, 4, 5, 6.'},
+ {q:'Peluang muncul gambar pada pelemparan satu koin adalah …', o:[F(1,2),'1','0',F(1,6)], a:0, ex:'1 dari 2 hasil.'},
+ {q:'Peluang muncul bilangan genap pada pelemparan dadu adalah …', o:[F(1,2),F(1,3),F(1,6),F(2,3)], a:0, ex:'3/6 = 1/2.'},
+ {q:'Peluang muncul angka 5 pada pelemparan dadu adalah …', o:[F(1,6),F(5,6),F(1,5),F(1,2)], a:0, ex:'1 dari 6.'},
+ {q:'Kantong berisi 3 kelereng merah dan 2 biru. Peluang terambil biru …', o:[F(2,5),F(2,3),F(3,5),F(1,2)], a:0, ex:'2 dari 5.'},
+ {q:'Kantong berisi 4 merah dan 4 kuning. Peluang terambil merah …', o:[F(1,2),F(1,4),'1',F(4,1)], a:0, ex:'4/8 = 1/2.'},
+ {q:'Peluang suatu kejadian yang pasti terjadi adalah …', o:['1','0',F(1,2),'100'], a:0, ex:'Pasti → 1.'},
+ {q:'Peluang muncul angka lebih dari 4 pada dadu adalah …', o:[F(1,3),F(1,2),F(4,6),F(1,6)], a:0, ex:'{5, 6} → 2/6 = 1/3.'},
+ {q:'Koin dilempar 40 kali. Kira-kira gambar muncul …', o:['20 kali','40 kali','10 kali','4 kali'], a:0, ex:'½ × 40.'},
+ {q:'Roda putar terdiri atas 4 bagian merah dan 2 bagian biru yang sama besar. Warna yang lebih mungkin muncul …', o:['merah','biru','sama saja','tidak dapat ditebak'], a:0, ex:'Merah 4/6, biru 2/6.'},
+ {q:'Kantong berisi 5 kelereng merah, 3 biru, dan 2 hijau. Peluang terambil hijau? (tulis pecahan)', input:true, a:['2/10','1/5'], ex:'2/10 = 1/5.'},
+ {q:'Dadu dilempar 60 kali. Kira-kira berapa kali muncul angka 3?', input:true, a:['10'], unit:'kali', ex:'1/6 × 60 = 10.'},
+ {q:'Kejadian "besok hujan" termasuk kejadian …', o:['mungkin','pasti','mustahil','tidak ada'], a:0, ex:'Bisa terjadi, bisa tidak.'}
+], 'sd6m7');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

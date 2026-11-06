@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perkalian & Pembagian Awal · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#3a9e2f">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Bilangan</span>
+  <h1>🥚 Perkalian &amp; Pembagian Awal</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami perkalian sebagai kelompok yang sama banyak (penjumlahan berulang).</li>
+    <li>Memahami pembagian sebagai berbagi sama rata.</li>
+    <li>Menghafal perkalian 2, 3, 4, 5, dan 10.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧺 Lab Keranjang Telur</button><button data-target="bagi">🐔 Lab Kandang Ayam</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Kelompok sama banyak</h2>
+    <p>Ada <b>3 keranjang</b>, setiap keranjang berisi <b>4 telur</b>.</p>
+    <div class="ex">4 + 4 + 4 = 12 &nbsp; ditulis <b>3 × 4 = 12</b> &nbsp; (dibaca: tiga kali empat)</div>
+    <div class="note">Angka pertama = banyak kelompok. Angka kedua = isi setiap kelompok.</div>
+  </div>
+  <div class="card"><h2>2. Perkalian yang mudah</h2>
+    <div class="grid3"><div class="ex"><span class="t">× 2</span><br>2, 4, 6, 8, 10, 12, …<br>(dobel!)</div><div class="ex"><span class="t">× 5</span><br>5, 10, 15, 20, 25, …<br>(seperti jari tangan)</div><div class="ex"><span class="t">× 10</span><br>10, 20, 30, 40, …<br>(tambah 0)</div></div>
+  </div>
+  <div class="card"><h2>3. Pembagian = berbagi sama rata</h2>
+    <div class="ex">12 telur dimasukkan ke 3 kandang sama banyak. Setiap kandang <b>4 telur</b>. Ditulis <b>12 : 3 = 4</b>.</div>
+    <p>Pembagian adalah kebalikan perkalian: karena 3 × 4 = 12, maka 12 : 3 = 4.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Keranjang Telur</h2>
+    <div class="ctrl"><label>Banyak keranjang <span class="v" id="k-v"></span><input type="range" id="k" min="1" max="6" value="3"></label><label>Telur per keranjang <span class="v" id="t-v"></span><input type="range" id="t" min="1" max="10" value="4"></label></div>
+    <svg class="viz" id="bg" viewBox="0 0 720 250"></svg>
+    <div class="out" id="bOut"></div>
+  </div>
+</section>
+
+<section id="bagi" class="panel">
+  <div class="card"><h2>Lab: Ayam Masuk Kandang</h2>
+    <p>Ketuk ayam di lapangan untuk memasukkannya ke kandang yang paling sedikit isinya. Apakah semua kandang bisa sama rata?</p>
+    <div class="ctrl"><label>Banyak ayam <span class="v" id="n-v"></span><input type="range" id="n" min="2" max="30" value="12"></label><label>Banyak kandang <span class="v" id="c-v"></span><input type="range" id="c" min="2" max="5" value="3"></label></div>
+    <div class="row"><button class="btn soft" id="all">🐔 Masukkan semua</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <svg class="viz" id="kg" viewBox="0 0 720 300" style="margin-top:10px"></svg>
+    <div class="out" id="kOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+function drawB(){
+  const k=+$('#k').value, t=+$('#t').value; $('#k-v').textContent=k; $('#t-v').textContent=t;
+  const g=$('#bg'); clear(g); const W=VML.narrow()?440:720, bw=(W-20)/Math.max(k,3); g.setAttribute('viewBox',`0 0 ${W} 250`);
+  for(let i=0;i<k;i++){ const cx=10+i*bw+bw/2;
+    s('path',{d:`M${cx-bw*0.42},110 L${cx-bw*0.34},200 L${cx+bw*0.34},200 L${cx+bw*0.42},110 Z`,fill:'#d9a066',stroke:'#8a5a2b','stroke-width':3},g);
+    s('path',{d:`M${cx-bw*0.36},110 Q${cx},40 ${cx+bw*0.36},110`,fill:'none',stroke:'#8a5a2b','stroke-width':4},g);
+    for(let e=0;e<t;e++){ const col=e%5, row=Math.floor(e/5); txt(g,cx-bw*0.28+col*bw*0.14,140+row*30,'🥚',{'font-size':Math.min(24,bw*0.16)}); }
+    txt(g,cx,228,String(t),{'font-weight':900,'font-size':18,fill:'var(--acc)'}); }
+  $('#bOut').innerHTML=`<p>${k} keranjang, setiap keranjang ${t} telur.</p><div class="big">${Array(k).fill(t).join(' + ')} = ${k*t}</div><div class="huge">${k} × ${t} = ${k*t}</div><p class="muted">Pembagiannya: ${k*t} : ${k} = ${t}</p>`;
+}
+['#k','#t'].forEach(x=>$(x).oninput=drawB); drawB(); VML.onResize(drawB);
+
+let pens=[];
+function reset(){ const c=+$('#c').value; pens=Array(c).fill(0); drawK(); }
+function drawK(){
+  const n=+$('#n').value, c=+$('#c').value; $('#n-v').textContent=n; $('#c-v').textContent=c; if(pens.length!==c) pens=Array(c).fill(0);
+  const placed=pens.reduce((a,b)=>a+b,0), left=n-placed, g=$('#kg'); clear(g); const W=VML.narrow()?440:720; g.setAttribute('viewBox',`0 0 ${W} 300`);
+  s('rect',{x:10,y:10,width:W-20,height:90,rx:16,fill:'#b8eb72','fill-opacity':.5},g);
+  for(let i=0;i<left;i++){ const t=txt(g,30+(i%15)*((W-60)/15),50+Math.floor(i/15)*34,'🐔',{'font-size':26,style:'cursor:pointer'}); t.addEventListener('click',addOne); }
+  const pw=(W-20)/c;
+  for(let p=0;p<c;p++){ const x=10+p*pw+6; s('rect',{x,y:120,width:pw-12,height:150,rx:12,fill:'#f7d9a8',stroke:'#8a5a2b','stroke-width':3},g); s('path',{d:`M${x},120 L${x+(pw-12)/2},96 L${x+pw-12},120`,fill:'#e23d5c'},g);
+    for(let i=0;i<pens[p];i++) txt(g,x+16+(i%4)*((pw-36)/4),160+Math.floor(i/4)*28,'🐔',{'font-size':20});
+    txt(g,x+(pw-12)/2,292,String(pens[p]),{'font-weight':900,'font-size':18}); }
+  const q=Math.floor(n/c), r=n%c, equal=pens.every(v=>v===pens[0]);
+  let html=`<p>Ayam di lapangan: <b>${left}</b> · di kandang: ${pens.join(', ')}</p>`;
+  if(left===0) html+=`<div class="big">${n} : ${c} = ${q} ✅</div><p>Setiap kandang berisi <b>${q}</b> ayam. Cek: ${c} × ${q} = ${n}</p>`;
+  else if(left<c&&equal&&r) html+=`<div class="big">${n} : ${c} = ${q} sisa ${r}</div><p>Setiap kandang ${q} ayam, tetapi <b>${r}</b> ayam tidak bisa dibagi rata.</p>`;
+  $('#kOut').innerHTML=html;
+}
+function addOne(){ const n=+$('#n').value, c=pens.length, placed=pens.reduce((a,b)=>a+b,0), left=n-placed; if(left<=0) return; if(left<c&&pens.every(v=>v===pens[0])) return; const i=pens.indexOf(Math.min(...pens)); pens[i]++; drawK(); }
+$('#all').onclick=()=>{ const n=+$('#n').value, c=pens.length; const iv=setInterval(()=>{ const placed=pens.reduce((a,b)=>a+b,0); if(placed>=n-n%c){ clearInterval(iv); return; } addOne(); },110); };
+$('#rs').onclick=reset; ['#n','#c'].forEach(x=>$(x).oninput=reset); reset(); VML.onResize(drawK);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Kelompok', gen(){ const k=rand(2,5), t=rand(2,10); return {q:`${Array(k).fill(t).join(' + ')} = ${k} × ${t} = …`, a:String(k*t), hint:'Jumlahkan berulang.', ex:String(k*t)}; }},
+  {name:'Perkalian 2, 5, 10', gen(){ const a=pick([2,5,10]), b=rand(1,10); return {q:`${b} × ${a} = …`, a:String(a*b), hint:`Membilang loncat ${a} sebanyak ${b} kali.`, ex:String(a*b)}; }},
+  {name:'Perkalian 3 & 4', gen(){ const a=pick([3,4]), b=rand(1,10); return {q:`${b} × ${a} = …`, a:String(a*b), hint:`${Array(b).fill(a).join(' + ')}`, ex:String(a*b)}; }},
+  {name:'Berbagi rata', gen(){ const k=rand(2,5), t=rand(2,8); return {q:`${k*t} kue dibagi rata kepada ${k} anak. Setiap anak mendapat … kue`, a:String(t), hint:`${k} × berapa = ${k*t}?`, ex:`${k*t} : ${k} = ${t}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'4 + 4 + 4 sama dengan …', o:['3 × 4','4 × 4','3 + 4','4 × 1'], a:0, ex:'3 kelompok berisi 4.'},
+ {q:'3 × 4 = …', o:['12','7','34','9'], a:0, ex:'4 + 4 + 4.'},
+ {q:'2 × 6 = …', o:['12','8','26','14'], a:0, ex:'Dobel 6.'},
+ {q:'5 × 5 = …', o:['25','10','20','55'], a:0, ex:'5, 10, 15, 20, 25.'},
+ {q:'10 × 4 = …', o:['40','14','104','4'], a:0, ex:'Tambah 0.'},
+ {q:'Ada 5 tangkai, setiap tangkai 2 bunga. Banyak bunga …', o:['10','7','52','25'], a:0, ex:'5 × 2.'},
+ {q:'Kalimat perkalian dari 2 + 2 + 2 + 2 + 2 adalah …', o:['5 × 2','2 × 2','2 × 10','5 + 2'], a:0, ex:'5 kelompok berisi 2.'},
+ {q:'12 telur dimasukkan ke 3 kandang sama banyak. Setiap kandang …', o:['4','9','15','3'], a:0, ex:'12 : 3.'},
+ {q:'10 permen dibagi rata kepada 2 anak. Setiap anak mendapat …', o:['5','8','12','20'], a:0, ex:'10 : 2.'},
+ {q:'Karena 4 × 5 = 20, maka 20 : 4 = …', o:['5','4','16','24'], a:0, ex:'Kebalikan perkalian.'},
+ {q:'Membilang loncat 3: 3, 6, 9, … berikutnya …', o:['12','10','13','11'], a:0, ex:'+3.'},
+ {q:'Seekor ayam punya 2 kaki. Kaki 6 ekor ayam …', o:['12','8','6','26'], a:0, ex:'6 × 2.'},
+ {q:'Hitunglah 4 × 6.', input:true, a:['24'], ex:'6 + 6 + 6 + 6.'},
+ {q:'Hitunglah 15 : 5.', input:true, a:['3'], ex:'5 × 3 = 15.'},
+ {q:'Tangan kita punya 5 jari. Jari 4 tangan …', o:['20','9','45','15'], a:0, ex:'4 × 5.'}
+], 'sd2m3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

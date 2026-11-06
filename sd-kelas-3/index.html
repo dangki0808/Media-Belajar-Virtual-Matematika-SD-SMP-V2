@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Math Lab · SD Kelas III</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .home-hero{padding:40px 0 10px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;color:var(--onbg)}
+  .home-hero h1{font-size:clamp(2.1rem,6vw,3.4rem);letter-spacing:-.5px;margin:.25em 0}
+  .home-hero h1 em{font-style:normal;background:linear-gradient(90deg,#f06a25,#e0472f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-hero p.lead{font-size:1.12rem;color:var(--onbg-soft);max-width:580px}
+  .home-hero .chip{background:rgba(255,255,255,.8);color:#f06a25}
+  .stat{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px}
+  .stat div{font-size:.9rem;color:var(--onbg-soft)} .stat b{display:block;font-size:1.8rem;color:var(--onbg)}
+  .board{background:rgba(255,255,255,.55);border:2px solid rgba(255,255,255,.9);border-radius:30px;padding:12px;backdrop-filter:blur(6px);box-shadow:0 12px 30px rgba(120,80,200,.18)}
+  .prog{height:8px;background:var(--line);border-radius:9px;margin-top:8px;overflow:hidden}.prog i{display:block;height:100%}
+  .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .feat div{background:color-mix(in srgb,var(--acc) 6%,var(--card));border:1px solid var(--line);border-radius:18px;padding:14px}
+  .feat b{display:block;margin-bottom:4px}
+  .mod{border-radius:26px;border:2px solid rgba(255,255,255,.9)}
+  .mod .ic{font-size:1.8rem;border-radius:20px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .float{animation:bob 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+  @media (prefers-reduced-motion:reduce){.float{animation:none}}
+  @media (max-width:760px){.home-hero{grid-template-columns:1fr}.board{display:none}}
+</style>
+</head>
+<body style="--acc:#f06a25">
+<header class="top"><div class="wrap"><a class="back" href="../index.html">← Semua Kelas</a><div class="brand">🧪 Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="home-hero">
+  <div>
+    <span class="chip">Laboratorium Matematika Digital · SD Kelas III</span>
+    <h1>Selamat pagi! Ayo <em>bermain sambil berhitung!</em></h1>
+    <p class="lead">Enam modul Matematika SD Kelas III. Setiap modul berisi materi ringkas, dua permainan lab, latihan yang tidak pernah habis, dan kuis 15 soal dengan pembahasan.</p>
+    <div class="stat"><div><b>6</b>modul</div><div><b>12</b>lab interaktif</div><div><b>90</b>soal kuis</div><div><b id="avg">–</b>rata-rata nilaimu</div></div>
+  </div>
+  <div class="board"><svg viewBox="0 0 360 280" width="100%" aria-hidden="true">
+    <circle class="float" cx="80" cy="80" r="46" fill="#ffb199"/><text x="80" y="94" text-anchor="middle" font-size="40">☀️</text>
+    <g class="float" style="animation-delay:.6s"><rect x="210" y="40" width="90" height="70" rx="16" fill="#a8e6cf"/><text x="255" y="88" text-anchor="middle" font-size="36">⏰</text></g>
+    <g class="float" style="animation-delay:1.2s"><circle cx="110" cy="200" r="50" fill="#ffd56b"/><text x="110" y="216" text-anchor="middle" font-size="42">🍰</text></g>
+    <g class="float" style="animation-delay:1.8s"><rect x="210" y="160" width="100" height="90" rx="20" fill="#9fd8ff"/><text x="260" y="218" text-anchor="middle" font-size="40">🌸</text></g>
+    <text x="180" y="150" text-anchor="middle" font-size="26" font-weight="900" fill="#f06a25">+ − × ÷</text>
+  </svg></div>
+</section>
+
+<h2 class="onbg">Pilih modul</h2>
+<div class="mods" id="mods"></div>
+
+<div class="card"><h2>Cara memakai</h2>
+  <div class="feat">
+    <div><b>📘 Materi</b>Penjelasan singkat dengan contoh soal.</div>
+    <div><b>🧪 Lab</b>Main sambil belajar: geser, ketuk, putar, dan amati!</div>
+    <div><b>✏️ Latihan</b>Soal acak yang tidak pernah habis, ada petunjuk dan dua kesempatan menjawab.</div>
+    <div><b>🏆 Kuis</b>15 soal dengan nilai otomatis, pembahasan, dan nilai terbaik yang tersimpan.</div>
+  </div>
+  <p class="muted" style="margin-top:12px">Untuk guru: semua berkas berjalan tanpa internet. Buka <b>index.html</b> di browser, atau unggah seluruh folder ke hosting (misalnya GitHub Pages) lalu sematkan alamatnya di Google Sites. Nilai terbaik disimpan di perangkat masing-masing siswa.</p>
+  <div class="row"><button class="btn ghost" id="reset">Hapus semua nilai di perangkat ini</button></div>
+</div>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Media Pembelajaran Matematika Interaktif SD Kelas III · Kurikulum Merdeka</div></footer>
+<script src="assets/core.js"></script>
+<script>
+const M=[
+ ['01-bilangan-1000.html','Bilangan sampai 1.000','Balok bilangan dan mulut buaya pembanding.','🧊','#2b7de0','sd3m1'],
+ ['02-tambah-kurang.html','Penjumlahan & Pengurangan','Hitung bersusun langkah demi langkah dan warung kue.','➕','#ef4f5a','sd3m2'],
+ ['03-kali-bagi.html','Perkalian & Pembagian','Kebun bunga, tabel perkalian, dan bagi permen.','✖️','#1fa36b','sd3m3'],
+ ['04-pecahan.html','Pecahan Sederhana','Potong kue dan tebak pecahan.','🍰','#e0472f','sd3m4'],
+ ['05-waktu.html','Waktu & Jam','Atur jam dan hitung lama kegiatan.','⏰','#8a55e0','sd3m5'],
+ ['06-bangun-datar.html','Bangun Datar & Keliling','Tebak bangun dan semut mengelilingi bangun.','🔷','#0a8fb0','sd3m6']];
+function render(){ let sum=0,cnt=0;
+  document.getElementById('mods').innerHTML=M.map(([f,t,d,ic,c,k],i)=>{ const b=VML.store.get(k); if(b!=null){sum+=b;cnt++;}
+    return `<a class="mod" href="${f}"><div class="ic" style="background:color-mix(in srgb,${c} 18%,#fff)">${ic}</div><span class="muted" style="font-size:.8rem;font-weight:800">MODUL ${i+1}</span><h3>${t}</h3><p>${d}</p>
+      <div class="best" style="color:${c}">${b!=null?'⭐ Nilai kuis terbaik: '+b:'Belum mengerjakan kuis'}</div><div class="prog"><i style="width:${b||0}%;background:linear-gradient(90deg,#f06a25,#ffd56b,#1fa36b)"></i></div></a>`; }).join('');
+  document.getElementById('avg').textContent = cnt ? Math.round(sum/cnt) : '–'; }
+render();
+document.getElementById('reset').onclick=()=>{ if(confirm('Hapus semua nilai kuis yang tersimpan di perangkat ini?')){ M.forEach(m=>{ try{localStorage.removeItem('vml3sd:'+m[5]);}catch(e){} }); render(); } };
+window.addEventListener('pageshow',render);
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

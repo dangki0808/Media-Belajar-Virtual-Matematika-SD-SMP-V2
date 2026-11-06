@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hitung Hebat · Virtual Math Lab</title>
+<link rel="stylesheet" href="../shared/nav.css">
+<style>
+:root{--bg:#f5ecdc;--bg2:#e9f0e6;--card:#fffaf1;--ink:#1f2a26;--muted:#66706a;--line:#e6dccb;--green:#1e4d42;--green2:#2c6a5b;--orange:#c2562b;--gold:#e6b14a;
+  --yellow:#f6dc85;--blue:#bcd7ef;--coral:#f4b19d;--mint:#b7e0c8;--navy:#2a3656;--ok:#1f8a5b;--no:#c2412b}
+@media (prefers-color-scheme:dark){:root{--bg:#141c19;--bg2:#17211d;--card:#1d2723;--ink:#eef3ef;--muted:#a9b6ae;--line:#304039;--green:#7fd1b5;--green2:#5fb79c;--orange:#f0915e;
+  --yellow:#5a4a1c;--blue:#22374d;--coral:#53302a;--mint:#1f4434;--navy:#2c3a5e}}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;font-family:"Nunito","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.55;
+  background:radial-gradient(1000px 600px at 0% 0%,color-mix(in srgb,var(--gold) 22%,transparent),transparent 60%),linear-gradient(160deg,var(--bg),var(--bg2));background-attachment:fixed;min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.serif{font-family:Georgia,"Times New Roman",serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.3px;line-height:1.15}
+.topbar{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;font:inherit;color:var(--ink);cursor:pointer;padding:0;text-align:left}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900;box-shadow:0 3px 0 var(--gold)}
+@media (prefers-color-scheme:dark){.brand-mark{color:#10201a}}
+.brand strong{display:block;font-size:1.05rem}.brand small{display:block;color:var(--muted);font-size:.78rem}
+.day-badge{margin-left:auto;font-weight:800;font-size:.9rem;background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.who{font-size:.9rem;color:var(--muted)}
+.eyebrow{display:inline-block;font-size:.75rem;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;color:var(--orange)}
+.hero{display:grid;grid-template-columns:1.2fr .9fr;gap:28px;align-items:center;padding:34px 0 20px}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);margin:.25em 0}
+.hero h1 em{color:var(--orange)}
+.hero p{color:var(--muted);max-width:520px}
+.primary-button,.secondary-button,.text-button,.btn{font:inherit;font-weight:800;border-radius:14px;cursor:pointer;min-height:46px;padding:10px 18px}
+.primary-button{background:var(--green);color:#fff;border:0;box-shadow:0 4px 0 color-mix(in srgb,var(--green) 60%,#000)}
+@media (prefers-color-scheme:dark){.primary-button{color:#0d1a15}}
+.primary-button:active{transform:translateY(2px);box-shadow:0 2px 0 color-mix(in srgb,var(--green) 60%,#000)}
+.primary-button:disabled{opacity:.45;cursor:not-allowed}
+.secondary-button{background:transparent;border:1.5px solid var(--green);color:var(--green)}
+.text-button{background:none;border:0;color:var(--muted);padding:6px 4px;min-height:auto}
+.hero-card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 14px 34px rgba(60,40,10,.10)}
+.card-topline{display:flex;justify-content:space-between;color:var(--muted);font-weight:700;font-size:.9rem}
+.card-topline strong{color:var(--ink)}
+.number-orbit{position:relative;height:210px;margin:8px 0}
+.orbit{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 12px;font-weight:900;font-size:1.05rem;box-shadow:0 6px 14px rgba(0,0,0,.06);animation:bob 4s ease-in-out infinite}
+.orbit-one{left:4%;top:12%;background:var(--yellow)}.orbit-two{right:4%;top:32%;background:var(--blue);animation-delay:-1.3s}.orbit-three{left:16%;bottom:6%;background:var(--coral);animation-delay:-2.6s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){.orbit{animation:none}}
+.orbit-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:122px;height:122px;border-radius:50%;border:6px solid var(--green);display:grid;place-content:center;text-align:center}
+.orbit-center strong{font-size:1.7rem;font-family:Georgia,serif}.orbit-center span{font-size:.78rem;color:var(--muted)}
+.control-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:8px 0 18px}
+.control-strip label{display:flex;flex-direction:column;font-size:.8rem;font-weight:800;color:var(--muted);gap:4px}
+select,input[type=text]{font:inherit;font-weight:700;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;min-height:44px}
+.today-summary{margin-left:auto;text-align:right;font-size:.85rem;color:var(--muted)}.today-summary strong{display:block;color:var(--ink);font-size:1.05rem}
+.daily-goal{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:18px}
+.goal-badge{width:78px;height:78px;border-radius:50%;background:var(--yellow);display:grid;place-content:center;text-align:center;font-weight:900;font-size:1.6rem;line-height:1}
+.goal-badge #streak{font-size:1.7rem;color:var(--ink);max-width:none}.goal-badge span{font-size:.62rem;font-weight:800;color:var(--muted);max-width:66px}
+.goal-copy h2{margin:0 0 4px;font-size:1.35rem}.goal-copy p{margin:0 0 8px;color:var(--muted)}
+.progress-track{height:12px;background:var(--line);border-radius:9px;overflow:hidden}.progress-track span{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:9px;transition:width .4s}
+.goal-actions{display:flex;flex-direction:column;gap:8px}
+.section-heading{margin:30px 0 12px}.section-heading h2{margin:.15em 0;font-size:1.7rem}.section-heading p{margin:0;color:var(--muted)}
+.operation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.operation-card{font:inherit;text-align:left;border:0;border-radius:22px;padding:18px;cursor:pointer;position:relative;color:var(--ink);min-height:150px;display:flex;flex-direction:column;gap:4px;transition:transform .15s,box-shadow .15s}
+.operation-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.10)}
+.operation-card.yellow{background:var(--yellow)}.operation-card.blue{background:var(--blue)}.operation-card.coral{background:var(--coral)}.operation-card.mint{background:var(--mint)}.operation-card.navy{background:var(--navy);color:#fff}
+.operation-symbol{font-size:2.2rem;font-weight:900;line-height:1;font-family:Georgia,serif}
+.operation-card strong{font-size:1.15rem;margin-top:auto}.operation-card small{opacity:.8}
+.card-arrow{position:absolute;right:16px;top:16px;font-weight:900}
+.op-best{font-size:.75rem;font-weight:800;opacity:.75}
+.progress-panel,.dashboard-panel,.guide{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px;margin:22px 0}
+.progress-panel{background:var(--green);color:#fff;border:0}
+@media (prefers-color-scheme:dark){.progress-panel{background:#163a31}}
+.progress-panel .eyebrow{color:var(--gold)}.progress-panel h2{margin:.2em 0 .5em}
+.days{display:grid;grid-template-columns:repeat(15,1fr);gap:6px;margin:10px 0}
+.days i{aspect-ratio:1;border-radius:8px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-style:normal;font-size:.7rem;font-weight:800}
+.days i.done{background:var(--gold);color:#3a2a06}.days i.today{outline:2px solid #fff}
+.week-pills{display:flex;flex-wrap:wrap;gap:8px}.week-pills span{background:rgba(255,255,255,.14);padding:5px 12px;border-radius:999px;font-size:.85rem;font-weight:700}.week-pills span.on{background:var(--gold);color:#3a2a06}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric-grid div{background:color-mix(in srgb,var(--green) 6%,var(--card));border:1px solid var(--line);border-radius:16px;padding:12px}
+.metric-grid span{display:block;color:var(--muted);font-size:.82rem;font-weight:700}.metric-grid strong{font-size:1.5rem;font-family:Georgia,serif}
+table.hist{width:100%;border-collapse:collapse;font-size:.92rem}table.hist th,table.hist td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
+.scroll{overflow-x:auto}
+footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:18px 0 30px;margin-top:30px}
+/* practice */
+.practice-page{max-width:760px;margin:0 auto;padding:18px 0}
+.practice-toolbar{display:flex;align-items:center;gap:14px}
+.question-progress{flex:1}.question-progress span{font-weight:800;font-size:.9rem}
+.question-progress div{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:4px}.question-progress i{display:block;height:100%;background:var(--green);transition:width .3s}
+.timer{text-align:right;font-weight:800;color:var(--muted);font-size:.85rem}.timer strong{display:block;font-size:1.4rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.timer.low strong{color:var(--no)}.timer.paused strong{color:var(--muted)}
+.question-stage{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:26px 20px;margin:16px 0;text-align:center;box-shadow:0 14px 30px rgba(60,40,10,.08)}
+.practice-label{display:inline-block;background:color-mix(in srgb,var(--green) 10%,transparent);color:var(--green);font-weight:800;font-size:.85rem;padding:4px 12px;border-radius:999px}
+.equation{display:flex;justify-content:center;align-items:center;gap:.35em;font-family:Georgia,serif;font-size:clamp(2.4rem,9vw,4.2rem);font-weight:700;margin:16px 0;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.equation b{color:var(--orange)}.answer-placeholder{min-width:1.4em;border-bottom:4px solid var(--gold);color:var(--muted)}
+.answer-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.answer-row input{font-size:1.6rem;text-align:center;width:min(260px,100%);font-family:Georgia,serif;font-weight:700}
+.sign-btn{font:inherit;font-weight:900;font-size:1.3rem;width:52px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.feedback{min-height:28px;margin-top:12px;font-weight:800}.feedback.right{color:var(--ok)}.feedback.wrong{color:var(--no)}
+.score-dock{display:flex;justify-content:center;gap:24px;color:var(--muted);font-weight:700}.score-dock strong{color:var(--ink)}
+.pembahasan{background:var(--card);border:2px solid var(--gold);border-radius:24px;padding:18px;margin:14px 0;text-align:left;animation:pop .3s}
+@keyframes pop{from{transform:scale(.97);opacity:0}}
+.pembahasan h3{margin:0 0 6px}.pembahasan-soal{margin:0 0 10px;color:var(--muted)}
+.pembahasan-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.pembahasan-tabs button{font:inherit;font-weight:800;font-size:.88rem;border:1.5px solid var(--line);background:transparent;color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+.pembahasan-tabs button.active{background:var(--green);border-color:var(--green);color:#fff}
+.viz{display:flex;justify-content:center;margin:8px 0;overflow-x:auto}
+.viz svg{max-width:100%;height:auto}
+.dot{transition:opacity .35s,fill .35s}.dot.off{opacity:.15}
+.pembahasan-langkah{margin:8px 0;padding-left:1.3em}.pembahasan-langkah li{opacity:.35;transition:opacity .3s;margin:3px 0}.pembahasan-langkah li.aktif{opacity:1;font-weight:800}
+.pembahasan-aksi{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.9rem;font-weight:700}
+.play{width:42px;height:42px;border-radius:50%;border:0;background:var(--orange);color:#fff;cursor:pointer;font-size:1rem}
+.pembahasan-kesimpulan{font-weight:800}
+.pembahasan-jeda{font-size:.85rem;color:var(--muted)}
+table.col{border-collapse:collapse;font-family:Georgia,serif;font-size:1.5rem;margin:0 auto}table.col td{width:1.3em;text-align:center;padding:0 2px}table.col .carry{font-size:.85rem;color:var(--orange);height:1.1em}table.col tr.sum td{border-top:3px solid var(--ink)}
+/* result */
+.result{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:26px;margin:20px auto;max-width:760px;text-align:center}
+.result h1{font-size:2.2rem;margin:.2em 0}
+.result .big{font-family:Georgia,serif;font-size:3.4rem;font-weight:700;color:var(--green)}
+.wronglist{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}.wronglist span{background:color-mix(in srgb,var(--no) 10%,var(--card));border:1px solid var(--line);border-radius:12px;padding:4px 10px;font-weight:800}
+.hide{display:none!important}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}.daily-goal{grid-template-columns:auto 1fr}.goal-actions{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.days{grid-template-columns:repeat(10,1fr)}.today-summary{margin-left:0;text-align:left}.number-orbit{height:180px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="root">
+  <header class="topbar">
+    <button class="brand" id="home-btn" aria-label="Kembali ke beranda Hitung Hebat"><span class="brand-mark">HH</span><span><strong>Hitung Hebat</strong><small>Latihan singkat, hasil meningkat</small></span></button>
+    <div class="day-badge" id="day-badge">Hari latihan <strong>1/30</strong></div>
+  </header>
+
+  <!-- HOME -->
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">15 menit setiap hari</span>
+        <h1>Hitung lebih cepat,<br><em>tanpa terburu-buru.</em></h1>
+        <p>Pilih satu latihan, kerjakan dengan teliti, lalu lihat perkembanganmu dari hari ke hari. Jika jawabanmu belum tepat, pembahasan bergambar muncul dan waktu berhenti sejenak.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="primary-button" id="start-today">Mulai latihan hari ini →</button>
+          <label class="who">Nama panggilan <input type="text" id="nick" maxlength="16" placeholder="contoh: Raka" style="width:150px;min-height:40px"></label></div>
+      </div>
+      <div class="hero-card" aria-label="Target latihan hari ini">
+        <div class="card-topline"><span id="tgt-day">Target hari ke-1</span><strong id="tgt-n">20 soal</strong></div>
+        <div class="number-orbit"><span class="orbit orbit-one" id="o1">7 × 8</span><span class="orbit orbit-two" id="o2">125 + 75</span><span class="orbit orbit-three" id="o3">72 ÷ 9</span>
+          <div class="orbit-center"><strong id="o-time">5:00</strong><span>target waktu</span></div></div>
+        <p style="margin:0"><b>Fokus:</b> <span id="focus"></span></p>
+      </div>
+    </section>
+
+    <section class="control-strip" aria-label="Pengaturan latihan">
+      <label>Kelas<select id="kelas"></select></label>
+      <label>Jumlah soal<select id="nsoal"><option value="10">10 soal</option><option value="20">20 soal</option><option value="25">25 soal</option></select></label>
+      <label>Waktu<select id="waktu"><option value="180">3 menit</option><option value="300">5 menit</option><option value="600">10 menit</option></select></label>
+      <label>Target harian<select id="target"><option value="20">20 soal</option><option value="40">40 soal</option><option value="60">60 soal</option></select></label>
+      <div class="today-summary"><span>Latihan hari ini</span><strong id="today-sum">0 sesi selesai</strong></div>
+    </section>
+
+    <section class="daily-goal" aria-label="Capaian target hari ini">
+      <div class="goal-badge"><span id="streak">0</span><span>hari berturut-turut</span></div>
+      <div class="goal-copy"><h2 id="goal-title">Sedikit lagi menuju target</h2><p id="goal-text">0 dari 20 soal hari ini · 0% selesai</p><div class="progress-track"><span id="goal-bar" style="width:2%"></span></div></div>
+      <div class="goal-actions"><button class="secondary-button" id="go-hist">Lihat riwayat</button></div>
+    </section>
+
+    <section>
+      <div class="section-heading"><span class="eyebrow">Pilih kemampuan</span><h2>Mau berlatih apa?</h2><p>Mulai dari yang paling mudah. Kecepatan akan datang setelah jawabanmu tepat. Tingkat soal menyesuaikan: benar 3 kali berturut-turut naik, salah turun.</p></div>
+      <div class="operation-grid" id="ops"></div>
+    </section>
+
+    <section class="progress-panel">
+      <span class="eyebrow">Perjalanan 30 hari</span>
+      <h2>Sedikit setiap hari,<br>hebat dalam sebulan.</h2>
+      <div class="days" id="days"></div>
+      <div class="week-pills" id="weeks"></div>
+      <p style="margin:10px 0 0;opacity:.85" id="days-text"></p>
+    </section>
+
+    <section class="dashboard-panel" id="dash" aria-label="Ringkasan perkembangan">
+      <div class="section-heading" style="margin-top:0"><span class="eyebrow">Progres</span><h2>Perkembangan latihan</h2><p>Data tersimpan di perangkat ini.</p></div>
+      <div class="metric-grid"><div><span>Sesi selesai</span><strong id="m-ses">0</strong></div><div><span>Akurasi</span><strong id="m-acc">0%</strong></div><div><span>Rata-rata waktu/soal</span><strong id="m-avg">0:00</strong></div><div><span>Hari aktif</span><strong id="m-day">0</strong></div></div>
+      <h3 style="margin:18px 0 6px">Riwayat terakhir</h3>
+      <div class="scroll"><table class="hist" id="hist"></table></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="secondary-button" id="copy">📋 Salin rekap untuk guru</button><button class="text-button" id="reset">Hapus data Hitung Hebat</button></div>
+      <p class="who" id="copy-msg"></p>
+    </section>
+  </main>
+
+  <!-- PRACTICE -->
+  <main id="practice" class="practice-page hide">
+    <div class="practice-toolbar"><button class="text-button" id="exit">← Keluar</button>
+      <div class="question-progress"><span id="qp">Soal 1 dari 20</span><div><i id="qbar" style="width:0%"></i></div></div>
+      <div class="timer" id="timer"><span>Waktu</span><strong id="tleft">5:00</strong></div></div>
+    <section class="question-stage">
+      <span class="practice-label" id="plabel">Perkalian · Kelas 4 · Sedang</span>
+      <div class="equation" id="eq"></div>
+      <form id="aform" autocomplete="off"><label for="answer" class="who">Ketik jawabanmu</label>
+        <div class="answer-row"><button type="button" class="sign-btn hide" id="sign" aria-label="Ubah tanda plus/minus">±</button><input type="text" id="answer" inputmode="numeric" autocomplete="off" aria-label="Jawaban"><button type="submit" class="primary-button" id="jawab">Jawab →</button></div></form>
+      <div class="feedback" id="fb" aria-live="polite">Tarik napas, hitung dengan teliti.</div>
+    </section>
+    <div id="pemb"></div>
+    <div class="score-dock"><span>Benar <strong id="sb">0</strong></span><span>Perlu diulang <strong id="sw">0</strong></span></div>
+  </main>
+
+  <!-- RESULT -->
+  <main id="result" class="hide"></main>
+
+  <footer><span>Hitung Hebat · Kelas 1–9 · bagian dari Virtual Math Lab</span><span>Benar dahulu, lancar kemudian, cepat menyusul.</span></footer>
+</div>
+
+<script src="../shared/nav.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const st={ get(k,d){ try{ const v=JSON.parse(localStorage.getItem('hh:'+k)); return v==null?d:v; }catch(e){ return d; } }, set(k,v){ try{ localStorage.setItem('hh:'+k,JSON.stringify(v)); }catch(e){} } };
+const rand=(a,b)=>a+Math.floor(Math.random()*(b-a+1)), pick=a=>a[Math.floor(Math.random()*a.length)];
+const fmt=n=>(n<0?'−':'')+Math.abs(n).toLocaleString('id-ID'), par=n=>n<0?'('+fmt(n)+')':fmt(n);
+const mmss=s=>Math.floor(s/60)+':'+String(Math.max(0,Math.round(s%60))).padStart(2,'0');
+const today=()=>{ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+const OPS={'×':{n:'Perkalian',c:'yellow',d:'Kuatkan tabel perkalian'},'÷':{n:'Pembagian',c:'blue',d:'Temukan pasangan perkalian'},'+':{n:'Penjumlahan',c:'coral',d:'Susun angka dengan cepat'},'−':{n:'Pengurangan',c:'mint',d:'Latih selisih dan strategi'},'mix':{n:'Campuran',c:'navy',d:'Gabungkan semua kemampuan',s:'★'}};
+const DIFF=['Mudah','Sedang','Sulit'];
+
+/* ---------- settings ---------- */
+const kSel=$('#kelas'); kSel.innerHTML=[1,2,3,4,5,6,7,8,9].map(k=>`<option value="${k}">${k<=6?'Kelas '+k+' SD':'Kelas '+k+' SMP'}</option>`).join('');
+const cfg=Object.assign({kelas:4,n:20,t:300,target:20,nick:''},st.get('cfg',{}));
+kSel.value=cfg.kelas; $('#nsoal').value=cfg.n; $('#waktu').value=cfg.t; $('#target').value=cfg.target; $('#nick').value=cfg.nick||'';
+['#kelas','#nsoal','#waktu','#target','#nick'].forEach(s=>$(s).oninput=()=>{ cfg.kelas=+kSel.value; cfg.n=+$('#nsoal').value; cfg.t=+$('#waktu').value; cfg.target=+$('#target').value; cfg.nick=$('#nick').value.trim().slice(0,16); st.set('cfg',cfg); renderHome(); });
+
+/* ---------- generator ---------- */
+function gen(op,k,d){
+  if(op==='mix') op=pick(['+','−','×','÷']);
+  const negP = k>=7 ? [.35,.55,.7][d] : k===6 ? [0,.25,.45][d] : 0, neg=Math.random()<negP;
+  let a,b,ans;
+  if(op==='+'||op==='−'){
+    if(neg){ const M=[0,0,0,0,0,0,20,[20,50,100][d],[30,100,500][d],[50,200,1000][d]][k]||20; do{ a=rand(-M,M); b=rand(-M,M); }while(a===0||b===0||(a>0&&b>0)); }
+    else { const MX={1:[10,20,20],2:[20,100,100],3:[100,500,1000],4:[100,1000,1000],5:[1000,5000,10000],6:[1000,10000,100000],7:[100,1000,10000],8:[1000,10000,100000],9:[1000,10000,100000]}[k][d];
+      const lo=d===0?1:Math.max(1,Math.floor(MX/10));
+      if(op==='+'){ a=rand(lo,Math.max(lo,Math.floor(MX*.65))); b=rand(Math.max(1,Math.floor(lo/2)),Math.max(1,MX-a)); }
+      else { a=rand(Math.max(2,Math.floor(MX/4)),MX); b=rand(Math.max(1,Math.floor(lo/2)),a-1); } }
+    ans=op==='+'?a+b:a-b;
+  } else {
+    let A,B;
+    const T={1:[[1,3,1,3],[1,5,1,5],[2,5,2,5]],2:[[1,5,1,5],[2,5,1,10],[2,10,2,10]],3:[[2,5,1,10],[2,10,2,10],[6,10,6,10]],4:[[2,10,2,10],[11,99,2,9],[11,30,11,19]],5:[[11,99,2,9],[11,49,11,29],[100,500,2,19]],6:[[11,99,11,29],[100,500,11,29],[100,999,11,49]],7:[[2,10,2,10],[2,15,2,12],[11,30,2,15]],8:[[2,12,2,12],[11,30,2,15],[11,50,11,25]],9:[[2,15,2,15],[11,40,2,20],[11,60,11,30]]}[k][d];
+    A=rand(T[0],T[1]); B=rand(T[2],T[3]); if(Math.random()<.5&&T[1]<=10&&T[3]<=10) [A,B]=[B,A];
+    if(neg){ if(Math.random()<.5) A=-A; if(Math.random()<.6) B=-B; if(A>0&&B>0) A=-A; }
+    if(op==='×'){ a=A; b=B; ans=a*b; } else { if(B===0) B=2; b=B; ans=A; a=A*B; if(k<=4&&Math.abs(b)>10&&!neg){ b=rand(2,9); a=ans*b; } }
+  }
+  return {a,b,op,ans,k,d};
+}
+
+/* ---------- pembahasan ---------- */
+function svgWrap(w,h,inner){ return `<svg viewBox="0 0 ${w} ${h}" width="${w}" role="img" aria-label="Model gambar">${inner}</svg>`; }
+function grid(rows,cols){ const s=Math.min(26,Math.floor(300/Math.max(cols,1))), r=s*0.36; let g=''; for(let i=0;i<rows;i++) for(let j=0;j<cols;j++) g+=`<circle class="dot" data-r="${i}" cx="${s/2+j*s}" cy="${s/2+i*s}" r="${r}" fill="var(--orange)"/>`; return svgWrap(cols*s,rows*s,g); }
+function groups(total,g){ const per=total/g, cw=Math.min(90,Math.floor(560/g)), rowsIn=Math.ceil(per/3); const H=rowsIn*18+24; let s='';
+  for(let i=0;i<g;i++){ s+=`<rect x="${i*cw+4}" y="4" width="${cw-8}" height="${H-8}" rx="12" fill="none" stroke="var(--green)" stroke-width="2"/>`; for(let j=0;j<per;j++) s+=`<circle class="dot" data-r="${j}" cx="${i*cw+18+(j%3)*((cw-30)/2)}" cy="${20+Math.floor(j/3)*18}" r="6" fill="var(--orange)"/>`; }
+  return svgWrap(g*cw,H,s); }
+function numline(start,jumps){ // jumps: [{v,l}]
+  const pts=[start]; jumps.forEach(j=>pts.push(pts[pts.length-1]+j.v)); const mn=Math.min(...pts), mx=Math.max(...pts), W=560, pad=40, sc=(W-2*pad)/((mx-mn)||1), X=v=>pad+(v-mn)*sc;
+  let s=`<line x1="20" y1="90" x2="${W-20}" y2="90" stroke="var(--ink)" stroke-width="2"/>`;
+  pts.forEach((p,i)=>{ s+=`<line x1="${X(p)}" y1="84" x2="${X(p)}" y2="96" stroke="var(--ink)" stroke-width="2"/><text x="${X(p)}" y="${i%2?118:114}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">${fmt(p)}</text>`; });
+  jumps.forEach((j,i)=>{ const x1=X(pts[i]), x2=X(pts[i+1]), h=26+Math.min(30,Math.abs(x2-x1)/4); s+=`<path class="dot" data-r="${i}" d="M${x1},84 Q${(x1+x2)/2},${84-h*1.6} ${x2},84" fill="none" stroke="${j.v>=0?'var(--green)':'var(--orange)'}" stroke-width="3"/><text class="dot" data-r="${i}" x="${(x1+x2)/2}" y="${84-h*0.85}" text-anchor="middle" font-size="14" font-weight="800" fill="${j.v>=0?'var(--green)':'var(--orange)'}">${j.l}</text>`; });
+  return svgWrap(W,128,s); }
+function area(a,b){ const pa=split(a), pb=split(b); const W=Math.min(520,90*pa.length+60), H=70*pb.length+30; let s='', x=30;
+  const wa=pa.map(p=>Math.max(70,(W-40)*Math.log10(p+1)/pa.reduce((t,q)=>t+Math.log10(q+1),0)));
+  pa.forEach((p,i)=>{ s+=`<text x="${x+wa[i]/2}" y="18" text-anchor="middle" font-weight="800" font-size="14" fill="var(--green)">${fmt(p)}</text>`; let y=26; pb.forEach((q,j)=>{ s+=`<rect class="dot" data-r="${i*pb.length+j}" x="${x}" y="${y}" width="${wa[i]-4}" height="64" rx="8" fill="${['var(--yellow)','var(--blue)','var(--coral)','var(--mint)'][(i+j)%4]}" stroke="var(--line)"/><text class="dot" data-r="${i*pb.length+j}" x="${x+wa[i]/2-2}" y="${y+38}" text-anchor="middle" font-weight="800" font-size="14" fill="var(--ink)">${fmt(p*q)}</text>`; y+=68; }); x+=wa[i]; });
+  pb.forEach((q,j)=>s+=`<text x="14" y="${26+j*68+38}" text-anchor="middle" font-weight="800" font-size="14" fill="var(--green)">${fmt(q)}</text>`);
+  return svgWrap(x+6,H,s); }
+function split(n){ n=Math.abs(n); const s=String(n), out=[]; for(let i=0;i<s.length;i++){ const v=+s[i]*10**(s.length-1-i); if(v) out.push(v); } return out.length?out:[0]; }
+function column(a,b,op){ const A=String(a), B=String(b), L=Math.max(A.length,B.length)+(op==='+'?1:0), R=op==='+'?a+b:a-b; const ad=A.padStart(L,' ').split(''), bd=B.padStart(L,' ').split(''), rd=String(R).padStart(L,' ').split('');
+  // carries / borrows
+  const carry=Array(L).fill(''); if(op==='+'){ let c=0; for(let i=L-1;i>=0;i--){ const s=(+ad[i]||0)+(+bd[i]||0)+c; c=s>=10?1:0; if(c&&i>0) carry[i-1]='1'; } }
+  else { let br=0; const top=ad.map(x=>+x||0); for(let i=L-1;i>=0;i--){ let t=top[i]-br; const bb=+bd[i]||0; if(t<bb){ carry[i]='+10'; br=1; } else br=0; } }
+  const row=(arr,cls='')=>`<tr class="${cls}">${arr.map(x=>`<td>${x.trim()}</td>`).join('')}</tr>`;
+  return `<table class="col" aria-label="Hitung bersusun"><tr class="carry">${carry.map(c=>`<td class="carry">${c}</td>`).join('')}<td></td></tr>${row(ad.concat(['']))}${row(bd.concat([op]))}${row(rd.concat(['']),'sum')}</table>`; }
+function roundNice(n){ const p=n>=1000?1000:n>=100?100:10; return Math.round(n/p)*p; }
+
+function explain(q){
+  const {a,b,op,ans}=q, T=[]; const anyNeg=a<0||b<0;
+  if(anyNeg && (op==='×'||op==='÷')){
+    const sa=a<0?'negatif':'positif', sb=b<0?'negatif':'positif', sr=ans<0?'negatif':(ans===0?'nol':'positif');
+    T.push({name:'Aturan tanda',intro:`Hitung dulu tanpa tanda: ${fmt(Math.abs(a))} ${op} ${fmt(Math.abs(b))} = ${fmt(Math.abs(ans))}. Lalu tentukan tandanya.`,viz:`<table class="hist" style="max-width:360px;margin:auto"><tr><th>Tanda</th><th>Hasil</th></tr><tr><td>(+) ${op} (+)</td><td>positif</td></tr><tr><td>(−) ${op} (−)</td><td>positif</td></tr><tr><td>(+) ${op} (−) atau (−) ${op} (+)</td><td>negatif</td></tr></table>`,
+      steps:[`${fmt(Math.abs(a))} ${op} ${fmt(Math.abs(b))} = ${fmt(Math.abs(ans))}.`,`Tanda: ${sa} ${op} ${sb} → ${sa===sb?'sama':'berbeda'} → hasil ${sr}.`,`Jadi ${par(a)} ${op} ${par(b)} = ${fmt(ans)}.`]});
+    return T; }
+  if(anyNeg){ // + or − with integers
+    const jumps = op==='+' ? [{v:b,l:(b>=0?'+':'−')+fmt(Math.abs(b)).replace('−','')}] : [{v:-b,l:(b>=0?'−':'+')+fmt(Math.abs(b)).replace('−','')}];
+    T.push({name:'Garis bilangan',intro:`Mulai dari ${fmt(a)}. ${op==='+'?(b>=0?'Tambah bilangan positif → bergerak ke kanan.':'Tambah bilangan negatif → bergerak ke kiri.'):(b>=0?'Kurang bilangan positif → bergerak ke kiri.':'Kurang bilangan negatif sama dengan menambah → bergerak ke kanan.')}`,viz:numline(a,jumps),steps:[`Titik awal ${fmt(a)}.`,`Melompat ${Math.abs(b)} langkah ke ${(op==='+')===(b>=0)?'kanan':'kiri'}.`,`Berhenti di ${fmt(ans)}.`]});
+    if(op==='−') T.push({name:'Ubah jadi penjumlahan',intro:'Mengurangi sama dengan menambah lawannya: a − b = a + (−b).',viz:'',steps:[`${par(a)} − ${par(b)} = ${par(a)} + ${par(-b)}`,`= ${fmt(ans)}`]});
+    else T.push({name:'Bandingkan jarak dari nol',intro:'Jika tandanya berbeda, kurangkan nilai mutlaknya, lalu pakai tanda bilangan yang lebih jauh dari nol.',viz:'',steps:[`|${fmt(a)}| = ${fmt(Math.abs(a))}, |${fmt(b)}| = ${fmt(Math.abs(b))}`,(a<0)===(b<0)?`Tanda sama → jumlahkan: ${fmt(Math.abs(a)+Math.abs(b))}, tanda tetap ${a<0?'negatif':'positif'}.`:`Tanda berbeda → ${fmt(Math.max(Math.abs(a),Math.abs(b)))} − ${fmt(Math.min(Math.abs(a),Math.abs(b)))} = ${fmt(Math.abs(ans))}.`,`Jadi hasilnya ${fmt(ans)}.`]});
+    return T; }
+  if(op==='×'){
+    if(a<=12&&b<=12){
+      const st=[]; let s=0; for(let i=0;i<b;i++){ s+=a; st.push(i===0?`${a}`:`${Array(i+1).fill(a).join(' + ')} = ${s}`); }
+      const st2 = b<=6 ? st : [`${a} + ${a} + … (${b} kali)`, ...st.slice(-2)];
+      T.push({name:'Cara mudah · tambah berulang',intro:`${a} dijumlahkan ${b} kali.`,viz:grid(b,a),rows:b,steps:st2.length>1?st2.slice(1):[`${a} × 1 = ${a}`],sync:true});
+      T.push({name:'Cara lain · susun baris dan kolom',intro:`Susun ${b} baris, setiap baris berisi ${a} titik. Hitung per baris atau gunakan fakta perkalian yang sudah kamu tahu.`,viz:grid(b,a),steps: b>5&&b!==10 ? [`${a} × 5 = ${a*5}`,`${a} × ${b-5} = ${a*(b-5)}`,`${a*5} + ${a*(b-5)} = ${ans}`] : a>5&&a!==10 ? [`5 × ${b} = ${5*b}`,`${a-5} × ${b} = ${(a-5)*b}`,`${5*b} + ${(a-5)*b} = ${ans}`] : [`${b} baris × ${a} kolom`,`= ${ans} titik`]});
+    } else {
+      const pa=split(a), pb=split(b), parts=[]; pa.forEach(p=>pb.forEach(r=>parts.push([p,r])));
+      T.push({name:'Pecah puluhan & satuan',intro:`Pecah bilangan menurut nilai tempat, kalikan setiap bagian, lalu jumlahkan (model luas).`,viz:area(a,b),steps:[`${fmt(a)} = ${pa.map(fmt).join(' + ')}${pb.length>1?` dan ${fmt(b)} = ${pb.map(fmt).join(' + ')}`:''}`,...parts.map(([p,r])=>`${fmt(p)} × ${fmt(r)} = ${fmt(p*r)}`),`${parts.map(([p,r])=>fmt(p*r)).join(' + ')} = ${fmt(ans)}`],sync:true});
+      const nb=roundNice(b), na=roundNice(a);
+      if(Math.abs(nb-b)<=2 && nb!==b) T.push({name:'Bulatkan dulu',intro:`${fmt(b)} dekat dengan ${fmt(nb)}.`,viz:'',steps:[`${fmt(a)} × ${fmt(nb)} = ${fmt(a*nb)}`,`${nb>b?'Kurangi':'Tambah'} ${fmt(a)} × ${Math.abs(nb-b)} = ${fmt(a*Math.abs(nb-b))}`,`${fmt(a*nb)} ${nb>b?'−':'+'} ${fmt(a*Math.abs(nb-b))} = ${fmt(ans)}`]});
+      else if(Math.abs(na-a)<=2 && na!==a) T.push({name:'Bulatkan dulu',intro:`${fmt(a)} dekat dengan ${fmt(na)}.`,viz:'',steps:[`${fmt(na)} × ${fmt(b)} = ${fmt(na*b)}`,`${na>a?'Kurangi':'Tambah'} ${Math.abs(na-a)} × ${fmt(b)} = ${fmt(Math.abs(na-a)*b)}`,`${fmt(na*b)} ${na>a?'−':'+'} ${fmt(Math.abs(na-a)*b)} = ${fmt(ans)}`]});
+    }
+    return T; }
+  if(op==='÷'){
+    const fact=[]; for(let i=Math.max(1,ans-2);i<=ans+1;i++) fact.push(`${fmt(b)} × ${fmt(i)} = ${fmt(b*i)}${i===ans?' ✔':''}`);
+    T.push({name:'Cara mudah · cari pasangan perkalian',intro:`${fmt(a)} ÷ ${fmt(b)} = ? artinya ${fmt(b)} × ? = ${fmt(a)}.`,viz:'',steps:fact.concat([`Jadi ${fmt(a)} ÷ ${fmt(b)} = ${fmt(ans)}.`])});
+    if(a<=48&&b<=8) T.push({name:'Cara lain · bagi rata',intro:`Bagikan ${a} benda ke ${b} kelompok sama banyak.`,viz:groups(a,b),steps:[`${a} benda dibagi ke ${b} kelompok.`,`Setiap kelompok mendapat ${ans}.`]});
+    else { const big=Math.floor(ans/10)*10*b; if(big>0&&big<a) T.push({name:'Cara lain · pecah bilangan',intro:`Pecah ${fmt(a)} menjadi bagian yang mudah dibagi ${fmt(b)}.`,viz:'',steps:[`${fmt(a)} = ${fmt(big)} + ${fmt(a-big)}`,`${fmt(big)} ÷ ${fmt(b)} = ${fmt(big/b)}`,`${fmt(a-big)} ÷ ${fmt(b)} = ${fmt((a-big)/b)}`,`${fmt(big/b)} + ${fmt((a-big)/b)} = ${fmt(ans)}`]}); }
+    return T; }
+  // + and − positive
+  if(op==='+'){
+    const pa=split(a), pb=split(b);
+    T.push({name:'Cara mudah · bersusun',intro:'Jumlahkan mulai dari satuan. Jika hasilnya 10 atau lebih, simpan 1 ke kolom kiri.',viz:column(a,b,'+'),steps:[`Satuan: ${a%10} + ${b%10} = ${a%10+b%10}${a%10+b%10>=10?' → tulis '+(a%10+b%10)%10+', simpan 1':''}`,a>=10||b>=10?`Lanjutkan ke puluhan${a>=100||b>=100?', ratusan':''}, dan seterusnya.`:'',`Hasil: ${fmt(ans)}`].filter(Boolean)});
+    const nb=roundNice(b);
+    if(b>=8 && Math.abs(nb-b)<=Math.max(2,nb/50) && nb!==b) T.push({name:'Cara lain · bulatkan dulu',intro:`${fmt(b)} dekat dengan ${fmt(nb)}. Tambahkan ${fmt(nb)}, lalu ${nb>b?'kurangi':'tambah'} selisihnya.`,viz:numline(a,[{v:nb,l:'+'+fmt(nb)},{v:b-nb,l:(b-nb>0?'+':'−')+fmt(Math.abs(b-nb))}]),steps:[`${fmt(a)} + ${fmt(nb)} = ${fmt(a+nb)}`,`${fmt(a+nb)} ${nb>b?'−':'+'} ${fmt(Math.abs(nb-b))} = ${fmt(ans)}`],sync:true});
+    else T.push({name:'Cara lain · pecah nilai tempat',intro:'Pecah bilangan kedua, lalu lompat di garis bilangan.',viz:numline(a,pb.map(p=>({v:p,l:'+'+fmt(p)}))),steps:pb.map((p,i)=>{ const s=a+pb.slice(0,i+1).reduce((x,y)=>x+y,0); return `${fmt(s-p)} + ${fmt(p)} = ${fmt(s)}`; }),sync:true});
+    return T; }
+  // −
+  T.push({name:'Cara mudah · bersusun',intro:'Kurangkan mulai dari satuan. Jika angka atas lebih kecil, pinjam 1 dari kolom kiri (bernilai 10).',viz:column(a,b,'−'),steps:[`Satuan: ${a%10} − ${b%10}${a%10<b%10?` → kurang, pinjam: ${a%10+10} − ${b%10} = ${a%10+10-b%10}`:` = ${a%10-b%10}`}`,a>=10?'Lanjutkan ke kolom berikutnya (ingat angka yang sudah dipinjam berkurang 1).':'',`Hasil: ${fmt(ans)}`].filter(Boolean)});
+  const nb=roundNice(b);
+  if(b>=8&&Math.abs(nb-b)<=Math.max(2,nb/50)&&nb!==b&&nb<a) T.push({name:'Cara lain · bulatkan dulu',intro:`${fmt(b)} dekat dengan ${fmt(nb)}.`,viz:numline(a,[{v:-nb,l:'−'+fmt(nb)},{v:nb-b,l:(nb-b>0?'+':'−')+fmt(Math.abs(nb-b))}]),steps:[`${fmt(a)} − ${fmt(nb)} = ${fmt(a-nb)}`,`${fmt(a-nb)} ${nb>b?'+':'−'} ${fmt(Math.abs(nb-b))} = ${fmt(ans)}`],sync:true});
+  else { // hitung maju
+    const j=[]; let cur=b; const up=v=>{ j.push({v,l:'+'+fmt(v)}); cur+=v; };
+    const nt=Math.ceil((cur+1)/10)*10; if(nt<a&&nt!==cur) up(nt-cur); const nh=Math.ceil(cur/100)*100; if(nh<a&&nh!==cur&&a>=100) up(nh-cur); const nk=Math.floor(a/100)*100; if(nk>cur) up(nk-cur); const n10=Math.floor(a/10)*10; if(n10>cur) up(n10-cur); if(a>cur) up(a-cur);
+    T.push({name:'Cara lain · hitung maju',intro:`Selisih = berapa langkah dari ${fmt(b)} menuju ${fmt(a)}.`,viz:numline(b,j),steps:[...j.map(x=>x.l),`Total lompatan: ${j.map(x=>fmt(x.v)).join(' + ')} = ${fmt(ans)}`],sync:true}); }
+  return T;
+}
+
+/* ---------- state & home ---------- */
+const hist=()=>st.get('hist',[]);
+function stats(){ const H=hist(), td=today(); const days=[...new Set(H.map(h=>h.date))].sort();
+  const todayQ=H.filter(h=>h.date===td).reduce((s,h)=>s+h.n,0), todayS=H.filter(h=>h.date===td).length;
+  let streak=0; { const set=new Set(days); const d=new Date(); if(!set.has(td)) d.setDate(d.getDate()-1); while(true){ const k=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); if(set.has(k)){ streak++; d.setDate(d.getDate()-1); } else break; } }
+  const tot=H.reduce((s,h)=>s+h.n,0), ok=H.reduce((s,h)=>s+h.ok,0), dur=H.reduce((s,h)=>s+h.dur,0);
+  const dayNo=Math.min(30,days.length+(days.includes(td)?0:1));
+  return {H,days,todayQ,todayS,streak,tot,ok,dur,dayNo}; }
+function focusFor(day){ const w=Math.min(3,Math.floor((day-1)/7)); return [['+','−','Penjumlahan dan pengurangan teliti'],['×','×','Perkalian 2 sampai 10'],['÷','÷','Pembagian dari fakta perkalian'],['mix','mix','Campuran semua operasi']][w]; }
+function renderHome(){
+  const S=stats(), k=cfg.kelas, f=focusFor(S.dayNo);
+  $('#day-badge').innerHTML=`${cfg.nick?'Halo, <strong>'+cfg.nick.replace(/[<>&]/g,'')+'</strong> · ':''}Hari latihan <strong>${S.dayNo}/30</strong>`;
+  $('#tgt-day').textContent='Target hari ke-'+S.dayNo; $('#tgt-n').textContent=cfg.target+' soal'; $('#o-time').textContent=mmss(cfg.t);
+  const q1=gen('×',k,1), q2=gen('+',k,1), q3=gen('÷',k,1); $('#o1').textContent=`${par(q1.a)} × ${par(q1.b)}`; $('#o2').textContent=`${par(q2.a)} + ${par(q2.b)}`; $('#o3').textContent=`${par(q3.a)} ÷ ${par(q3.b)}`;
+  $('#focus').textContent=f[2]+'.';
+  $('#today-sum').textContent=`${S.todayS} sesi selesai`;
+  const pct=Math.min(100,Math.round(S.todayQ/cfg.target*100)); $('#streak').textContent=S.streak;
+  $('#goal-title').textContent=pct>=100?'Target hari ini tercapai! 🎉':S.todayQ?'Sedikit lagi menuju target':'Ayo mulai latihan hari ini';
+  $('#goal-text').textContent=`${S.todayQ} dari ${cfg.target} soal hari ini · ${pct}% selesai`; $('#goal-bar').style.width=Math.max(2,pct)+'%';
+  const best=st.get('best',{});
+  $('#ops').innerHTML=Object.keys(OPS).map(o=>{ const b=best[o+'|'+k]; return `<button class="operation-card ${OPS[o].c}" data-op="${o}"><span class="operation-symbol">${OPS[o].s||o}</span><strong>${OPS[o].n}</strong><small>${OPS[o].d}</small>${b?`<span class="op-best">Terbaik kelas ${k}: ${b.ok}/${b.n} · ${mmss(b.dur)}</span>`:''}<span class="card-arrow">↗</span></button>`; }).join('');
+  document.querySelectorAll('#ops .operation-card').forEach(c=>c.onclick=()=>startPractice(c.dataset.op));
+  const set=new Set(S.days); const start=S.days.length?new Date(S.days[0]+'T00:00'):new Date();
+  $('#days').innerHTML=Array.from({length:30},(_,i)=>{ const done=i<S.days.length; return `<i class="${done?'done':''} ${i===S.dayNo-1&&!S.days.includes(today())?'today':''}">${i+1}</i>`; }).join('');
+  const wk=Math.min(3,Math.floor((S.dayNo-1)/7));
+  $('#weeks').innerHTML=['Minggu 1 · Dasar','Minggu 2 · Lancar','Minggu 3 · Cepat','Minggu 4 · Campuran'].map((w,i)=>`<span class="${i===wk?'on':''}">${w}</span>`).join('');
+  $('#days-text').textContent=`${S.days.length} hari selesai · ${Math.max(0,30-S.days.length)} hari lagi`;
+  $('#m-ses').textContent=S.H.length; $('#m-acc').textContent=(S.tot?Math.round(S.ok/S.tot*100):0)+'%'; $('#m-avg').textContent=mmss(S.tot?S.dur/S.tot:0); $('#m-day').textContent=S.days.length;
+  $('#hist').innerHTML=S.H.length?`<tr><th>Tanggal</th><th>Latihan</th><th>Kelas</th><th>Benar</th><th>Waktu</th></tr>`+S.H.slice(-12).reverse().map(h=>`<tr><td>${h.date.split('-').reverse().join('/')}</td><td>${OPS[h.op].n}</td><td>${h.k}</td><td>${h.ok}/${h.n}</td><td>${mmss(h.dur)}</td></tr>`).join(''):'<tr><td class="who">Belum ada latihan. Pilih salah satu kartu di atas untuk mulai.</td></tr>';
+}
+$('#start-today').onclick=()=>startPractice(focusFor(stats().dayNo)[0]);
+$('#go-hist').onclick=()=>$('#dash').scrollIntoView({behavior:'smooth'});
+$('#home-btn').onclick=()=>show('home');
+$('#copy').onclick=()=>{ const S=stats(); const t=`Rekap Hitung Hebat${cfg.nick?' – '+cfg.nick:''}\nHari aktif: ${S.days.length} · Sesi: ${S.H.length} · Akurasi: ${S.tot?Math.round(S.ok/S.tot*100):0}% · Rata-rata ${mmss(S.tot?S.dur/S.tot:0)}/soal\n`+S.H.slice(-10).map(h=>`${h.date} ${OPS[h.op].n} kls ${h.k}: ${h.ok}/${h.n} (${mmss(h.dur)})`).join('\n');
+  const done=()=>$('#copy-msg').textContent='Rekap disalin. Tempelkan ke WhatsApp atau catatan guru.';
+  try{ navigator.clipboard.writeText(t).then(done,()=>{ $('#copy-msg').textContent=t; }); }catch(e){ $('#copy-msg').textContent=t; } };
+$('#reset').onclick=()=>{ if(confirm('Hapus semua data Hitung Hebat di perangkat ini?')){ ['hist','best'].forEach(k=>{ try{ localStorage.removeItem('hh:'+k); }catch(e){} }); renderHome(); } };
+
+/* ---------- practice ---------- */
+let P=null, tick=null;
+function show(v){ ['home','practice','result'].forEach(x=>$('#'+x).classList.toggle('hide',x!==v)); if(v==='home'){ clearInterval(tick); renderHome(); } window.scrollTo(0,0); }
+function startPractice(op,retry){
+  P={op,k:cfg.kelas,n:retry?retry.length:cfg.n,t:cfg.t,left:cfg.t,i:0,ok:0,bad:0,d:retry?1:(cfg.kelas<=2?0:1),run:0,wrong:[],paused:false,start:Date.now(),retry:retry||null,used:0};
+  show('practice'); next(); clearInterval(tick); tick=setInterval(()=>{ if(P.paused) return; P.left--; P.used++; drawTimer(); if(P.left<=0) finish(true); },1000); drawTimer(); }
+function drawTimer(){ $('#tleft').textContent=mmss(Math.max(0,P.left)); $('#timer').classList.toggle('low',P.left<=30); $('#timer').classList.toggle('paused',P.paused); $('#timer span').textContent=P.paused?'Waktu berhenti':'Waktu'; }
+function next(){
+  if(P.i>=P.n) return finish(false);
+  P.q = P.retry ? P.retry[P.i] : gen(P.op,P.k,P.d);
+  const q=P.q; $('#qp').textContent=`Soal ${P.i+1} dari ${P.n}`; $('#qbar').style.width=(P.i/P.n*100)+'%';
+  $('#plabel').textContent=`${OPS[q.op].n}${P.op==='mix'?' (campuran)':''} · Kelas ${P.k} · ${DIFF[q.d]}`;
+  $('#eq').innerHTML=`<span>${par(q.a)}</span><b>${q.op}</b><span>${par(q.b)}</span><b>=</b><span class="answer-placeholder">?</span>`;
+  $('#eq').setAttribute('aria-label',`${q.a} ${q.op} ${q.b}`);
+  const inp=$('#answer'); inp.value=''; inp.disabled=false; $('#jawab').disabled=false; $('#jawab').textContent='Jawab →';
+  $('#sign').classList.toggle('hide',!(P.k>=6)); $('#fb').className='feedback'; $('#fb').textContent=P.i===0?'Tarik napas, hitung dengan teliti.':''; $('#pemb').innerHTML='';
+  setTimeout(()=>inp.focus(),30); }
+$('#sign').onclick=()=>{ const i=$('#answer'); i.value=i.value.startsWith('-')||i.value.startsWith('−')?i.value.replace(/^[-−]/,''):'-'+i.value; i.focus(); };
+$('#aform').onsubmit=e=>{ e.preventDefault(); if(!P||P.paused) { if(P&&P.paused){ resume(); } return; }
+  const raw=$('#answer').value.trim().replace(/−/g,'-').replace(/\s/g,'').replace(/\./g,''); if(!raw||!/^-?\d+$/.test(raw)) { $('#fb').className='feedback wrong'; $('#fb').textContent='Tulis jawaban berupa angka.'; return; }
+  const v=+raw, q=P.q; $('#answer').disabled=true;
+  if(v===q.ans){ P.ok++; P.run++; if(P.run>=3&&P.d<2&&!P.retry){ P.d++; P.run=0; } $('#fb').className='feedback right'; $('#fb').textContent=pick(['Benar! 👏','Tepat sekali!','Hebat, lanjut!','Benar, teliti sekali!']);
+    $('#eq .answer-placeholder').textContent=fmt(q.ans); $('#eq .answer-placeholder').style.color='var(--ok)'; P.i++; upd(); setTimeout(next,650); }
+  else { P.bad++; P.run=0; if(P.d>0&&!P.retry) P.d--; P.wrong.push(q); $('#fb').className='feedback wrong'; $('#fb').textContent=`Belum tepat. Jawabannya ${fmt(q.ans)}.`; $('#eq .answer-placeholder').textContent=fmt(q.ans); $('#eq .answer-placeholder').style.color='var(--no)';
+    P.paused=true; drawTimer(); P.i++; upd(); renderPemb(q); $('#jawab').textContent='Soal berikutnya →'; $('#jawab').disabled=false; }
+};
+function resume(){ P.paused=false; drawTimer(); next(); }
+function upd(){ $('#sb').textContent=P.ok; $('#sw').textContent=P.bad; }
+let anim=null;
+function renderPemb(q){
+  const T=explain(q); let cur=0;
+  const draw=()=>{ const t=T[cur];
+    $('#pemb').innerHTML=`<div class="pembahasan"><h3>Pembahasan</h3><p class="pembahasan-soal"><b>Soal:</b> ${par(q.a)} ${q.op} ${par(q.b)} = ?</p>
+      ${T.length>1?`<div class="pembahasan-tabs" role="tablist">${T.map((x,i)=>`<button type="button" role="tab" aria-selected="${i===cur}" class="${i===cur?'active':''}" data-i="${i}">${x.name}</button>`).join('')}</div>`:''}
+      <p>${t.intro}</p>${t.viz?`<div class="viz">${t.viz}</div>`:''}
+      <ol class="pembahasan-langkah">${t.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+      <p class="pembahasan-kesimpulan">Jadi, ${par(q.a)} ${q.op} ${par(q.b)} = ${fmt(q.ans)}.</p>
+      <div class="pembahasan-aksi"><button type="button" class="play" aria-label="Putar animasi" title="Putar animasi">▶</button><span id="stepc"></span></div>
+      <p class="pembahasan-jeda">⏸ Waktu latihan berhenti selama kamu membaca pembahasan.</p>
+      <button type="button" class="primary-button" id="lanjut" style="margin-top:6px">Soal berikutnya →</button></div>`;
+    document.querySelectorAll('.pembahasan-tabs button').forEach(b=>b.onclick=()=>{ cur=+b.dataset.i; draw(); });
+    document.querySelector('.play').onclick=play; $('#lanjut').onclick=()=>resume(); play(); };
+  const play=()=>{ clearInterval(anim); const li=[...document.querySelectorAll('.pembahasan-langkah li')], dots=[...document.querySelectorAll('.viz .dot')], t=T[cur]; let s=0; const n=li.length;
+    const maxR=Math.max(0,...dots.map(d=>+d.dataset.r));
+    const paint=()=>{ li.forEach((l,i)=>l.classList.toggle('aktif',i<=s)); if(t.sync){ const thr=n>1?Math.round(s/(n-1)*maxR):maxR; dots.forEach(d=>d.classList.toggle('off',+d.dataset.r>thr)); } const c=$('#stepc'); if(c) c.textContent=`${s+1}/${n} langkah`; };
+    if(t.sync) dots.forEach(d=>d.classList.add('off')); paint(); anim=setInterval(()=>{ s++; if(s>=n){ clearInterval(anim); return; } paint(); },1100); };
+  draw(); setTimeout(()=>{ const p=document.querySelector('.pembahasan'); if(p) p.scrollIntoView({behavior:'smooth',block:'nearest'}); },60);
+}
+$('#exit').onclick=()=>{ if(P&&P.i>0&&!confirm('Keluar dari latihan? Soal yang sudah dikerjakan tetap tersimpan.')) return; if(P&&P.i>0) save(); P=null; show('home'); };
+function save(){ const h=hist(); h.push({date:today(),op:P.op,k:P.k,n:P.i,ok:P.ok,dur:P.used}); st.set('hist',h.slice(-200));
+  if(!P.retry&&P.i===P.n){ const best=st.get('best',{}), key=P.op+'|'+P.k, b=best[key]; if(!b||P.ok>b.ok||(P.ok===b.ok&&P.used<b.dur)) best[key]={ok:P.ok,n:P.n,dur:P.used}; st.set('best',best); } }
+function finish(timeUp){
+  clearInterval(tick); clearInterval(anim); if(P.i>0) save(); const acc=P.i?Math.round(P.ok/P.i*100):0;
+  const msg=acc===100?'Sempurna! Semua benar.':acc>=80?'Bagus sekali! Pertahankan ketelitianmu.':acc>=60?'Sudah baik. Ulangi soal yang salah supaya makin lancar.':'Tidak apa-apa. Pelan-pelan dulu, pelajari pembahasannya.';
+  $('#result').innerHTML=`<section class="result"><span class="eyebrow">${timeUp?'Waktu habis':'Latihan selesai'}</span><h1>${OPS[P.op].n} · Kelas ${P.k}</h1>
+    <div class="big">${P.ok}/${P.i}</div><p>soal benar · akurasi ${acc}% · waktu ${mmss(P.used)}${P.i?` · ${mmss(P.used/P.i)} per soal`:''}</p><p><b>${msg}</b></p>
+    ${P.wrong.length?`<p class="who">Soal yang perlu diulang:</p><div class="wronglist">${P.wrong.map(q=>`<span>${par(q.a)} ${q.op} ${par(q.b)} = ${fmt(q.ans)}</span>`).join('')}</div>`:''}
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">${P.wrong.length?`<button class="primary-button" id="r-retry">Ulangi ${P.wrong.length} soal yang salah</button>`:''}<button class="secondary-button" id="r-again">Latihan lagi</button><button class="text-button" id="r-home">Kembali ke beranda</button></div></section>`;
+  const W=P.wrong.slice(), op=P.op; show('result');
+  const rr=$('#r-retry'); if(rr) rr.onclick=()=>startPractice(op,W.map(q=>Object.assign({},q,{op:q.op})));
+  $('#r-again').onclick=()=>startPractice(op); $('#r-home').onclick=()=>show('home'); }
+
+window.HH={gen,explain}; // untuk pengujian
+renderHome();
+})();
+</script>
+</body></html>

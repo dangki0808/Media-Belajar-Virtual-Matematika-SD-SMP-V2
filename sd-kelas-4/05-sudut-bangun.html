@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sudut & Bangun Datar · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#d97a00">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Geometri</span>
+  <h1>⏰ Sudut &amp; Bangun Datar</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal sudut lancip, siku-siku, tumpul, dan lurus, serta mengukurnya dengan satuan derajat.</li>
+    <li>Menentukan besar sudut pada jarum jam.</li>
+    <li>Mengenal segi banyak beraturan dan sifat-sifat bangun datar.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">⏰ Lab Sudut Jam</button><button data-target="segi">⬡ Lab Segi Banyak</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Jenis sudut</h2>
+    <svg class="viz" id="js" viewBox="0 0 720 160"></svg>
+    <p>Sudut diukur dengan <b>busur derajat</b>. Satu putaran penuh = <b>360°</b>.</p>
+  </div>
+  <div class="card"><h2>2. Sudut pada jam</h2>
+    <p>Jam dibagi menjadi 12 angka. Jarak antara dua angka = 360° : 12 = <b>30°</b>.</p>
+    <div class="grid3"><div class="ex">Pukul 03.00 → 3 × 30° = <b>90°</b> (siku-siku)</div><div class="ex">Pukul 02.00 → 2 × 30° = <b>60°</b> (lancip)</div><div class="ex">Pukul 06.00 → 6 × 30° = <b>180°</b> (lurus)</div></div>
+  </div>
+  <div class="card"><h2>3. Segi banyak</h2>
+    <p><b>Segi banyak</b> adalah bangun datar yang dibatasi ruas-ruas garis. <b>Segi banyak beraturan</b> memiliki semua sisi sama panjang dan semua sudut sama besar.</p>
+    <table class="t"><tr><th>Nama</th><th>Sisi</th><th>Contoh beraturan</th></tr><tr><td>Segitiga</td><td>3</td><td>segitiga sama sisi</td></tr><tr><td>Segi empat</td><td>4</td><td>persegi</td></tr><tr><td>Segi lima</td><td>5</td><td>segi lima beraturan</td></tr><tr><td>Segi enam</td><td>6</td><td>sarang lebah</td></tr><tr><td>Segi delapan</td><td>8</td><td>rambu "STOP"</td></tr></table>
+  </div>
+  <div class="card"><h2>4. Sifat bangun segi empat</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Persegi</span><br>4 sisi sama panjang, 4 sudut siku-siku.</div>
+      <div class="ex"><span class="t">Persegi panjang</span><br>Sisi berhadapan sama panjang, 4 sudut siku-siku.</div>
+      <div class="ex"><span class="t">Jajargenjang</span><br>Sisi berhadapan sama panjang dan sejajar.</div>
+      <div class="ex"><span class="t">Belah ketupat</span><br>4 sisi sama panjang, sudut berhadapan sama besar.</div>
+      <div class="ex"><span class="t">Layang-layang</span><br>Dua pasang sisi berdekatan sama panjang.</div>
+      <div class="ex"><span class="t">Trapesium</span><br>Tepat satu pasang sisi sejajar.</div>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Sudut Jarum Jam</h2>
+    <p>Seret jarum panjang (menit) atau gunakan penggeser jam. Perhatikan sudut terkecil di antara kedua jarum.</p>
+    <div class="ctrl"><label>Jam <span class="v" id="h-v"></span><input type="range" id="h" min="1" max="12" value="3"></label><label>Menit <span class="v" id="m-v"></span><input type="range" id="m" min="0" max="55" step="5" value="0"></label><label style="display:flex;flex-direction:row;gap:8px;align-items:center"><input type="checkbox" id="simple" checked> jarum jam diam di angka (sederhana)</label></div>
+    <div class="grid2"><svg class="viz" id="ck" viewBox="0 0 360 360" style="max-width:380px;margin:0 auto"></svg><div class="out" id="cOut"></div></div>
+  </div>
+</section>
+
+<section id="segi" class="panel">
+  <div class="card"><h2>Lab: Segi Banyak Beraturan</h2>
+    <div class="ctrl"><label>Banyak sisi <span class="v" id="n-v"></span><input type="range" id="n" min="3" max="12" value="6"></label><label>Panjang sisi (cm) <span class="v" id="sd-v"></span><input type="range" id="sd" min="1" max="10" value="4"></label></div>
+    <div class="grid2"><svg class="viz" id="pg" viewBox="0 0 360 360" style="max-width:380px;margin:0 auto"></svg><div class="out" id="pOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jenis sudut ditulis: lancip, siku-siku, tumpul, atau lurus.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const rad=d=>d*Math.PI/180;
+const jenis=a=>a===0?'nol':a<90?'lancip':a===90?'siku-siku':a<180?'tumpul':a===180?'lurus':'refleks';
+const arc=(g,cx,cy,r,a0,a1,col)=>{ const p=a=>[cx+r*Math.cos(rad(a)),cy-r*Math.sin(rad(a))]; const [x0,y0]=p(a0),[x1,y1]=p(a1); s('path',{d:`M${cx},${cy} L${x0},${y0} A${r},${r} 0 ${(a1-a0)>180?1:0} 0 ${x1},${y1} Z`,fill:col,'fill-opacity':.3,stroke:col,'stroke-width':2},g); };
+
+(function(){ const g=$('#js'); [['Lancip',50,'< 90°'],['Siku-siku',90,'= 90°'],['Tumpul',130,'90° – 180°'],['Lurus',180,'= 180°']].forEach(([n,a,d],i)=>{ const cx=90+i*180, cy=110;
+  arc(g,cx,cy,28,0,a,'var(--acc)'); s('line',{x1:cx,y1:cy,x2:cx+70,y2:cy,stroke:'var(--ink)','stroke-width':3},g); s('line',{x1:cx,y1:cy,x2:cx+70*Math.cos(rad(a)),y2:cy-70*Math.sin(rad(a)),stroke:'var(--ink)','stroke-width':3},g);
+  if(a===90) s('path',{d:`M${cx+16},${cy} v-16 h-16`,fill:'none',stroke:'var(--ink)','stroke-width':2},g);
+  txt(g,cx+(a===180?0:20),cy+30,n,{'font-weight':900}); txt(g,cx+(a===180?0:20),cy+48,d,{'font-size':12,fill:'var(--muted)'}); }); })();
+
+/* jam */
+function drawK(){
+  const h=+$('#h').value, m=+$('#m').value, simple=$('#simple').checked; $('#h-v').textContent=h; $('#m-v').textContent=String(m).padStart(2,'0');
+  const ha=(h%12)*30+(simple?0:m*0.5), ma=m*6; let d=Math.abs(ha-ma); if(d>180) d=360-d;
+  const g=$('#ck'); clear(g); const cx=180, cy=180, R=150, toXY=(a,r)=>[cx+r*Math.sin(rad(a)),cy-r*Math.cos(rad(a))];
+  s('circle',{cx,cy,r:R+8,fill:'#fff7e0',stroke:'var(--ink)','stroke-width':6},g);
+  for(let k=0;k<60;k++){ const [x1,y1]=toXY(k*6,R-(k%5?6:14)), [x2,y2]=toXY(k*6,R); s('line',{x1,y1,x2,y2,stroke:'#555','stroke-width':k%5?1.5:3},g); }
+  for(let k=1;k<=12;k++){ const [x,y]=toXY(k*30,R-34); txt(g,x,y+8,String(k),{'font-size':22,'font-weight':900,fill:'#333'}); }
+  // sektor sudut kecil
+  const st=Math.min(ha,ma), en=Math.max(ha,ma), small=(en-st)<=180; const a0=small?st:en, a1=small?en:st+360;
+  const p=a=>toXY(a,60); let dd=`M${cx},${cy} L${p(a0)[0]},${p(a0)[1]} A60,60 0 ${(a1-a0)>180?1:0} 1 ${p(a1)[0]},${p(a1)[1]} Z`; if(d>0) s('path',{d:dd,fill:'var(--b)','fill-opacity':.35,stroke:'var(--b)','stroke-width':2},g);
+  const [hx,hy]=toXY(ha,R*0.5), [mx,my]=toXY(ma,R*0.8);
+  s('line',{x1:cx,y1:cy,x2:hx,y2:hy,stroke:'#222','stroke-width':9,'stroke-linecap':'round'},g); s('line',{x1:cx,y1:cy,x2:mx,y2:my,stroke:'var(--a)','stroke-width':6,'stroke-linecap':'round'},g);
+  s('circle',{cx:mx,cy:my,r:12,fill:'var(--a)',stroke:'#fff','stroke-width':3,style:'cursor:grab'},g); s('circle',{cx,cy,r:8,fill:'#222'},g);
+  VML.dragSvg(g, q=>Math.hypot(q.x-mx,q.y-my)<30?1:null, (k,q)=>{ let a=Math.atan2(q.x-cx,cy-q.y)*180/Math.PI; if(a<0) a+=360; $('#m').value=Math.round(a/30)*5%60; drawK(); });
+  $('#cOut').innerHTML=`<div class="huge">${String(h).padStart(2,'0')}.${String(m).padStart(2,'0')}</div><div class="big">Sudut = ${num(d,1)}°</div><p>Jenis: <b>sudut ${jenis(d)}</b></p>
+   <p class="muted">${simple?`Jarum pendek di angka ${h}, jarum panjang di angka ${m/5||12}. Selisih ${Math.round(d/30)} angka × 30° = ${num(d)}°.`:`Jarum pendek bergeser ½° setiap menit, jadi pada ${m} menit sudah bergeser ${num(m*0.5)}°.`}</p>`;
+}
+['#h','#m'].forEach(x=>$(x).oninput=drawK); $('#simple').onchange=drawK; drawK();
+
+/* segi banyak */
+const NAMA={3:'Segitiga sama sisi',4:'Persegi',5:'Segi lima beraturan',6:'Segi enam beraturan',7:'Segi tujuh beraturan',8:'Segi delapan beraturan',9:'Segi sembilan beraturan',10:'Segi sepuluh beraturan',11:'Segi sebelas beraturan',12:'Segi dua belas beraturan'};
+function drawP(){
+  const n=+$('#n').value, sd=+$('#sd').value; $('#n-v').textContent=n; $('#sd-v').textContent=sd;
+  const g=$('#pg'); clear(g); const R=140, cx=180, cy=185, pts=[...Array(n)].map((_,k)=>{ const a=-90+k*360/n+(n%2===0?180/n:0); return [cx+R*Math.cos(rad(a)),cy+R*Math.sin(rad(a))]; });
+  s('polygon',{points:pts.map(p=>p.join(',')).join(' '),fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':4},g);
+  pts.forEach((p,k)=>{ s('line',{x1:cx,y1:cy,x2:p[0],y2:p[1],stroke:'var(--muted)','stroke-dasharray':'4 4'},g); s('circle',{cx:p[0],cy:p[1],r:5,fill:'var(--ink)'},g); });
+  s('circle',{cx,cy,r:4,fill:'var(--ink)'},g);
+  const inn=(n-2)*180/n;
+  $('#pOut').innerHTML=`<div class="big">${NAMA[n]}</div><p>Banyak sisi: <b>${n}</b> · Banyak titik sudut: <b>${n}</b></p><p>Semua sisinya ${sd} cm, jadi <b>keliling</b> = ${n} × ${sd} = <b>${n*sd} cm</b>.</p>
+   <p>Besar setiap sudut dalam: <b>${num(inn,1)}°</b> (${jenis(Math.round(inn))})</p><p class="muted">Garis putus-putus membagi bangun menjadi ${n} segitiga yang sama. Sudut di pusat masing-masing 360° : ${n} = ${num(360/n,1)}°.</p>`;
+}
+['#n','#sd'].forEach(x=>$(x).oninput=drawP); drawP();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Jenis sudut', gen(){ const a=pick([rand(10,85),90,rand(95,175),180]); const j=jenis(a); return {q:`Sudut yang besarnya ${a}° termasuk sudut …`, a:[j,j.replace('-',' '),j.replace('-','')], show:j, hint:'Lancip < 90°, siku-siku = 90°, tumpul antara 90° dan 180°, lurus = 180°.', ex:j}; }},
+  {name:'Sudut jam', gen(){ const h=rand(1,11), a=Math.min(h,12-h)*30; return {q:`Berapa derajat sudut terkecil antara kedua jarum jam pada pukul ${String(h).padStart(2,'0')}.00?`, a:String(a), unit:'°', hint:'Setiap angka berjarak 30°.', ex:`${Math.min(h,12-h)} × 30° = ${a}°`}; }},
+  {name:'Segi banyak', gen(){ const n=rand(3,10), sd=rand(2,15); if(Math.random()<.5) return {q:`Keliling ${NAMA[n].toLowerCase()} dengan panjang sisi ${sd} cm adalah …`, a:String(n*sd), unit:'cm', hint:'Banyak sisi × panjang sisi.', ex:`${n} × ${sd} = ${n*sd}`}; return {q:`Berapa banyak sisi pada ${NAMA[n].toLowerCase().replace(' beraturan','').replace('sama sisi','')}?`, a:String(n), hint:'Lihat nama bangunnya.', ex:String(n)}; }},
+  {name:'Putaran', gen(){ const f=pick([[1,4,90],[1,2,180],[3,4,270],[1,1,360],[1,3,120],[1,6,60]]); return {q:`${f[0]===1&&f[1]===1?'Satu putaran penuh':`${f[0]}/${f[1]} putaran`} sama dengan … derajat.`, a:String(f[2]), unit:'°', hint:'1 putaran = 360°.', ex:`${f[0]}/${f[1]} × 360° = ${f[2]}°`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Sudut yang besarnya kurang dari 90° disebut sudut …', o:['lancip','siku-siku','tumpul','lurus'], a:0, ex:'Lancip < 90°.'},
+ {q:'Sudut yang besarnya tepat 90° disebut sudut …', o:['siku-siku','lancip','tumpul','lurus'], a:0, ex:'Seperti pojok buku.'},
+ {q:'Sudut 120° termasuk sudut …', o:['tumpul','lancip','siku-siku','lurus'], a:0, ex:'Antara 90° dan 180°.'},
+ {q:'Alat untuk mengukur besar sudut adalah …', o:['busur derajat','penggaris','jangka','timbangan'], a:0, ex:'Busur derajat.'},
+ {q:'Satu putaran penuh besarnya …', o:['360°','180°','90°','100°'], a:0, ex:'360°.'},
+ {q:'Besar sudut antara jarum jam pada pukul 03.00 adalah …', o:['90°','30°','60°','180°'], a:0, ex:'3 × 30°.'},
+ {q:'Besar sudut antara jarum jam pada pukul 06.00 adalah …', o:['180°','60°','90°','360°'], a:0, ex:'Garis lurus.'},
+ {q:'Pada pukul 02.00, jarum jam membentuk sudut …', o:['lancip','siku-siku','tumpul','lurus'], a:0, ex:'60°.'},
+ {q:'Bangun datar yang mempunyai 6 sisi disebut …', o:['segi enam','segi lima','segi delapan','segi empat'], a:0, ex:'Seperti sarang lebah.'},
+ {q:'Rambu lalu lintas "STOP" berbentuk …', o:['segi delapan','segi enam','lingkaran','segitiga'], a:0, ex:'8 sisi.'},
+ {q:'Segi empat yang keempat sisinya sama panjang dan keempat sudutnya siku-siku adalah …', o:['persegi','belah ketupat','persegi panjang','trapesium'], a:0, ex:'Persegi.'},
+ {q:'Segi empat yang hanya memiliki sepasang sisi sejajar adalah …', o:['trapesium','jajargenjang','persegi','belah ketupat'], a:0, ex:'Tepat satu pasang.'},
+ {q:'Keliling segi lima beraturan dengan sisi 6 cm adalah … cm', input:true, a:['30'], ex:'5 × 6.'},
+ {q:'Berapa derajat sudut terkecil antara jarum jam pada pukul 04.00?', input:true, a:['120'], unit:'°', ex:'4 × 30°.'},
+ {q:'¼ putaran sama dengan …', o:['90°','45°','180°','25°'], a:0, ex:'360° : 4.'}
+], 'sd4m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

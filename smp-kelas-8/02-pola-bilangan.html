@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pola Bilangan · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#e0601a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Aljabar</span>
+  <h1>Pola Bilangan dan Barisan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenali pola bilangan (ganjil, genap, persegi, persegi panjang, segitiga, Pascal, Fibonacci) dari susunan objek.</li>
+    <li>Menentukan suku berikutnya dan rumus suku ke-n barisan aritmetika dan geometri.</li>
+    <li>Menghitung jumlah n suku pertama deret aritmetika dan menerapkannya dalam masalah nyata.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Pola Gambar</button><button data-target="barisan">📶 Lab Barisan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Pola bilangan istimewa</h2>
+    <table class="t"><tr><th>Pola</th><th>Barisan</th><th>Suku ke-n</th></tr>
+      <tr><td>Bilangan ganjil</td><td>1, 3, 5, 7, …</td><td>2n − 1</td></tr>
+      <tr><td>Bilangan genap</td><td>2, 4, 6, 8, …</td><td>2n</td></tr>
+      <tr><td>Persegi</td><td>1, 4, 9, 16, …</td><td>n²</td></tr>
+      <tr><td>Persegi panjang</td><td>2, 6, 12, 20, …</td><td>n(n + 1)</td></tr>
+      <tr><td>Segitiga</td><td>1, 3, 6, 10, …</td><td>½ n(n + 1)</td></tr>
+      <tr><td>Fibonacci</td><td>1, 1, 2, 3, 5, 8, …</td><td>suku = jumlah dua suku sebelumnya</td></tr>
+      <tr><td>Segitiga Pascal</td><td>jumlah tiap baris: 1, 2, 4, 8, …</td><td>2<sup>n−1</sup></td></tr></table>
+    <div class="note">Jumlah n bilangan ganjil pertama = n². Contoh: 1 + 3 + 5 + 7 = 16 = 4². Lihat buktinya pada pola persegi di Lab!</div>
+  </div>
+
+  <div class="card"><h2>2. Barisan aritmetika</h2>
+    <p>Selisih dua suku berurutan selalu sama, disebut <b>beda (b)</b>.</p>
+    <div class="def">U<sub>n</sub> = a + (n − 1)b &nbsp; dengan a = suku pertama, b = U<sub>2</sub> − U<sub>1</sub></div>
+    <div class="ex"><span class="t">Contoh</span> 3, 7, 11, 15, … → a = 3, b = 4. U<sub>20</sub> = 3 + 19 × 4 = <b>79</b>. Rumus umumnya U<sub>n</sub> = 3 + (n − 1)4 = <b>4n − 1</b>.</div>
+  </div>
+
+  <div class="card"><h2>3. Deret aritmetika</h2>
+    <p>Deret adalah jumlah suku-suku barisan.</p>
+    <div class="def">S<sub>n</sub> = <span class="fr"><span>n</span><span>2</span></span>(2a + (n − 1)b) = <span class="fr"><span>n</span><span>2</span></span>(a + U<sub>n</sub>)</div>
+    <div class="ex"><span class="t">Cara Gauss</span> 1 + 2 + … + 100: pasangkan 1 + 100, 2 + 99, … ada 50 pasang bernilai 101 → <b>5.050</b>.</div>
+  </div>
+
+  <div class="card"><h2>4. Barisan geometri</h2>
+    <p>Perbandingan dua suku berurutan selalu sama, disebut <b>rasio (r)</b>.</p>
+    <div class="def">U<sub>n</sub> = a × r<sup>n−1</sup> &nbsp; dengan r = U<sub>2</sub> : U<sub>1</sub></div>
+    <div class="ex"><span class="t">Contoh</span> 2, 6, 18, … → r = 3. U<sub>5</sub> = 2 × 3<sup>4</sup> = <b>162</b>.<br>Bakteri membelah menjadi 2 setiap 20 menit. Awalnya 5 bakteri. Setelah 2 jam (6 kali membelah): 5 × 2<sup>6</sup> = <b>320</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Pola dari Susunan Gambar</h2>
+    <div class="seg" id="pat"></div>
+    <div class="ctrl"><label>Pola ke-n <span class="v" id="n-v"></span><input type="range" id="n" min="1" max="8" value="4"></label></div>
+    <div class="grid2"><svg class="viz" id="pg" viewBox="0 0 400 360"></svg><div class="out" id="pOut"></div></div>
+  </div>
+</section>
+
+<section id="barisan" class="panel">
+  <div class="card"><h2>Lab: Pembangun Barisan</h2>
+    <div class="seg" id="tp"><button data-t="ar" class="on">Aritmetika (+b)</button><button data-t="ge">Geometri (×r)</button></div>
+    <div class="ctrl"><label>Suku pertama a <span class="v" id="a-v"></span><input type="range" id="a" min="-10" max="20" value="3"></label><label id="lb">Beda b <span class="v" id="b-v"></span><input type="range" id="b" min="-6" max="10" value="4"></label><label>Suku ke-n yang dicari <span class="v" id="k-v"></span><input type="range" id="k" min="1" max="30" value="20"></label></div>
+    <div class="out" id="seq" style="font-size:1.05rem;overflow-x:auto"></div>
+    <div class="grid2"><svg class="viz" id="sg" viewBox="0 0 420 260"></svg><div class="out" id="sOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, num, F} = VML;
+const id = n => Number(n).toLocaleString('id-ID');
+const fib = n => { let a=1,b=1; for(let i=2;i<n;i++) [a,b]=[b,a+b]; return n<=2?1:b; };
+const binom = (n,k) => { let r=1; for(let i=1;i<=k;i++) r=r*(n-k+i)/i; return Math.round(r); };
+const PT = {
+  ganjil:{n:'Ganjil', f:n=>2*n-1, rule:'2n − 1', draw:(g,n,D)=>{ for(let i=0;i<n;i++) D(i,0,0); for(let j=1;j<n;j++) D(n-1,j,0); }},
+  persegi:{n:'Persegi', f:n=>n*n, rule:'n²', draw:(g,n,D)=>{ for(let i=0;i<n;i++) for(let j=0;j<n;j++) D(i,j,(i===n-1||j===n-1)?0:1); }, note:n=>`Lapisan terluar (oranye) berisi ${2*n-1} titik = bilangan ganjil ke-${n}. Jadi 1 + 3 + … + ${2*n-1} = ${n}² = ${n*n}.`},
+  pp:{n:'Persegi panjang', f:n=>n*(n+1), rule:'n(n + 1)', draw:(g,n,D)=>{ for(let i=0;i<n+1;i++) for(let j=0;j<n;j++) D(i,j,(i===n||j===n-1)?0:1); }},
+  segitiga:{n:'Segitiga', f:n=>n*(n+1)/2, rule:'½ n(n + 1)', draw:(g,n,D)=>{ for(let j=0;j<n;j++) for(let i=0;i<n-j;i++) D(i+j/2,j,j===0?0:1); }, note:n=>`Dua pola segitiga ke-${n} membentuk persegi panjang ${n} × ${n+1}, jadi satu segitiga = ½ × ${n} × ${n+1} = ${n*(n+1)/2}.`},
+  pascal:{n:'Pascal', f:n=>Math.pow(2,n-1), rule:'2<sup>n−1</sup> (jumlah baris ke-n)', pascal:true},
+  fib:{n:'Fibonacci', f:fib, rule:'U<sub>n</sub> = U<sub>n−1</sub> + U<sub>n−2</sub>', fib:true}
+};
+let cur='persegi';
+$('#pat').innerHTML=Object.entries(PT).map(([k,o])=>`<button data-k="${k}" class="${k===cur?'on':''}">${o.n}</button>`).join('');
+document.querySelectorAll('#pat button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pat button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur=b.dataset.k;drawPat();});
+function drawPat(){
+  const n=+$('#n').value; $('#n-v').textContent=n; const o=PT[cur], g=$('#pg'); clear(g);
+  if(o.pascal){ for(let r=0;r<n;r++){ for(let c=0;c<=r;c++){ const x=200+(c-r/2)*44, y=30+r*42; s('rect',{x:x-20,y:y-16,width:40,height:30,rx:8,fill:r===n-1?'var(--b)':'var(--acc)','fill-opacity':r===n-1?.9:.18},g); txt(g,x,y+5,String(binom(r,c)),{'font-weight':700,'font-size':13,fill:r===n-1?'#fff':'var(--ink)'}); } } }
+  else if(o.fib){ let x=10; const sc=Math.min(18, 360/ (fib(n)+fib(n-1)+2)); for(let i=1;i<=n;i++){ const v=fib(i), w=v*sc; s('rect',{x,y:330-w,width:w,height:w,fill:i===n?'var(--b)':'var(--acc)','fill-opacity':i===n?.85:.25,stroke:'var(--acc)'},g); if(w>14) txt(g,x+w/2,330-w/2+5,String(v),{'font-size':Math.min(16,w/2),'font-weight':700}); x+=w+3; } txt(g,200,24,'Persegi dengan sisi bilangan Fibonacci',{'font-size':12,fill:'var(--muted)'}); }
+  else { const sp=Math.min(40, 320/(n+1)), r=sp*0.36, ox=40, oy=330;
+    o.draw(g,n,(i,j,old)=>s('circle',{cx:ox+i*sp+sp/2,cy:oy-j*sp-sp/2,r,fill:old?'var(--acc)':'var(--b)','fill-opacity':old?.55:1},g)); }
+  const seq=[...Array(8)].map((_,i)=>o.f(i+1));
+  $('#pOut').innerHTML=`<div class="muted"><b>Pola ${o.n.toLowerCase()} ke-${n}</b></div><div class="huge">${id(o.f(n))}</div>
+    <p>Barisan: ${seq.map((v,i)=>i+1===n?`<b style="color:var(--b)">${id(v)}</b>`:id(v)).join(', ')}, …</p><p>Rumus: <b>${o.rule}</b></p>${o.note?`<p>${o.note(n)}</p>`:''}
+    ${['ganjil','persegi','pp','segitiga'].includes(cur)?`<p class="muted">${cur==='ganjil'?'Bentuk L: '+n+' titik mendatar + '+(n-1)+' titik tegak = '+(2*n-1)+'.':'Titik oranye = tambahan dari pola sebelumnya.'}</p>`:''}`;
+}
+$('#n').oninput=drawPat; drawPat();
+
+/* LAB barisan */
+let tp='ar';
+document.querySelectorAll('#tp button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tp button').forEach(x=>x.classList.remove('on'));b.classList.add('on');tp=b.dataset.t;
+  const B=$('#b'), A=$('#a'), K=$('#k'); if(tp==='ge'){ B.min=-3;B.max=4;B.value=2; A.min=-5;A.max=10;A.value=3; K.max=15; if(+K.value>15) K.value=8; $('#lb').firstChild.textContent='Rasio r '; } else { B.min=-6;B.max=10;B.value=4; A.min=-10;A.max=20; K.max=30; $('#lb').firstChild.textContent='Beda b '; } drawSeq();});
+function drawSeq(){
+  const a=+$('#a').value; let b=+$('#b').value; const k=+$('#k').value; if(tp==='ge'&&b===0){ b=1; $('#b').value=1; }
+  $('#a-v').textContent=M(a); $('#b-v').textContent=M(b); $('#k-v').textContent=k;
+  const U=n=>tp==='ar'?a+(n-1)*b:a*Math.pow(b,n-1), terms=[...Array(10)].map((_,i)=>U(i+1));
+  $('#seq').innerHTML = terms.map((v,i)=>`<span style="display:inline-block;text-align:center;min-width:46px"><b>${M(id(v))}</b><br><span class="muted" style="font-size:.75rem">U<sub>${i+1}</sub></span></span>`+(i<9?`<span class="muted" style="font-size:.8rem;margin:0 2px">${tp==='ar'?(b<0?'−':'+')+Math.abs(b):'×'+neg(b)}→</span>`:'')).join('');
+  const g=$('#sg'); clear(g); const mx=Math.max(...terms.map(Math.abs),1), allP=terms.every(v=>v>=0), allN=terms.every(v=>v<=0), Y0=allP?230:allN?20:125, sc=(allP||allN?205:100)/mx;
+  s('line',{x1:20,y1:Y0,x2:410,y2:Y0,stroke:'var(--ink)','stroke-width':1.5},g);
+  terms.forEach((v,i)=>{ const x=30+i*38, h=v*sc; s('rect',{x,y:h>=0?Y0-h:Y0,width:28,height:Math.max(1,Math.abs(h)),rx:3,fill:v>=0?'var(--acc)':'var(--a)','fill-opacity':.85},g); txt(g,x+14,250,'U'+(i+1),{'font-size':10,fill:'var(--muted)'}); });
+  const Uk=U(k);
+  if(tp==='ar'){ const Sk=k*(2*a+(k-1)*b)/2;
+    $('#sOut').innerHTML=`<b>Suku ke-${k}</b><br>U<sub>${k}</sub> = a + (n − 1)b = ${M(a)} + (${k} − 1) × ${neg(b)} = <span class="big">${M(id(Uk))}</span><br><br>
+     <b>Rumus umum</b>: U<sub>n</sub> = ${M(a)} + (n − 1)${neg(b)} = <b>${b===0?M(a):(b===1?'':b===-1?'−':M(b))+'n'+(a-b===0?'':(a-b>0?' + ':' − ')+Math.abs(a-b))}</b><br><br>
+     <b>Jumlah ${k} suku pertama</b><br>S<sub>${k}</sub> = ${k}/2 × (${M(a)} + ${M(Uk)}) = <span class="big">${M(id(Sk))}</span>`; }
+  else { const Sk = b===1 ? a*k : a*(Math.pow(b,k)-1)/(b-1);
+    $('#sOut').innerHTML=`<b>Suku ke-${k}</b><br>U<sub>${k}</sub> = a × r<sup>n−1</sup> = ${M(a)} × ${neg(b)}<sup>${k-1}</sup> = <span class="big">${M(id(Uk))}</span><br><br>
+     <b>Jumlah ${k} suku pertama</b> = <b>${M(id(Sk))}</b><br><span class="muted">Rumus S<sub>n</sub> geometri: a(rⁿ − 1)/(r − 1). ${Math.abs(b)>1?'Perhatikan suku-sukunya tumbuh sangat cepat!':''}</span>`; }
+}
+['#a','#b','#k'].forEach(x=>$(x).oninput=drawSeq); drawSeq();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Suku berikutnya', gen(){ const t=rand(0,2);
+    if(t===0){ const a=rand(-10,20), b=randNZ(-7,9); const sq=[0,1,2,3].map(i=>a+i*b); return {q:`Tentukan suku berikutnya: ${sq.map(M).join(', ')}, …`, a:String(a+4*b), hint:'Cari selisih dua suku berurutan.', ex:`Beda ${M(b)} → ${M(a+3*b)} ${b<0?'−':'+'} ${Math.abs(b)} = ${M(a+4*b)}`}; }
+    if(t===1){ const a=rand(1,5), r=pick([2,3,-2]); const sq=[0,1,2,3].map(i=>a*Math.pow(r,i)); return {q:`Tentukan suku berikutnya: ${sq.map(M).join(', ')}, …`, a:String(a*Math.pow(r,4)), hint:'Bagi suku dengan suku sebelumnya.', ex:`Rasio ${M(r)} → ${M(sq[3])} × ${neg(r)} = ${M(a*Math.pow(r,4))}`}; }
+    const k=rand(2,6), P=pick(['persegi','segitiga','pp']), f=PT[P].f; return {q:`Tentukan suku berikutnya: ${[k,k+1,k+2].map(f).join(', ')}, …`, a:String(f(k+3)), hint:'Selisihnya bertambah teratur. Cocokkan dengan pola istimewa.', ex:`Pola ${PT[P].n.toLowerCase()}: ${f(k+3)}`}; }},
+  {name:'Suku ke-n aritmetika', gen(){ const a=rand(-5,20), b=randNZ(-5,8), n=rand(10,50); return {q:`Barisan ${[0,1,2].map(i=>M(a+i*b)).join(', ')}, … Tentukan U<sub>${n}</sub>.`, a:String(a+(n-1)*b), hint:'U<sub>n</sub> = a + (n − 1)b', ex:`${M(a)} + ${n-1} × ${neg(b)} = ${M(a+(n-1)*b)}`}; }},
+  {name:'Deret aritmetika', gen(){ const a=rand(1,10), b=rand(1,6), n=rand(8,25), S=n*(2*a+(n-1)*b)/2; return {q:`Hitung jumlah ${n} suku pertama deret ${[0,1,2].map(i=>a+i*b).join(' + ')} + …`, a:String(S), hint:'S<sub>n</sub> = n/2 × (2a + (n − 1)b)', ex:`${n}/2 × (${2*a} + ${(n-1)*b}) = ${id(S)}`}; }},
+  {name:'Geometri & terapan', gen(){ if(Math.random()<.5){ const a=rand(1,6), r=pick([2,3]), n=rand(4,7); return {q:`Barisan ${a}, ${a*r}, ${a*r*r}, … Tentukan U<sub>${n}</sub>.`, a:String(a*Math.pow(r,n-1)), hint:'U<sub>n</sub> = a × r<sup>n−1</sup>', ex:`${a} × ${r}<sup>${n-1}</sup> = ${id(a*Math.pow(r,n-1))}`}; }
+    const a=rand(10,25), b=rand(2,4), n=rand(8,20); return {q:`Baris pertama sebuah gedung berisi ${a} kursi. Setiap baris di belakangnya bertambah ${b} kursi. Berapa kursi di baris ke-${n}?`, a:String(a+(n-1)*b), unit:'kursi', hint:'Barisan aritmetika.', ex:`${a} + ${n-1} × ${b} = ${a+(n-1)*b}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Suku berikutnya dari barisan 2, 5, 8, 11, … adalah …', o:['14','13','15','16'], a:0, ex:'Beda 3: 11 + 3 = 14.'},
+ {q:'Bilangan pada pola persegi ke-7 adalah …', o:['49','14','28','56'], a:0, ex:'7² = 49.'},
+ {q:'Bilangan pada pola segitiga ke-5 adalah …', o:['15','10','25','21'], a:0, ex:'½ × 5 × 6 = 15.'},
+ {q:'Jumlah 10 bilangan ganjil pertama adalah …', o:['100','90','110','55'], a:0, ex:'Jumlah n bilangan ganjil pertama = n² = 100.'},
+ {q:'Suku ke-20 dari barisan 3, 7, 11, 15, … adalah …', o:['79','83','80','76'], a:0, ex:'3 + 19 × 4 = 79.'},
+ {q:'Beda barisan 20, 17, 14, 11, … adalah …', o:['−3','3','−4','17'], a:0, ex:'17 − 20 = −3.'},
+ {q:'Suku berikutnya dari barisan Fibonacci 1, 1, 2, 3, 5, 8, … adalah …', o:['13','11','12','16'], a:0, ex:'5 + 8 = 13.'},
+ {q:'Suku ke-5 dari barisan geometri 2, 6, 18, … adalah …', o:['162','54','486','30'], a:0, ex:'2 × 3⁴ = 162.'},
+ {q:'Rasio barisan 64, 32, 16, 8, … adalah …', o:[F(1,2),'2','−32','−2'], a:0, ex:'32 : 64 = ½.'},
+ {q:'Jumlah bilangan pada baris ke-6 segitiga Pascal adalah …', o:['32','64','16','36'], a:0, ex:'2⁶⁻¹ = 32.'},
+ {q:'Rumus suku ke-n dari barisan 5, 9, 13, 17, … adalah …', o:['4n + 1','5n','4n + 5','n + 4'], a:0, ex:'5 + (n − 1)4 = 4n + 1.'},
+ {q:'Bilangan pada pola persegi panjang ke-6 adalah …', o:['42','36','30','48'], a:0, ex:'6 × 7 = 42.'},
+ {q:'Hitunglah 1 + 2 + 3 + … + 20.', input:true, a:['210'], ex:'20/2 × (1 + 20) = 210.'},
+ {q:'Baris pertama gedung berisi 15 kursi, tiap baris berikutnya bertambah 3 kursi. Banyak kursi pada baris ke-12 adalah …', input:true, a:['48'], unit:'kursi', ex:'15 + 11 × 3 = 48.'},
+ {q:'Bakteri membelah menjadi 2 setiap 20 menit. Mula-mula ada 5 bakteri. Setelah 2 jam banyak bakteri adalah …', o:['320','160','640','60'], a:0, ex:'2 jam = 6 kali membelah: 5 × 2⁶ = 320.'}
+], 'k8m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

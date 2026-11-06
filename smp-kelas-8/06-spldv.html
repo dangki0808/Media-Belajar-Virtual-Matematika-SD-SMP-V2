@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPLDV · Virtual Math Lab VIII</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#c2511a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VIII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Aljabar</span>
+  <h1>Sistem Persamaan Linear Dua Variabel</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menyelesaikan SPLDV dengan metode grafik, substitusi, eliminasi, dan gabungan.</li>
+    <li>Menentukan banyak penyelesaian SPLDV (satu, tidak ada, atau tak hingga) dari grafiknya.</li>
+    <li>Membuat model SPLDV dari masalah sehari-hari dan menyelesaikannya.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📈 Lab Metode Grafik</button><button data-target="langkah">🧮 Lab Langkah Penyelesaian</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bentuk SPLDV</h2>
+    <div class="def">a<sub>1</sub>x + b<sub>1</sub>y = c<sub>1</sub><br>a<sub>2</sub>x + b<sub>2</sub>y = c<sub>2</sub><br>Penyelesaiannya adalah pasangan (x, y) yang memenuhi <b>kedua</b> persamaan sekaligus.</div>
+    <p>Contoh: x + y = 7 dan x − y = 1 dipenuhi oleh (4, 3), karena 4 + 3 = 7 dan 4 − 3 = 1.</p>
+  </div>
+  <div class="card"><h2>2. Empat metode</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Grafik</span><br>Gambar kedua garis. Titik potongnya adalah penyelesaian.</div>
+      <div class="ex"><span class="t">Substitusi</span><br>Nyatakan satu variabel dari salah satu persamaan, lalu masukkan ke persamaan lain.<br>x = 2y dan x + y = 9 → 2y + y = 9 → y = 3, x = 6.</div>
+      <div class="ex"><span class="t">Eliminasi</span><br>Samakan koefisien salah satu variabel, lalu jumlahkan/kurangkan.<br>2x + y = 8 dan x − y = 1 → jumlahkan: 3x = 9 → x = 3. Ulangi untuk y → y = 2.</div>
+      <div class="ex"><span class="t">Gabungan</span><br>Eliminasi untuk mendapat satu variabel, lalu substitusi untuk variabel lainnya. Ini cara paling praktis.</div>
+    </div>
+  </div>
+  <div class="card"><h2>3. Banyak penyelesaian</h2>
+    <table class="t"><tr><th>Kedudukan garis</th><th>Banyak penyelesaian</th><th>Contoh</th></tr>
+      <tr><td>Berpotongan</td><td>tepat satu</td><td>x + y = 7; x − y = 1</td></tr>
+      <tr><td>Sejajar</td><td>tidak ada</td><td>x + y = 2; x + y = 5</td></tr>
+      <tr><td>Berimpit</td><td>tak hingga banyaknya</td><td>x + 2y = 4; 2x + 4y = 8</td></tr></table>
+  </div>
+  <div class="card"><h2>4. Soal cerita</h2>
+    <div class="ex"><span class="t">Contoh</span> Harga 2 buku dan 1 pensil Rp11.000. Harga 1 buku dan 2 pensil Rp10.000. Misal harga buku b dan pensil p:<br>2b + p = 11.000 … (1)<br>b + 2p = 10.000 … (2)<br>(1) × 2 − (2): 3b = 12.000 → <b>b = Rp4.000</b>, lalu p = 11.000 − 8.000 = <b>Rp3.000</b>.</div>
+    <div class="ex"><span class="t">Contoh</span> Di parkiran ada 30 kendaraan (mobil dan motor) dengan 80 roda. m + t = 30 dan 4m + 2t = 80 → 2m = 20 → <b>10 mobil</b>, 20 motor.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Metode Grafik</h2>
+    <div class="grid2">
+      <div class="ctrl" style="margin:0"><label style="color:var(--acc)">a₁ <span class="v" id="a1-v"></span><input type="range" id="a1" min="-6" max="6" value="1"></label><label style="color:var(--acc)">b₁ <span class="v" id="b1-v"></span><input type="range" id="b1" min="-6" max="6" value="1"></label><label style="color:var(--acc)">c₁ <span class="v" id="c1-v"></span><input type="range" id="c1" min="-12" max="12" value="7"></label></div>
+      <div class="ctrl" style="margin:0"><label style="color:var(--a)">a₂ <span class="v" id="a2-v"></span><input type="range" id="a2" min="-6" max="6" value="1"></label><label style="color:var(--a)">b₂ <span class="v" id="b2-v"></span><input type="range" id="b2" min="-6" max="6" value="-1"></label><label style="color:var(--a)">c₂ <span class="v" id="c2-v"></span><input type="range" id="c2" min="-12" max="12" value="1"></label></div>
+    </div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="gg" viewBox="0 0 440 440"></svg><div class="out" id="go"></div></div>
+  </div>
+</section>
+
+<section id="langkah" class="panel">
+  <div class="card"><h2>Lab: Langkah demi Langkah</h2>
+    <div class="seg" id="mt"><button data-m="eli" class="on">Eliminasi</button><button data-m="sub">Substitusi</button><button data-m="gab">Gabungan</button></div>
+    <div class="out big" id="sys" style="margin-top:10px"></div>
+    <div id="steps"></div>
+    <div class="row"><button class="btn" id="nxt">Langkah berikutnya</button><button class="btn soft" id="all">Tampilkan semua</button><button class="btn ghost" id="new">SPLDV baru</button></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VIII · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, F, fracHTML, gcd, lcm} = VML;
+const co=(c,v,first)=>{ if(c===0) return ''; const a=Math.abs(c), t=(a===1?'':a)+v; return first?(c<0?'−':'')+t:(c<0?' − ':' + ')+t; };
+const eq=(a,b,c)=>{ let o=co(a,'x',true); o+= o?co(b,'y',false):co(b,'y',true); return (o||'0')+' = '+M(c); };
+const pt=(x,y)=>`(${M(x)}, ${M(y)})`;
+
+/* LAB grafik */
+function drawG(){
+  const v={}; ['a1','b1','c1','a2','b2','c2'].forEach(k=>{ v[k]=+$('#'+k).value; $('#'+k+'-v').textContent=M(v[k]); });
+  const {a1,b1,c1,a2,b2,c2}=v, g=$('#gg'); clear(g); const C=VML.plane(g,{xmin:-10,xmax:10,ymin:-10,ymax:10,W:440,H:440,lab:2});
+  const line=(a,b,c,col)=>{ if(a===0&&b===0) return; if(b===0){ const x=c/a; s('line',{x1:C.X(x),y1:C.Y(-10),x2:C.X(x),y2:C.Y(10),stroke:col,'stroke-width':3},g); return; }
+    const f=x=>(c-a*x)/b; s('line',{x1:C.X(-10),y1:C.Y(f(-10)),x2:C.X(10),y2:C.Y(f(10)),stroke:col,'stroke-width':3},g); };
+  g.innerHTML+=`<clipPath id="cp"><rect x="${C.X(-10)}" y="${C.Y(10)}" width="${C.X(10)-C.X(-10)}" height="${C.Y(-10)-C.Y(10)}"/></clipPath>`;
+  const gl=s('g',{'clip-path':'url(#cp)'},g); const old=g;
+  const L=(a,b,c,col)=>{ if(a===0&&b===0) return; if(b===0){ const x=c/a; s('line',{x1:C.X(x),y1:C.Y(-10),x2:C.X(x),y2:C.Y(10),stroke:col,'stroke-width':3},gl); return; } const f=x=>(c-a*x)/b; s('line',{x1:C.X(-10),y1:C.Y(f(-10)),x2:C.X(10),y2:C.Y(f(10)),stroke:col,'stroke-width':3},gl); };
+  L(a1,b1,c1,'var(--acc)'); L(a2,b2,c2,'var(--a)');
+  const D=a1*b2-a2*b1; let html=`<p><span style="color:var(--acc)">● ${eq(a1,b1,c1)}</span><br><span style="color:var(--a)">● ${eq(a2,b2,c2)}</span></p>`;
+  if((a1===0&&b1===0)||(a2===0&&b2===0)) html+='<p>Koefisien x dan y tidak boleh sama-sama 0.</p>';
+  else if(D!==0){ const xn=c1*b2-c2*b1, yn=a1*c2-a2*c1, x=xn/D, y=yn/D; if(Math.abs(x)<=10&&Math.abs(y)<=10){ s('circle',{cx:C.X(x),cy:C.Y(y),r:8,fill:'var(--b)',stroke:'var(--card)','stroke-width':3},g); }
+    html+=`<div class="big" style="color:var(--b)">Berpotongan di (${fracHTML(xn,D)}, ${fracHTML(yn,D)})</div><p>Tepat <b>satu</b> penyelesaian.${Number.isInteger(x)&&Number.isInteger(y)?` Cek: ${M(a1)}·${neg(x)} ${b1<0?'−':'+'} ${Math.abs(b1)}·${neg(y)} = ${M(a1*x+b1*y)} ✓`:' Koordinatnya pecahan — sulit dibaca dari grafik, karena itu metode aljabar lebih teliti.'}</p>${Math.abs(x)>10||Math.abs(y)>10?'<p class="muted">Titik potongnya di luar layar.</p>':''}`; }
+  else { const same = a1*c2===a2*c1 && b1*c2===b2*c1; html+= same?'<div class="big">Garis berimpit</div><p>Kedua persamaan sebenarnya sama (yang satu kelipatan yang lain). Penyelesaiannya <b>tak hingga banyaknya</b>.</p>':'<div class="big">Garis sejajar</div><p>Gradiennya sama tetapi tidak berimpit, jadi tidak pernah berpotongan. SPLDV <b>tidak memiliki penyelesaian</b>.</p>'; }
+  $('#go').innerHTML=html;
+}
+['a1','b1','c1','a2','b2','c2'].forEach(k=>$('#'+k).oninput=drawG); drawG();
+
+/* LAB langkah */
+let mt='eli', S, st=[], shown=0;
+document.querySelectorAll('#mt button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mt button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mt=b.dataset.m;build();});
+function newSys(){ const x=rand(-5,6), y=rand(-5,6); let a1=randNZ(-5,5), b1=randNZ(-5,5), a2=randNZ(-5,5), b2=randNZ(-5,5);
+  if(a1*b2-a2*b1===0) return newSys(); S={x,y,a1,b1,a2,b2,c1:a1*x+b1*y,c2:a2*x+b2*y}; build(); }
+function newSub(){ const x=rand(-5,6), y=rand(-5,6), b1=randNZ(-4,4), a2=randNZ(-5,5), b2=randNZ(-5,5); if(b2-a2*b1===0) return newSub(); S={x,y,a1:1,b1,a2,b2,c1:x+b1*y,c2:a2*x+b2*y}; build(); }
+function elim(a1,b1,c1,a2,b2,c2,v){ // hilangkan v ('x' atau 'y'), kembalikan langkah & nilai variabel lain
+  const p1=v==='x'?a1:b1, p2=v==='x'?a2:b2, L=lcm(p1,p2), k1=L/Math.abs(p1)*Math.sign(p1), k2=L/Math.abs(p2)*Math.sign(p2);
+  const A1=a1*k1,B1=b1*k1,C1=c1*k1,A2=a2*k2,B2=b2*k2,C2=c2*k2, R=v==='x'?[B1-B2,C1-C2]:[A1-A2,C1-C2], o=v==='x'?'y':'x';
+  return {html:`<p><b>Eliminasi ${v}:</b> samakan koefisien ${v} menjadi ${L}.</p><div class="ex">(1) × ${neg(k1)} → ${eq(A1,B1,C1)}<br>(2) × ${neg(k2)} → ${eq(A2,B2,C2)}<br>Dikurangkan → ${R[0]===1?'':R[0]===-1?'−':M(R[0])}${o} = ${M(R[1])} → <b>${o} = ${M(R[1]/R[0])}</b></div>`, val:R[1]/R[0]}; }
+function build(){
+  if(!S) return; if(mt==='sub'&&S.a1!==1) return newSub();
+  const {x,y,a1,b1,c1,a2,b2,c2}=S; $('#sys').innerHTML=`${eq(a1,b1,c1)} &nbsp;… (1)<br>${eq(a2,b2,c2)} &nbsp;… (2)`;
+  st=[];
+  if(mt==='eli'){ st.push(elim(a1,b1,c1,a2,b2,c2,'x').html); st.push(elim(a1,b1,c1,a2,b2,c2,'y').html); }
+  else if(mt==='gab'){ st.push(elim(a1,b1,c1,a2,b2,c2,'x').html); st.push(`<p><b>Substitusi y = ${M(y)} ke (1):</b></p><div class="ex">${M(a1)}x ${b1<0?'−':'+'} ${Math.abs(b1)}·${neg(y)} = ${M(c1)}<br>${M(a1)}x = ${M(c1-b1*y)} → <b>x = ${M(x)}</b></div>`); }
+  else { st.push(`<p><b>Nyatakan x dari (1):</b></p><div class="ex">x = ${M(c1)} ${b1>0?'−':'+'} ${Math.abs(b1)===1?'':Math.abs(b1)}y … (3)</div>`);
+    st.push(`<p><b>Substitusi (3) ke (2):</b></p><div class="ex">${M(a2)}(${M(c1)} ${b1>0?'−':'+'} ${Math.abs(b1)===1?'':Math.abs(b1)}y) ${b2<0?'−':'+'} ${Math.abs(b2)===1?'':Math.abs(b2)}y = ${M(c2)}<br>${M(a2*c1)} ${-a2*b1+b2<0?'−':'+'} ${Math.abs(b2-a2*b1)}y = ${M(c2)}<br>${M(b2-a2*b1)}y = ${M(c2-a2*c1)} → <b>y = ${M(y)}</b></div>`);
+    st.push(`<p><b>Masukkan y ke (3):</b></p><div class="ex">x = ${M(c1)} ${b1>0?'−':'+'} ${Math.abs(b1)}·${neg(y)} = <b>${M(x)}</b></div>`); }
+  st.push(`<div class="out" style="border:2px solid var(--ok)"><b>Penyelesaian: ${pt(x,y)}</b><br>Cek (1): ${M(a1)}·${neg(x)} ${b1<0?'−':'+'} ${Math.abs(b1)}·${neg(y)} = ${M(c1)} ✓ &nbsp; Cek (2): ${M(a2)}·${neg(x)} ${b2<0?'−':'+'} ${Math.abs(b2)}·${neg(y)} = ${M(c2)} ✓</div>`);
+  shown=0; render(); }
+function render(){ $('#steps').innerHTML=st.slice(0,shown).join(''); $('#nxt').disabled=shown>=st.length; $('#all').disabled=shown>=st.length; }
+$('#nxt').onclick=()=>{shown++;render();}; $('#all').onclick=()=>{shown=st.length;render();}; $('#new').onclick=()=>mt==='sub'?newSub():newSys();
+newSys();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Selesaikan SPLDV', gen(){ const x=rand(-6,8), y=rand(-6,8); let a1=randNZ(-4,4), b1=randNZ(-4,4), a2=randNZ(-4,4), b2=randNZ(-4,4); if(a1*b2-a2*b1===0) return this.gen(); const ask=pick(['x','y']);
+    return {q:`${eq(a1,b1,a1*x+b1*y)} dan ${eq(a2,b2,a2*x+b2*y)}. Tentukan nilai ${ask}.`, a:String(ask==='x'?x:y), hint:'Gunakan eliminasi atau substitusi.', ex:`Penyelesaiannya ${pt(x,y)}`}; }},
+  {name:'Nilai bentuk', gen(){ const x=rand(1,9), y=rand(1,9), p=rand(1,4), q=randNZ(-3,3); return {q:`x + y = ${x+y} dan x − y = ${M(x-y)}. Tentukan nilai ${p}x ${q<0?'−':'+'} ${Math.abs(q)}y.`, a:String(p*x+q*y), hint:'Jumlahkan kedua persamaan untuk mendapat x.', ex:`x = ${x}, y = ${y} → ${p}(${x}) ${q<0?'−':'+'} ${Math.abs(q)}(${y}) = ${p*x+q*y}`}; }},
+  {name:'Soal cerita', gen(){ const t=rand(0,2);
+    if(t===0){ const b=rand(2,9)*1000, p=rand(1,6)*500, m=rand(1,4), n=rand(1,4), k=m+rand(1,2), l=rand(1,4); if(m*l===k*n) return this.gen(); return {q:`Harga ${m} buku dan ${n} pensil Rp${(m*b+n*p).toLocaleString('id-ID')}. Harga ${k} buku dan ${l} pensil Rp${(k*b+l*p).toLocaleString('id-ID')}. Berapa harga 1 buku?`, a:String(b), unit:'rupiah', hint:'Misalkan buku = b, pensil = p.', ex:`b = Rp${b.toLocaleString('id-ID')}, p = Rp${p.toLocaleString('id-ID')}`}; }
+    if(t===1){ const m=rand(3,20), t2=rand(5,30); return {q:`Di parkiran ada ${m+t2} kendaraan terdiri atas mobil (4 roda) dan motor (2 roda). Jumlah roda ${4*m+2*t2}. Berapa banyak mobil?`, a:String(m), unit:'mobil', hint:'m + t = …, 4m + 2t = …', ex:`2m = ${4*m+2*t2} − 2 × ${m+t2} = ${2*m} → m = ${m}`}; }
+    const a=rand(10,60), b=rand(5,a-1); return {q:`Jumlah dua bilangan ${a+b} dan selisihnya ${a-b}. Berapa bilangan yang lebih besar?`, a:String(a), hint:'x + y = …, x − y = …, jumlahkan.', ex:`2x = ${2*a} → x = ${a}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Penyelesaian dari x + y = 7 dan x − y = 1 adalah …', o:['(4, 3)','(3, 4)','(5, 2)','(6, 1)'], a:0, ex:'Jumlahkan: 2x = 8 → x = 4, y = 3.'},
+ {q:'Penyelesaian dari 2x + y = 8 dan x − y = 1 adalah …', o:['x = 3, y = 2','x = 2, y = 3','x = 4, y = 0','x = 3, y = 3'], a:0, ex:'Jumlahkan: 3x = 9 → x = 3, y = 2.'},
+ {q:'Jika grafik kedua persamaan dalam SPLDV sejajar, maka SPLDV tersebut …', o:['tidak memiliki penyelesaian','memiliki tepat satu penyelesaian','memiliki tak hingga penyelesaian','memiliki dua penyelesaian'], a:0, ex:'Garis sejajar tidak pernah berpotongan.'},
+ {q:'Yang merupakan SPLDV adalah …', o:['2x + y = 5 dan x − 3y = 4','x² + y = 5 dan x − y = 1','2x + 3 = 7','x + y + z = 6 dan x − y = 2'], a:0, ex:'Dua persamaan linear (pangkat 1) dengan dua variabel.'},
+ {q:'Penyelesaian dari x = 2y dan x + y = 9 adalah …', o:['(6, 3)','(3, 6)','(4, 5)','(2, 1)'], a:0, ex:'2y + y = 9 → y = 3, x = 6.'},
+ {q:'Jika 3x + 2y = 12 dan x = 2, maka nilai y adalah …', o:['3','6','2','4'], a:0, ex:'6 + 2y = 12 → y = 3.'},
+ {q:'Harga 2 buku dan 1 pensil Rp11.000, harga 1 buku dan 2 pensil Rp10.000. Harga 1 buku adalah …', o:['Rp4.000','Rp3.000','Rp3.500','Rp5.000'], a:0, ex:'2b + p = 11.000; b + 2p = 10.000 → b = 4.000.'},
+ {q:'Jumlah dua bilangan 25 dan selisihnya 7. Kedua bilangan itu adalah …', o:['16 dan 9','18 dan 7','15 dan 10','17 dan 8'], a:0, ex:'2x = 32 → x = 16, y = 9.'},
+ {q:'Keliling persegi panjang 30 cm. Panjangnya 3 cm lebih dari lebarnya. Luasnya adalah …', o:['54 cm²','56 cm²','45 cm²','36 cm²'], a:0, ex:'p + l = 15, p − l = 3 → p = 9, l = 6 → luas 54.'},
+ {q:'Penyelesaian dari 4x − 3y = 10 dan 2x + y = 10 adalah …', o:['(4, 2)','(2, 4)','(5, 0)','(3, 4)'], a:0, ex:'y = 10 − 2x → 4x − 30 + 6x = 10 → x = 4, y = 2.'},
+ {q:'Garis y = 2x − 1 dan y = −x + 5 berpotongan di titik …', o:['(2, 3)','(3, 2)','(1, 1)','(−2, 3)'], a:0, ex:'2x − 1 = −x + 5 → x = 2, y = 3.'},
+ {q:'SPLDV x + 2y = 4 dan 2x + 4y = 8 memiliki …', o:['tak hingga banyak penyelesaian','tepat satu penyelesaian','tidak ada penyelesaian','dua penyelesaian'], a:0, ex:'Persamaan kedua = 2 × persamaan pertama → garis berimpit.'},
+ {q:'x + y = 10 dan 2x − y = 5. Tentukan nilai x.', input:true, a:['5'], ex:'Jumlahkan: 3x = 15 → x = 5.'},
+ {q:'Di parkiran ada 30 kendaraan (mobil dan motor) dengan 80 roda. Berapa banyak mobil?', input:true, a:['10'], unit:'mobil', ex:'m + t = 30, 4m + 2t = 80 → 2m = 20 → m = 10.'},
+ {q:'Langkah pertama metode eliminasi adalah …', o:['menyamakan koefisien salah satu variabel','menggambar grafik','menyatakan x dalam y','menebak nilai x'], a:0, ex:'Koefisien disamakan agar variabel itu hilang saat dijumlah/dikurang.'}
+], 'k8m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

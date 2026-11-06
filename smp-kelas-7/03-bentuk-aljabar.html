@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bentuk Aljabar · Virtual Math Lab</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#8a4fd1">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 3 · Aljabar</span>
+  <h1>Bentuk Aljabar</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenali variabel, koefisien, konstanta, suku, dan suku sejenis.</li>
+    <li>Menyederhanakan bentuk aljabar dengan operasi penjumlahan, pengurangan, perkalian, dan pembagian.</li>
+    <li>Menyusun bentuk aljabar dari situasi sehari-hari dan menghitung nilainya (substitusi).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Ubin Aljabar</button><button data-target="luas">▦ Lab Model Luas</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Unsur-unsur bentuk aljabar</h2>
+    <p>Perhatikan bentuk aljabar <span class="math" style="font-size:1.1em">5x² − 3x + 7</span></p>
+    <table class="t"><tr><th>Istilah</th><th>Arti</th><th>Pada contoh</th></tr>
+      <tr><td><b>Variabel</b></td><td>Lambang (huruf) pengganti bilangan yang belum diketahui</td><td>x</td></tr>
+      <tr><td><b>Koefisien</b></td><td>Bilangan yang menempel di depan variabel</td><td>5 (untuk x²) dan −3 (untuk x)</td></tr>
+      <tr><td><b>Konstanta</b></td><td>Suku yang tidak memuat variabel</td><td>7</td></tr>
+      <tr><td><b>Suku</b></td><td>Bagian yang dipisahkan tanda + atau −</td><td>5x², −3x, 7 (ada 3 suku)</td></tr></table>
+    <div class="def"><b>Suku sejenis</b> memiliki variabel dan pangkat yang sama: 4a dan −9a sejenis; 2x dan 2x² <b>tidak</b> sejenis.</div>
+  </div>
+
+  <div class="card"><h2>2. Penjumlahan dan pengurangan</h2>
+    <p>Hanya suku sejenis yang dapat dijumlahkan atau dikurangkan, dengan menjumlahkan koefisiennya.</p>
+    <div class="ex"><span class="t">Contoh 1</span><br>4x + 3y − x + 5y = (4 − 1)x + (3 + 5)y = <b>3x + 8y</b></div>
+    <div class="ex"><span class="t">Contoh 2 (perhatikan tanda kurung)</span><br>(6a − 2) − (2a + 5) = 6a − 2 − 2a − 5 = <b>4a − 7</b></div>
+    <div class="note">Tanda minus di depan kurung mengubah tanda <b>setiap</b> suku di dalam kurung.</div>
+  </div>
+
+  <div class="card"><h2>3. Perkalian</h2>
+    <div class="grid2">
+      <div><h3>Bilangan × bentuk aljabar</h3><p>Gunakan sifat distributif: k(a + b) = ka + kb.</p>
+        <div class="ex">3(2x − 4) = 6x − 12<br>−2(x − 5) = −2x + 10</div></div>
+      <div><h3>Suku dua × suku dua</h3><p>Setiap suku pertama dikalikan dengan setiap suku kedua.</p>
+        <div class="ex">(x + 3)(x + 2) = x² + 2x + 3x + 6 = x² + 5x + 6</div></div>
+    </div>
+    <p>Lihat bentuk ini sebagai <b>luas persegi panjang</b> di tab Lab Model Luas.</p>
+  </div>
+
+  <div class="card"><h2>4. Pembagian</h2>
+    <p>Bagi koefisien dengan koefisien, variabel dengan variabel.</p>
+    <div class="ex">12x²y : 4x = (12 : 4) · (x² : x) · y = <b>3xy</b> &nbsp;&nbsp; (6a + 9) : 3 = <b>2a + 3</b></div>
+  </div>
+
+  <div class="card"><h2>5. Substitusi dan pemodelan</h2>
+    <p><b>Substitusi</b> berarti mengganti variabel dengan bilangan.</p>
+    <div class="ex"><span class="t">Contoh</span> Nilai 2x² − x untuk x = −3:<br>2(−3)² − (−3) = 2 · 9 + 3 = <b>21</b></div>
+    <p><b>Pemodelan:</b> harga satu pensil p rupiah dan satu buku b rupiah. Harga 3 pensil dan 2 buku = <span class="math">3p + 2b</span>.</p>
+    <div class="ex"><span class="t">Contoh</span> Umur Andi x tahun, adiknya 4 tahun lebih muda (x − 4). Jumlah umur mereka = x + (x − 4) = <b>2x − 4</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ubin Aljabar</h2>
+    <p>Ubin panjang <b style="color:var(--e)">x</b> mewakili variabel, ubin kecil mewakili 1. Ubin merah bernilai negatif. Satu ubin positif dan satu ubin negatif sejenis menjadi nol.</p>
+    <div class="grid2">
+      <div class="ctrl" style="margin:0"><label>Bentuk 1: koefisien x <span class="v" id="a1-v"></span><input type="range" id="a1" min="-5" max="5" value="3"></label><label>konstanta <span class="v" id="b1-v"></span><input type="range" id="b1" min="-6" max="6" value="-2"></label></div>
+      <div class="ctrl" style="margin:0"><label>Bentuk 2: koefisien x <span class="v" id="a2-v"></span><input type="range" id="a2" min="-5" max="5" value="-1"></label><label>konstanta <span class="v" id="b2-v"></span><input type="range" id="b2" min="-6" max="6" value="5"></label></div>
+    </div>
+    <div class="row"><div class="seg" id="op"><button data-op="+" class="on">Jumlahkan</button><button data-op="-">Kurangkan</button></div></div>
+    <svg class="viz" id="tiles" viewBox="0 0 720 330" style="margin-top:10px"></svg>
+    <div class="out" id="tOut"></div>
+    <div class="ctrl"><label>Uji dengan substitusi: x = <span class="v" id="xv-v"></span><input type="range" id="xv" min="-5" max="5" value="2"></label></div>
+    <div class="out" id="subOut"></div>
+  </div>
+</section>
+
+<section id="luas" class="panel">
+  <div class="card"><h2>Lab: Model Luas untuk Perkalian</h2>
+    <div class="seg" id="mode"><button data-m="k" class="on">k(x + n)</button><button data-m="xx">(x + a)(x + b)</button></div>
+    <div class="ctrl" id="kc"><label>k <span class="v" id="k-v"></span><input type="range" id="k" min="1" max="6" value="3"></label><label>n <span class="v" id="n-v"></span><input type="range" id="n" min="1" max="6" value="4"></label></div>
+    <div class="ctrl" id="xc" style="display:none"><label>a <span class="v" id="pa-v"></span><input type="range" id="pa" min="1" max="6" value="3"></label><label>b <span class="v" id="pb-v"></span><input type="range" id="pb" min="1" max="6" value="2"></label></div>
+    <svg class="viz" id="area" viewBox="0 0 720 360" style="max-width:620px;margin:0 auto"></svg>
+    <div class="out" id="aOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Tulis pangkat dua sebagai <b>x^2</b> atau x². Urutan suku boleh berbeda, misalnya 5 + 2x sama dengan 2x + 5.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VII · Modul 3</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M, polyEq} = VML;
+/* tulis ax + b dengan rapi */
+const lin = (a, b, v='x') => { let o='';
+  if(a!==0) o = (a===1?'':a===-1?'−':M(a)) + v;
+  if(b!==0) o += o ? (b>0?' + ':' − ')+Math.abs(b) : M(b);
+  return o||'0'; };
+const quad = (p,q,r) => { let o=''; const add=(c,v)=>{ if(c===0) return; const abs=Math.abs(c), cs=(abs===1&&v)?'':abs; o += o?(c>0?' + ':' − ')+cs+v : (c<0?'−':'')+cs+v; }; add(p,'x²'); add(q,'x'); add(r,''); return o||'0'; };
+
+/* LAB ubin */
+let op='+';
+document.querySelectorAll('#op button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#op button').forEach(x=>x.classList.remove('on'));b.classList.add('on');op=b.dataset.op;drawTiles();});
+function drawTiles(){
+  const a1=+$('#a1').value,b1=+$('#b1').value,a2=+$('#a2').value,b2=+$('#b2').value;
+  [['a1',a1],['b1',b1],['a2',a2],['b2',b2]].forEach(([k,v])=>$('#'+k+'-v').textContent=M(v));
+  const sa = op==='+'?a2:-a2, sb = op==='+'?b2:-b2, A=a1+sa, B=b1+sb;
+  const g=$('#tiles'); clear(g);
+  const row=(y,a,b,lab)=>{ txt(g,8,y+20,lab,{'text-anchor':'start','font-weight':700,fill:'var(--muted)','font-size':13});
+    let x=120;
+    for(let k=0;k<Math.abs(a);k++){ s('rect',{x,y,width:30,height:72,rx:5,fill:a>0?'var(--e)':'var(--b)'},g); txt(g,x+15,y+42,a>0?'x':'−x',{fill:'#fff','font-weight':800,'font-size':13}); x+=36; }
+    x+=10;
+    for(let k=0;k<Math.abs(b);k++){ s('rect',{x,y:y+21,width:30,height:30,rx:5,fill:b>0?'var(--d)':'var(--b)'},g); txt(g,x+15,y+42,b>0?'1':'−1',{fill:'#fff','font-weight':800,'font-size':12}); x+=36; } };
+  row(10,a1,b1,'Bentuk 1'); row(110,sa,sb, op==='+'?'Bentuk 2':'Lawan B2'); s('line',{x1:10,y1:198,x2:710,y2:198,stroke:'var(--line)','stroke-width':2},g); row(215,A,B,'Hasil');
+  const e2 = `(${lin(a2,b2)})`;
+  $('#tOut').innerHTML = `<div class="big">(${lin(a1,b1)}) ${op==='+'?'+':'−'} ${e2} = <span style="color:var(--acc)">${lin(A,B)}</span></div>
+   <p>${op==='-'?`Mengurangi sama dengan menjumlahkan lawannya: −(${lin(a2,b2)}) = ${lin(-a2,-b2)}. `:''}Suku x: ${M(a1)} ${sa<0?'−':'+'} ${Math.abs(sa)} = ${M(A)}. Konstanta: ${M(b1)} ${sb<0?'−':'+'} ${Math.abs(sb)} = ${M(B)}. Ubin positif dan negatif yang sejenis saling menghapus.</p>`;
+  const x=+$('#xv').value; $('#xv-v').textContent=M(x);
+  const v1=a1*x+b1, v2=a2*x+b2, vr=A*x+B;
+  $('#subOut').innerHTML = `Bentuk awal: (${M(a1)}·${neg(x)} ${b1<0?'−':'+'} ${Math.abs(b1)}) ${op==='+'?'+':'−'} (${M(a2)}·${neg(x)} ${b2<0?'−':'+'} ${Math.abs(b2)}) = ${neg(v1)} ${op==='+'?'+':'−'} ${neg(v2)} = <b>${M(op==='+'?v1+v2:v1-v2)}</b><br>
+    Hasil sederhana: ${M(A)}·${neg(x)} ${B<0?'−':'+'} ${Math.abs(B)} = <b>${M(vr)}</b> ✓ <span class="muted">— nilainya sama, jadi penyederhanaannya benar.</span>`;
+}
+['#a1','#b1','#a2','#b2','#xv'].forEach(id=>$(id).oninput=drawTiles); drawTiles();
+
+/* LAB model luas */
+let mode='k';
+document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mode button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;$('#kc').style.display=mode==='k'?'':'none';$('#xc').style.display=mode==='k'?'none':'';drawArea();});
+function drawArea(){
+  const g=$('#area'); clear(g); const U=34, X=7; // x digambar sepanjang 7 satuan
+  const box=(x,y,w,h,fill,lab)=>{ s('rect',{x,y,width:w,height:h,fill,'fill-opacity':.8,stroke:'var(--ink)','stroke-width':2},g); txt(g,x+w/2,y+h/2+7,lab,{'font-weight':800,'font-size':20,fill:'#fff'}); };
+  if(mode==='k'){
+    const k=+$('#k').value, n=+$('#n').value; $('#k-v').textContent=k; $('#n-v').textContent=n;
+    const ox=60, oy=50, H=k*U*1.1, W1=X*U*.9, W2=n*U*.9;
+    box(ox,oy,W1,H,'var(--e)',k+'x'); box(ox+W1,oy,W2,H,'var(--d)',String(k*n));
+    txt(g,ox+W1/2,oy-14,'x',{'font-weight':700}); txt(g,ox+W1+W2/2,oy-14,String(n),{'font-weight':700}); txt(g,ox-20,oy+H/2+5,String(k),{'font-weight':700});
+    g.setAttribute('viewBox',`0 0 ${Math.max(ox+W1+W2+30,420)} ${oy+H+30}`);
+    $('#aOut').innerHTML=`<div class="big">${k}(x + ${n}) = ${k}x + ${k*n}</div><p>Luas seluruh persegi panjang = lebar × panjang = ${k} × (x + ${n}). Luas itu sama dengan jumlah luas dua bagiannya: ${k} × x = ${k}x dan ${k} × ${n} = ${k*n}.</p>`;
+  } else {
+    const a=+$('#pa').value, b=+$('#pb').value; $('#pa-v').textContent=a; $('#pb-v').textContent=b;
+    const u=26, ox=60, oy=50, Wx=X*u, Wa=a*u, Hx=X*u*.75, Hb=b*u*.75;
+    box(ox,oy,Wx,Hx,'var(--e)','x²'); box(ox+Wx,oy,Wa,Hx,'var(--a)',a+'x'); box(ox,oy+Hx,Wx,Hb,'var(--a)',b+'x'); box(ox+Wx,oy+Hx,Wa,Hb,'var(--d)',String(a*b));
+    txt(g,ox+Wx/2,oy-14,'x',{'font-weight':700}); txt(g,ox+Wx+Wa/2,oy-14,String(a),{'font-weight':700});
+    txt(g,ox-20,oy+Hx/2+5,'x',{'font-weight':700}); txt(g,ox-20,oy+Hx+Hb/2+5,String(b),{'font-weight':700});
+    g.setAttribute('viewBox',`0 0 ${Math.max(ox+Wx+Wa+30,420)} ${oy+Hx+Hb+30}`);
+    $('#aOut').innerHTML=`<div class="big">(x + ${a})(x + ${b}) = x² + ${a}x + ${b}x + ${a*b} = ${quad(1,a+b,a*b)}</div><p>Empat bagian: x·x = x², x·${a} = ${a}x, ${b}·x = ${b}x, dan ${a}·${b} = ${a*b}. Suku ${a}x dan ${b}x sejenis, jadi dijumlahkan menjadi ${a+b}x.</p>`;
+  }
+}
+['#k','#n','#pa','#pb'].forEach(id=>$(id).oninput=drawArea); drawArea();
+
+/* LATIHAN */
+const chk = obj => inp => { const P=VML.poly(inp); if(!P) return false; const ks=new Set([...Object.keys(P),...Object.keys(obj)]); for(const k of ks) if(Math.abs((P[k]||0)-(obj[k]||0))>1e-9) return false; return true; };
+VML.practice($('#prac'), [
+  {name:'Suku sejenis', gen(){ const a=randNZ(-9,9),b=randNZ(-9,9),c=randNZ(-9,9),d=randNZ(-9,9); const t=`${lin(a,b)} ${c<0?'−':'+'} ${Math.abs(c)===1?'':Math.abs(c)}x ${d<0?'−':'+'} ${Math.abs(d)}`;
+    const ans=lin(a+c,b+d); return {q:`Sederhanakan: ${t}`, a:chk({x:a+c,'':b+d}), show:ans, hint:'Kumpulkan suku x dengan suku x, konstanta dengan konstanta.', ex:`(${M(a)} ${c<0?'−':'+'} ${Math.abs(c)})x + (${M(b)} ${d<0?'−':'+'} ${Math.abs(d)}) = ${ans}`}; }},
+  {name:'Distributif', gen(){ const k=randNZ(-6,6), a=randNZ(-5,5), b=randNZ(-9,9); const ans=lin(k*a,k*b);
+    return {q:`Jabarkan: ${k===-1?'−':M(k)}(${lin(a,b)})`, a:chk({x:k*a,'':k*b}), show:ans, hint:`Kalikan ${neg(k)} dengan setiap suku di dalam kurung.`, ex:`${neg(k)} × ${lin(a,0)} = ${lin(k*a,0)}, dan ${neg(k)} × ${neg(b)} = ${M(k*b)} → ${ans}`}; }},
+  {name:'Substitusi', gen(){ const p=randNZ(-4,4), q=randNZ(-6,6), r=randNZ(-9,9), x=randNZ(-4,4); const v=p*x*x+q*x+r;
+    return {q:`Tentukan nilai ${quad(p,q,r)} untuk x = ${M(x)}.`, a:String(v), hint:`Ganti setiap x dengan ${neg(x)}. Ingat ${neg(x)}² = ${x*x}.`, ex:`${M(p)}·${neg(x)}² ${q<0?'−':'+'} ${Math.abs(q)}·${neg(x)} ${r<0?'−':'+'} ${Math.abs(r)} = ${M(p*x*x)} ${q*x<0?'−':'+'} ${Math.abs(q*x)} ${r<0?'−':'+'} ${Math.abs(r)} = ${M(v)}`}; }},
+  {name:'Suku dua × suku dua', gen(){ const a=randNZ(-6,6), b=randNZ(-6,6); const ans=quad(1,a+b,a*b);
+    return {q:`Jabarkan: (${lin(1,a)})(${lin(1,b)})`, a:chk({x2:1,x:a+b,'':a*b}), show:ans, hint:'x·x, x·b, a·x, a·b, lalu gabungkan suku sejenis.', ex:`x² ${b<0?'−':'+'} ${Math.abs(b)}x ${a<0?'−':'+'} ${Math.abs(a)}x ${a*b<0?'−':'+'} ${Math.abs(a*b)} = ${ans}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Koefisien x pada bentuk aljabar 5x² − 3x + 7 adalah …', o:['−3','5','3','7'], a:0, ex:'Suku yang memuat x adalah −3x, jadi koefisiennya −3 (tandanya ikut).'},
+ {q:'Konstanta pada bentuk 4a − 9 adalah …', o:['−9','9','4','a'], a:0, ex:'Suku tanpa variabel adalah −9.'},
+ {q:'Pasangan berikut yang merupakan suku sejenis adalah …', o:['3p dan −7p','2x dan 2x²','5a dan 5b','4xy dan 4x'], a:0, ex:'Suku sejenis memiliki variabel dan pangkat yang sama persis.'},
+ {q:'Bentuk sederhana dari 4x + 3y − x + 5y adalah …', o:['3x + 8y','5x + 8y','3x − 2y','11xy'], a:0, ex:'(4 − 1)x + (3 + 5)y = 3x + 8y.'},
+ {q:'Hasil dari (6a − 2) − (2a + 5) adalah …', o:['4a − 7','4a + 3','4a − 3','8a + 3'], a:0, ex:'6a − 2 − 2a − 5 = 4a − 7. Tanda minus mengubah tanda +5 menjadi −5.'},
+ {q:'Hasil dari 3(2x − 4) adalah …', o:['6x − 12','6x − 4','5x − 12','6x + 12'], a:0, ex:'3 × 2x = 6x dan 3 × (−4) = −12.'},
+ {q:'Hasil dari −2(x − 5) adalah …', o:['−2x + 10','−2x − 10','2x − 10','−2x − 5'], a:0, ex:'−2 × x = −2x dan −2 × (−5) = +10.'},
+ {q:'Nilai 2x² − x untuk x = −3 adalah …', o:['21','15','−21','33'], a:0, ex:'2 × 9 − (−3) = 18 + 3 = 21.'},
+ {q:'Harga satu pensil p rupiah dan satu buku b rupiah. Bentuk aljabar harga 3 pensil dan 2 buku adalah …', o:['3p + 2b','5pb','3b + 2p','6pb'], a:0, ex:'3 pensil → 3p, 2 buku → 2b, dijumlahkan.'},
+ {q:'Sebuah persegi panjang memiliki panjang (2x + 3) cm dan lebar (x − 1) cm. Kelilingnya adalah …', o:['(6x + 4) cm','(3x + 2) cm','(6x + 8) cm','(4x + 6) cm'], a:0, ex:'K = 2(p + l) = 2(3x + 2) = 6x + 4.'},
+ {q:'Hasil dari (x + 3)(x + 2) adalah …', o:['x² + 5x + 6','x² + 6x + 5','x² + 6','2x + 5'], a:0, ex:'x² + 2x + 3x + 6 = x² + 5x + 6.'},
+ {q:'Hasil dari 12x²y : 4x adalah …', o:['3xy','3x²y','8xy','3y'], a:0, ex:'12 : 4 = 3, x² : x = x, y tetap → 3xy.'},
+ {q:'Sederhanakan: 7m − 3 − 2m + 8 = …', input:true, a:inp=>polyEq(inp,'5m+5'), show:'5m + 5', ex:'(7 − 2)m + (−3 + 8) = 5m + 5.'},
+ {q:'Banyak suku pada bentuk aljabar 3x² − 2x + 5 adalah …', input:true, a:['3'], ex:'Sukunya 3x², −2x, dan 5.'},
+ {q:'Umur Andi x tahun. Adiknya 4 tahun lebih muda. Tulis jumlah umur mereka dalam bentuk paling sederhana.', input:true, a:inp=>polyEq(inp,'2x-4'), show:'2x − 4', ex:'x + (x − 4) = 2x − 4.'}
+], 'm3');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

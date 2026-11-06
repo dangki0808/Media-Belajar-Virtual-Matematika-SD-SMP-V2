@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pengumpulan & Penyajian Data · Virtual Math Lab SD V</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#1f9a5a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas V</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Data</span>
+  <h1>📋 Mengumpulkan &amp; Menyajikan Data</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengumpulkan data dengan mencatat dan menghitung turus.</li>
+    <li>Menyajikan data dalam tabel, piktogram, diagram batang, dan diagram garis.</li>
+    <li>Membaca diagram untuk menemukan informasi (terbanyak, tersedikit, selisih, jumlah).</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">✋ Lab Survei Kelas</button><button data-target="garis">📈 Lab Diagram Garis</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Mengumpulkan data</h2>
+    <p>Data dapat dikumpulkan dengan <b>bertanya</b> (wawancara/angket), <b>mengamati</b>, atau <b>mengukur</b>. Hasilnya dicatat dengan <b>turus</b>: setiap data satu garis, garis kelima dicoret miring.</p>
+    <div class="ex"><span class="t">Turus</span> |||| (4) &nbsp;&nbsp; 𝍸 (5) &nbsp;&nbsp; 𝍸 ||| (8)</div>
+  </div>
+  <div class="card"><h2>2. Cara menyajikan data</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Tabel</span><br>Data disusun dalam baris dan kolom.</div>
+      <div class="ex"><span class="t">Piktogram</span><br>Data digambarkan dengan simbol. Misalnya 🍎 = 2 buah, maka 🍎🍎🍎 = 6 buah. Setengah simbol = 1 buah.</div>
+      <div class="ex"><span class="t">Diagram batang</span><br>Batang yang lebih tinggi berarti datanya lebih banyak. Cocok untuk membandingkan.</div>
+      <div class="ex"><span class="t">Diagram garis</span><br>Titik-titik dihubungkan garis. Cocok untuk melihat perubahan dari waktu ke waktu (naik atau turun).</div>
+    </div>
+  </div>
+  <div class="card"><h2>3. Membaca diagram</h2>
+    <p>Pertanyaan yang sering muncul: data <b>terbanyak</b> (batang tertinggi), <b>tersedikit</b>, <b>selisih</b> dua data (dikurangi), <b>jumlah</b> seluruh data (dijumlah), dan <b>kenaikan terbesar</b> pada diagram garis (garis paling curam naik).</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Survei Olahraga Kesukaan</h2>
+    <p>Ketuk tombol olahraga untuk memberi suara. Lihat turus, tabel, piktogram, dan diagram batang terisi bersamaan!</p>
+    <div class="row" id="vb"></div>
+    <div class="row"><button class="btn soft" id="rnd">🎲 Isi acak satu kelas (28 siswa)</button><button class="btn ghost" id="rs">Ulang</button><label style="font-weight:700">1 simbol = <select id="ps"><option>1</option><option selected>2</option><option>5</option></select> siswa</label></div>
+    <div class="grid2" style="margin-top:10px">
+      <div><div class="scroll"><table class="t" id="tb"></table></div><div class="out" id="pk"></div></div>
+      <div><svg class="viz" id="bar" viewBox="0 0 420 300"></svg><div class="out" id="bo"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="garis" class="panel">
+  <div class="card"><h2>Lab: Tinggi Tanaman Kacang Hijau</h2>
+    <p>Seret titik-titiknya ke atas atau ke bawah untuk mengubah tinggi tanaman setiap hari.</p>
+    <div class="grid2"><svg class="viz" id="ln" viewBox="0 0 440 320"></svg><div class="out" id="lo"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas V · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const SP=[['Sepak bola','⚽','#2f7fe0'],['Bulu tangkis','🏸','#ff4f7b'],['Renang','🏊','#0aa6b8'],['Lari','🏃','#f2a900'],['Panahan','🏹','#8e5be0']];
+let V=[7,5,3,4,2];
+const turus=n=>'𝍸 '.repeat(Math.floor(n/5))+'|'.repeat(n%5);
+$('#vb').innerHTML=SP.map(([n,e],i)=>`<button class="btn soft" data-i="${i}">${e} ${n}</button>`).join('');
+document.querySelectorAll('#vb [data-i]').forEach(b=>b.onclick=()=>{ V[+b.dataset.i]++; drawV(); });
+$('#rnd').onclick=()=>{ V=[0,0,0,0,0]; for(let i=0;i<28;i++) V[pick([0,0,0,1,1,1,2,2,3,3,4])]++; drawV(); };
+$('#rs').onclick=()=>{ V=[0,0,0,0,0]; drawV(); }; $('#ps').onchange=()=>drawV();
+function drawV(){
+  const tot=V.reduce((a,b)=>a+b,0), per=+$('#ps').value;
+  $('#tb').innerHTML='<tr><th>Olahraga</th><th>Turus</th><th>Banyak</th></tr>'+SP.map(([n,e],i)=>`<tr><td style="text-align:left">${e} ${n}</td><td style="font-family:var(--mono);letter-spacing:1px;text-align:left">${turus(V[i])}</td><td><b>${V[i]}</b></td></tr>`).join('')+`<tr><th>Jumlah</th><td></td><th>${tot}</th></tr>`;
+  $('#pk').innerHTML=`<b>Piktogram</b> <span class="muted">(${SP[0][1]} = ${per} siswa)</span>`+SP.map(([n,e],i)=>{ const full=Math.floor(V[i]/per), rest=V[i]%per; return `<div style="margin:4px 0;font-size:1.3rem;line-height:1.4">${e.repeat(full)}${rest?`<span style="display:inline-block;width:.6em;overflow:hidden;vertical-align:bottom">${e}</span>`:''} <span class="muted" style="font-size:.85rem">${n}</span></div>`; }).join('')+(per>1?`<p class="muted" style="font-size:.85rem">Simbol terpotong = sebagian dari ${per} siswa.</p>`:'');
+  const g=$('#bar'); clear(g); const mx=Math.max(...V,1), step=mx<=8?1:mx<=16?2:5, top=Math.ceil(mx/step)*step, Y=v=>255-v*(210/top);
+  for(let v=0;v<=top;v+=step){ s('line',{x1:40,y1:Y(v),x2:410,y2:Y(v),stroke:'var(--line)'},g); txt(g,32,Y(v)+5,String(v),{'font-size':12,'text-anchor':'end'}); }
+  SP.forEach(([n,e,c],i)=>{ const x=55+i*72; s('rect',{x,y:Y(V[i]),width:50,height:255-Y(V[i]),rx:6,fill:c},g); txt(g,x+25,Y(V[i])-6,String(V[i]),{'font-weight':800}); txt(g,x+25,284,e,{'font-size':22}); });
+  s('line',{x1:40,y1:255,x2:410,y2:255,stroke:'var(--ink)','stroke-width':2},g); txt(g,210,22,'Olahraga kesukaan siswa',{'font-weight':800,'font-size':13});
+  if(!tot){ $('#bo').innerHTML='Belum ada data. Ketuk tombol olahraga!'; return; }
+  const mxv=Math.max(...V), mnv=Math.min(...V), mxs=SP.filter((_,i)=>V[i]===mxv).map(x=>x[1]+' '+x[0]), mns=SP.filter((_,i)=>V[i]===mnv).map(x=>x[1]+' '+x[0]);
+  $('#bo').innerHTML=`<p>Terbanyak: <b>${mxs.join(', ')}</b> (${mxv})<br>Tersedikit: <b>${mns.join(', ')}</b> (${mnv})<br>Selisih terbanyak dan tersedikit: ${mxv} − ${mnv} = <b>${mxv-mnv}</b><br>Jumlah siswa: <b>${tot}</b></p>`;
+}
+drawV();
+
+/* diagram garis */
+const H=[2,3,5,8,10,13,15], DAY=['Sen','Sel','Rab','Kam','Jum','Sab','Min'];
+function drawL(){
+  const g=$('#ln'); clear(g); const X=i=>60+i*58, Y=v=>280-v*12;
+  for(let v=0;v<=20;v+=2){ s('line',{x1:50,y1:Y(v),x2:430,y2:Y(v),stroke:'var(--line)'},g); txt(g,44,Y(v)+4,String(v),{'font-size':11,'text-anchor':'end'}); }
+  s('polyline',{points:H.map((v,i)=>X(i)+','+Y(v)).join(' '),fill:'none',stroke:'var(--c)','stroke-width':3.5},g);
+  H.forEach((v,i)=>{ s('circle',{cx:X(i),cy:Y(v),r:10,fill:'var(--c)',stroke:'#fff','stroke-width':3,style:'cursor:ns-resize'},g); txt(g,X(i),Y(v)-16,v+' cm',{'font-size':12,'font-weight':800}); txt(g,X(i),302,DAY[i],{'font-size':12}); });
+  txt(g,240,18,'🌱 Tinggi tanaman (cm)',{'font-weight':800,'font-size':13});
+  VML.dragSvg(g, p=>{ let b=null,bd=30; H.forEach((v,i)=>{ const d=Math.hypot(p.x-X(i),p.y-Y(v)); if(d<bd){bd=d;b=i;} }); return b; }, (i,p)=>{ H[i]=Math.max(0,Math.min(20,Math.round((280-p.y)/12))); drawL(); });
+  const inc=H.slice(1).map((v,i)=>v-H[i]), mi=inc.indexOf(Math.max(...inc));
+  $('#lo').innerHTML=`<table class="t"><tr><th>Hari</th>${DAY.map(d=>`<th>${d}</th>`).join('')}</tr><tr><td>Tinggi</td>${H.map(v=>`<td>${v}</td>`).join('')}</tr><tr><td>Naik</td><td>—</td>${inc.map(v=>`<td style="color:${v<0?'var(--bad)':'inherit'}">${v>0?'+':''}${VML.m(v)}</td>`).join('')}</tr></table>
+   <p>Kenaikan terbesar: <b>${DAY[mi]} → ${DAY[mi+1]}</b> (+${inc[mi]} cm)</p><p>Dari Senin sampai Minggu tanaman tumbuh ${H[6]} − ${H[0]} = <b>${H[6]-H[0]} cm</b>.</p>${inc.some(v=>v<0)?'<p class="muted">Ada garis yang turun — tanaman jadi lebih pendek? Mungkin ujungnya patah! 🌱</p>':''}`;
+}
+drawL();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Turus', gen(){ const n=rand(3,19); return {q:`Turus <span style="font-family:var(--mono);font-size:1.3rem">${turus(n)}</span> menunjukkan bilangan …`, a:String(n), hint:'Setiap 𝍸 bernilai 5.', ex:`${Math.floor(n/5)} × 5 + ${n%5} = ${n}`}; }},
+  {name:'Piktogram', gen(){ const per=pick([2,3,4,5,10]), k=rand(2,7), half=per%2===0&&Math.random()<.4; return {q:`Pada piktogram, 🍎 = ${per} buah. Ada ${k}${half?' setengah':''} gambar 🍎${half?' (simbol terakhir hanya setengah)':''}. Banyak buah …`, a:String(k*per+(half?per/2:0)), hint:`Kalikan banyak simbol dengan ${per}.`, ex:`${k} × ${per}${half?` + ${per/2}`:''} = ${k*per+(half?per/2:0)}`}; }},
+  {name:'Membaca diagram', gen(){ const N=['Senin','Selasa','Rabu','Kamis','Jumat'], v=N.map(()=>rand(5,30)), t=rand(0,2);
+    const tbl=`<div class="scroll"><table class="t" style="margin-top:6px"><tr>${N.map(n=>`<th>${n}</th>`).join('')}</tr><tr>${v.map(x=>`<td>${x}</td>`).join('')}</tr></table></div>`;
+    if(t===0) return {q:`Banyak pengunjung perpustakaan: ${tbl} Berapa jumlah pengunjung seluruhnya?`, a:String(v.reduce((a,b)=>a+b,0)), unit:'orang', hint:'Jumlahkan semua.', ex:`${v.join(' + ')} = ${v.reduce((a,b)=>a+b,0)}`};
+    if(t===1){ const i=rand(0,4), j=(i+rand(1,4))%5; return {q:`Banyak pengunjung perpustakaan: ${tbl} Berapa selisih pengunjung hari ${N[i]} dan ${N[j]}?`, a:String(Math.abs(v[i]-v[j])), unit:'orang', hint:'Yang besar dikurangi yang kecil.', ex:`|${v[i]} − ${v[j]}| = ${Math.abs(v[i]-v[j])}`}; }
+    const mx=Math.max(...v); if(v.filter(x=>x===mx).length>1) return this.gen(); return {q:`Banyak pengunjung perpustakaan: ${tbl} Hari apa pengunjungnya paling banyak?`, a:[N[v.indexOf(mx)].toLowerCase()], show:N[v.indexOf(mx)], hint:'Cari angka terbesar.', ex:`${N[v.indexOf(mx)]} (${mx})`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Turus 𝍸 𝍸 ||| menunjukkan bilangan …', o:['13','8','3','23'], a:0, ex:'5 + 5 + 3.'},
+ {q:'Diagram yang menggunakan gambar atau simbol untuk menyajikan data disebut …', o:['piktogram','diagram garis','tabel','diagram batang'], a:0, ex:'Pikto = gambar.'},
+ {q:'Piktogram: 🍎 = 2 buah. Gambar 🍎🍎🍎🍎 berarti …', o:['8 buah','4 buah','6 buah','2 buah'], a:0, ex:'4 × 2.'},
+ {q:'Piktogram: 📚 = 10 buku. Tiga setengah simbol berarti …', o:['35 buku','30 buku','3,5 buku','40 buku'], a:0, ex:'3,5 × 10.'},
+ {q:'Diagram yang paling cocok untuk menunjukkan perubahan suhu setiap jam adalah …', o:['diagram garis','piktogram','diagram batang','tabel turus'], a:0, ex:'Perubahan waktu → garis.'},
+ {q:'Pada diagram batang, batang yang paling tinggi menunjukkan data …', o:['terbanyak','tersedikit','rata-rata','terakhir'], a:0, ex:'Makin tinggi makin banyak.'},
+ {q:'Data: sepak bola 12, renang 7, lari 9. Selisih penggemar sepak bola dan renang …', o:['5','19','3','2'], a:0, ex:'12 − 7.'},
+ {q:'Data: sepak bola 12, renang 7, lari 9. Jumlah semua siswa …', o:['28','21','19','16'], a:0, ex:'12 + 7 + 9.'},
+ {q:'Cara mengumpulkan data tinggi badan teman sekelas yang paling tepat adalah …', o:['mengukur','menebak','bertanya ke guru','melihat foto'], a:0, ex:'Tinggi diukur.'},
+ {q:'Tinggi tanaman: Senin 3 cm, Selasa 5 cm, Rabu 9 cm. Kenaikan terbesar terjadi pada …', o:['Selasa ke Rabu','Senin ke Selasa','sama besar','tidak naik'], a:0, ex:'+4 cm dibanding +2 cm.'},
+ {q:'Garis yang turun pada diagram garis berarti datanya …', o:['berkurang','bertambah','tetap','hilang'], a:0, ex:'Turun = berkurang.'},
+ {q:'Piktogram: ⚽ = 5 siswa. Jika ada 20 siswa, banyak simbol …', o:['4','5','20','100'], a:0, ex:'20 : 5.'},
+ {q:'Turus untuk bilangan 17 terdiri atas berapa kelompok 𝍸 (lima)?', input:true, a:['3'], ex:'17 = 3 × 5 + 2.'},
+ {q:'Penjualan kue: Senin 24, Selasa 18, Rabu 30. Berapa jumlah kue yang terjual?', input:true, a:['72'], unit:'kue', ex:'24 + 18 + 30.'},
+ {q:'Data yang dikumpulkan dengan menanyakan langsung kepada orang lain disebut cara …', o:['wawancara','mengukur','mengamati','menimbang'], a:0, ex:'Bertanya langsung.'}
+], 'sd5m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

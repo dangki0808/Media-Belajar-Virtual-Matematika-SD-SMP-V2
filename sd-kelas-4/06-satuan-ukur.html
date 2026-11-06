@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Satuan Pengukuran · Virtual Math Lab SD IV</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#0f8cb0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas IV</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Pengukuran</span>
+  <h1>⚖️ Satuan Panjang &amp; Berat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal satuan baku panjang (km, hm, dam, m, dm, cm, mm) dan berat (kg, hg, dag, g, …).</li>
+    <li>Mengubah satuan dengan tangga satuan.</li>
+    <li>Menyelesaikan soal sehari-hari tentang panjang dan berat, termasuk ton, kuintal, dan ons.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🪜 Lab Tangga Satuan</button><button data-target="timbang">⚖️ Lab Timbangan</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Tangga satuan</h2>
+    <div class="grid2">
+      <div><h3>Panjang</h3><p>km → hm → dam → <b>m</b> → dm → cm → mm</p></div>
+      <div><h3>Berat</h3><p>kg → hg → dag → <b>g</b> → dg → cg → mg</p></div>
+    </div>
+    <div class="def">Turun 1 anak tangga → <b>dikali 10</b>. Naik 1 anak tangga → <b>dibagi 10</b>.</div>
+    <div class="grid3"><div class="ex">3 km = 3 × 1.000 = <b>3.000 m</b></div><div class="ex">250 cm = 250 : 100 = <b>2,5 m</b></div><div class="ex">4 kg = 4 × 1.000 = <b>4.000 g</b></div></div>
+  </div>
+  <div class="card"><h2>2. Satuan berat lain</h2>
+    <table class="t"><tr><th>Satuan</th><th>Sama dengan</th></tr><tr><td>1 ton</td><td>1.000 kg = 10 kuintal</td></tr><tr><td>1 kuintal</td><td>100 kg</td></tr><tr><td>1 kg</td><td>10 ons = 1.000 g</td></tr><tr><td>1 ons</td><td>100 g = 1 hg</td></tr><tr><td>1 pon</td><td>½ kg = 5 ons</td></tr></table>
+  </div>
+  <div class="card"><h2>3. Soal sehari-hari</h2>
+    <div class="grid2">
+      <div class="ex">Pita 2 m dipotong 35 cm dan 80 cm. Sisa = 200 − 35 − 80 = <b>85 cm</b>.</div>
+      <div class="ex">Ibu membeli 2 kg beras dan 5 ons gula. Berat semuanya = 2.000 g + 500 g = <b>2.500 g</b> = 2,5 kg.</div>
+      <div class="ex">Truk memuat 3 ton pasir dan 4 kuintal semen = 3.000 kg + 400 kg = <b>3.400 kg</b>.</div>
+      <div class="ex">Jarak rumah ke sekolah 1 km 250 m = <b>1.250 m</b>.</div>
+    </div>
+    <div class="note">Sebelum menjumlah atau mengurangi, samakan dulu satuannya!</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Tangga Satuan</h2>
+    <div class="seg" id="kind"><button data-k="p" class="on">Panjang</button><button data-k="b">Berat</button></div>
+    <div class="ctrl" style="margin-top:10px"><label>Nilai <input type="number" id="v" value="3.5" step="any" style="width:130px"></label><label>Dari <select id="from"></select></label><label>Ke <select id="to"></select></label></div>
+    <div class="grid2"><svg class="viz" id="st" viewBox="0 0 440 330"></svg><div class="out" id="sOut"></div></div>
+  </div>
+</section>
+
+<section id="timbang" class="panel">
+  <div class="card"><h2>Lab: Timbangan Pasar</h2>
+    <p>Taruh barang di piring kiri dan anak timbangan di piring kanan sampai seimbang!</p>
+    <div class="row" id="items"></div>
+    <div class="row" id="weights"></div>
+    <div class="row"><button class="btn ghost" id="clr">Kosongkan piring</button></div>
+    <svg class="viz" id="sc" viewBox="0 0 720 300" style="margin-top:10px"></svg>
+    <div class="out" id="tOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Desimal boleh pakai koma. Bilangan ribuan boleh pakai titik, misalnya 3.000.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas IV · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const id=n=>Number(VML.round(n,6)).toLocaleString('id-ID',{maximumFractionDigits:6});
+const acc=v=>[String(VML.round(v,6)), id(v)];
+const U={p:['km','hm','dam','m','dm','cm','mm'], b:['kg','hg','dag','g','dg','cg','mg']};
+let kind='p';
+document.querySelectorAll('#kind button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#kind button').forEach(x=>x.classList.remove('on'));b.classList.add('on');kind=b.dataset.k;fill();});
+function fill(){ ['#from','#to'].forEach((sel,j)=>$(sel).innerHTML=U[kind].map(u=>`<option${(j===0&&(u==='km'||u==='kg'))||(j===1&&(u==='m'||u==='g'))?' selected':''}>${u}</option>`).join('')); drawS(); }
+function drawS(){
+  const v=Number(String($('#v').value).replace(',','.')), f=U[kind].indexOf($('#from').value), t=U[kind].indexOf($('#to').value), g=$('#st'); clear(g);
+  U[kind].forEach((u,i)=>{ const x=10+i*50, y=20+i*42; s('rect',{x,y,width:110,height:36,rx:10,fill:i===f?'var(--b)':i===t?'var(--c)':'var(--card)',stroke:'var(--acc)','stroke-width':2},g); txt(g,x+55,y+25,u,{'font-weight':900,fill:(i===f||i===t)?'#fff':'var(--ink)'}); });
+  if(f!==t){ const lo=Math.min(f,t), hi=Math.max(f,t); for(let i=lo;i<hi;i++){ const x=10+i*50+110, y=20+i*42+18; s('path',{d:`M${x},${y} q24,0 24,${f<t?30:30}`,fill:'none',stroke:f<t?'var(--c)':'var(--b)','stroke-width':2.5},g); txt(g,x+34,y+22,f<t?'×10':':10',{'font-size':12,'font-weight':800,'text-anchor':'start',fill:f<t?'var(--c)':'var(--b)'}); } }
+  if(isNaN(v)){ $('#sOut').innerHTML='Tulis sebuah bilangan.'; return; }
+  const k=t-f, r=v*Math.pow(10,k);
+  $('#sOut').innerHTML=`<p>${k>0?`Turun <b>${k}</b> anak tangga → dikali ${id(Math.pow(10,k))}`:k<0?`Naik <b>${-k}</b> anak tangga → dibagi ${id(Math.pow(10,-k))}`:'Satuannya sama.'}</p><div class="huge">${id(v)} ${U[kind][f]} = ${id(r)} ${U[kind][t]}</div>`;
+}
+['#v','#from','#to'].forEach(x=>$(x).oninput=drawS); fill();
+
+/* timbangan */
+const IT=[['🍉 Semangka',2500],['🍚 Beras',2000],['🥚 Telur',500],['🍌 Pisang',1200],['🧈 Mentega',250],['🍎 Apel',300]];
+const WG=[['1 kg',1000],['5 ons',500],['2 ons',200],['1 ons',100],['50 g',50]];
+let L=[], R=[];
+$('#items').innerHTML='<b style="align-self:center">Barang:</b> '+IT.map(([n],i)=>`<button class="btn soft" data-i="${i}">${n}</button>`).join('');
+$('#weights').innerHTML='<b style="align-self:center">Anak timbangan:</b> '+WG.map(([n],i)=>`<button class="btn soft" data-w="${i}">${n}</button>`).join('');
+document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{ L.push(+b.dataset.i); drawT(); });
+document.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{ R.push(+b.dataset.w); drawT(); });
+$('#clr').onclick=()=>{ L=[]; R=[]; drawT(); };
+function drawT(){
+  const lw=L.reduce((a,i)=>a+IT[i][1],0), rw=R.reduce((a,i)=>a+WG[i][1],0), ang=Math.max(-14,Math.min(14,(lw-rw)/100)), g=$('#sc'); clear(g);
+  s('polygon',{points:'360,280 320,300 400,300',fill:'var(--muted)'},g); s('rect',{x:352,y:120,width:16,height:162,fill:'var(--muted)',rx:4},g);
+  const beam=s('g',{transform:`rotate(${-ang} 360 120)`},g); s('rect',{x:110,y:114,width:500,height:12,rx:6,fill:'var(--ink)'},beam);
+  [[170,L.map(i=>IT[i][0].split(' ')[0])],[550,R.map(i=>WG[i][0])]].forEach(([cx,arr],side)=>{ const pan=s('g',{transform:`rotate(${ang} ${cx} 120)`},beam);
+    s('line',{x1:cx,y1:120,x2:cx-80,y2:210,stroke:'var(--muted)','stroke-width':2},pan); s('line',{x1:cx,y1:120,x2:cx+80,y2:210,stroke:'var(--muted)','stroke-width':2},pan);
+    s('path',{d:`M${cx-100},210 Q${cx},240 ${cx+100},210 Z`,fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':2},pan);
+    arr.forEach((t,k)=>{ const col=k%5, row=Math.floor(k/5), x=cx-80+col*40, y=196-row*30; if(side===0) txt(pan,x+20,y,t,{'font-size':26}); else { s('rect',{x:x+2,y:y-20,width:36,height:24,rx:6,fill:'#7d8a96'},pan); txt(pan,x+20,y-3,t,{'font-size':10,'font-weight':800,fill:'#fff'}); } }); });
+  const bal=lw===rw&&lw>0;
+  txt(g,360,40,bal?'⚖️ Seimbang!':lw>rw?'Kiri lebih berat ⬅':lw<rw?'➡ Kanan lebih berat':'Taruh barang di piring',{'font-weight':900,'font-size':18,fill:bal?'var(--ok)':'var(--ink)'});
+  $('#tOut').innerHTML=`<div class="grid2"><div><b>Piring kiri:</b> ${L.map(i=>IT[i][0]).join(', ')||'—'}<br>Berat = <b>${id(lw)} g</b> = ${num(lw/1000,3)} kg = ${num(lw/100,2)} ons</div><div><b>Piring kanan:</b> ${R.map(i=>WG[i][0]).join(' + ')||'—'}<br>Berat = <b>${id(rw)} g</b> = ${num(rw/1000,3)} kg</div></div>${bal?'<p class="big">🎉 Hebat! Kedua piring sama berat.</p>':''}`;
+}
+drawT();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Panjang', gen(){ const u=U.p, f=rand(0,5), t=rand(0,6); if(f===t) return this.gen(); const v=pick([1,2,3,4,5,7,12,25,1.5,0.5]), r=v*Math.pow(10,t-f); if(r<0.001||r>1e7) return this.gen(); return {q:`${num(v)} ${u[f]} = … ${u[t]}`, a:acc(r), hint:'Turun → kali 10 tiap anak tangga, naik → bagi 10.', ex:`${num(v)} ${u[f]} = ${id(r)} ${u[t]}`}; }},
+  {name:'Berat', gen(){ const u=U.b, f=pick([0,1,3]), t=pick([0,1,2,3]); if(f===t) return this.gen(); const v=pick([1,2,3,5,6,8,15,40,250,500,1500]), r=v*Math.pow(10,t-f); if(r<0.001||r>1e7) return this.gen(); return {q:`${id(v)} ${u[f]} = … ${u[t]}`, a:acc(r), hint:'Turun → kali 10 tiap anak tangga, naik → bagi 10.', ex:`${id(v)} ${u[f]} = ${id(r)} ${u[t]}`}; }},
+  {name:'Ton, kuintal, ons', gen(){ const t=rand(0,3);
+    if(t===0){ const v=rand(1,9); return {q:`${v} ton = … kg`, a:acc(v*1000), hint:'1 ton = 1.000 kg.', ex:id(v*1000)}; }
+    if(t===1){ const v=rand(1,20); return {q:`${v} kuintal = … kg`, a:acc(v*100), hint:'1 kuintal = 100 kg.', ex:id(v*100)}; }
+    if(t===2){ const v=rand(1,30); return {q:`${v} ons = … g`, a:acc(v*100), hint:'1 ons = 100 g.', ex:id(v*100)}; }
+    const v=rand(1,9); return {q:`${v} kg = … ons`, a:acc(v*10), hint:'1 kg = 10 ons.', ex:String(v*10)}; }},
+  {name:'Soal cerita', gen(){ if(Math.random()<.5){ const m=rand(2,5), a=rand(10,60), b=rand(10,60); if(a+b>=m*100) return this.gen(); return {q:`Pita ${m} m dipotong ${a} cm dan ${b} cm. Berapa cm sisanya?`, a:String(m*100-a-b), unit:'cm', hint:`${m} m = ${m*100} cm.`, ex:`${m*100} − ${a} − ${b} = ${m*100-a-b}`}; }
+    const k=rand(1,5), o=rand(1,9); return {q:`Ibu membeli ${k} kg beras dan ${o} ons gula. Berapa gram berat semuanya?`, a:acc(k*1000+o*100), unit:'g', hint:'1 kg = 1.000 g, 1 ons = 100 g.', ex:`${id(k*1000)} + ${o*100} = ${id(k*1000+o*100)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'3 km = … m', o:['3.000','300','30','30.000'], a:0, ex:'Turun 3 tangga.'},
+ {q:'250 cm = … m', o:['2,5','25','2.500','0,25'], a:0, ex:'Naik 2 tangga: bagi 100.'},
+ {q:'4 kg = … g', o:['4.000','400','40','40.000'], a:0, ex:'× 1.000.'},
+ {q:'Urutan tangga satuan panjang yang benar adalah …', o:['km, hm, dam, m, dm, cm, mm','km, dam, hm, m, cm, dm, mm','m, km, cm, mm','mm, cm, km, m'], a:0, ex:'Hafalkan dari km ke mm.'},
+ {q:'1 ton = … kg', o:['1.000','100','10','10.000'], a:0, ex:'1 ton = 1.000 kg.'},
+ {q:'1 kuintal = … kg', o:['100','1.000','10','50'], a:0, ex:'1 kuintal = 100 kg.'},
+ {q:'1 ons = … gram', o:['100','10','1.000','50'], a:0, ex:'1 ons = 1 hg = 100 g.'},
+ {q:'2 kg + 5 ons = … gram', o:['2.500','2.050','7.000','2.005'], a:0, ex:'2.000 + 500.'},
+ {q:'Pita 2 m dipotong 35 cm dan 80 cm. Sisanya …', o:['85 cm','115 cm','165 cm','1,15 m'], a:0, ex:'200 − 115.'},
+ {q:'Truk memuat 3 ton pasir dan 4 kuintal semen. Muatan seluruhnya …', o:['3.400 kg','3.004 kg','7 kg','34 kg'], a:0, ex:'3.000 + 400.'},
+ {q:'1 km 250 m = … m', o:['1.250','1.025','1.000.250','125'], a:0, ex:'1.000 + 250.'},
+ {q:'Setiap turun satu anak tangga satuan, nilainya …', o:['dikali 10','dibagi 10','ditambah 10','dikurang 10'], a:0, ex:'Satuannya lebih kecil, bilangannya lebih besar.'},
+ {q:'Ubah 7 m menjadi cm.', input:true, a:['700'], ex:'× 100.'},
+ {q:'Ubah 3.500 g menjadi kg.', input:true, a:['3,5','3.5'], ex:': 1.000.'},
+ {q:'Berat sebuah semangka sekitar …', o:['2 kg','2 g','2 ton','2 mg'], a:0, ex:'Satuan yang masuk akal untuk buah.'}
+], 'sd4m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

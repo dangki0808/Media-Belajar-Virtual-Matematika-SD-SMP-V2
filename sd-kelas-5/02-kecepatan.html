@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kecepatan, Jarak & Waktu · Virtual Math Lab SD V</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#2f7fe0">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas V</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Pengukuran</span>
+  <h1>🚗 Kecepatan, Jarak &amp; Waktu</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Memahami hubungan kecepatan, jarak, dan waktu.</li>
+    <li>Menghitung kecepatan, jarak, atau waktu jika dua besaran lainnya diketahui.</li>
+    <li>Mengubah satuan waktu dan kecepatan, serta menentukan waktu berangkat atau tiba.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🏁 Lab Balapan</button><button data-target="seg">🔺 Lab Segitiga Ajaib</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Apa itu kecepatan?</h2>
+    <p><b>Kecepatan</b> adalah jarak yang ditempuh setiap satu satuan waktu. Mobil berkecepatan 60 km/jam artinya dalam <b>1 jam</b> menempuh <b>60 km</b>.</p>
+    <div class="grid3"><div class="def">Kecepatan = <span class="fr"><span>Jarak</span><span>Waktu</span></span></div><div class="def">Jarak = Kecepatan × Waktu</div><div class="def">Waktu = <span class="fr"><span>Jarak</span><span>Kecepatan</span></span></div></div>
+    <div class="note">Ingat dengan <b>segitiga J-K-W</b>: tutup besaran yang dicari, sisanya menunjukkan cara menghitung. Coba di Lab!</div>
+  </div>
+  <div class="card"><h2>2. Contoh</h2>
+    <div class="grid3"><div class="ex"><span class="t">Mencari kecepatan</span><br>Jarak 180 km ditempuh 3 jam.<br>K = 180 : 3 = <b>60 km/jam</b></div>
+      <div class="ex"><span class="t">Mencari jarak</span><br>Sepeda 12 km/jam selama 2,5 jam.<br>J = 12 × 2,5 = <b>30 km</b></div>
+      <div class="ex"><span class="t">Mencari waktu</span><br>Jarak 150 km, kecepatan 50 km/jam.<br>W = 150 : 50 = <b>3 jam</b></div></div>
+  </div>
+  <div class="card"><h2>3. Mengubah satuan</h2>
+    <table class="t"><tr><th>Satuan</th><th>Sama dengan</th></tr><tr><td>1 jam</td><td>60 menit = 3.600 detik</td></tr><tr><td>1 km</td><td>1.000 m</td></tr><tr><td>30 menit</td><td>½ jam = 0,5 jam</td></tr><tr><td>15 menit</td><td>¼ jam = 0,25 jam</td></tr><tr><td>72 km/jam</td><td>72.000 m : 3.600 detik = 20 m/detik</td></tr></table>
+    <div class="ex"><span class="t">Waktu tiba</span> Budi berangkat pukul 07.15 naik sepeda 10 km/jam menempuh 5 km. Waktu = 5 : 10 = ½ jam = 30 menit. Tiba pukul <b>07.45</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Balapan Tiga Kendaraan</h2>
+    <p>Atur kecepatan setiap kendaraan, lalu mulai balapan sejauh <b id="dl"></b>. Siapa yang sampai lebih dulu?</p>
+    <div class="ctrl"><label>🚲 Sepeda <span class="v" id="v0-v"></span><input type="range" id="v0" min="5" max="40" step="5" value="15"></label><label>🛵 Motor <span class="v" id="v1-v"></span><input type="range" id="v1" min="20" max="80" step="5" value="40"></label><label>🚗 Mobil <span class="v" id="v2-v"></span><input type="range" id="v2" min="30" max="120" step="10" value="60"></label><label>Jarak lintasan <span class="v" id="d-v"></span><input type="range" id="d" min="30" max="180" step="30" value="60"></label></div>
+    <div class="row"><button class="btn" id="go">🏁 Mulai!</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <svg class="viz" id="tr" viewBox="0 0 720 260" style="margin-top:10px"></svg>
+    <div class="out" id="tOut"></div>
+  </div>
+</section>
+
+<section id="seg" class="panel">
+  <div class="card"><h2>Lab: Segitiga Ajaib J-K-W</h2>
+    <p>Pilih besaran yang dicari, lalu isi dua besaran lainnya.</p>
+    <div class="seg" id="cari"><button data-c="J">Cari Jarak</button><button data-c="K" class="on">Cari Kecepatan</button><button data-c="W">Cari Waktu</button></div>
+    <div class="ctrl" id="inp"></div>
+    <div class="grid2"><svg class="viz" id="tri" viewBox="0 0 360 300" style="max-width:380px;margin:0 auto"></svg><div class="out" id="sOut"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Desimal boleh memakai koma. Pukul ditulis seperti 07.45.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas V · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const jm=h=>{ const t=Math.round(h*60), H=Math.floor(t/60), m=t%60; return (H?H+' jam ':'')+(m?m+' menit':H?'':'0 menit'); };
+
+/* balapan */
+const VE=[['🚲','Sepeda','var(--c)'],['🛵','Motor','var(--d)'],['🚗','Mobil','var(--b)']];
+let tt=0, raf=null;
+function vals(){ const v=[0,1,2].map(i=>+$('#v'+i).value), D=+$('#d').value; [0,1,2].forEach(i=>$('#v'+i+'-v').textContent=v[i]+' km/jam'); $('#d-v').textContent=D+' km'; $('#dl').textContent=D+' km'; return {v,D}; }
+function drawT(){
+  const {v,D}=vals(), g=$('#tr'); clear(g); const W=VML.narrow()?440:720, X0=70, X1=W-30; g.setAttribute('viewBox',`0 0 ${W} 260`);
+  for(let k=0;k<=D;k+=D/6){ const x=X0+k/D*(X1-X0); s('line',{x1:x,y1:20,x2:x,y2:230,stroke:'rgba(0,0,0,.08)'},g); txt(g,x,250,num(k)+' km',{'font-size':11,fill:'var(--muted)'}); }
+  s('line',{x1:X1,y1:15,x2:X1,y2:232,stroke:'var(--ink)','stroke-width':4,'stroke-dasharray':'8 6'},g); txt(g,X1,12,'🏁',{'font-size':18});
+  v.forEach((sp,i)=>{ const y=55+i*70, dist=Math.min(D,sp*tt), x=X0+dist/D*(X1-X0);
+    s('rect',{x:X0-10,y:y-26,width:X1-X0+20,height:52,rx:14,fill:'rgba(0,0,0,.05)'},g);
+    txt(g,30,y+6,VE[i][0],{'font-size':24}); s('rect',{x:X0,y:y-4,width:x-X0,height:8,rx:4,fill:VE[i][2],'fill-opacity':.6},g);
+    txt(g,x,y+10,VE[i][0],{'font-size':28,transform:`scale(-1,1) translate(${-2*x},0)`}); });
+  const times=v.map(sp=>D/sp), win=times.indexOf(Math.min(...times)), done=tt>=Math.max(...times);
+  $('#tOut').innerHTML=`<p>Waktu berjalan: <b>${jm(tt)}</b></p><table class="t"><tr><th></th><th>Kecepatan</th><th>Jarak ditempuh</th><th>Waktu sampai = ${D} : kecepatan</th></tr>${v.map((sp,i)=>`<tr${done&&i===win?' style="background:var(--ok-soft);font-weight:800"':''}><td>${VE[i][0]} ${VE[i][1]}</td><td>${sp} km/jam</td><td>${num(Math.min(D,sp*tt),1)} km</td><td>${num(times[i],2)} jam = ${jm(times[i])}</td></tr>`).join('')}</table>${done?`<p class="big">🏆 Juara: ${VE[win][0]} ${VE[win][1]}!</p>`:''}`;
+}
+$('#go').onclick=()=>{ cancelAnimationFrame(raf); const {v,D}=vals(), T=Math.max(...v.map(sp=>D/sp)), t0=performance.now(), dur=Math.min(7000,1500+T*700); const st=now=>{ tt=Math.min(T,(now-t0)/dur*T); drawT(); if(tt<T) raf=requestAnimationFrame(st); }; raf=requestAnimationFrame(st); };
+$('#rs').onclick=()=>{ cancelAnimationFrame(raf); tt=0; drawT(); };
+['#v0','#v1','#v2','#d'].forEach(x=>$(x).oninput=()=>{ cancelAnimationFrame(raf); tt=0; drawT(); }); drawT(); VML.onResize(drawT);
+
+/* segitiga */
+let cari='K'; const V={J:120,K:40,W:3};
+document.querySelectorAll('#cari button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#cari button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cari=b.dataset.c;buildS();});
+function buildS(){ const L={J:['Jarak (km)',5,300,5],K:['Kecepatan (km/jam)',5,120,5],W:['Waktu (jam)',0.5,8,0.5]};
+  $('#inp').innerHTML=Object.keys(L).filter(k=>k!==cari).map(k=>`<label>${L[k][0]} <span class="v" id="s${k}-v">${num(V[k])}</span><input type="range" data-k="${k}" min="${L[k][1]}" max="${L[k][2]}" step="${L[k][3]}" value="${V[k]}"></label>`).join('');
+  document.querySelectorAll('#inp input').forEach(i=>i.oninput=()=>{ V[i.dataset.k]=+i.value; $('#s'+i.dataset.k+'-v').textContent=num(+i.value); drawS(); }); drawS(); }
+function drawS(){
+  const g=$('#tri'); clear(g);
+  s('polygon',{points:'180,20 340,280 20,280',fill:'var(--acc)','fill-opacity':.12,stroke:'var(--acc)','stroke-width':4},g);
+  s('line',{x1:100,y1:150,x2:260,y2:150,stroke:'var(--acc)','stroke-width':4},g); s('line',{x1:180,y1:150,x2:180,y2:280,stroke:'var(--acc)','stroke-width':4},g);
+  const box=(x,y,l,on)=>{ if(on) s('circle',{cx:x,cy:y-10,r:34,fill:'var(--b)','fill-opacity':.85},g); txt(g,x,y,l,{'font-size':38,'font-weight':900,fill:on?'#fff':'var(--ink)'}); };
+  box(180,110,'J',cari==='J'); box(110,235,'K',cari==='K'); box(250,235,'W',cari==='W');
+  txt(g,180,268,'×',{'font-size':22,'font-weight':900,fill:'var(--muted)'});
+  let r, how;
+  if(cari==='J'){ r=V.K*V.W; how=`K × W = ${num(V.K)} × ${num(V.W)}`; } else if(cari==='K'){ r=V.J/V.W; how=`J : W = ${num(V.J)} : ${num(V.W)}`; } else { r=V.J/V.K; how=`J : K = ${num(V.J)} : ${num(V.K)}`; }
+  const unit={J:'km',K:'km/jam',W:'jam'}[cari];
+  $('#sOut').innerHTML=`<p>Tutup huruf <b>${cari}</b> yang merah muda. ${cari==='J'?'K dan W bersebelahan → dikali.':`J di atas ${cari==='K'?'W':'K'} → dibagi.`}</p><div class="big">${{J:'Jarak',K:'Kecepatan',W:'Waktu'}[cari]} = ${how}</div><div class="huge">${num(r,2)} ${unit}</div>${cari==='W'?`<p>= ${jm(r)}</p>`:''}`;
+}
+buildS();
+
+/* LATIHAN */
+const hh=t=>{ const H=Math.floor(t/60)%24, m=t%60; return String(H).padStart(2,'0')+'.'+String(m).padStart(2,'0'); };
+VML.practice($('#prac'), [
+  {name:'Kecepatan', gen(){ const k=pick([10,12,15,20,25,30,40,45,50,60,70,80]), w=pick([1,2,3,4,1.5,2.5]); return {q:`Jarak ${num(k*w)} km ditempuh dalam ${num(w)} jam. Kecepatannya …`, a:String(k), unit:'km/jam', hint:'K = J : W', ex:`${num(k*w)} : ${num(w)} = ${k}`}; }},
+  {name:'Jarak', gen(){ const k=pick([4,5,10,12,15,20,40,50,60,75]), w=pick([1,2,3,0.5,1.5,2.5,4]); return {q:`Kecepatan ${k} km/jam selama ${num(w)} jam. Jaraknya …`, a:String(k*w), unit:'km', hint:'J = K × W', ex:`${k} × ${num(w)} = ${num(k*w)}`}; }},
+  {name:'Waktu', gen(){ const k=pick([10,20,30,40,50,60,80]), w=pick([1,2,3,4,0.5,1.5]); return {q:`Jarak ${num(k*w)} km dengan kecepatan ${k} km/jam. Berapa jam waktunya?`, a:String(w), unit:'jam', hint:'W = J : K', ex:`${num(k*w)} : ${k} = ${num(w)} jam`}; }},
+  {name:'Waktu tiba', gen(){ const st=rand(6*4,15*4)*15, k=pick([10,20,30,40,60]), m=pick([15,30,45,60,90,120]), d=k*m/60; return {q:`Berangkat pukul ${hh(st)}, menempuh ${num(d)} km dengan kecepatan ${k} km/jam. Tiba pukul …`, a:[hh(st+m),hh(st+m).replace('.',':')], show:hh(st+m), hint:'Hitung waktunya dulu, lalu tambahkan ke jam berangkat.', ex:`W = ${num(d)} : ${k} = ${jm(m/60)} → ${hh(st)} + ${jm(m/60)} = ${hh(st+m)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Rumus kecepatan adalah …', o:['jarak : waktu','jarak × waktu','waktu : jarak','jarak + waktu'], a:0, ex:'K = J : W.'},
+ {q:'Mobil menempuh 180 km dalam 3 jam. Kecepatannya …', o:['60 km/jam','540 km/jam','90 km/jam','45 km/jam'], a:0, ex:'180 : 3.'},
+ {q:'Sepeda melaju 12 km/jam selama 2,5 jam. Jaraknya …', o:['30 km','24 km','14,5 km','4,8 km'], a:0, ex:'12 × 2,5.'},
+ {q:'Jarak 150 km ditempuh dengan kecepatan 50 km/jam. Waktunya …', o:['3 jam','2 jam','7.500 jam','100 jam'], a:0, ex:'150 : 50.'},
+ {q:'Kecepatan 60 km/jam artinya …', o:['dalam 1 jam menempuh 60 km','dalam 60 jam menempuh 1 km','dalam 1 menit menempuh 60 km','menempuh 60 km tanpa berhenti'], a:0, ex:'Jarak per satu jam.'},
+ {q:'1 jam sama dengan …', o:['60 menit','100 menit','30 menit','3.600 menit'], a:0, ex:'1 jam = 60 menit = 3.600 detik.'},
+ {q:'Motor melaju 40 km/jam selama 30 menit. Jaraknya …', o:['20 km','1.200 km','70 km','80 km'], a:0, ex:'30 menit = ½ jam → 40 × ½.'},
+ {q:'Budi berangkat pukul 07.15 menempuh 5 km dengan kecepatan 10 km/jam. Ia tiba pukul …', o:['07.45','07.20','07.65','08.15'], a:0, ex:'Waktu ½ jam.'},
+ {q:'Kereta berangkat pukul 08.00 dan tiba pukul 11.00, menempuh 270 km. Kecepatannya …', o:['90 km/jam','27 km/jam','810 km/jam','80 km/jam'], a:0, ex:'270 : 3.'},
+ {q:'72 km/jam sama dengan … m/detik.', o:['20','72','1,2','200'], a:0, ex:'72.000 : 3.600.'},
+ {q:'Bus 60 km/jam menempuh 210 km. Lama perjalanannya …', o:['3 jam 30 menit','3 jam 50 menit','3 jam','4 jam'], a:0, ex:'210 : 60 = 3,5 jam.'},
+ {q:'Andi berlari 6 km/jam selama 1 jam 30 menit. Jarak tempuhnya …', o:['9 km','7,5 km','6 km','4 km'], a:0, ex:'6 × 1,5.'},
+ {q:'Mobil menempuh 240 km dalam 4 jam. Berapa kecepatannya?', input:true, a:['60'], unit:'km/jam', ex:'240 : 4.'},
+ {q:'Pesawat 500 km/jam terbang selama 2 jam. Berapa jaraknya?', input:true, a:['1000','1.000'], unit:'km', ex:'500 × 2.'},
+ {q:'Dua anak bersepeda dari tempat sama menempuh 20 km. Ali 10 km/jam, Beni 20 km/jam. Siapa yang tiba lebih dulu?', o:['Beni','Ali','Bersamaan','Tidak dapat ditentukan'], a:0, ex:'Beni 1 jam, Ali 2 jam.'}
+], 'sd5m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bangun Ruang · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#16a06a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 5 · Geometri</span>
+  <h1>🧊 Bangun Ruang</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal sifat dan jaring-jaring kubus, balok, prisma, limas, tabung, kerucut, dan bola.</li>
+    <li>Menghitung volume kubus, balok, prisma segitiga, dan tabung dengan kubus satuan.</li>
+    <li>Menghitung luas permukaan kubus dan balok serta memakainya dalam soal sehari-hari.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧱 Lab Kubus Satuan</button><button data-target="kenal">🔍 Lab Kenali Bangun</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Mengenal bangun ruang</h2>
+    <div class="scroll"><table class="t"><tr><th>Bangun</th><th>Sisi</th><th>Rusuk</th><th>Titik sudut</th><th>Contoh benda</th></tr>
+      <tr><td>Kubus</td><td>6 persegi</td><td>12</td><td>8</td><td>dadu</td></tr><tr><td>Balok</td><td>6 persegi panjang</td><td>12</td><td>8</td><td>kotak susu</td></tr>
+      <tr><td>Prisma segitiga</td><td>5</td><td>9</td><td>6</td><td>tenda</td></tr><tr><td>Limas segiempat</td><td>5</td><td>8</td><td>5</td><td>piramida</td></tr>
+      <tr><td>Tabung</td><td>3 (2 lingkaran + selimut)</td><td>2 (lengkung)</td><td>0</td><td>kaleng</td></tr><tr><td>Kerucut</td><td>2 (lingkaran + selimut)</td><td>1 (lengkung)</td><td>1 (puncak)</td><td>topi ulang tahun</td></tr>
+      <tr><td>Bola</td><td>1 (lengkung)</td><td>0</td><td>0</td><td>bola sepak</td></tr></table></div>
+  </div>
+  <div class="card"><h2>2. Volume (isi)</h2>
+    <p>Volume adalah banyaknya <b>kubus satuan</b> yang dapat mengisi bangun ruang. Satuannya cm³, m³, atau liter (1 liter = 1.000 cm³ = 1 dm³).</p>
+    <table class="t"><tr><th>Bangun</th><th>Volume</th><th>Contoh</th></tr>
+      <tr><td>Kubus</td><td>s × s × s</td><td>s = 5 cm → 125 cm³</td></tr><tr><td>Balok</td><td>p × l × t</td><td>10 × 6 × 4 = 240 cm³</td></tr>
+      <tr><td>Prisma segitiga</td><td>luas alas segitiga × tinggi prisma</td><td>(½ × 6 × 4) × 10 = 120 cm³</td></tr><tr><td>Tabung</td><td>π × r × r × t</td><td>22/7 × 7 × 7 × 10 = 1.540 cm³</td></tr></table>
+    <div class="note">Rumus umum prisma dan tabung: <b>Volume = luas alas × tinggi</b>.</div>
+  </div>
+  <div class="card"><h2>3. Luas permukaan</h2>
+    <p>Luas permukaan = jumlah luas semua sisi = luas jaring-jaringnya.</p>
+    <div class="grid2"><div class="ex"><span class="t">Kubus</span><br>6 × s × s<br>s = 4 cm → 6 × 16 = <b>96 cm²</b></div><div class="ex"><span class="t">Balok</span><br>2 × (p×l + p×t + l×t)<br>8 × 5 × 3 → 2 × (40 + 24 + 15) = <b>158 cm²</b></div></div>
+    <div class="ex"><span class="t">Soal sehari-hari</span> Akuarium 60 cm × 40 cm × 50 cm berisi air penuh: 120.000 cm³ = <b>120 liter</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Isi Balok dengan Kubus Satuan</h2>
+    <p>Atur ukuran balok. Tekan <b>Isi!</b> untuk menyusun kubus satuan lapis demi lapis.</p>
+    <div class="ctrl"><label>Panjang p <span class="v" id="p-v"></span><input type="range" id="p" min="1" max="8" value="5"></label><label>Lebar l <span class="v" id="l-v"></span><input type="range" id="l" min="1" max="6" value="3"></label><label>Tinggi t <span class="v" id="t-v"></span><input type="range" id="t" min="1" max="6" value="4"></label></div>
+    <div class="row"><button class="btn" id="fill">🧱 Isi!</button><button class="btn ghost" id="clr">Kosongkan</button></div>
+    <div class="grid2" style="margin-top:10px"><svg class="viz" id="bx" viewBox="0 0 440 380"></svg><div class="out" id="bOut"></div></div>
+  </div>
+</section>
+
+<section id="kenal" class="panel">
+  <div class="card"><h2>Lab: Tebak Bangun Ruang</h2>
+    <p>Bacalah ciri-cirinya, lalu pilih bangun ruang yang tepat.</p>
+    <div class="out big" id="clue" style="min-height:100px"></div>
+    <div class="grid3" id="shapes"></div>
+    <div class="row"><button class="btn ghost" id="nx">Soal berikutnya →</button><span class="counter" id="sc">Skor 0/0</span></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 5</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, shuffle, num} = VML;
+const id=n=>Number(n).toLocaleString('id-ID');
+
+/* kubus satuan isometrik */
+let filled=0, timer=null;
+function iso(x,y,z,U,ox,oy){ return [ox+(x-y)*U*0.87, oy-(x+y)*U*0.5-z*U]; }
+function drawB(){
+  const p=+$('#p').value, l=+$('#l').value, t=+$('#t').value; ['p','l','t'].forEach(k=>$('#'+k+'-v').textContent=$('#'+k).value+' cm');
+  const N=p*l*t; if(filled>N) filled=N;
+  const g=$('#bx'); clear(g); const U=Math.min(30, 380/((p+l)*0.87*1.1), 320/((p+l)*0.5+t)), ox=220-(p-l)*U*0.87/2, oy=360-0;
+  const P=(x,y,z)=>iso(x,y,z,U,ox,oy).join(',');
+  // kerangka
+  const edges=[[[0,0,0],[p,0,0]],[[0,0,0],[0,l,0]],[[0,0,0],[0,0,t]],[[p,0,0],[p,l,0]],[[0,l,0],[p,l,0]],[[p,0,0],[p,0,t]],[[0,l,0],[0,l,t]],[[p,l,0],[p,l,t]],[[0,0,t],[p,0,t]],[[0,0,t],[0,l,t]],[[p,0,t],[p,l,t]],[[0,l,t],[p,l,t]]];
+  // kubus (urut gambar: z naik, lalu y turun, x turun agar yang di depan digambar terakhir)
+  let k=0; const cubes=[]; for(let z=0;z<t;z++) for(let y=0;y<l;y++) for(let x=0;x<p;x++) cubes.push([x,y,z]);
+  const shown=cubes.slice(0,filled).sort((a,b)=>(a[2]-b[2])||((b[0]+b[1])-(a[0]+a[1])));
+  shown.forEach(([x,y,z])=>{ const layer=['var(--acc)','var(--a)','var(--b)','var(--d)','var(--e)','var(--f)'][z%6];
+    s('polygon',{points:[P(x,y,z+1),P(x+1,y,z+1),P(x+1,y+1,z+1),P(x,y+1,z+1)].join(' '),fill:layer,'fill-opacity':.95,stroke:'#fff','stroke-width':1},g);
+    s('polygon',{points:[P(x,y,z),P(x+1,y,z),P(x+1,y,z+1),P(x,y,z+1)].join(' '),fill:layer,'fill-opacity':.7,stroke:'#fff','stroke-width':1},g);
+    s('polygon',{points:[P(x,y,z),P(x,y+1,z),P(x,y+1,z+1),P(x,y,z+1)].join(' '),fill:layer,'fill-opacity':.5,stroke:'#fff','stroke-width':1},g); });
+  edges.forEach(([a,b])=>s('line',{x1:iso(...a,U,ox,oy)[0],y1:iso(...a,U,ox,oy)[1],x2:iso(...b,U,ox,oy)[0],y2:iso(...b,U,ox,oy)[1],stroke:'var(--ink)','stroke-width':1.8,'stroke-dasharray':filled?'':'5 4'},g));
+  const layers=Math.floor(filled/(p*l)), rest=filled%(p*l);
+  $('#bOut').innerHTML=`<p>Satu lapis = p × l = ${p} × ${l} = <b>${p*l}</b> kubus. Ada <b>${t}</b> lapis.</p><div class="big">Terisi: ${filled} dari ${N} kubus</div>
+   <p class="muted">${layers} lapis penuh${rest?` + ${rest} kubus`:''}</p>${filled===N?`<div class="huge">V = ${p} × ${l} × ${t} = ${N} cm³</div><p>🎉 Penuh! Luas permukaan = 2 × (${p*l} + ${p*t} + ${l*t}) = <b>${2*(p*l+p*t+l*t)} cm²</b></p>`:''}`;
+}
+$('#fill').onclick=()=>{ clearInterval(timer); const p=+$('#p').value, l=+$('#l').value, t=+$('#t').value, N=p*l*t, step=Math.max(1,Math.ceil(N/40)); timer=setInterval(()=>{ filled=Math.min(N,filled+step); drawB(); if(filled>=N) clearInterval(timer); },60); };
+$('#clr').onclick=()=>{ clearInterval(timer); filled=0; drawB(); };
+['#p','#l','#t'].forEach(x=>$(x).oninput=()=>{ clearInterval(timer); filled=0; drawB(); }); drawB();
+
+/* tebak bangun */
+const SH=[['Kubus','🎲',['Punya 6 sisi berbentuk persegi yang sama besar.','Punya 12 rusuk sama panjang dan 8 titik sudut.','Contohnya dadu.']],
+ ['Balok','📦',['Punya 6 sisi berbentuk persegi panjang.','Sisi yang berhadapan sama besar.','Contohnya kotak susu atau lemari.']],
+ ['Prisma segitiga','⛺',['Alas dan tutupnya berbentuk segitiga.','Punya 5 sisi, 9 rusuk, dan 6 titik sudut.','Contohnya tenda.']],
+ ['Limas segiempat','🔺',['Alasnya persegi, sisi tegaknya segitiga yang bertemu di satu puncak.','Punya 5 sisi dan 5 titik sudut.','Contohnya piramida Mesir.']],
+ ['Tabung','🥫',['Alas dan tutupnya lingkaran yang sama besar.','Punya 3 sisi dan 2 rusuk lengkung.','Contohnya kaleng susu.']],
+ ['Kerucut','🍦',['Alasnya lingkaran dan punya satu titik puncak.','Punya 2 sisi dan 1 rusuk lengkung.','Contohnya topi ulang tahun.']],
+ ['Bola','⚽',['Hanya punya 1 sisi lengkung.','Tidak punya rusuk dan titik sudut.','Contohnya kelereng.']]];
+let cur, done, sr=0, st=0;
+function newQ(){ cur=pick(SH); done=false; const c=pick(cur[2].slice(0,2)); $('#clue').innerHTML=`🔍 ${c}`; renderS(); }
+function renderS(){ $('#shapes').innerHTML=SH.map(([n,e])=>`<button class="opt" data-n="${n}" style="justify-content:center;flex-direction:column;gap:4px"><span style="font-size:2rem">${e}</span><span>${n}</span></button>`).join('');
+  document.querySelectorAll('#shapes .opt').forEach(b=>b.onclick=()=>{ if(done) return; done=true; st++; const ok=b.dataset.n===cur[0]; if(ok) sr++; $('#sc').textContent=`Skor ${sr}/${st}`;
+    document.querySelectorAll('#shapes .opt').forEach(x=>{ x.disabled=true; if(x.dataset.n===cur[0]) x.classList.add('ok'); }); if(!ok) b.classList.add('no');
+    $('#clue').innerHTML+=`<div style="font-size:1rem;margin-top:8px">${ok?'✅ Tepat!':'❌ Jawabannya '+cur[0]+'.'} ${cur[2][2]}</div>`; }); }
+$('#nx').onclick=newQ; newQ();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Volume kubus & balok', gen(){ if(Math.random()<.4){ const s_=rand(2,12); return {q:`Volume kubus dengan rusuk ${s_} cm adalah …`, a:String(s_**3), unit:'cm³', hint:'s × s × s', ex:`${s_} × ${s_} × ${s_} = ${s_**3}`}; }
+    const p=rand(3,15), l=rand(2,10), t=rand(2,10); return {q:`Volume balok ${p} cm × ${l} cm × ${t} cm adalah …`, a:String(p*l*t), unit:'cm³', hint:'p × l × t', ex:`${p} × ${l} × ${t} = ${p*l*t}`}; }},
+  {name:'Prisma & tabung', gen(){ if(Math.random()<.5){ const a=rand(2,8)*2, h=rand(2,10), T=rand(3,15); return {q:`Prisma segitiga: alas segitiga ${a} cm, tinggi segitiga ${h} cm, tinggi prisma ${T} cm. Volumenya …`, a:String(a*h/2*T), unit:'cm³', hint:'(½ × alas × tinggi segitiga) × tinggi prisma', ex:`${a*h/2} × ${T} = ${a*h/2*T}`}; }
+    const r=pick([7,14]), t=rand(2,20); return {q:`Volume tabung dengan jari-jari ${r} cm dan tinggi ${t} cm (π = 22/7) adalah …`, a:String(22/7*r*r*t), unit:'cm³', hint:'π × r × r × t', ex:`${22*r*r/7} × ${t} = ${id(22/7*r*r*t)}`}; }},
+  {name:'Luas permukaan', gen(){ if(Math.random()<.5){ const s_=rand(2,15); return {q:`Luas permukaan kubus dengan rusuk ${s_} cm adalah …`, a:String(6*s_*s_), unit:'cm²', hint:'6 × s × s', ex:`6 × ${s_*s_} = ${6*s_*s_}`}; }
+    const p=rand(3,12), l=rand(2,10), t=rand(2,10); return {q:`Luas permukaan balok ${p} × ${l} × ${t} cm adalah …`, a:String(2*(p*l+p*t+l*t)), unit:'cm²', hint:'2 × (pl + pt + lt)', ex:`2 × (${p*l} + ${p*t} + ${l*t}) = ${2*(p*l+p*t+l*t)}`}; }},
+  {name:'Mencari ukuran', gen(){ if(Math.random()<.5){ const s_=rand(2,10); return {q:`Volume kubus ${s_**3} cm³. Panjang rusuknya …`, a:String(s_), unit:'cm', hint:'Bilangan berapa dikali tiga kali hasilnya itu?', ex:`${s_} × ${s_} × ${s_} = ${s_**3}`}; }
+    const p=rand(3,12), l=rand(2,10), t=rand(2,10); return {q:`Volume balok ${p*l*t} cm³, panjang ${p} cm, lebar ${l} cm. Tingginya …`, a:String(t), unit:'cm', hint:'t = V : (p × l)', ex:`${p*l*t} : ${p*l} = ${t}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Banyak sisi kubus adalah …', o:['6','8','12','4'], a:0, ex:'Atas, bawah, depan, belakang, kiri, kanan.'},
+ {q:'Bangun ruang yang tidak memiliki titik sudut dan rusuk adalah …', o:['bola','kerucut','tabung','kubus'], a:0, ex:'Bola hanya punya 1 sisi lengkung.'},
+ {q:'Kaleng susu berbentuk …', o:['tabung','kerucut','balok','prisma'], a:0, ex:'Alas dan tutupnya lingkaran.'},
+ {q:'Banyak titik sudut limas segiempat adalah …', o:['5','4','8','6'], a:0, ex:'4 di alas + 1 puncak.'},
+ {q:'Volume kubus dengan rusuk 5 cm adalah …', o:['125 cm³','25 cm³','150 cm³','15 cm³'], a:0, ex:'5 × 5 × 5.'},
+ {q:'Volume balok 10 cm × 6 cm × 4 cm adalah …', o:['240 cm³','20 cm³','248 cm²','120 cm³'], a:0, ex:'10 × 6 × 4.'},
+ {q:'Prisma segitiga dengan alas segitiga 6 cm, tinggi segitiga 4 cm, dan tinggi prisma 10 cm. Volumenya …', o:['120 cm³','240 cm³','60 cm³','20 cm³'], a:0, ex:'12 × 10.'},
+ {q:'Volume tabung dengan r = 7 cm dan t = 10 cm (π = 22/7) adalah …', o:['1.540 cm³','440 cm³','154 cm³','770 cm³'], a:0, ex:'154 × 10.'},
+ {q:'Luas permukaan kubus dengan rusuk 4 cm adalah …', o:['96 cm²','64 cm²','16 cm²','24 cm²'], a:0, ex:'6 × 16.'},
+ {q:'Luas permukaan balok 8 cm × 5 cm × 3 cm adalah …', o:['158 cm²','120 cm²','79 cm²','240 cm²'], a:0, ex:'2 × (40 + 24 + 15).'},
+ {q:'1 liter sama dengan …', o:['1.000 cm³','100 cm³','10 cm³','1 cm³'], a:0, ex:'1 L = 1 dm³ = 1.000 cm³.'},
+ {q:'Akuarium 60 cm × 40 cm × 50 cm diisi air penuh. Banyak air …', o:['120 liter','12 liter','1.200 liter','150 liter'], a:0, ex:'120.000 cm³ = 120 liter.'},
+ {q:'Volume kubus 216 cm³. Berapa panjang rusuknya?', input:true, a:['6'], unit:'cm', ex:'6 × 6 × 6 = 216.'},
+ {q:'Balok bervolume 360 cm³ dengan panjang 12 cm dan lebar 6 cm. Berapa tingginya?', input:true, a:['5'], unit:'cm', ex:'360 : 72 = 5.'},
+ {q:'Tenda berbentuk …', o:['prisma segitiga','limas segiempat','kerucut','balok'], a:0, ex:'Alas dan tutupnya segitiga.'}
+], 'sd6m5');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

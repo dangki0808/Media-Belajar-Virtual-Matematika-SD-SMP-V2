@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan sampai 500 · Virtual Math Lab SD II</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#2a74d6">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas II</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>🐸 Bilangan sampai 500</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Membilang, membaca, dan menulis bilangan sampai 500.</li>
+    <li>Mengenal ratusan, puluhan, dan satuan.</li>
+    <li>Membandingkan bilangan dan membilang loncat 2, 5, 10, dan 100.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">📦 Lab Ikat Lidi</button><button data-target="loncat">🐸 Lab Katak Meloncat</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Satuan, puluhan, ratusan</h2>
+    <div class="grid3"><div class="ex"><span class="t">Satuan</span><br>1 lidi = 1</div><div class="ex"><span class="t">Puluhan</span><br>10 lidi diikat = 1 ikat = 10</div><div class="ex"><span class="t">Ratusan</span><br>10 ikat = 1 kotak = 100</div></div>
+    <div class="def">Bilangan <b>235</b> = 2 ratusan + 3 puluhan + 5 satuan = 200 + 30 + 5<br>Dibaca: <b>dua ratus tiga puluh lima</b></div>
+  </div>
+  <div class="card"><h2>2. Membandingkan bilangan</h2>
+    <p>Bandingkan ratusan dulu. Jika sama, bandingkan puluhan. Jika masih sama, bandingkan satuan.</p>
+    <div class="grid3"><div class="ex">312 &gt; 289 <br><span class="muted">3 ratusan lebih dari 2 ratusan</span></div><div class="ex">145 &lt; 154 <br><span class="muted">4 puluhan kurang dari 5 puluhan</span></div><div class="ex">200 = 200</div></div>
+  </div>
+  <div class="card"><h2>3. Membilang loncat</h2>
+    <div class="grid2"><div class="ex"><span class="t">Loncat 2</span> 2, 4, 6, 8, 10, …</div><div class="ex"><span class="t">Loncat 5</span> 5, 10, 15, 20, 25, …</div><div class="ex"><span class="t">Loncat 10</span> 130, 140, 150, 160, …</div><div class="ex"><span class="t">Loncat 100</span> 100, 200, 300, 400, 500</div></div>
+    <p>Membilang mundur juga bisa: 50, 45, 40, 35, …</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ikat Lidi</h2>
+    <p>Tambahkan lidi satu per satu. Setiap 10 lidi otomatis diikat menjadi 1 ikat. Setiap 10 ikat dimasukkan ke 1 kotak!</p>
+    <div class="row"><button class="btn" data-a="1">+1 lidi</button><button class="btn" data-a="10" style="background:#3a9e2f">+1 ikat (10)</button><button class="btn" data-a="100" style="background:#f08c00">+1 kotak (100)</button><button class="btn ghost" data-a="-1">−1</button><button class="btn ghost" data-a="-10">−10</button><button class="btn soft" id="rnd">🎲 Acak</button></div>
+    <svg class="viz" id="sv" viewBox="0 0 720 260" style="margin-top:10px"></svg>
+    <div class="out" id="sOut"></div>
+  </div>
+</section>
+
+<section id="loncat" class="panel">
+  <div class="card"><h2>Lab: Katak Meloncat 🐸</h2>
+    <p>Pilih titik awal dan besar loncatan, lalu tekan <b>Loncat!</b> Coba tebak bilangan berikutnya sebelum katak mendarat.</p>
+    <div class="ctrl"><label>Mulai dari <span class="v" id="st-v"></span><input type="range" id="st" min="0" max="400" step="5" value="10"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Loncat</div><div class="seg" id="jp"><button data-j="2">2</button><button data-j="5" class="on">5</button><button data-j="10">10</button><button data-j="100">100</button></div></div>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Arah</div><div class="seg" id="dr"><button data-d="1" class="on">maju ➡</button><button data-d="-1">⬅ mundur</button></div></div></div>
+    <div class="row"><button class="btn" id="go">🐸 Loncat!</button><button class="btn ghost" id="rs">Ulang</button></div>
+    <svg class="viz" id="lg" viewBox="0 0 720 180" style="margin-top:10px"></svg>
+    <div class="out big" id="seq"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas II · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick} = VML;
+const sat=['','satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan','sepuluh','sebelas'];
+function terbilang(n){ if(n<12) return n?sat[n]:'nol'; if(n<20) return sat[n-10]+' belas'; if(n<100) return sat[Math.floor(n/10)]+' puluh'+(n%10?' '+sat[n%10]:''); return (n<200?'seratus':sat[Math.floor(n/100)]+' ratus')+(n%100?' '+terbilang(n%100):''); }
+
+/* lidi */
+let N=235, msg='';
+document.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{ const a=+b.dataset.a, bf=N; if(N+a<0||N+a>500) return; N+=a; msg=a===1&&bf%10===9?'🎀 10 lidi diikat menjadi 1 ikat!':(a===1||a===10)&&Math.floor(bf/10)%10===9&&Math.floor(N/100)>Math.floor(bf/100)?'📦 10 ikat dimasukkan ke 1 kotak!':''; drawS(); });
+$('#rnd').onclick=()=>{ N=rand(10,500); msg=''; drawS(); };
+function drawS(){
+  const h=Math.floor(N/100), t=Math.floor(N/10)%10, o=N%10, g=$('#sv'); clear(g); const W=VML.narrow()?440:720; g.setAttribute('viewBox',`0 0 ${W} 260`); const sc=W<600?0.65:1;
+  let x=14;
+  for(let i=0;i<h;i++){ s('rect',{x,y:40,width:70*sc,height:110*sc,rx:8,fill:'#f08c00'},g); txt(g,x+35*sc,40+60*sc,'100',{fill:'#fff','font-weight':900,'font-size':16*sc}); x+=78*sc; }
+  x+=10;
+  for(let i=0;i<t;i++){ for(let k=0;k<10;k++) s('line',{x1:x+k*1.6*sc,y1:40,x2:x+k*1.6*sc,y2:40+110*sc,stroke:'#8a5a2b','stroke-width':2.4*sc},g); s('rect',{x:x-3,y:40+52*sc,width:22*sc,height:8*sc,rx:3,fill:'#3a9e2f'},g); x+=26*sc; }
+  x+=10;
+  for(let i=0;i<o;i++){ s('line',{x1:x+i*10*sc,y1:40,x2:x+i*10*sc,y2:40+110*sc,stroke:'#8a5a2b','stroke-width':3*sc},g); }
+  txt(g,W/2,232,`${h} kotak (ratusan) · ${t} ikat (puluhan) · ${o} lidi (satuan)`,{'font-weight':900,'font-size':W<600?13:18});
+  $('#sOut').innerHTML=`${msg?`<div class="fb hint" style="margin:0 0 10px">${msg}</div>`:''}<div class="huge">${N}</div><p><b>Dibaca:</b> ${terbilang(N)}</p><p><span style="color:#f08c00;font-weight:800">${h*100}</span> + <span style="color:#3a9e2f;font-weight:800">${t*10}</span> + <span style="color:#8a5a2b;font-weight:800">${o}</span> = ${N}</p>`;
+}
+drawS(); VML.onResize(drawS);
+
+/* katak */
+let jp=5, dr=1, seq=[], busy=false;
+document.querySelectorAll('#jp button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#jp button').forEach(x=>x.classList.remove('on'));b.classList.add('on');jp=+b.dataset.j;reset();});
+document.querySelectorAll('#dr button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#dr button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dr=+b.dataset.d;reset();});
+function reset(){ seq=[+$('#st').value]; $('#st-v').textContent=seq[0]; drawL(); }
+function drawL(frog){
+  const g=$('#lg'); clear(g); const W=VML.narrow()?440:720, n=8, lo=dr>0?seq[0]:seq[0]-jp*n, hi=dr>0?seq[0]+jp*n:seq[0], X=v=>30+(v-lo)/(hi-lo)*(W-60); g.setAttribute('viewBox',`0 0 ${W} 180`);
+  s('line',{x1:15,y1:130,x2:W-15,y2:130,stroke:'var(--ink)','stroke-width':3},g);
+  for(let k=0;k<=n;k++){ const v=lo+k*jp; s('line',{x1:X(v),y1:120,x2:X(v),y2:140,stroke:'var(--ink)','stroke-width':2},g); const shown=seq.includes(v); txt(g,X(v),164,shown?String(v):'?',{'font-weight':900,'font-size':W<600?12:16,fill:shown?'var(--acc)':'var(--muted)'}); }
+  for(let i=1;i<seq.length;i++) s('path',{d:`M${X(seq[i-1])},126 Q${(X(seq[i-1])+X(seq[i]))/2},70 ${X(seq[i])},126`,fill:'none',stroke:'var(--c)','stroke-width':3},g);
+  const pos=frog!==undefined?frog:seq[seq.length-1]; txt(g,X(pos),118,'🐸',{'font-size':30});
+  $('#seq').innerHTML=seq.join(', ')+(seq.length<=n?', …':' 🎉');
+}
+$('#go').onclick=()=>{ if(busy||seq.length>8) return; const last=seq[seq.length-1], nx=last+dr*jp; if(nx<0){ $('#seq').innerHTML+=' (tidak bisa kurang dari 0)'; return; } busy=true; const t0=performance.now(); const st=now=>{ const p=Math.min(1,(now-t0)/450); drawL(last+(nx-last)*p); if(p<1) requestAnimationFrame(st); else { seq.push(nx); busy=false; drawL(); } }; requestAnimationFrame(st); };
+$('#rs').onclick=reset; $('#st').oninput=reset; reset(); VML.onResize(()=>drawL());
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Membaca bilangan', gen(){ const n=rand(100,500); return {q:`Tulis lambang bilangan: <i>${terbilang(n)}</i>`, a:String(n), hint:'Tulis ratusan, puluhan, satuan.', ex:String(n)}; }},
+  {name:'Nilai tempat', gen(){ const n=rand(100,499), k=pick(['ratusan','puluhan','satuan']); const v=k==='ratusan'?Math.floor(n/100):k==='puluhan'?Math.floor(n/10)%10:n%10; return {q:`Bilangan ${n} punya berapa ${k}?`, a:String(v), hint:'Ratusan = angka paling kiri.', ex:String(v)}; }},
+  {name:'Loncat', gen(){ const j=pick([2,5,10,100]), d=pick([1,-1]), st=j===100?100:rand(2,40)*j; const seq=[0,1,2,3].map(i=>st+d*j*i); if(seq.some(v=>v<0||v>500)||st+d*j*4<0||st+d*j*4>500) return this.gen(); return {q:`Lanjutkan: ${seq.join(', ')}, …`, a:String(st+d*j*4), hint:`Loncat ${d>0?'maju':'mundur'} ${j}.`, ex:String(st+d*j*4)}; }},
+  {name:'Sebelum & sesudah', gen(){ const n=rand(101,499), t=pick(['sebelum','sesudah']); return {q:`Bilangan tepat ${t} ${n} adalah …`, a:String(t==='sebelum'?n-1:n+1), hint:t==='sebelum'?'Kurangi 1.':'Tambah 1.', ex:String(t==='sebelum'?n-1:n+1)}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'10 lidi diikat menjadi 1 ikat. 1 ikat bernilai …', o:['10','1','100','5'], a:0, ex:'Satu puluhan.'},
+ {q:'Bilangan 235 terdiri atas …', o:['2 ratusan, 3 puluhan, 5 satuan','2 puluhan, 3 ratusan, 5 satuan','23 ratusan, 5 satuan','2 ratusan, 35 satuan'], a:0, ex:'200 + 30 + 5.'},
+ {q:'"Tiga ratus empat belas" ditulis …', o:['314','340','3.014','304'], a:0, ex:'300 + 14.'},
+ {q:'Bilangan 407 dibaca …', o:['empat ratus tujuh','empat puluh tujuh','empat ratus tujuh puluh','empat tujuh'], a:0, ex:'400 + 7.'},
+ {q:'Tanda yang tepat: 312 … 289', o:['&gt;','&lt;','=','+'], a:0, ex:'3 ratusan > 2 ratusan.'},
+ {q:'Tanda yang tepat: 145 … 154', o:['&lt;','&gt;','=','−'], a:0, ex:'4 puluhan < 5 puluhan.'},
+ {q:'Loncat 5: 15, 20, 25, … berikutnya …', o:['30','26','35','40'], a:0, ex:'+5.'},
+ {q:'Loncat 10: 130, 140, 150, … berikutnya …', o:['160','151','155','250'], a:0, ex:'+10.'},
+ {q:'Mundur 2: 50, 48, 46, … berikutnya …', o:['44','45','42','48'], a:0, ex:'−2.'},
+ {q:'Bilangan tepat sesudah 299 adalah …', o:['300','298','2.910','290'], a:0, ex:'299 + 1.'},
+ {q:'Bilangan terbesar adalah …', o:['421','412','241','214'], a:0, ex:'Ratusan terbesar 4, lalu puluhan 2.'},
+ {q:'Urutan dari terkecil: 250, 205, 520 →', o:['205, 250, 520','520, 250, 205','250, 205, 520','205, 520, 250'], a:0, ex:'Bandingkan ratusan dan puluhan.'},
+ {q:'Tulis lambang bilangan "dua ratus enam puluh".', input:true, a:['260'], ex:'200 + 60.'},
+ {q:'Berapa puluhan dalam bilangan 384?', input:true, a:['8'], ex:'Angka tengah.'},
+ {q:'Loncat 100: 100, 200, 300, … berikutnya …', o:['400','301','310','1.000'], a:0, ex:'+100.'}
+], 'sd2m1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

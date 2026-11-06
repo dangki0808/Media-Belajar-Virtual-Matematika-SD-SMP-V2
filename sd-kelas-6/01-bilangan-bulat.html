@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bilangan Bulat · Virtual Math Lab SD VI</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#e0346f">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas VI</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 1 · Bilangan</span>
+  <h1>🌡️ Bilangan Bulat</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenal bilangan bulat negatif dalam kehidupan sehari-hari.</li>
+    <li>Membandingkan dan mengurutkan bilangan bulat dengan garis bilangan.</li>
+    <li>Menjumlah, mengurang, mengali, dan membagi bilangan bulat.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🌡️ Lab Termometer</button><button data-target="katak">🐸 Lab Lompat Katak</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Bilangan negatif di sekitar kita</h2>
+    <p>Bilangan bulat terdiri atas bilangan <b>negatif</b> (…, −3, −2, −1), <b>nol</b>, dan bilangan <b>positif</b> (1, 2, 3, …).</p>
+    <div class="grid3">
+      <div class="ex"><span class="t">Suhu</span><br>Di kutub suhunya −20 °C, artinya 20 derajat <b>di bawah nol</b>.</div>
+      <div class="ex"><span class="t">Kedalaman laut</span><br>Penyelam di −12 m berada 12 meter <b>di bawah</b> permukaan laut.</div>
+      <div class="ex"><span class="t">Lantai gedung</span><br>Lantai B1 (basement) bisa ditulis lantai −1, di bawah lantai dasar (0).</div>
+    </div>
+  </div>
+  <div class="card"><h2>2. Garis bilangan</h2>
+    <svg class="viz" id="nl0" viewBox="0 0 640 90"></svg>
+    <ul><li>Makin ke <b>kanan</b>, bilangannya makin <b>besar</b>. Jadi −2 &gt; −9.</li><li>Setiap bilangan punya <b>lawan</b>: lawan 5 adalah −5, lawan −12 adalah 12.</li></ul>
+    <div class="ex"><span class="t">Mengurutkan</span> Dari yang terkecil: −7, −3, 0, 2, 5</div>
+  </div>
+  <div class="card"><h2>3. Penjumlahan dan pengurangan</h2>
+    <div class="grid2">
+      <div><p>Bayangkan berjalan di garis bilangan:</p><ul><li>Ditambah bilangan <b>positif</b> → maju ke <b>kanan</b>.</li><li>Ditambah bilangan <b>negatif</b> → mundur ke <b>kiri</b>.</li></ul>
+        <div class="ex">−4 + 9 = <b>5</b><br>3 + (−7) = <b>−4</b></div></div>
+      <div><p>Mengurangi sama dengan <b>menambah lawannya</b>:</p><div class="def">a − b = a + (−b)</div>
+        <div class="ex">6 − 10 = 6 + (−10) = <b>−4</b><br>−8 − (−3) = −8 + 3 = <b>−5</b></div></div>
+    </div>
+  </div>
+  <div class="card"><h2>4. Perkalian dan pembagian</h2>
+    <table class="t"><tr><th>Tanda</th><th>Hasil</th><th>Contoh</th></tr>
+      <tr><td>positif × positif</td><td>positif</td><td>3 × 4 = 12</td></tr><tr><td>negatif × positif</td><td>negatif</td><td>−5 × 4 = −20</td></tr>
+      <tr><td>negatif × negatif</td><td>positif</td><td>−3 × (−2) = 6</td></tr><tr><td>negatif : negatif</td><td>positif</td><td>−36 : (−6) = 6</td></tr></table>
+    <div class="note">Cara mudah: tanda <b>sama</b> → hasil <b>positif</b>. Tanda <b>beda</b> → hasil <b>negatif</b>.</div>
+  </div>
+  <div class="card"><h2>5. Operasi hitung campuran</h2>
+    <ol class="steps"><li>Kerjakan yang di dalam <b>kurung</b> dulu.</li><li>Lalu <b>kali dan bagi</b> (dari kiri).</li><li>Terakhir <b>tambah dan kurang</b> (dari kiri).</li></ol>
+    <div class="ex">12 + (−4) × 3 = 12 + (−12) = <b>0</b></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Termometer Ajaib</h2>
+    <p>Atur suhu awal, lalu buat suhunya naik atau turun.</p>
+    <div class="ctrl"><label>Suhu awal <span class="v" id="t0-v"></span><input type="range" id="t0" min="-20" max="30" value="-5"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Suhu …</div><div class="seg" id="dir"><button data-d="1" class="on">naik ⬆️</button><button data-d="-1">turun ⬇️</button></div></div>
+      <label>sebanyak <span class="v" id="dt-v"></span><input type="range" id="dt" min="0" max="25" value="8"></label></div>
+    <div class="grid2"><svg class="viz" id="th" viewBox="0 0 300 420" style="max-width:300px;margin:0 auto"></svg><div class="out" id="thOut"></div></div>
+  </div>
+</section>
+
+<section id="katak" class="panel">
+  <div class="card"><h2>Lab: Lompat Katak 🐸</h2>
+    <p>Katak mulai dari bilangan pertama, lalu melompat sesuai soal. Tekan <b>Lompat!</b></p>
+    <div class="ctrl"><label>Mulai di <span class="v" id="ka-v"></span><input type="range" id="ka" min="-10" max="10" value="-3"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Operasi</div><div class="seg" id="kop"><button data-o="+" class="on">+</button><button data-o="-">−</button></div></div>
+      <label>bilangan kedua <span class="v" id="kb-v"></span><input type="range" id="kb" min="-10" max="10" value="7"></label></div>
+    <div class="row"><button class="btn" id="go">🐸 Lompat!</button></div>
+    <svg class="viz" id="kg" viewBox="0 0 720 200" style="margin-top:10px"></svg>
+    <div class="out" id="kOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Untuk soal membandingkan, tulis tanda &lt;, &gt;, atau = (boleh juga ditulis "kurang dari", "lebih dari", "sama dengan").</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas VI · Modul 1</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, randNZ, pick, neg, m:M} = VML;
+
+(function(){ const g=$('#nl0'), X=k=>40+(k+6)*(560/12);
+  s('line',{x1:20,y1:45,x2:620,y2:45,stroke:'var(--ink)','stroke-width':2.5},g);
+  for(let k=-6;k<=6;k++){ s('line',{x1:X(k),y1:37,x2:X(k),y2:53,stroke:'var(--ink)','stroke-width':2},g); txt(g,X(k),76,M(k),{fill:k<0?'var(--b)':k>0?'var(--a)':'var(--ink)','font-weight':800,'font-size':16}); }
+  txt(g,150,22,'⬅ makin kecil',{fill:'var(--muted)','font-weight':700}); txt(g,490,22,'makin besar ➡',{fill:'var(--muted)','font-weight':700}); })();
+
+/* termometer */
+let dir=1, shown=null;
+document.querySelectorAll('#dir button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#dir button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dir=+b.dataset.d;go();});
+function drawTh(temp, t0, t1){
+  const g=$('#th'); clear(g); const Y=v=>360-(v+30)*(300/70), cx=150;
+  s('rect',{x:cx-22,y:30,width:44,height:340,rx:22,fill:'var(--card)',stroke:'var(--ink)','stroke-width':3},g);
+  s('circle',{cx,cy:380,r:34,fill:'var(--b)',stroke:'var(--ink)','stroke-width':3},g);
+  s('rect',{x:cx-12,y:Y(temp),width:24,height:380-Y(temp),fill:'var(--b)'},g);
+  for(let v=-30;v<=40;v+=5){ s('line',{x1:cx+22,y1:Y(v),x2:cx+(v%10===0?40:32),y2:Y(v),stroke:'var(--ink)','stroke-width':v===0?3:1.5},g); if(v%10===0) txt(g,cx+48,Y(v)+5,M(v)+'°',{'font-size':14,'font-weight':v===0?800:500,'text-anchor':'start',fill:v<0?'var(--a)':'var(--ink)'}); }
+  txt(g,cx-34,Y(0)+5,'nol',{'font-size':12,'text-anchor':'end',fill:'var(--muted)'});
+  [[t0,'awal','var(--muted)'],[t1,'akhir','var(--b)']].forEach(([v,l,c])=>{ s('path',{d:`M${cx-26},${Y(v)} l-12,-7 v14 z`,fill:c},g); txt(g,cx-44,Y(v)+5,l+' '+M(v)+'°',{'font-size':13,'font-weight':800,'text-anchor':'end',fill:c}); });
+}
+function go(){
+  const t0=+$('#t0').value, dt=+$('#dt').value, t1=t0+dir*dt; $('#t0-v').textContent=M(t0)+' °C'; $('#dt-v').textContent=dt+' °C';
+  const from = shown===null?t0:shown, start=performance.now();
+  const step=now=>{ const p=Math.min(1,(now-start)/500); shown=from+(t1-from)*p; drawTh(shown,t0,t1); if(p<1) requestAnimationFrame(step); else shown=t1; };
+  requestAnimationFrame(step);
+  $('#thOut').innerHTML=`<div class="mascot">${t1<0?'🥶':t1>25?'🥵':'😊'}</div><div class="big">Suhu ${M(t0)} °C ${dir>0?'naik':'turun'} ${dt} °C</div>
+   <div class="huge">${M(t1)} °C</div><p>Kalimat matematikanya: <b>${M(t0)} ${dir>0?'+':'−'} ${dt} = ${M(t1)}</b></p>
+   <p>${t1<0?`${Math.abs(t1)} derajat <b>di bawah</b> nol.`:t1===0?'Tepat nol derajat — air mulai membeku!':`${t1} derajat <b>di atas</b> nol.`}</p>`;
+}
+['#t0','#dt'].forEach(x=>$(x).oninput=go); go();
+
+/* lompat katak */
+let kop='+', busy=false;
+document.querySelectorAll('#kop button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#kop button').forEach(x=>x.classList.remove('on'));b.classList.add('on');kop=b.dataset.o;drawK(+$('#ka').value,[]);});
+let KW=720; const X=k=>20+(k+20)*((KW-40)/40);
+function drawK(pos, trail, done){
+  const a=+$('#ka').value, b=+$('#kb').value; $('#ka-v').textContent=M(a); $('#kb-v').textContent=M(b);
+  KW=VML.narrow()?440:720; const g=$('#kg'); g.setAttribute('viewBox',`0 0 ${KW} 200`); clear(g); const Y=140;
+  s('line',{x1:10,y1:Y,x2:KW-10,y2:Y,stroke:'var(--ink)','stroke-width':2.5},g);
+  for(let k=-20;k<=20;k++){ const big=k%5===0; s('line',{x1:X(k),y1:Y-(big?9:5),x2:X(k),y2:Y+(big?9:5),stroke:'var(--ink)','stroke-width':big?2:1},g); if(big) txt(g,X(k),Y+30,M(k),{'font-size':14,'font-weight':800}); }
+  trail.forEach(([p,q])=>s('path',{d:`M${X(p)},${Y} Q${(X(p)+X(q))/2},${Y-40} ${X(q)},${Y}`,fill:'none',stroke:'var(--acc)','stroke-width':2.5},g));
+  s('circle',{cx:X(a),cy:Y,r:6,fill:'var(--a)'},g);
+  txt(g,X(pos),Y-14,'🐸',{'font-size':34});
+  const r=kop==='+'?a+b:a-b;
+  $('#kOut').innerHTML = done ? `<div class="big">${M(a)} ${kop==='+'?'+':'−'} ${neg(b)} = <span style="color:var(--acc)">${M(r)}</span> 🎉</div><p>${kop==='-'&&b!==0?`Mengurangi ${neg(b)} sama dengan menambah ${neg(-b)}. `:''}Katak melompat ${Math.abs(r-a)} kali ke ${r>a?'kanan ➡':'kiri ⬅'}.</p>` : `<p>Soal: <b>${M(a)} ${kop==='+'?'+':'−'} ${neg(b)} = ?</b> Ke mana katak akan melompat?</p>`;
+}
+$('#go').onclick=()=>{ if(busy) return; busy=true; const a=+$('#ka').value, b=+$('#kb').value, r=kop==='+'?a+b:a-b, st=Math.sign(r-a); let pos=a, trail=[];
+  const tick=()=>{ if(pos===r){ busy=false; drawK(pos,trail,true); return; } trail.push([pos,pos+st]); pos+=st; drawK(pos,trail,false); setTimeout(tick,260); }; tick(); };
+['#ka','#kb'].forEach(x=>$(x).oninput=()=>drawK(+$('#ka').value,[])); drawK(-3,[]);
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Membandingkan', gen(){ const a=rand(-15,15), b=rand(-15,15), sg=a<b?'<':a>b?'>':'='; return {q:`Isi dengan &lt;, &gt;, atau = : &nbsp; ${M(a)} … ${M(b)}`, a:sg==='<'?['<','kurangdari','lebihkecil']:sg==='>'?['>','lebihdari','lebihbesar']:['=','samadengan'], show:sg.replace('<','&lt;').replace('>','&gt;'), hint:'Bilangan yang lebih ke kanan pada garis bilangan lebih besar.', ex:`${M(a)} ${sg.replace('<','&lt;').replace('>','&gt;')} ${M(b)}`}; }},
+  {name:'Tambah & kurang', gen(){ const a=randNZ(-20,20), b=randNZ(-15,15), o=pick(['+','−']), r=o==='+'?a+b:a-b; return {q:`${M(a)} ${o} ${neg(b)} = …`, a:String(r), hint:o==='−'?`Ubah: ${M(a)} + ${neg(-b)}`:'Positif → ke kanan, negatif → ke kiri.', ex:`${M(a)} ${o} ${neg(b)} = ${M(r)}`}; }},
+  {name:'Kali & bagi', gen(){ const a=randNZ(-10,10), b=randNZ(-10,10); if(Math.random()<.5) return {q:`${neg(a)} × ${neg(b)} = …`, a:String(a*b), hint:'Tanda sama → positif, tanda beda → negatif.', ex:`${M(a*b)}`}; return {q:`${neg(a*b)} : ${neg(b)} = …`, a:String(a), hint:'Tanda sama → positif, tanda beda → negatif.', ex:`${M(a)}`}; }},
+  {name:'Cerita', gen(){ const t=rand(0,2);
+    if(t===0){ const a=rand(-15,5), d=rand(3,15); return {q:`Suhu pagi ${M(a)} °C. Siang hari suhu naik ${d} °C. Berapa suhu siang?`, a:String(a+d), unit:'°C', hint:'Naik berarti ditambah.', ex:`${M(a)} + ${d} = ${M(a+d)}`}; }
+    if(t===1){ const a=rand(-20,-5), d=rand(2,a<-6?-a-2:3); return {q:`Penyelam berada di kedalaman ${-a} m di bawah laut, lalu naik ${d} m. Posisinya sekarang (tulis dengan tanda negatif jika di bawah laut)?`, a:String(a+d), unit:'m', hint:`Di bawah laut = negatif: ${M(a)}.`, ex:`${M(a)} + ${d} = ${M(a+d)}`}; }
+    const f=rand(1,5), d=rand(f+1,f+4); return {q:`Lift berada di lantai ${f}, lalu turun ${d} lantai. Di lantai berapa sekarang? (lantai bawah tanah ditulis negatif)`, a:String(f-d), hint:'Turun berarti dikurangi.', ex:`${f} − ${d} = ${M(f-d)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Suhu 5 derajat di bawah nol ditulis …', o:['−5 °C','5 °C','+5 °C','0,5 °C'], a:0, ex:'Di bawah nol → negatif.'},
+ {q:'Bilangan terkecil dari −3, 2, −7, 0 adalah …', o:['−7','−3','0','2'], a:0, ex:'−7 paling kiri pada garis bilangan.'},
+ {q:'−4 + 9 = …', o:['5','−5','13','−13'], a:0, ex:'Dari −4 maju 9 langkah ke kanan → 5.'},
+ {q:'6 − 10 = …', o:['−4','4','16','−16'], a:0, ex:'6 + (−10) = −4.'},
+ {q:'−8 − (−3) = …', o:['−5','−11','5','11'], a:0, ex:'−8 + 3 = −5.'},
+ {q:'−5 × 4 = …', o:['−20','20','−9','−1'], a:0, ex:'Tanda beda → negatif.'},
+ {q:'−36 : (−6) = …', o:['6','−6','30','−30'], a:0, ex:'Tanda sama → positif.'},
+ {q:'Lawan dari 12 adalah …', o:['−12','12','0','1/12'], a:0, ex:'Lawan berjarak sama dari nol, di sisi seberang.'},
+ {q:'Suhu kota A 30 °C dan suhu puncak gunung −5 °C. Selisih suhunya …', o:['35 °C','25 °C','−35 °C','−25 °C'], a:0, ex:'30 − (−5) = 35.'},
+ {q:'Lift di lantai 3 turun 5 lantai. Lift sekarang di lantai …', o:['−2 (bawah tanah)','2','8','−8'], a:0, ex:'3 − 5 = −2.'},
+ {q:'12 + (−4) × 3 = …', o:['0','24','−24','36'], a:0, ex:'Kali dulu: −12. Lalu 12 + (−12) = 0.'},
+ {q:'Urutan dari yang terbesar: 4, −1, 0, −6 adalah …', o:['4, 0, −1, −6','−6, −1, 0, 4','4, −6, −1, 0','0, −1, 4, −6'], a:0, ex:'Terbesar = paling kanan.'},
+ {q:'Hitunglah −15 + 7.', input:true, a:['-8'], ex:'Dari −15 maju 7 → −8.'},
+ {q:'Penyelam di −12 m naik 5 m. Posisinya sekarang di … m', input:true, a:['-7'], ex:'−12 + 5 = −7.'},
+ {q:'Pernyataan yang <b>benar</b> adalah …', o:['−2 &gt; −9','−9 &gt; −2','−2 &lt; −9','0 &lt; −1'], a:0, ex:'−2 lebih dekat ke nol, berada di kanan −9.'}
+], 'sd6m1');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data dan Diagram · Virtual Math Lab</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#4b5bd6">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas VII</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 8 · Analisis Data</span>
+  <h1>Data dan Diagram</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengumpulkan, mengolah, dan menyajikan data dalam tabel frekuensi, diagram batang, garis, dan lingkaran.</li>
+    <li>Memilih diagram yang tepat dan menafsirkan informasi dari diagram.</li>
+    <li>Menentukan rata-rata (mean), median, modus, dan jangkauan data.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧪 Lab Olah Data</button><button data-target="kat">🥧 Lab Data Kategori</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Data dan cara mengumpulkannya</h2>
+    <div class="grid2">
+      <div><p><b>Data kualitatif (kategori)</b>: berupa sifat atau keterangan, misalnya warna kesukaan, hobi, jenis kendaraan.</p><p><b>Data kuantitatif (bilangan)</b>: berupa angka hasil menghitung atau mengukur, misalnya banyak saudara, tinggi badan, nilai ulangan.</p></div>
+      <div><p>Cara mengumpulkan data:</p><ul><li><b>Pengamatan/observasi</b> dan <b>pengukuran</b> (misalnya mengukur tinggi badan)</li><li><b>Survei/angket</b></li><li><b>Wawancara</b></li></ul></div>
+    </div>
+  </div>
+
+  <div class="card"><h2>2. Tabel frekuensi</h2>
+    <p>Data mentah dikelompokkan, dihitung dengan <b>turus</b>, lalu dituliskan frekuensinya.</p>
+    <div class="ex"><span class="t">Data nilai 10 siswa:</span> 7, 8, 6, 7, 9, 7, 8, 6, 7, 8
+      <table class="t" style="max-width:420px"><tr><th>Nilai</th><th>Turus</th><th>Frekuensi</th></tr><tr><td>6</td><td>||</td><td>2</td></tr><tr><td>7</td><td>||||</td><td>4</td></tr><tr><td>8</td><td>|||</td><td>3</td></tr><tr><td>9</td><td>|</td><td>1</td></tr><tr><th>Jumlah</th><td></td><th>10</th></tr></table></div>
+  </div>
+
+  <div class="card"><h2>3. Memilih diagram</h2>
+    <table class="t"><tr><th>Diagram</th><th>Cocok untuk</th></tr>
+      <tr><td><b>Batang</b></td><td>membandingkan banyak data antarkategori (hobi, nilai, merek)</td></tr>
+      <tr><td><b>Garis</b></td><td>melihat perubahan dari waktu ke waktu (suhu per jam, penjualan per bulan)</td></tr>
+      <tr><td><b>Lingkaran</b></td><td>melihat bagian dari keseluruhan (persentase)</td></tr></table>
+    <div class="def">Pada diagram lingkaran: <b>besar sudut</b> = <span class="fr"><span>frekuensi</span><span>jumlah data</span></span> × 360°, dan <b>persentase</b> = <span class="fr"><span>frekuensi</span><span>jumlah data</span></span> × 100%.</div>
+    <div class="ex"><span class="t">Contoh</span> 6 dari 30 siswa suka voli → sudut = <span class="fr"><span>6</span><span>30</span></span> × 360° = <b>72°</b>, persentase 20%.</div>
+  </div>
+
+  <div class="card"><h2>4. Ukuran pemusatan dan jangkauan</h2>
+    <div class="grid2">
+      <div class="ex"><span class="t">Rata-rata (mean)</span><br>jumlah semua data : banyak data<br>6, 7, 8, 8, 9, 10 → 48 : 6 = <b>8</b></div>
+      <div class="ex"><span class="t">Median (nilai tengah)</span><br>Urutkan dulu! Banyak data ganjil → data paling tengah. Genap → rata-rata dua data tengah.<br>2, 4, 6, 8, 10, 12 → (6 + 8) : 2 = <b>7</b></div>
+      <div class="ex"><span class="t">Modus</span><br>Data yang paling sering muncul. Bisa lebih dari satu, atau tidak ada.<br>5, 6, 6, 7, 7, 7, 8 → modus <b>7</b></div>
+      <div class="ex"><span class="t">Jangkauan</span><br>data terbesar − data terkecil<br>12, 5, 20, 9, 15 → 20 − 5 = <b>15</b></div>
+    </div>
+    <div class="ex"><span class="t">Rata-rata dari tabel</span> Nilai 6 (f = 3), 7 (f = 5), 8 (f = 2): (6·3 + 7·5 + 8·2) : 10 = 69 : 10 = <b>6,9</b></div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Olah Data Bilangan</h2>
+    <p>Ketik data (pisahkan dengan koma atau spasi), atau pakai contoh. Tabel, diagram, dan ukuran pemusatan langsung diperbarui.</p>
+    <textarea id="din">7, 8, 6, 7, 9, 7, 8, 6, 7, 8, 10, 5, 7, 8, 9</textarea>
+    <div class="row"><button class="btn soft" id="rnd">🎲 Data acak</button><button class="btn soft" id="ex2">Contoh: banyak saudara</button><div class="seg" id="ch"><button data-c="bar" class="on">Batang</button><button data-c="line">Garis</button><button data-c="pie">Lingkaran</button></div></div>
+    <div class="out" id="dErr" style="display:none"></div>
+    <div class="grid2" style="margin-top:12px"><div><svg class="viz" id="dg" viewBox="0 0 420 300"></svg></div><div class="scroll"><table class="t" id="ft"></table></div></div>
+    <div class="grid2" id="stats"></div>
+  </div>
+</section>
+
+<section id="kat" class="panel">
+  <div class="card"><h2>Lab: Data Kategori — Hobi Siswa</h2>
+    <p>Ubah nama kategori dan frekuensinya. Amati sudut dan persentase pada diagram lingkaran.</p>
+    <div class="scroll"><table class="t" id="kt"></table></div>
+    <div class="row"><button class="btn soft" id="addK">+ Tambah kategori</button></div>
+    <div class="grid2" style="margin-top:12px"><svg class="viz" id="kbar" viewBox="0 0 420 300"></svg><svg class="viz" id="kpie" viewBox="0 0 420 300"></svg></div>
+    <div class="out" id="kOut"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Jika hasilnya desimal, tulis dengan koma, misalnya 6,5.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas VII · Modul 8</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num} = VML;
+const PAL=['var(--a)','var(--b)','var(--c)','var(--d)','var(--e)','var(--f)','#7a8699','#d06a2e'];
+const esc = t => String(t).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---- statistik ---- */
+function stats(arr){ const n=arr.length, srt=arr.slice().sort((a,b)=>a-b), sum=arr.reduce((a,b)=>a+b,0);
+  const med = n%2 ? srt[(n-1)/2] : (srt[n/2-1]+srt[n/2])/2;
+  const f={}; arr.forEach(v=>f[v]=(f[v]||0)+1); const mx=Math.max(...Object.values(f)); const modes=Object.keys(f).filter(k=>f[k]===mx).map(Number).sort((a,b)=>a-b);
+  return {n,srt,sum,mean:sum/n,med,f,modes:(mx===1&&Object.keys(f).length>1)?[]:modes,mx,range:srt[n-1]-srt[0]}; }
+
+/* ---- diagram umum ---- */
+function bar(g, labels, vals, title){ clear(g); const W=420,H=300, ox=46, oy=250, w=(W-ox-15)/labels.length, mx=Math.max(...vals,1), step=mx<=5?1:mx<=12?2:Math.ceil(mx/6), top=Math.ceil(mx/step)*step, Y=v=>oy-v*(200/top);
+  for(let v=0;v<=top;v+=step){ s('line',{x1:ox,y1:Y(v),x2:W-10,y2:Y(v),stroke:'var(--line)'},g); txt(g,ox-8,Y(v)+4,String(v),{'font-size':12,'text-anchor':'end'}); }
+  labels.forEach((l,i)=>{ const x=ox+i*w+w*0.15; s('rect',{x,y:Y(vals[i]),width:w*0.7,height:oy-Y(vals[i]),fill:PAL[i%PAL.length],rx:3},g);
+    txt(g,x+w*0.35,Y(vals[i])-6,String(vals[i]),{'font-size':12,'font-weight':700}); txt(g,x+w*0.35,oy+18,String(l).slice(0,10),{'font-size':labels.length>8?10:12}); });
+  s('line',{x1:ox,y1:oy,x2:W-10,y2:oy,stroke:'var(--ink)','stroke-width':2},g); s('line',{x1:ox,y1:oy,x2:ox,y2:30,stroke:'var(--ink)','stroke-width':2},g);
+  txt(g,W/2,20,title,{'font-weight':700}); txt(g,14,140,'Frekuensi',{'font-size':12,transform:'rotate(-90 14 140)'}); }
+function line(g, labels, vals, title){ clear(g); const W=420, ox=46, oy=250, w=(W-ox-30)/Math.max(labels.length-1,1), mx=Math.max(...vals,1), step=mx<=5?1:mx<=12?2:Math.ceil(mx/6), top=Math.ceil(mx/step)*step, Y=v=>oy-v*(200/top), X=i=>ox+15+i*w;
+  for(let v=0;v<=top;v+=step){ s('line',{x1:ox,y1:Y(v),x2:W-10,y2:Y(v),stroke:'var(--line)'},g); txt(g,ox-8,Y(v)+4,String(v),{'font-size':12,'text-anchor':'end'}); }
+  s('polyline',{points:vals.map((v,i)=>X(i)+','+Y(v)).join(' '),fill:'none',stroke:'var(--acc)','stroke-width':3},g);
+  vals.forEach((v,i)=>{ s('circle',{cx:X(i),cy:Y(v),r:5,fill:'var(--acc)'},g); txt(g,X(i),Y(v)-10,String(v),{'font-size':12,'font-weight':700}); txt(g,X(i),oy+18,String(labels[i]),{'font-size':12}); });
+  s('line',{x1:ox,y1:oy,x2:W-10,y2:oy,stroke:'var(--ink)','stroke-width':2},g); s('line',{x1:ox,y1:oy,x2:ox,y2:30,stroke:'var(--ink)','stroke-width':2},g); txt(g,W/2,20,title,{'font-weight':700}); }
+function pie(g, labels, vals, title){ clear(g); const tot=vals.reduce((a,b)=>a+b,0)||1, cx=140, cy=160, r=110; let a0=-90;
+  vals.forEach((v,i)=>{ const ang=v/tot*360; if(v===0) return; const a1=a0+ang, rad=d=>d*Math.PI/180;
+    if(ang>=359.99) s('circle',{cx,cy,r,fill:PAL[i%PAL.length]},g);
+    else s('path',{d:`M${cx},${cy} L${cx+r*Math.cos(rad(a0))},${cy+r*Math.sin(rad(a0))} A${r},${r} 0 ${ang>180?1:0} 1 ${cx+r*Math.cos(rad(a1))},${cy+r*Math.sin(rad(a1))} Z`,fill:PAL[i%PAL.length],stroke:'var(--card)','stroke-width':2},g);
+    if(ang>18){ const m=rad(a0+ang/2); txt(g,cx+r*0.62*Math.cos(m),cy+r*0.62*Math.sin(m)+4,Math.round(ang)+'°',{'font-size':12,'font-weight':800,fill:'#fff'}); }
+    a0=a1; });
+  labels.forEach((l,i)=>{ const y=60+i*24; s('rect',{x:272,y:y-11,width:13,height:13,rx:3,fill:PAL[i%PAL.length]},g); txt(g,292,y,`${String(l).slice(0,12)} (${num(vals[i]/tot*100,1)}%)`,{'font-size':12,'text-anchor':'start'}); });
+  txt(g,210,22,title,{'font-weight':700}); }
+
+/* ---- LAB data bilangan ---- */
+let chart='bar';
+document.querySelectorAll('#ch button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#ch button').forEach(x=>x.classList.remove('on'));b.classList.add('on');chart=b.dataset.c;runData();});
+$('#rnd').onclick=()=>{ const n=rand(8,20); $('#din').value=[...Array(n)].map(()=>rand(5,10)).join(', '); runData(); };
+$('#ex2').onclick=()=>{ $('#din').value='2, 1, 3, 2, 0, 4, 2, 1, 3, 2, 2, 1, 5, 3, 2, 1'; runData(); };
+function runData(){
+  const raw=$('#din').value.split(/[\s,;]+/).filter(Boolean), arr=raw.map(x=>Number(x.replace(',','.'))), bad=raw.filter((x,i)=>isNaN(arr[i]));
+  const data=arr.filter(x=>!isNaN(x));
+  $('#dErr').style.display=bad.length?'':'none'; if(bad.length) $('#dErr').innerHTML=`⚠️ Diabaikan karena bukan bilangan: <b>${esc(bad.join(', '))}</b>`;
+  if(!data.length){ clear($('#dg')); $('#ft').innerHTML=''; $('#stats').innerHTML='<p>Masukkan minimal satu bilangan.</p>'; return; }
+  const S=stats(data), keys=Object.keys(S.f).map(Number).sort((a,b)=>a-b), fr=keys.map(k=>S.f[k]);
+  ({bar,line,pie})[chart]($('#dg'), keys, fr, 'Frekuensi setiap nilai');
+  $('#ft').innerHTML=`<tr><th>Nilai</th><th>Turus</th><th>Frekuensi</th><th>Nilai × f</th></tr>`+keys.map((k,i)=>`<tr><td>${num(k)}</td><td style="font-family:var(--mono);letter-spacing:1px">${'|'.repeat(fr[i])}</td><td>${fr[i]}</td><td>${num(k*fr[i])}</td></tr>`).join('')+`<tr><th>Jumlah</th><td></td><th>${S.n}</th><th>${num(S.sum)}</th></tr>`;
+  const mid = S.n%2 ? [(S.n-1)/2] : [S.n/2-1,S.n/2];
+  $('#stats').innerHTML=`
+   <div class="out"><div class="muted"><b>Rata-rata</b></div><div class="huge">${num(S.mean,2)}</div>${num(S.sum)} : ${S.n} = ${num(S.mean,4)}</div>
+   <div class="out"><div class="muted"><b>Median</b></div><div class="huge">${num(S.med)}</div><div style="font-family:var(--mono);font-size:.9rem;word-break:break-all">${S.srt.map((v,i)=>mid.includes(i)?`<b style="color:var(--b)">[${num(v)}]</b>`:num(v)).join(' ')}</div>${S.n%2?'Banyak data ganjil → data ke-'+(mid[0]+1):`Banyak data genap → (${num(S.srt[mid[0]])} + ${num(S.srt[mid[1]])}) : 2`}</div>
+   <div class="out"><div class="muted"><b>Modus</b></div><div class="huge">${S.modes.length?S.modes.map(x=>num(x)).join(' dan '):'—'}</div>${S.modes.length?`muncul ${S.mx} kali`:'setiap data muncul sama sering → tidak ada modus'}</div>
+   <div class="out"><div class="muted"><b>Jangkauan</b></div><div class="huge">${num(S.range)}</div>${num(S.srt[S.n-1])} − ${num(S.srt[0])}</div>`;
+}
+$('#din').oninput=runData; runData();
+
+/* ---- LAB kategori ---- */
+let K=[['Sepak bola',9],['Membaca',6],['Memanah',4],['Berenang',5],['Menggambar',6]];
+function buildK(){ $('#kt').innerHTML='<tr><th>Hobi</th><th>Frekuensi</th><th>Persen</th><th>Sudut</th><th></th></tr>'+K.map((r,i)=>`<tr><td><input type="text" data-i="${i}" data-c="0" value="${esc(r[0])}" style="width:100%;min-width:110px"></td><td><input type="number" min="0" max="99" data-i="${i}" data-c="1" value="${r[1]}" style="width:80px"></td><td class="pc"></td><td class="sd"></td><td><button class="btn ghost" data-del="${i}" style="padding:4px 10px;min-height:36px" aria-label="Hapus">✕</button></td></tr>`).join('')+'<tr><th>Jumlah</th><th class="tot"></th><th>100%</th><th>360°</th><td></td></tr>';
+  document.querySelectorAll('#kt input').forEach(inp=>inp.oninput=()=>{ const i=+inp.dataset.i; if(inp.dataset.c==='0') K[i][0]=inp.value; else K[i][1]=Math.max(0,Math.round(+inp.value||0)); drawK(); });
+  document.querySelectorAll('#kt [data-del]').forEach(b=>b.onclick=()=>{ if(K.length>2){ K.splice(+b.dataset.del,1); buildK(); } });
+  drawK(); }
+function drawK(){ const tot=K.reduce((a,r)=>a+r[1],0); const rows=document.querySelectorAll('#kt tr');
+  K.forEach((r,i)=>{ const tr=rows[i+1]; tr.querySelector('.pc').textContent=tot?num(r[1]/tot*100,1)+'%':'—'; tr.querySelector('.sd').textContent=tot?num(r[1]/tot*360,1)+'°':'—'; });
+  $('#kt .tot').textContent=tot;
+  bar($('#kbar'),K.map(r=>r[0]),K.map(r=>r[1]),'Diagram batang'); pie($('#kpie'),K.map(r=>r[0]),K.map(r=>r[1]),'Diagram lingkaran');
+  if(!tot){ $('#kOut').innerHTML='Isi frekuensinya dulu.'; return; }
+  const mx=Math.max(...K.map(r=>r[1])), top=K.filter(r=>r[1]===mx).map(r=>esc(r[0]));
+  $('#kOut').innerHTML=`Jumlah siswa: <b>${tot}</b>. Hobi terbanyak: <b>${top.join(', ')}</b> (${mx} siswa). Contoh perhitungan sudut ${esc(K[0][0])}: ${VML.F(K[0][1],tot)} × 360° = <b>${num(K[0][1]/tot*360,1)}°</b>.`; }
+$('#addK').onclick=()=>{ if(K.length<8){ K.push(['Hobi baru',3]); buildK(); } };
+buildK();
+
+/* LATIHAN */
+const mkData=(n,a,b)=>[...Array(n)].map(()=>rand(a,b));
+VML.practice($('#prac'), [
+  {name:'Rata-rata', gen(){ const n=rand(4,7); let d=mkData(n,4,10); const sum=d.reduce((a,b)=>a+b,0), r=sum%n; if(r) d[0]+= (n-r); if(d[0]>15) return this.gen(); const S=stats(d);
+    return {q:`Tentukan rata-rata dari: ${d.join(', ')}`, a:String(S.mean), hint:'Jumlahkan semua data, lalu bagi dengan banyak data.', ex:`${S.sum} : ${n} = ${num(S.mean)}`}; }},
+  {name:'Median', gen(){ const d=mkData(rand(5,8),1,20), S=stats(d);
+    return {q:`Tentukan median dari: ${d.join(', ')}`, a:String(S.med), hint:'Urutkan dulu datanya!', ex:`Urutan: ${S.srt.join(', ')} → median ${num(S.med)}`}; }},
+  {name:'Modus & jangkauan', gen(){ let d=mkData(rand(6,9),3,9); const S=stats(d); if(S.modes.length!==1) return this.gen();
+    if(Math.random()<.5) return {q:`Tentukan modus dari: ${d.join(', ')}`, a:String(S.modes[0]), hint:'Data mana yang paling sering muncul?', ex:`${S.modes[0]} muncul ${S.mx} kali`};
+    return {q:`Tentukan jangkauan dari: ${d.join(', ')}`, a:String(S.range), hint:'Data terbesar − data terkecil.', ex:`${S.srt[S.srt.length-1]} − ${S.srt[0]} = ${S.range}`}; }},
+  {name:'Diagram lingkaran', gen(){ const tot=pick([20,24,30,36,40,45,60,72,90,120]), divs=[...Array(tot).keys()].slice(1).filter(f=>(f*360)%tot===0); const f=pick(divs);
+    if(Math.random()<.5) return {q:`Dari ${tot} siswa, ${f} siswa gemar menulis. Berapa derajat sudut juring "menulis" pada diagram lingkaran?`, a:String(f*360/tot), unit:'°', hint:'Sudut = f/n × 360°', ex:`${f}/${tot} × 360° = ${f*360/tot}°`};
+    return {q:`Pada diagram lingkaran data ${tot} siswa, juring "futsal" bersudut ${f*360/tot}°. Berapa siswa yang gemar futsal?`, a:String(f), unit:'siswa', hint:'Banyak = sudut/360° × jumlah', ex:`${f*360/tot}/360 × ${tot} = ${f}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Data tentang warna kesukaan siswa termasuk data …', o:['kualitatif (kategori)','kuantitatif','diskrit','kontinu'], a:0, ex:'Warna berupa keterangan, bukan bilangan.'},
+ {q:'Cara yang paling tepat untuk mendapatkan data tinggi badan siswa adalah …', o:['pengukuran','wawancara','angket pendapat','menebak'], a:0, ex:'Tinggi badan diperoleh dengan mengukur.'},
+ {q:'Rata-rata dari data 6, 7, 8, 8, 9, 10 adalah …', o:['8','7,5','8,5','9'], a:0, ex:'48 : 6 = 8.'},
+ {q:'Median dari data 3, 7, 5, 9, 4 adalah …', o:['5','7','4','5,6'], a:0, ex:'Urutkan: 3, 4, 5, 7, 9 → data tengahnya 5.'},
+ {q:'Median dari data 2, 4, 6, 8, 10, 12 adalah …', o:['7','6','8','6,5'], a:0, ex:'Data genap: (6 + 8) : 2 = 7.'},
+ {q:'Modus dari data 5, 6, 6, 7, 7, 7, 8 adalah …', o:['7','6','6,57','8'], a:0, ex:'7 muncul 3 kali, paling sering.'},
+ {q:'Jangkauan dari data 12, 5, 20, 9, 15 adalah …', o:['15','20','8','12'], a:0, ex:'20 − 5 = 15.'},
+ {q:'Dari 30 siswa, 6 siswa gemar voli. Besar sudut juring voli pada diagram lingkaran adalah …', o:['72°','60°','20°','36°'], a:0, ex:'6/30 × 360° = 72°.'},
+ {q:'Diagram yang paling tepat untuk menyajikan perubahan suhu dari jam ke jam adalah …', o:['diagram garis','diagram lingkaran','tabel turus','diagram batang bertumpuk'], a:0, ex:'Diagram garis menunjukkan perubahan menurut waktu.'},
+ {q:'Diagram lingkaran menyajikan data 120 siswa. Juring "membaca" bersudut 90°. Banyak siswa yang gemar membaca adalah …', o:['30','90','40','12'], a:0, ex:'90/360 × 120 = 30.'},
+ {q:'Rata-rata nilai 5 siswa adalah 70. Setelah nilai Andi ditambahkan, rata-ratanya menjadi 72. Nilai Andi adalah …', o:['82','72','74','80'], a:0, ex:'6 × 72 − 5 × 70 = 432 − 350 = 82.'},
+ {q:'Tabel nilai: 6 (frekuensi 3), 7 (frekuensi 5), 8 (frekuensi 2). Rata-ratanya adalah …', o:['6,9','7','7,1','21'], a:0, ex:'(18 + 35 + 16) : 10 = 6,9.'},
+ {q:'Tentukan rata-rata dari data 4, 8, 6, 10, 7.', input:true, a:['7'], ex:'35 : 5 = 7.'},
+ {q:'Pada diagram lingkaran, sebuah kategori bernilai 40%. Berapa derajat besar sudut juringnya?', input:true, a:['144'], unit:'°', ex:'40% × 360° = 144°.'},
+ {q:'Modus dari data 2, 3, 3, 4, 4, 5 adalah …', o:['3 dan 4','3','4','tidak ada modus'], a:0, ex:'3 dan 4 sama-sama muncul 2 kali → dua modus.'}
+], 'm8');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

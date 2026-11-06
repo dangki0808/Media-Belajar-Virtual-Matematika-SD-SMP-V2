@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Penjumlahan & Pengurangan · Virtual Math Lab SD III</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+ .col{font-family:var(--mono);font-size:2.2rem;font-weight:800;line-height:1.35;display:inline-grid;grid-template-columns:44px repeat(4,40px);text-align:center;background:var(--card);border-radius:16px;padding:10px 18px}
+ .col .c{color:var(--b);font-size:1.1rem;height:1.6rem;line-height:1.6rem}
+ .col .on{background:color-mix(in srgb,var(--d) 30%,transparent);border-radius:8px}
+ .col .ln{grid-column:1/-1;border-top:4px solid var(--ink);margin:4px 0}
+ .col s{color:var(--b)}
+</style>
+</head>
+<body style="--acc:#ef4f5a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SD Kelas III</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 2 · Bilangan</span>
+  <h1>➕ Penjumlahan &amp; Pengurangan</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Menjumlahkan bilangan sampai 1.000 dengan cara bersusun, termasuk menyimpan.</li>
+    <li>Mengurangkan bilangan sampai 1.000 dengan cara bersusun, termasuk meminjam.</li>
+    <li>Menyelesaikan soal cerita uang dan belanja.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🧮 Lab Bersusun</button><button data-target="toko">🛒 Lab Warung Kue</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Penjumlahan bersusun</h2>
+    <ol class="steps"><li>Tulis bilangan rata kanan: satuan di bawah satuan, puluhan di bawah puluhan.</li><li>Jumlahkan mulai dari <b>satuan</b>.</li><li>Jika hasilnya 10 atau lebih, tulis satuannya dan <b>simpan</b> 1 di kolom sebelah kiri.</li></ol>
+    <div class="ex"><span class="t">Contoh</span> 278 + 145: 8 + 5 = 13 → tulis 3 simpan 1. 7 + 4 + 1 = 12 → tulis 2 simpan 1. 2 + 1 + 1 = 4. Hasil <b>423</b>.</div>
+  </div>
+  <div class="card"><h2>2. Pengurangan bersusun</h2>
+    <ol class="steps"><li>Kurangkan mulai dari <b>satuan</b>.</li><li>Jika angka atas lebih kecil, <b>pinjam</b> 1 dari kolom kiri (bernilai 10).</li><li>Kolom yang dipinjam berkurang 1.</li></ol>
+    <div class="ex"><span class="t">Contoh</span> 532 − 178: 2 − 8 tidak bisa → pinjam: 12 − 8 = 4. Puluhan tinggal 2, 2 − 7 tidak bisa → pinjam: 12 − 7 = 5. Ratusan tinggal 4, 4 − 1 = 3. Hasil <b>354</b>.</div>
+    <div class="note">Periksa hasil pengurangan dengan penjumlahan: 354 + 178 = 532 ✓</div>
+  </div>
+  <div class="card"><h2>3. Soal cerita</h2>
+    <div class="grid2"><div class="ex">Perpustakaan punya 456 buku cerita dan 289 buku pelajaran. Semuanya 456 + 289 = <b>745 buku</b>.</div><div class="ex">Ani membawa Rp10.000, membeli roti Rp6.500. Kembaliannya 10.000 − 6.500 = <b>Rp3.500</b>.</div></div>
+    <p>Kata kunci: <b>semuanya, jumlah, bertambah</b> → tambah. <b>Sisa, kembalian, selisih, berkurang</b> → kurang.</p>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Hitung Bersusun Langkah demi Langkah</h2>
+    <div class="ctrl"><label>Bilangan atas <input type="number" id="a" value="278" min="0" max="999" style="width:110px"></label>
+      <div><div class="muted" style="font-size:.9rem;font-weight:700">Operasi</div><div class="seg" id="op"><button data-o="+" class="on">+</button><button data-o="-">−</button></div></div>
+      <label>Bilangan bawah <input type="number" id="b" value="145" min="0" max="999" style="width:110px"></label></div>
+    <div class="row"><button class="btn" id="step">Langkah berikutnya ▶</button><button class="btn soft" id="all">Tampilkan semua</button><button class="btn ghost" id="rnd">🎲 Soal acak</button></div>
+    <div class="grid2" style="margin-top:12px;align-items:start"><div style="text-align:center"><div class="col" id="col"></div></div><div class="out" id="exp"></div></div>
+  </div>
+</section>
+
+<section id="toko" class="panel">
+  <div class="card"><h2>Lab: Warung Kue Bu Lala</h2>
+    <p>Ketuk kue untuk memasukkannya ke keranjang. Bayar dengan uang yang kamu pilih, lalu hitung kembaliannya!</p>
+    <div class="grid3" id="menu"></div>
+    <div class="row" style="margin-top:10px"><b>Uang bayar:</b><div class="seg" id="pay"><button data-p="5000">Rp5.000</button><button data-p="10000" class="on">Rp10.000</button><button data-p="20000">Rp20.000</button><button data-p="50000">Rp50.000</button></div><button class="btn ghost" id="clr">Kosongkan keranjang</button></div>
+    <div class="out" id="cart"></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutannya acak. Nilai terbaikmu disimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SD Kelas III · Modul 2</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, rand, pick} = VML;
+const rp=n=>'Rp'+Number(n).toLocaleString('id-ID');
+let op='+', stp=0, plan;
+document.querySelectorAll('#op button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#op button').forEach(x=>x.classList.remove('on'));b.classList.add('on');op=b.dataset.o;build();});
+const dg=n=>[Math.floor(n/100)%10,Math.floor(n/10)%10,n%10];
+function build(){
+  let a=Math.max(0,Math.min(999,Math.round(+$('#a').value||0))), b=Math.max(0,Math.min(999,Math.round(+$('#b').value||0)));
+  if(op==='-'&&b>a){ [a,b]=[b,a]; } $('#a').value=a; $('#b').value=b;
+  const A=dg(a), B=dg(b), names=['ratusan','puluhan','satuan'], steps=[];
+  if(op==='+'){ let carry=0; const res=[0,0,0], cr=[0,0,0,0];
+    for(let i=2;i>=0;i--){ const sum=A[i]+B[i]+carry; res[i]=sum%10; const nc=sum>=10?1:0; steps.push({i,txt:`<b>Kolom ${names[i]}:</b> ${A[i]} + ${B[i]}${carry?' + 1 (simpanan)':''} = ${sum}${nc?` → tulis <b>${sum%10}</b>, simpan <b>1</b> ke kolom ${names[i-1]||'ribuan'}`:` → tulis <b>${sum}</b>`}`,res:res.slice(),cr:Object.assign([],cr,{[i]:nc})}); cr[i]=nc; carry=nc; }
+    if(carry) steps.push({i:-1,txt:'<b>Simpanan terakhir:</b> tulis 1 di kolom ribuan.',res:res.slice(),cr:cr.slice(),th:1});
+    plan={a,b,A,B,steps,result:a+b};
+  } else { const top=A.slice(), res=[0,0,0];
+    for(let i=2;i>=0;i--){ let t=''; if(top[i]<B[i]){ let j=i-1; while(top[j]===0) j--; top[j]-=1; for(let k=j+1;k<i;k++) top[k]=9; top[i]+=10; t=j===i-1?` (pinjam 1 dari ${names[j]}, jadi ${top[i]})`:` (pinjam berantai dari ${names[j]}: ${names.slice(j+1,i).join(', ')} jadi 9, kolom ini jadi ${top[i]})`; }
+      res[i]=top[i]-B[i]; steps.push({i,txt:`<b>Kolom ${names[i]}:</b>${t} ${top[i]} − ${B[i]} = <b>${res[i]}</b>`,res:res.slice(),top:top.slice()}); }
+    plan={a,b,A,B,steps,result:a-b}; }
+  stp=0; render();
+}
+function render(){
+  const {A,B,steps}=plan, cur=steps[stp-1]||{}, i=cur.i;
+  const cls=k=>k===i?'on':'';
+  let html='';
+  if(op==='+'){ const cr=(cur.cr||[0,0,0,0]);
+    html=`<span></span><span class="c">${cr[0]?'1':''}</span>${[1,2].map(k=>`<span class="c">${cr[k]?'1':''}</span>`).join('')}<span class="c"></span>`; }
+  else { const top=cur.top||A; html+=`<span></span><span class="c"></span>${[0,1,2].map(k=>`<span class="c">${cur.top&&top[k]!==A[k]?top[k]:''}</span>`).join('')}`; }
+  html+=`<span></span><span></span>${A.map((d,k)=>`<span class="${cls(k)}">${op==='-'&&cur.top&&cur.top[k]!==A[k]?`<s>${d}</s>`:d}</span>`).join('')}`;
+  html+=`<span>${op==='+'?'+':'−'}</span><span></span>${B.map((d,k)=>`<span class="${cls(k)}">${d}</span>`).join('')}`;
+  html+='<span class="ln"></span>';
+  const res=cur.res||[null,null,null], shownCols=new Set(steps.slice(0,stp).map(x=>x.i));
+  html+=`<span></span><span style="color:var(--acc)">${cur.th||steps.slice(0,stp).some(x=>x.th)?'1':''}</span>${[0,1,2].map(k=>`<span style="color:var(--acc)" class="${cls(k)}">${shownCols.has(k)?res[k]:''}</span>`).join('')}`;
+  $('#col').innerHTML=html;
+  $('#exp').innerHTML=(stp?steps.slice(0,stp).map(x=>`<p>${x.txt}</p>`).join(''):'<p>Tekan <b>Langkah berikutnya</b>. Kita mulai dari kolom <b>satuan</b> (paling kanan).</p>')+(stp>=steps.length?`<div class="big">${plan.a} ${op==='+'?'+':'−'} ${plan.b} = ${plan.result} ✅</div>${op==='-'?`<p class="muted">Cek: ${plan.result} + ${plan.b} = ${plan.result+plan.b}</p>`:''}`:'');
+  $('#step').disabled=stp>=steps.length; $('#all').disabled=stp>=steps.length;
+}
+$('#step').onclick=()=>{ stp++; render(); }; $('#all').onclick=()=>{ stp=plan.steps.length; render(); };
+$('#rnd').onclick=()=>{ const a=rand(100,999), b=rand(10,op==='+'?999-a>10?999-a:99:a); $('#a').value=a; $('#b').value=Math.max(1,b); build(); };
+['#a','#b'].forEach(x=>$(x).onchange=build); build();
+
+/* warung */
+const MENU=[['🍩','Donat',2500],['🧁','Bolu',3000],['🥐','Roti',4500],['🍪','Kue kering',1500],['🍰','Kue lapis',3500],['🥟','Pastel',2000]];
+let cart=[], pay=10000;
+$('#menu').innerHTML=MENU.map(([e,n,h],i)=>`<button class="opt" data-m="${i}" style="justify-content:center;flex-direction:column;gap:2px"><span style="font-size:2.2rem">${e}</span><span>${n}</span><span class="muted" style="font-size:.9rem">${rp(h)}</span></button>`).join('');
+document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{ cart.push(+b.dataset.m); drawCart(); });
+document.querySelectorAll('#pay button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pay button').forEach(x=>x.classList.remove('on'));b.classList.add('on');pay=+b.dataset.p;drawCart();});
+$('#clr').onclick=()=>{ cart=[]; drawCart(); };
+function drawCart(){
+  const tot=cart.reduce((a,i)=>a+MENU[i][2],0);
+  if(!cart.length){ $('#cart').innerHTML='🛒 Keranjang masih kosong. Ketuk kue di atas!'; return; }
+  $('#cart').innerHTML=`<p style="font-size:1.6rem">${cart.map(i=>MENU[i][0]).join(' ')}</p><p>${cart.map(i=>rp(MENU[i][2])).join(' + ')} = <b>${rp(tot)}</b></p>
+   ${tot>pay?`<div class="fb no">Uangnya kurang ${rp(tot-pay)}! Pilih uang yang lebih besar atau kurangi kue.</div>`:`<div class="big">Kembalian = ${rp(pay)} − ${rp(tot)} = <span style="color:var(--c)">${rp(pay-tot)}</span></div>`}`;
+}
+drawCart();
+
+/* LATIHAN */
+VML.practice($('#prac'), [
+  {name:'Tambah tanpa simpan', gen(){ const a=[rand(1,6),rand(0,5),rand(0,5)], b=[rand(1,9-a[0]>3?3:9-a[0]),rand(0,9-a[1]),rand(0,9-a[2])], A=a[0]*100+a[1]*10+a[2], B=b[0]*100+b[1]*10+b[2]; return {q:`${A} + ${B} = …`, a:String(A+B), hint:'Jumlahkan satuan, puluhan, lalu ratusan.', ex:String(A+B)}; }},
+  {name:'Tambah dengan simpan', gen(){ const A=rand(100,600), B=rand(100,399); if(A%10+B%10<10&&Math.floor(A/10)%10+Math.floor(B/10)%10<10) return this.gen(); return {q:`${A} + ${B} = …`, a:String(A+B), hint:'Jika satu kolom 10 atau lebih, simpan 1 ke kolom kiri.', ex:String(A+B)}; }},
+  {name:'Kurang dengan pinjam', gen(){ const A=rand(300,999), B=rand(100,A-1); if(A%10>=B%10&&Math.floor(A/10)%10>=Math.floor(B/10)%10) return this.gen(); return {q:`${A} − ${B} = …`, a:String(A-B), hint:'Jika angka atas lebih kecil, pinjam 1 dari kolom kiri.', ex:`${A-B} (cek: ${A-B} + ${B} = ${A})`}; }},
+  {name:'Soal cerita', gen(){ const t=rand(0,2);
+    if(t===0){ const a=rand(120,500), b=rand(100,450); return {q:`Pak tani memanen ${a} jagung hari ini dan ${b} jagung kemarin. Berapa jagung semuanya?`, a:String(a+b), unit:'jagung', hint:'"Semuanya" → tambah.', ex:`${a} + ${b} = ${a+b}`}; }
+    if(t===1){ const a=rand(300,900), b=rand(100,a-50); return {q:`Ada ${a} kursi di aula. Sebanyak ${b} kursi sudah diduduki. Berapa kursi yang masih kosong?`, a:String(a-b), unit:'kursi', hint:'"Masih kosong / sisa" → kurang.', ex:`${a} − ${b} = ${a-b}`}; }
+    const u=pick([5000,10000,20000]), h=rand(2,Math.floor(u/500)-1)*500; return {q:`Dina membayar ${rp(u)} untuk jajanan seharga ${rp(h)}. Berapa kembaliannya? (angka saja)`, a:[String(u-h),(u-h).toLocaleString('id-ID')], hint:'Kembalian = uang − harga.', ex:`${rp(u)} − ${rp(h)} = ${rp(u-h)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'234 + 152 = …', o:['386','376','396','286'], a:0, ex:'4+2, 3+5, 2+1.'},
+ {q:'278 + 145 = …', o:['423','413','323','433'], a:0, ex:'Simpan dua kali.'},
+ {q:'589 + 236 = …', o:['825','815','725','835'], a:0, ex:'9+6=15, 8+3+1=12, 5+2+1=8.'},
+ {q:'Pada 167 + 25, angka satuan 7 + 5 = 12. Yang ditulis dan disimpan adalah …', o:['tulis 2, simpan 1','tulis 1, simpan 2','tulis 12','tulis 7, simpan 5'], a:0, ex:'Satuan 2, puluhan 1 disimpan.'},
+ {q:'765 − 342 = …', o:['423','433','413','323'], a:0, ex:'Tanpa meminjam.'},
+ {q:'532 − 178 = …', o:['354','364','446','454'], a:0, ex:'Pinjam dua kali.'},
+ {q:'400 − 156 = …', o:['244','256','344','254'], a:0, ex:'Pinjam berantai dari ratusan.'},
+ {q:'Cara memeriksa 532 − 178 = 354 adalah …', o:['354 + 178','354 − 178','532 + 178','354 + 532'], a:0, ex:'Hasil + pengurang = yang dikurangi.'},
+ {q:'Perpustakaan punya 456 buku cerita dan 289 buku pelajaran. Jumlah semua buku …', o:['745','735','645','167'], a:0, ex:'456 + 289.'},
+ {q:'Ani membawa Rp10.000 dan membeli roti Rp6.500. Kembaliannya …', o:['Rp3.500','Rp4.500','Rp16.500','Rp3.000'], a:0, ex:'10.000 − 6.500.'},
+ {q:'Ada 850 telur, 175 pecah. Telur yang tidak pecah …', o:['675','725','685','1.025'], a:0, ex:'850 − 175.'},
+ {q:'Kata "sisa" dalam soal cerita biasanya berarti …', o:['pengurangan','penjumlahan','perkalian','pembagian'], a:0, ex:'Sisa → kurang.'},
+ {q:'Hitunglah 367 + 458.', input:true, a:['825'], ex:'7+8=15, 6+5+1=12, 3+4+1=8.'},
+ {q:'Hitunglah 700 − 325.', input:true, a:['375'], ex:'Pinjam berantai.'},
+ {q:'Rina punya 245 manik. Ibu memberi 168 manik lagi. Manik Rina sekarang …', o:['413','403','313','77'], a:0, ex:'245 + 168.'}
+], 'sd3m2');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>

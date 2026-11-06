@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bangun Ruang Sisi Lengkung · Virtual Math Lab IX</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="--acc:#c2493a">
+<header class="top"><div class="wrap"><a class="back" href="index.html">← Beranda</a><div class="brand">Virtual Math Lab <small>· Matematika SMP Kelas IX</small></div></div></header>
+<div class="wrap">
+<section class="hero">
+  <span class="chip">Modul 6 · Geometri</span>
+  <h1>Bangun Ruang Sisi Lengkung</h1>
+  <div class="tp"><b>Tujuan Pembelajaran</b><ul>
+    <li>Mengenali unsur dan jaring-jaring tabung, kerucut, dan bola.</li>
+    <li>Menghitung luas permukaan dan volume tabung, kerucut, dan bola.</li>
+    <li>Menyelesaikan masalah nyata yang berkaitan dengan bangun ruang sisi lengkung.</li></ul></div>
+</section>
+<nav class="tabs"><button data-target="materi">📘 Materi</button><button data-target="lab">🥫 Lab Ukur Bangun</button><button data-target="arch">⚖️ Lab Archimedes & Jaring</button><button data-target="latihan">✏️ Latihan</button><button data-target="kuis">🏆 Kuis</button></nav>
+
+<main>
+<section id="materi" class="panel">
+  <div class="card"><h2>1. Tabung</h2>
+    <p>Unsur: dua alas berbentuk lingkaran (jari-jari r), selimut, dan tinggi t. Jaring-jaringnya: <b>2 lingkaran + 1 persegi panjang</b> berukuran 2πr × t.</p>
+    <div class="grid3"><div class="def">Luas selimut = 2πrt</div><div class="def">LP = 2πr(r + t)</div><div class="def">V = πr²t</div></div>
+    <div class="ex">r = 7 cm, t = 10 cm: V = <span class="fr"><span>22</span><span>7</span></span> × 49 × 10 = <b>1.540 cm³</b>, LP = 2 × <span class="fr"><span>22</span><span>7</span></span> × 7 × 17 = <b>748 cm²</b></div>
+  </div>
+  <div class="card"><h2>2. Kerucut</h2>
+    <p>Unsur: alas lingkaran (r), tinggi t, garis pelukis s. Ketiganya membentuk segitiga siku-siku: <b>s = √(r² + t²)</b>. Jaring-jaringnya: lingkaran + juring.</p>
+    <div class="grid3"><div class="def">Luas selimut = πrs</div><div class="def">LP = πr(r + s)</div><div class="def">V = ⅓πr²t</div></div>
+    <div class="ex">r = 6 cm, t = 8 cm → s = 10 cm. LP = 3,14 × 6 × 16 = <b>301,44 cm²</b>, V = ⅓ × 3,14 × 36 × 8 = <b>301,44 cm³</b></div>
+  </div>
+  <div class="card"><h2>3. Bola</h2>
+    <div class="grid2"><div class="def">LP = 4πr²</div><div class="def">V = <span class="fr"><span>4</span><span>3</span></span>πr³</div></div>
+    <div class="ex">r = 7 cm: LP = 4 × 154 = <b>616 cm²</b>. r = 21 cm: V = <span class="fr"><span>4</span><span>3</span></span> × <span class="fr"><span>22</span><span>7</span></span> × 9.261 = <b>38.808 cm³</b></div>
+    <div class="note">Jika jari-jari bola diperbesar 2 kali, luasnya menjadi 4 kali dan volumenya menjadi 8 kali.</div>
+  </div>
+  <div class="card"><h2>4. Perbandingan Archimedes</h2>
+    <p>Kerucut, bola, dan tabung dengan jari-jari sama dan tinggi kerucut = tinggi tabung = 2r memiliki perbandingan volume <b>1 : 2 : 3</b>.</p>
+    <div class="ex">⅓πr²(2r) : <span class="fr"><span>4</span><span>3</span></span>πr³ : πr²(2r) = <span class="fr"><span>2</span><span>3</span></span> : <span class="fr"><span>4</span><span>3</span></span> : 2 = 1 : 2 : 3</div>
+    <div class="ex"><span class="t">Terapan</span> Tandon air berbentuk tabung, r = 14 cm, t = 50 cm. V = <span class="fr"><span>22</span><span>7</span></span> × 196 × 50 = 30.800 cm³ = <b>30,8 liter</b>.</div>
+  </div>
+</section>
+
+<section id="lab" class="panel">
+  <div class="card"><h2>Lab: Ukur Tabung, Kerucut, dan Bola</h2>
+    <div class="seg" id="sh"><button data-k="tabung" class="on">Tabung</button><button data-k="kerucut">Kerucut</button><button data-k="bola">Bola</button></div>
+    <div class="ctrl"><label>Jari-jari r (cm) <span class="v" id="r-v"></span><input type="range" id="r" min="1" max="21" value="7"></label><label id="tl">Tinggi t (cm) <span class="v" id="t-v"></span><input type="range" id="t" min="1" max="30" value="10"></label></div>
+    <div class="grid2"><svg class="viz" id="g" viewBox="0 0 400 380"></svg><div class="out" id="o"></div></div>
+  </div>
+</section>
+
+<section id="arch" class="panel">
+  <div class="card"><h2>Lab: Perbandingan Volume 1 : 2 : 3</h2>
+    <p>Jari-jari sama, tinggi kerucut dan tabung = 2r. Tekan tombol untuk "menuangkan" air dari kerucut ke tabung.</p>
+    <div class="ctrl"><label>Jari-jari r <span class="v" id="ar-v"></span><input type="range" id="ar" min="1" max="14" value="7"></label></div>
+    <div class="row"><button class="btn" id="pour">🫗 Tuang 1 kerucut</button><button class="btn soft" id="pourB">🫗 Tuang 1 bola</button><button class="btn ghost" id="emp">Kosongkan</button></div>
+    <svg class="viz" id="ag" viewBox="0 0 720 310" style="margin-top:10px"></svg>
+    <div class="out" id="ao"></div>
+  </div>
+  <div class="card"><h2>Jaring-jaring Tabung</h2>
+    <div class="ctrl"><label>r <span class="v" id="nr-v"></span><input type="range" id="nr" min="1" max="7" value="3"></label><label>t <span class="v" id="nt-v"></span><input type="range" id="nt" min="2" max="12" value="6"></label></div>
+    <div class="grid2"><svg class="viz" id="ng" viewBox="0 0 440 320"></svg><div class="out" id="no"></div></div>
+  </div>
+</section>
+
+<section id="latihan" class="panel"><div id="prac"></div><p class="muted">Gunakan π sesuai soal. Desimal boleh memakai koma.</p></section>
+<section id="kuis" class="panel"><p class="muted">15 soal, urutan diacak. Nilai terbaik tersimpan di perangkat ini.</p><div id="quiz"></div></section>
+</main>
+</div>
+<footer><div class="wrap">Virtual Math Lab · Matematika SMP Kelas IX · Modul 6</div></footer>
+
+<script src="assets/core.js"></script>
+<script>
+const {$, s, txt, clear, rand, pick, num, F} = VML;
+const id=n=>Number(VML.round(n,2)).toLocaleString('id-ID');
+const PI=r=>r%7===0?[22/7,'22/7']:[3.14,'3,14'];
+
+/* LAB ukur */
+let sh='tabung';
+document.querySelectorAll('#sh button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sh button').forEach(x=>x.classList.remove('on'));b.classList.add('on');sh=b.dataset.k;$('#tl').style.display=sh==='bola'?'none':'';draw();});
+function draw(){
+  const r=+$('#r').value, t=+$('#t').value, [pi,pt]=PI(r); $('#r-v').textContent=r; $('#t-v').textContent=t;
+  const g=$('#g'); clear(g); const H=sh==='bola'?2*r:t, S=Math.min(150/r, 280/H), R=r*S, ry=R*0.28, cx=200, base=340;
+  if(sh==='tabung'){ const top=base-t*S;
+    s('path',{d:`M${cx-R},${top} V${base} A${R},${ry} 0 0 0 ${cx+R},${base} V${top}`,fill:'var(--acc)','fill-opacity':.22,stroke:'var(--acc)','stroke-width':2.5},g);
+    s('path',{d:`M${cx-R},${base} A${R},${ry} 0 0 1 ${cx+R},${base}`,fill:'none',stroke:'var(--acc)','stroke-width':1.5,'stroke-dasharray':'5 4'},g);
+    s('ellipse',{cx,cy:top,rx:R,ry,fill:'var(--acc)','fill-opacity':.35,stroke:'var(--acc)','stroke-width':2.5},g);
+    s('line',{x1:cx,y1:base,x2:cx+R,y2:base,stroke:'var(--b)','stroke-width':2.5},g); txt(g,cx+R/2,base-6,'r',{'font-weight':800,fill:'var(--b)'});
+    s('line',{x1:cx+R+16,y1:top,x2:cx+R+16,y2:base,stroke:'var(--ink)','stroke-width':1.5},g); txt(g,cx+R+24,(top+base)/2,'t',{'font-weight':800,'text-anchor':'start'});
+    const V=pi*r*r*t, Ls=2*pi*r*t, LP=2*pi*r*(r+t);
+    $('#o').innerHTML=`<div class="big">Tabung</div><p class="muted">π = ${pt}</p><p><b>Luas alas</b> = πr² = ${id(pi*r*r)} cm²<br><b>Luas selimut</b> = 2πrt = ${id(Ls)} cm²<br><b>Luas permukaan</b> = 2πr(r + t) = <b>${id(LP)} cm²</b></p><div class="huge">V = ${id(V)} cm³</div><p>V = πr²t = ${pt} × ${r}² × ${t} = ${id(V)} cm³ = ${id(V/1000)} liter</p>`; }
+  else if(sh==='kerucut'){ const top=base-t*S, sl=Math.hypot(r,t);
+    s('path',{d:`M${cx-R},${base} L${cx},${top} L${cx+R},${base} A${R},${ry} 0 0 1 ${cx-R},${base}`,fill:'var(--acc)','fill-opacity':.22,stroke:'var(--acc)','stroke-width':2.5},g);
+    s('path',{d:`M${cx-R},${base} A${R},${ry} 0 0 1 ${cx+R},${base}`,fill:'none',stroke:'var(--acc)','stroke-width':1.5,'stroke-dasharray':'5 4'},g);
+    s('line',{x1:cx,y1:top,x2:cx,y2:base,stroke:'var(--ink)','stroke-width':1.5,'stroke-dasharray':'5 4'},g); s('line',{x1:cx,y1:base,x2:cx+R,y2:base,stroke:'var(--b)','stroke-width':2.5},g);
+    s('line',{x1:cx,y1:top,x2:cx+R,y2:base,stroke:'var(--c)','stroke-width':3},g);
+    txt(g,cx+R/2,base+18,'r',{'font-weight':800,fill:'var(--b)'}); txt(g,cx-10,(top+base)/2,'t',{'font-weight':800,'text-anchor':'end'}); txt(g,cx+R/2+14,(top+base)/2,'s',{'font-weight':800,fill:'var(--c)'});
+    const V=pi*r*r*t/3, LP=pi*r*(r+sl);
+    $('#o').innerHTML=`<div class="big">Kerucut</div><p class="muted">π = ${pt}</p><p><b>Garis pelukis</b> s = √(r² + t²) = √(${r*r} + ${t*t}) = ${Number.isInteger(sl)?sl:'√'+(r*r+t*t)+' ≈ '+num(sl,2)} cm</p><p><b>Luas selimut</b> = πrs ≈ ${id(pi*r*sl)} cm²<br><b>Luas permukaan</b> = πr(r + s) ≈ <b>${id(LP)} cm²</b></p><div class="huge">V = ${id(V)} cm³</div><p>V = ⅓πr²t = ⅓ × ${pt} × ${r}² × ${t}</p>`; }
+  else { const cy=base-R;
+    s('circle',{cx,cy,r:R,fill:'var(--acc)','fill-opacity':.22,stroke:'var(--acc)','stroke-width':2.5},g);
+    s('path',{d:`M${cx-R},${cy} A${R},${ry} 0 0 0 ${cx+R},${cy}`,fill:'none',stroke:'var(--acc)','stroke-width':1.5},g); s('path',{d:`M${cx-R},${cy} A${R},${ry} 0 0 1 ${cx+R},${cy}`,fill:'none',stroke:'var(--acc)','stroke-width':1.5,'stroke-dasharray':'5 4'},g);
+    s('line',{x1:cx,y1:cy,x2:cx+R,y2:cy,stroke:'var(--b)','stroke-width':2.5},g); s('circle',{cx,cy,r:3.5,fill:'var(--ink)'},g); txt(g,cx+R/2,cy-8,'r',{'font-weight':800,fill:'var(--b)'});
+    const V=4/3*pi*r**3, LP=4*pi*r*r;
+    $('#o').innerHTML=`<div class="big">Bola</div><p class="muted">π = ${pt}</p><p><b>Luas permukaan</b> = 4πr² = 4 × ${pt} × ${r}² = <b>${id(LP)} cm²</b></p><div class="huge">V = ${id(V)} cm³</div><p>V = <span class="fr"><span>4</span><span>3</span></span>πr³ = <span class="fr"><span>4</span><span>3</span></span> × ${pt} × ${r}³</p><p class="muted">Luas permukaan bola = 4 kali luas lingkaran besarnya (πr²).</p>`; }
+}
+['#r','#t'].forEach(x=>$(x).oninput=draw); draw();
+
+/* LAB Archimedes */
+let fill=0, anim=null;
+function drawA(){
+  const r=+$('#ar').value, [pi,pt]=PI(r); $('#ar-v').textContent=r;
+  const g=$('#ag'); clear(g); const S=100/r, R=r*S, ry=R*0.25, base=270, h=2*r*S;
+  const cyl=(cx)=>{ s('path',{d:`M${cx-R},${base-h} V${base} A${R},${ry} 0 0 0 ${cx+R},${base} V${base-h}`,fill:'none',stroke:'var(--acc)','stroke-width':2.5},g);
+    const lv=Math.min(1,fill/3)*h; if(lv>0){ s('path',{d:`M${cx-R},${base-lv} V${base} A${R},${ry} 0 0 0 ${cx+R},${base} V${base-lv}`,fill:'var(--a)','fill-opacity':.45},g); s('ellipse',{cx,cy:base-lv,rx:R,ry,fill:'var(--a)','fill-opacity':.6},g); }
+    s('ellipse',{cx,cy:base-h,rx:R,ry,fill:'none',stroke:'var(--acc)','stroke-width':2.5},g); };
+  const cone=(cx)=>{ s('path',{d:`M${cx-R},${base} L${cx},${base-h} L${cx+R},${base} A${R},${ry} 0 0 1 ${cx-R},${base}`,fill:'var(--a)','fill-opacity':.35,stroke:'var(--acc)','stroke-width':2.5},g); };
+  const ball=(cx)=>{ s('circle',{cx,cy:base-R,r:R,fill:'var(--a)','fill-opacity':.35,stroke:'var(--acc)','stroke-width':2.5},g); s('path',{d:`M${cx-R},${base-R} A${R},${ry} 0 0 0 ${cx+R},${base-R}`,fill:'none',stroke:'var(--acc)'},g); };
+  cone(120); ball(360); cyl(600);
+  txt(g,120,298,'Kerucut',{'font-weight':800}); txt(g,360,298,'Bola',{'font-weight':800}); txt(g,600,298,'Tabung',{'font-weight':800});
+  for(let i=1;i<3;i++) s('line',{x1:600-R-6,y1:base-h*i/3,x2:600-R+6,y2:base-h*i/3,stroke:'var(--ink)','stroke-width':2},g);
+  const Vk=pi*r*r*2*r/3, Vb=4/3*pi*r**3, Vt=pi*r*r*2*r;
+  $('#ao').innerHTML=`<p>V kerucut = ⅓πr²(2r) = <b>${id(Vk)}</b> &nbsp;·&nbsp; V bola = <span class="fr"><span>4</span><span>3</span></span>πr³ = <b>${id(Vb)}</b> &nbsp;·&nbsp; V tabung = πr²(2r) = <b>${id(Vt)}</b> (cm³, π = ${pt})</p>
+   <div class="big">${id(Vk)} : ${id(Vb)} : ${id(Vt)} = 1 : 2 : 3</div><p>Air di tabung: <b>${num(fill)}/3</b> bagian${fill>=3?' — penuh! Satu bola + satu kerucut = satu tabung.':''}</p>`;
+}
+const pour=amt=>{ if(anim||fill>=3) return; const start=fill, target=Math.min(3,fill+amt), t0=performance.now(); const step=now=>{ const p=Math.min(1,(now-t0)/900); fill=start+(target-start)*p; drawA(); if(p<1) anim=requestAnimationFrame(step); else { fill=target; anim=null; drawA(); } }; anim=requestAnimationFrame(step); };
+$('#pour').onclick=()=>pour(1); $('#pourB').onclick=()=>pour(2); $('#emp').onclick=()=>{ fill=0; drawA(); };
+$('#ar').oninput=drawA; drawA();
+function drawN(){ const r=+$('#nr').value, t=+$('#nt').value; $('#nr-v').textContent=r; $('#nt-v').textContent=t;
+  const g=$('#ng'); clear(g); const L=2*Math.PI*r, S=Math.min(400/L, 300/(t+4*r)), ox=20, oy=10+2*r*S;
+  s('rect',{x:ox,y:oy,width:L*S,height:t*S,fill:'var(--acc)','fill-opacity':.25,stroke:'var(--acc)','stroke-width':2},g);
+  s('circle',{cx:ox+L*S/2,cy:oy-r*S,r:r*S,fill:'var(--b)','fill-opacity':.3,stroke:'var(--b)','stroke-width':2},g); s('circle',{cx:ox+L*S/2,cy:oy+t*S+r*S,r:r*S,fill:'var(--b)','fill-opacity':.3,stroke:'var(--b)','stroke-width':2},g);
+  txt(g,ox+L*S/2,oy+t*S/2+5,`2πr ≈ ${num(L,2)} × ${t}`,{'font-weight':700,'font-size':13});
+  $('#no').innerHTML=`<p>Panjang persegi panjang = keliling alas = 2πr ≈ ${num(L,2)} cm</p><p><b>Luas</b> = 2 × πr² + 2πr × t<br>≈ 2 × ${num(Math.PI*r*r,2)} + ${num(L*t,2)} = <b>${num(2*Math.PI*r*r+L*t,2)} cm²</b></p><p class="muted">Dihitung dengan π ≈ 3,1416.</p>`; }
+['#nr','#nt'].forEach(x=>$(x).oninput=drawN); drawN();
+
+/* LATIHAN */
+const R=a=>String(VML.round(a,4));
+VML.practice($('#prac'), [
+  {name:'Tabung', gen(){ const r=pick([7,14,21,10,5]), t=rand(2,20), [pi,pt]=PI(r), k=rand(0,2);
+    if(k===0) return {q:`Volume tabung dengan r = ${r} cm dan t = ${t} cm (π = ${pt}) adalah …`, a:R(pi*r*r*t), unit:'cm³', hint:'V = πr²t', ex:`${pt} × ${r*r} × ${t} = ${id(pi*r*r*t)}`};
+    if(k===1) return {q:`Luas permukaan tabung dengan r = ${r} cm dan t = ${t} cm (π = ${pt}) adalah …`, a:R(2*pi*r*(r+t)), unit:'cm²', hint:'LP = 2πr(r + t)', ex:`2 × ${pt} × ${r} × ${r+t} = ${id(2*pi*r*(r+t))}`};
+    return {q:`Luas selimut tabung dengan r = ${r} cm dan t = ${t} cm (π = ${pt}) adalah …`, a:R(2*pi*r*t), unit:'cm²', hint:'2πrt', ex:`2 × ${pt} × ${r} × ${t} = ${id(2*pi*r*t)}`}; }},
+  {name:'Kerucut', gen(){ const T=pick([[3,4,5],[6,8,10],[5,12,13],[7,24,25],[9,12,15]]), [r,t,sl]=T, [pi,pt]=PI(r), k=rand(0,2);
+    if(k===0) return {q:`Kerucut dengan jari-jari ${r} cm dan tinggi ${t} cm. Panjang garis pelukisnya …`, a:String(sl), unit:'cm', hint:'s = √(r² + t²)', ex:`√(${r*r} + ${t*t}) = ${sl}`};
+    if(k===1) return {q:`Volume kerucut dengan r = ${r} cm dan t = ${t} cm (π = ${pt}) adalah …`, a:R(pi*r*r*t/3), unit:'cm³', hint:'V = ⅓πr²t', ex:`⅓ × ${pt} × ${r*r} × ${t} = ${id(pi*r*r*t/3)}`};
+    return {q:`Luas permukaan kerucut dengan r = ${r} cm dan s = ${sl} cm (π = ${pt}) adalah …`, a:R(pi*r*(r+sl)), unit:'cm²', hint:'LP = πr(r + s)', ex:`${pt} × ${r} × ${r+sl} = ${id(pi*r*(r+sl))}`}; }},
+  {name:'Bola', gen(){ const r=pick([7,14,21,3,6,10]), [pi,pt]=PI(r); if(Math.random()<.5) return {q:`Luas permukaan bola dengan r = ${r} cm (π = ${pt}) adalah …`, a:R(4*pi*r*r), unit:'cm²', hint:'4πr²', ex:`4 × ${pt} × ${r*r} = ${id(4*pi*r*r)}`};
+    return {q:`Volume bola dengan r = ${r} cm (π = ${pt}) adalah …`, a:R(4/3*pi*r**3), unit:'cm³', hint:'4/3 πr³', ex:`4/3 × ${pt} × ${r**3} = ${id(4/3*pi*r**3)}`}; }}
+]);
+
+/* KUIS */
+VML.quiz($('#quiz'), [
+ {q:'Volume tabung dengan jari-jari 7 cm dan tinggi 10 cm (π = 22/7) adalah …', o:['1.540 cm³','440 cm³','770 cm³','4.620 cm³'], a:0, ex:'22/7 × 49 × 10 = 1.540.'},
+ {q:'Luas permukaan tabung dengan r = 7 cm dan t = 10 cm (π = 22/7) adalah …', o:['748 cm²','440 cm²','594 cm²','1.540 cm²'], a:0, ex:'2 × 22/7 × 7 × 17 = 748.'},
+ {q:'Luas selimut tabung dengan r = 14 cm dan t = 5 cm (π = 22/7) adalah …', o:['440 cm²','220 cm²','616 cm²','880 cm²'], a:0, ex:'2 × 22/7 × 14 × 5 = 440.'},
+ {q:'Kerucut dengan jari-jari 6 cm dan tinggi 8 cm memiliki garis pelukis …', o:['10 cm','14 cm','√28 cm','12 cm'], a:0, ex:'√(36 + 64) = 10.'},
+ {q:'Volume kerucut dengan r = 7 cm dan t = 12 cm (π = 22/7) adalah …', o:['616 cm³','1.848 cm³','308 cm³','924 cm³'], a:0, ex:'⅓ × 154 × 12 = 616.'},
+ {q:'Luas permukaan kerucut dengan r = 6 cm dan s = 10 cm (π = 3,14) adalah …', o:['301,44 cm²','188,4 cm²','113,04 cm²','376,8 cm²'], a:0, ex:'3,14 × 6 × 16 = 301,44.'},
+ {q:'Volume bola berjari-jari 21 cm (π = 22/7) adalah …', o:['38.808 cm³','5.544 cm³','29.106 cm³','12.936 cm³'], a:0, ex:'4/3 × 22/7 × 9.261 = 38.808.'},
+ {q:'Luas permukaan bola berjari-jari 7 cm (π = 22/7) adalah …', o:['616 cm²','154 cm²','1.437,3 cm²','308 cm²'], a:0, ex:'4 × 154 = 616.'},
+ {q:'Kerucut, bola, dan tabung berjari-jari sama dengan tinggi kerucut dan tabung = 2r. Perbandingan volumenya …', o:['1 : 2 : 3','1 : 3 : 2','1 : 1 : 1','2 : 3 : 4'], a:0, ex:'2/3 : 4/3 : 2 πr³.'},
+ {q:'Jaring-jaring tabung terdiri atas …', o:['2 lingkaran dan 1 persegi panjang','1 lingkaran dan 1 juring','2 lingkaran dan 2 persegi panjang','1 lingkaran dan 1 persegi panjang'], a:0, ex:'Dua alas dan selimut.'},
+ {q:'Panjang persegi panjang pada jaring-jaring tabung sama dengan …', o:['keliling alas (2πr)','diameter alas','tinggi tabung','luas alas'], a:0, ex:'Selimut dibuka menjadi persegi panjang selebar keliling alas.'},
+ {q:'Jika jari-jari bola diperbesar 2 kali, volumenya menjadi …', o:['8 kali','2 kali','4 kali','6 kali'], a:0, ex:'Volume sebanding r³ → 2³ = 8.'},
+ {q:'Hitung volume tabung dengan r = 10 cm dan t = 7 cm (π = 3,14).', input:true, a:['2198'], unit:'cm³', ex:'3,14 × 100 × 7 = 2.198.'},
+ {q:'Hitung luas permukaan bola berdiameter 14 cm (π = 22/7).', input:true, a:['616'], unit:'cm²', ex:'r = 7 → 4 × 22/7 × 49 = 616.'},
+ {q:'Tandon berbentuk tabung dengan r = 14 cm dan t = 50 cm diisi penuh (π = 22/7). Banyak air …', o:['30,8 liter','3,08 liter','308 liter','15,4 liter'], a:0, ex:'30.800 cm³ = 30,8 liter.'}
+], 'k9m6');
+</script>
+<script src="../shared/nav.js"></script>
+</body></html>
